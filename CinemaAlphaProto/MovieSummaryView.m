@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Gobelins. All rights reserved.
 //
 
+#import "Constants.h"
 #import "MovieSummaryView.h"
 #import "EntryPointView.h"
 
@@ -18,10 +19,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-        
-    }
+    
     return self;
 }
 
@@ -29,13 +27,17 @@
 {
     [super viewDidLoad];
 	
-    self.tokenLabel.text = self.token;
+    [self.movieWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:ApiWebUrl]]];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)backHomeButtonTouched:(id)sender {
+    
 }
 
 

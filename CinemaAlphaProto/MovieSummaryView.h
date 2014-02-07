@@ -12,8 +12,9 @@
 
 @property (strong, nonatomic) NSString *token;
 
-@property (weak, nonatomic) IBOutlet UILabel *tokenLabel;
 @property (weak, nonatomic) IBOutlet UIButton *backHomeButton;
+@property (strong, nonatomic) IBOutlet UIWebView *movieWebView;
+
 
 - (IBAction)backHomeButtonTouched:(id)sender;
 
