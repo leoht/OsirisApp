@@ -10,6 +10,7 @@
 		963D1A1C189BCC5C00A120B9 /* ApiDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 963D1A1B189BCC5C00A120B9 /* ApiDelegate.m */; };
 		96540BDA189ABE5300105225 /* SynchronizeWithCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96540BD9189ABE5300105225 /* SynchronizeWithCodeView.m */; };
 		96540BDC189ABFCB00105225 /* Main_iPhone_large.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96540BDB189ABFCB00105225 /* Main_iPhone_large.storyboard */; };
+		9655336A18A90D25005879A2 /* MainMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9655336918A90D25005879A2 /* MainMenuView.m */; };
 		96653C7318A8DDC9001689F9 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96653C7218A8DDC9001689F9 /* FacebookSDK.framework */; };
 		969A6AF918A8E658003B6170 /* AMSlideOutGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = 969A6AEC18A8E658003B6170 /* AMSlideOutGlobals.m */; };
 		969A6AFA18A8E658003B6170 /* AMSlideOutNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 969A6AEE18A8E658003B6170 /* AMSlideOutNavigationController.m */; };
@@ -37,6 +38,7 @@
 		96B20DB7189AA49600B6A1B6 /* CinemaAlphaProtoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B20DB6189AA49600B6A1B6 /* CinemaAlphaProtoTests.m */; };
 		96B20DC1189AA55A00B6A1B6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B20DC0189AA55A00B6A1B6 /* FacebookSDK.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		96B20DC7189AA5EE00B6A1B6 /* EntryPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B20DC6189AA5EE00B6A1B6 /* EntryPointView.m */; };
+		96BF19B118A8F4A200BBB282 /* libPKRevealController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96BF19B018A8F48D00BBB282 /* libPKRevealController.a */; };
 		96CA77E7189B985E00B9F39C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CA77E6189B985E00B9F39C /* Security.framework */; };
 		96CA77E9189B986900B9F39C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CA77E8189B986900B9F39C /* CFNetwork.framework */; };
 		96CA77EB189B987A00B9F39C /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CA77EA189B987A00B9F39C /* libicucore.dylib */; };
@@ -57,6 +59,13 @@
 			remoteGlobalIDString = 96B20D84189AA49600B6A1B6;
 			remoteInfo = CinemaAlphaProto;
 		};
+		96BF19AF18A8F48D00BBB282 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96BF19AB18A8F48D00BBB282 /* PKRevealController.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F9621E7B1815246000469E41;
+			remoteInfo = PKRevealController;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +74,8 @@
 		96540BD8189ABE5300105225 /* SynchronizeWithCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynchronizeWithCodeView.h; sourceTree = "<group>"; };
 		96540BD9189ABE5300105225 /* SynchronizeWithCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynchronizeWithCodeView.m; sourceTree = "<group>"; };
 		96540BDB189ABFCB00105225 /* Main_iPhone_large.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_iPhone_large.storyboard; path = ../Main_iPhone_large.storyboard; sourceTree = "<group>"; };
+		9655336818A90D25005879A2 /* MainMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuView.h; sourceTree = "<group>"; };
+		9655336918A90D25005879A2 /* MainMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuView.m; sourceTree = "<group>"; };
 		96653C7218A8DDC9001689F9 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		969A6AEB18A8E658003B6170 /* AMSlideOutGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSlideOutGlobals.h; sourceTree = "<group>"; };
 		969A6AEC18A8E658003B6170 /* AMSlideOutGlobals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSlideOutGlobals.m; sourceTree = "<group>"; };
@@ -102,6 +113,9 @@
 		96B20DC0189AA55A00B6A1B6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		96B20DC5189AA5EE00B6A1B6 /* EntryPointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryPointView.h; sourceTree = "<group>"; };
 		96B20DC6189AA5EE00B6A1B6 /* EntryPointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryPointView.m; sourceTree = "<group>"; };
+		96BF19AB18A8F48D00BBB282 /* PKRevealController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PKRevealController.xcodeproj; path = "../../../Desktop/PKRevealController-master/Source/PKRevealController.xcodeproj"; sourceTree = "<group>"; };
+		96BF19B318A8F50700BBB282 /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKRevealController.h; sourceTree = "<group>"; };
+		96BF19B418A8F50700BBB282 /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
 		96CA77E6189B985E00B9F39C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		96CA77E8189B986900B9F39C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		96CA77EA189B987A00B9F39C /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
@@ -128,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96BF19B118A8F4A200BBB282 /* libPKRevealController.a in Frameworks */,
 				969A6B0318A8E661003B6170 /* QuartzCore.framework in Frameworks */,
 				96B20DC1189AA55A00B6A1B6 /* FacebookSDK.framework in Frameworks */,
 				96CA77EB189B987A00B9F39C /* libicucore.dylib in Frameworks */,
@@ -153,6 +168,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9655336618A90CF9005879A2 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				9655336818A90D25005879A2 /* MainMenuView.h */,
+				9655336918A90D25005879A2 /* MainMenuView.m */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
 		969A6AEA18A8E658003B6170 /* AMSlideOut */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +220,8 @@
 		96B20D87189AA49600B6A1B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				96BF19B218A8F50700BBB282 /* PKRevealController */,
+				96BF19AB18A8F48D00BBB282 /* PKRevealController.xcodeproj */,
 				969A6B0218A8E661003B6170 /* QuartzCore.framework */,
 				969A6AEA18A8E658003B6170 /* AMSlideOut */,
 				96653C7218A8DDC9001689F9 /* FacebookSDK.framework */,
@@ -273,6 +299,7 @@
 		96B20DC3189AA5C200B6A1B6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9655336618A90CF9005879A2 /* Menu */,
 				96B20DC5189AA5EE00B6A1B6 /* EntryPointView.h */,
 				96B20DC6189AA5EE00B6A1B6 /* EntryPointView.m */,
 				96540BD8189ABE5300105225 /* SynchronizeWithCodeView.h */,
@@ -288,6 +315,24 @@
 			children = (
 			);
 			name = Entities;
+			sourceTree = "<group>";
+		};
+		96BF19AC18A8F48D00BBB282 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				96BF19B018A8F48D00BBB282 /* libPKRevealController.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		96BF19B218A8F50700BBB282 /* PKRevealController */ = {
+			isa = PBXGroup;
+			children = (
+				96BF19B318A8F50700BBB282 /* PKRevealController.h */,
+				96BF19B418A8F50700BBB282 /* UIViewController+PKRevealController.h */,
+			);
+			name = PKRevealController;
+			path = "../../../Desktop/PKRevealController-master/Headers";
 			sourceTree = "<group>";
 		};
 		96CA77EC189B988700B9F39C /* Api */ = {
@@ -387,6 +432,12 @@
 			mainGroup = 96B20D7C189AA49600B6A1B6;
 			productRefGroup = 96B20D86189AA49600B6A1B6 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 96BF19AC18A8F48D00BBB282 /* Products */;
+					ProjectRef = 96BF19AB18A8F48D00BBB282 /* PKRevealController.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				96B20D84189AA49600B6A1B6 /* CinemaAlphaProto */,
@@ -394,6 +445,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		96BF19B018A8F48D00BBB282 /* libPKRevealController.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPKRevealController.a;
+			remoteRef = 96BF19AF18A8F48D00BBB282 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		96B20D83189AA49600B6A1B6 /* Resources */ = {
@@ -439,6 +500,7 @@
 				96B20DC7189AA5EE00B6A1B6 /* EntryPointView.m in Sources */,
 				96CA7804189B9A1D00B9F39C /* NSData+SRB64Additions.m in Sources */,
 				96F2DF19189AA7F8005A3882 /* URLConnectionDelegate.m in Sources */,
+				9655336A18A90D25005879A2 /* MainMenuView.m in Sources */,
 				96CA77EF189B98FC00B9F39C /* SocketClient.m in Sources */,
 				96B20D95189AA49600B6A1B6 /* main.m in Sources */,
 				96CA7803189B9A1D00B9F39C /* base64.c in Sources */,
@@ -590,6 +652,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CinemaAlphaProto/CinemaAlphaProto-Prefix.pch";
 				INFOPLIST_FILE = "CinemaAlphaProto/CinemaAlphaProto-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4F3940D9-D153-4A13-9E25-AD7866A0D368";
 				SDKROOT = iphoneos7.0;
@@ -612,6 +675,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CinemaAlphaProto/CinemaAlphaProto-Prefix.pch";
 				INFOPLIST_FILE = "CinemaAlphaProto/CinemaAlphaProto-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4F3940D9-D153-4A13-9E25-AD7866A0D368";
 				SDKROOT = iphoneos7.0;

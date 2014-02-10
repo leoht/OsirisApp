@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AMSlideOutNavigationController.h"
 
 @interface MovieSummaryView : UIViewController
 
@@ -14,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *backHomeButton;
 @property (strong, nonatomic) IBOutlet UIWebView *movieWebView;
+@property (strong, nonatomic) IBOutlet MainMenuView *menu;
 
 
 - (IBAction)backHomeButtonTouched:(id)sender;

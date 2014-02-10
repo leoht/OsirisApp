@@ -9,6 +9,7 @@
 #import "Constants.h"
 #import "MovieSummaryView.h"
 #import "EntryPointView.h"
+#import "AppDelegate.h"
 
 @interface MovieSummaryView ()
 
@@ -28,6 +29,10 @@
     [super viewDidLoad];
 	
     [self.movieWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:ApiWebUrl]]];
+    
+    [self.revealController setLeftViewController:[self leftViewController]];
+    [self.revealController setMinimumWidth:60.0 maximumWidth:60.0 forViewController:self];
+    [self.revealController setAllowsOverdraw:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,5 +45,16 @@
     
 }
 
+
+#pragma mark - Helpers
+
+- (UIViewController *)leftViewController
+{
+    UIViewController *leftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenu"];
+    
+
+    
+    return leftViewController;
+}
 
 @end

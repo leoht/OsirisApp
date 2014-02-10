@@ -13,4 +13,11 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import "FacebookConnectionManager.h"
+    #import "SocketClient.h"
+    #import "PKRevealController.h"
+    #import "Constants.h"
+
+    // views
+    #import "MainMenuView.h"
 #endif

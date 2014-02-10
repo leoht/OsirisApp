@@ -14,17 +14,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // adapt storyboard if it is a 4-inch iPhone
-    CGRect screenBounds = [[UIScreen mainScreen] bounds];
     
-    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone
-            && screenBounds.size.height > 480) {
-        
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main_iPhone_large" bundle:nil];
-        UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"EntryPointViewLarge"];
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-        self.window.rootViewController = nav;
-    }
+    [self adaptStoryboardForScreen];
+    [self initializeSlideMenu];
     
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
         [FacebookConnectionManager initializeFacebookSession];
@@ -53,6 +45,50 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     [FBSession.activeSession close];
+}
+
+- (void)adaptStoryboardForScreen {
+    // adapt storyboard if it is a 4-inch iPhone
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    
+    UIViewController * vc;
+    UINavigationController *nav;
+    UIStoryboard *sb;
+    
+    NSLog(@"%f", screenBounds.size.height);
+    
+    // 4-inch iphone
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone
+        && screenBounds.size.height > 480) {
+        
+        sb = [UIStoryboard storyboardWithName:@"Main_iPhone_Large" bundle:nil];
+        vc = [sb instantiateViewControllerWithIdentifier:@"EntryPointViewLarge"];
+    }
+    
+    // classic iphone
+    else if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone
+          && screenBounds.size.height <= 480) {
+        
+        sb = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+        vc = [sb instantiateViewControllerWithIdentifier:@"EntryPointView"];
+    }
+    
+    
+    nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    PKRevealController *revealController = [PKRevealController revealControllerWithFrontViewController:nav leftViewController:nil];
+    
+    self.revealController.delegate = self;
+    self.revealController.animationDuration = 0.25;
+    
+    self.window.rootViewController = revealController;
+}
+
+
+
+- (void) initializeSlideMenu {
+
+	
 }
 
 @end

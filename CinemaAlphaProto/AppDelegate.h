@@ -7,13 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AMSlideOutNavigationController.h"
-#import "FacebookConnectionManager.h"
-#import "SocketClient.h"
-#import "Constants.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, PKRevealing>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) PKRevealController *revealController;
 
 @end
