@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AMSlideOutNavigationController.h"
 #import "FacebookConnectionManager.h"
 #import "SocketClient.h"
 #import "Constants.h"

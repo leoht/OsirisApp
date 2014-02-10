@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Gobelins. All rights reserved.
 //
 
-#define ApiConnectionUrl @"ws://192.168.0.121:4567"
-#define ApiWebUrl        @"http://192.168.0.121:8080/tetris/web/_mobile"
+#define ApiConnectionUrl @"ws://192.168.2.32:4567"
+#define ApiWebUrl        @"http://192.168.2.32:8080/tetris/web/_mobile"
 
 #define ApiFromDeviceToPlayer @"device_to_player"
 #define ApiFromPlayerToDevice @"player_to_device"

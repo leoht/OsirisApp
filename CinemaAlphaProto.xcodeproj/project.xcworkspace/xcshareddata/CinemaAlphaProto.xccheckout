@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F2294E5A-F8EF-4A68-BB38-3C9F7E09F15D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CinemaAlphaProto</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1B2F7385-3CAC-4BE7-9A26-8E423D1A0D1B</key>
+		<string>https://github.com/leoht/OsirisApp</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CinemaAlphaProto.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1B2F7385-3CAC-4BE7-9A26-8E423D1A0D1B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/leoht/OsirisApp</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1B2F7385-3CAC-4BE7-9A26-8E423D1A0D1B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1B2F7385-3CAC-4BE7-9A26-8E423D1A0D1B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ProtoAlpha</string>
+		</dict>
+	</array>
+</dict>
+</plist>

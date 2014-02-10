@@ -10,6 +10,17 @@
 		963D1A1C189BCC5C00A120B9 /* ApiDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 963D1A1B189BCC5C00A120B9 /* ApiDelegate.m */; };
 		96540BDA189ABE5300105225 /* SynchronizeWithCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96540BD9189ABE5300105225 /* SynchronizeWithCodeView.m */; };
 		96540BDC189ABFCB00105225 /* Main_iPhone_large.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96540BDB189ABFCB00105225 /* Main_iPhone_large.storyboard */; };
+		96653C7318A8DDC9001689F9 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96653C7218A8DDC9001689F9 /* FacebookSDK.framework */; };
+		969A6AF918A8E658003B6170 /* AMSlideOutGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = 969A6AEC18A8E658003B6170 /* AMSlideOutGlobals.m */; };
+		969A6AFA18A8E658003B6170 /* AMSlideOutNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 969A6AEE18A8E658003B6170 /* AMSlideOutNavigationController.m */; };
+		969A6AFB18A8E658003B6170 /* AMSlideTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 969A6AF018A8E658003B6170 /* AMSlideTableCell.m */; };
+		969A6AFC18A8E658003B6170 /* AMSlideTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 969A6AF218A8E658003B6170 /* AMSlideTableHeader.m */; };
+		969A6AFD18A8E658003B6170 /* AMTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 969A6AF418A8E658003B6170 /* AMTableView.m */; };
+		969A6AFE18A8E658003B6170 /* iconSlide.png in Resources */ = {isa = PBXBuildFile; fileRef = 969A6AF518A8E658003B6170 /* iconSlide.png */; };
+		969A6AFF18A8E658003B6170 /* iconSlide@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 969A6AF618A8E658003B6170 /* iconSlide@2x.png */; };
+		969A6B0018A8E658003B6170 /* iconSlideBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 969A6AF718A8E658003B6170 /* iconSlideBlack.png */; };
+		969A6B0118A8E658003B6170 /* iconSlideBlack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 969A6AF818A8E658003B6170 /* iconSlideBlack@2x.png */; };
+		969A6B0318A8E661003B6170 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 969A6B0218A8E661003B6170 /* QuartzCore.framework */; };
 		96B20D89189AA49600B6A1B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B20D88189AA49600B6A1B6 /* Foundation.framework */; };
 		96B20D8B189AA49600B6A1B6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B20D8A189AA49600B6A1B6 /* CoreGraphics.framework */; };
 		96B20D8D189AA49600B6A1B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B20D8C189AA49600B6A1B6 /* UIKit.framework */; };
@@ -54,6 +65,22 @@
 		96540BD8189ABE5300105225 /* SynchronizeWithCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynchronizeWithCodeView.h; sourceTree = "<group>"; };
 		96540BD9189ABE5300105225 /* SynchronizeWithCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynchronizeWithCodeView.m; sourceTree = "<group>"; };
 		96540BDB189ABFCB00105225 /* Main_iPhone_large.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_iPhone_large.storyboard; path = ../Main_iPhone_large.storyboard; sourceTree = "<group>"; };
+		96653C7218A8DDC9001689F9 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		969A6AEB18A8E658003B6170 /* AMSlideOutGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSlideOutGlobals.h; sourceTree = "<group>"; };
+		969A6AEC18A8E658003B6170 /* AMSlideOutGlobals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSlideOutGlobals.m; sourceTree = "<group>"; };
+		969A6AED18A8E658003B6170 /* AMSlideOutNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSlideOutNavigationController.h; sourceTree = "<group>"; };
+		969A6AEE18A8E658003B6170 /* AMSlideOutNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSlideOutNavigationController.m; sourceTree = "<group>"; };
+		969A6AEF18A8E658003B6170 /* AMSlideTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSlideTableCell.h; sourceTree = "<group>"; };
+		969A6AF018A8E658003B6170 /* AMSlideTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSlideTableCell.m; sourceTree = "<group>"; };
+		969A6AF118A8E658003B6170 /* AMSlideTableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSlideTableHeader.h; sourceTree = "<group>"; };
+		969A6AF218A8E658003B6170 /* AMSlideTableHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSlideTableHeader.m; sourceTree = "<group>"; };
+		969A6AF318A8E658003B6170 /* AMTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTableView.h; sourceTree = "<group>"; };
+		969A6AF418A8E658003B6170 /* AMTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTableView.m; sourceTree = "<group>"; };
+		969A6AF518A8E658003B6170 /* iconSlide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconSlide.png; sourceTree = "<group>"; };
+		969A6AF618A8E658003B6170 /* iconSlide@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconSlide@2x.png"; sourceTree = "<group>"; };
+		969A6AF718A8E658003B6170 /* iconSlideBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconSlideBlack.png; sourceTree = "<group>"; };
+		969A6AF818A8E658003B6170 /* iconSlideBlack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconSlideBlack@2x.png"; sourceTree = "<group>"; };
+		969A6B0218A8E661003B6170 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		96B20D85189AA49600B6A1B6 /* CinemaAlphaProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinemaAlphaProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96B20D88189AA49600B6A1B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		96B20D8A189AA49600B6A1B6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -101,11 +128,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				969A6B0318A8E661003B6170 /* QuartzCore.framework in Frameworks */,
 				96B20DC1189AA55A00B6A1B6 /* FacebookSDK.framework in Frameworks */,
 				96CA77EB189B987A00B9F39C /* libicucore.dylib in Frameworks */,
 				96CA77E9189B986900B9F39C /* CFNetwork.framework in Frameworks */,
 				96CA77E7189B985E00B9F39C /* Security.framework in Frameworks */,
 				96B20D8B189AA49600B6A1B6 /* CoreGraphics.framework in Frameworks */,
+				96653C7318A8DDC9001689F9 /* FacebookSDK.framework in Frameworks */,
 				96B20D8D189AA49600B6A1B6 /* UIKit.framework in Frameworks */,
 				96B20D89189AA49600B6A1B6 /* Foundation.framework in Frameworks */,
 			);
@@ -124,6 +153,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		969A6AEA18A8E658003B6170 /* AMSlideOut */ = {
+			isa = PBXGroup;
+			children = (
+				969A6AEB18A8E658003B6170 /* AMSlideOutGlobals.h */,
+				969A6AEC18A8E658003B6170 /* AMSlideOutGlobals.m */,
+				969A6AED18A8E658003B6170 /* AMSlideOutNavigationController.h */,
+				969A6AEE18A8E658003B6170 /* AMSlideOutNavigationController.m */,
+				969A6AEF18A8E658003B6170 /* AMSlideTableCell.h */,
+				969A6AF018A8E658003B6170 /* AMSlideTableCell.m */,
+				969A6AF118A8E658003B6170 /* AMSlideTableHeader.h */,
+				969A6AF218A8E658003B6170 /* AMSlideTableHeader.m */,
+				969A6AF318A8E658003B6170 /* AMTableView.h */,
+				969A6AF418A8E658003B6170 /* AMTableView.m */,
+				969A6AF518A8E658003B6170 /* iconSlide.png */,
+				969A6AF618A8E658003B6170 /* iconSlide@2x.png */,
+				969A6AF718A8E658003B6170 /* iconSlideBlack.png */,
+				969A6AF818A8E658003B6170 /* iconSlideBlack@2x.png */,
+			);
+			path = AMSlideOut;
+			sourceTree = "<group>";
+		};
 		96B20D7C189AA49600B6A1B6 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +196,9 @@
 		96B20D87189AA49600B6A1B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				969A6B0218A8E661003B6170 /* QuartzCore.framework */,
+				969A6AEA18A8E658003B6170 /* AMSlideOut */,
+				96653C7218A8DDC9001689F9 /* FacebookSDK.framework */,
 				96CA77FB189B9A1D00B9F39C /* SocketRocket */,
 				96CA77EA189B987A00B9F39C /* libicucore.dylib */,
 				96CA77E8189B986900B9F39C /* CFNetwork.framework */,
@@ -351,6 +404,10 @@
 				96540BDC189ABFCB00105225 /* Main_iPhone_large.storyboard in Resources */,
 				96B20DA4189AA49600B6A1B6 /* Images.xcassets in Resources */,
 				96B20D9C189AA49600B6A1B6 /* Main_iPhone.storyboard in Resources */,
+				969A6B0118A8E658003B6170 /* iconSlideBlack@2x.png in Resources */,
+				969A6B0018A8E658003B6170 /* iconSlideBlack.png in Resources */,
+				969A6AFF18A8E658003B6170 /* iconSlide@2x.png in Resources */,
+				969A6AFE18A8E658003B6170 /* iconSlide.png in Resources */,
 				96B20D93189AA49600B6A1B6 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,10 +428,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				96540BDA189ABE5300105225 /* SynchronizeWithCodeView.m in Sources */,
+				969A6AF918A8E658003B6170 /* AMSlideOutGlobals.m in Sources */,
+				969A6AFA18A8E658003B6170 /* AMSlideOutNavigationController.m in Sources */,
 				96B20D99189AA49600B6A1B6 /* AppDelegate.m in Sources */,
+				969A6AFD18A8E658003B6170 /* AMTableView.m in Sources */,
 				96D18347189BF53300F32DF9 /* MovieSummaryView.m in Sources */,
 				963D1A1C189BCC5C00A120B9 /* ApiDelegate.m in Sources */,
 				96CA7805189B9A1D00B9F39C /* SRWebSocket.m in Sources */,
+				969A6AFB18A8E658003B6170 /* AMSlideTableCell.m in Sources */,
 				96B20DC7189AA5EE00B6A1B6 /* EntryPointView.m in Sources */,
 				96CA7804189B9A1D00B9F39C /* NSData+SRB64Additions.m in Sources */,
 				96F2DF19189AA7F8005A3882 /* URLConnectionDelegate.m in Sources */,
@@ -382,6 +443,7 @@
 				96B20D95189AA49600B6A1B6 /* main.m in Sources */,
 				96CA7803189B9A1D00B9F39C /* base64.c in Sources */,
 				96F2DF15189AA7D3005A3882 /* FacebookConnectionManager.m in Sources */,
+				969A6AFC18A8E658003B6170 /* AMSlideTableHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +585,7 @@
 					"$(inherited)",
 					/Users/lhetsch/Documents/FacebookSDK,
 					/Users/leo/Documents/FacebookSDK,
+					/Users/lhetsch/Apps/CinemaProject/ProtoAlpha,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CinemaAlphaProto/CinemaAlphaProto-Prefix.pch";
@@ -544,6 +607,7 @@
 					"$(inherited)",
 					/Users/lhetsch/Documents/FacebookSDK,
 					/Users/leo/Documents/FacebookSDK,
+					/Users/lhetsch/Apps/CinemaProject/ProtoAlpha,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CinemaAlphaProto/CinemaAlphaProto-Prefix.pch";
