@@ -38,7 +38,6 @@
 		96B20DB7189AA49600B6A1B6 /* CinemaAlphaProtoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B20DB6189AA49600B6A1B6 /* CinemaAlphaProtoTests.m */; };
 		96B20DC1189AA55A00B6A1B6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B20DC0189AA55A00B6A1B6 /* FacebookSDK.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		96B20DC7189AA5EE00B6A1B6 /* EntryPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B20DC6189AA5EE00B6A1B6 /* EntryPointView.m */; };
-		96BF19B118A8F4A200BBB282 /* libPKRevealController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96BF19B018A8F48D00BBB282 /* libPKRevealController.a */; };
 		96CA77E7189B985E00B9F39C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CA77E6189B985E00B9F39C /* Security.framework */; };
 		96CA77E9189B986900B9F39C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CA77E8189B986900B9F39C /* CFNetwork.framework */; };
 		96CA77EB189B987A00B9F39C /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CA77EA189B987A00B9F39C /* libicucore.dylib */; };
@@ -59,9 +58,9 @@
 			remoteGlobalIDString = 96B20D84189AA49600B6A1B6;
 			remoteInfo = CinemaAlphaProto;
 		};
-		96BF19AF18A8F48D00BBB282 /* PBXContainerItemProxy */ = {
+		96D26AC418AA84AE000C472A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 96BF19AB18A8F48D00BBB282 /* PKRevealController.xcodeproj */;
+			containerPortal = 96D26AC018AA84AD000C472A /* PKRevealController.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = F9621E7B1815246000469E41;
 			remoteInfo = PKRevealController;
@@ -113,9 +112,6 @@
 		96B20DC0189AA55A00B6A1B6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		96B20DC5189AA5EE00B6A1B6 /* EntryPointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryPointView.h; sourceTree = "<group>"; };
 		96B20DC6189AA5EE00B6A1B6 /* EntryPointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryPointView.m; sourceTree = "<group>"; };
-		96BF19AB18A8F48D00BBB282 /* PKRevealController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PKRevealController.xcodeproj; path = "../../../Desktop/PKRevealController-master/Source/PKRevealController.xcodeproj"; sourceTree = "<group>"; };
-		96BF19B318A8F50700BBB282 /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKRevealController.h; sourceTree = "<group>"; };
-		96BF19B418A8F50700BBB282 /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
 		96CA77E6189B985E00B9F39C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		96CA77E8189B986900B9F39C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		96CA77EA189B987A00B9F39C /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
@@ -131,6 +127,9 @@
 		96D18344189BEEB700F32DF9 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		96D18345189BF53300F32DF9 /* MovieSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieSummaryView.h; sourceTree = "<group>"; };
 		96D18346189BF53300F32DF9 /* MovieSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieSummaryView.m; sourceTree = "<group>"; };
+		96D26AC018AA84AD000C472A /* PKRevealController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PKRevealController.xcodeproj; path = PKRevealController/Source/PKRevealController.xcodeproj; sourceTree = "<group>"; };
+		96D26AC718AA84BE000C472A /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKRevealController.h; sourceTree = "<group>"; };
+		96D26AC818AA84BE000C472A /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
 		96F2DF13189AA7D3005A3882 /* FacebookConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookConnectionManager.h; sourceTree = "<group>"; };
 		96F2DF14189AA7D3005A3882 /* FacebookConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookConnectionManager.m; sourceTree = "<group>"; };
 		96F2DF17189AA7F8005A3882 /* URLConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLConnectionDelegate.h; sourceTree = "<group>"; };
@@ -142,7 +141,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96BF19B118A8F4A200BBB282 /* libPKRevealController.a in Frameworks */,
 				969A6B0318A8E661003B6170 /* QuartzCore.framework in Frameworks */,
 				96B20DC1189AA55A00B6A1B6 /* FacebookSDK.framework in Frameworks */,
 				96CA77EB189B987A00B9F39C /* libicucore.dylib in Frameworks */,
@@ -220,8 +218,8 @@
 		96B20D87189AA49600B6A1B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				96BF19B218A8F50700BBB282 /* PKRevealController */,
-				96BF19AB18A8F48D00BBB282 /* PKRevealController.xcodeproj */,
+				96D26AC618AA84BE000C472A /* Headers */,
+				96D26AC018AA84AD000C472A /* PKRevealController.xcodeproj */,
 				969A6B0218A8E661003B6170 /* QuartzCore.framework */,
 				969A6AEA18A8E658003B6170 /* AMSlideOut */,
 				96653C7218A8DDC9001689F9 /* FacebookSDK.framework */,
@@ -317,24 +315,6 @@
 			name = Entities;
 			sourceTree = "<group>";
 		};
-		96BF19AC18A8F48D00BBB282 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				96BF19B018A8F48D00BBB282 /* libPKRevealController.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		96BF19B218A8F50700BBB282 /* PKRevealController */ = {
-			isa = PBXGroup;
-			children = (
-				96BF19B318A8F50700BBB282 /* PKRevealController.h */,
-				96BF19B418A8F50700BBB282 /* UIViewController+PKRevealController.h */,
-			);
-			name = PKRevealController;
-			path = "../../../Desktop/PKRevealController-master/Headers";
-			sourceTree = "<group>";
-		};
 		96CA77EC189B988700B9F39C /* Api */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +338,24 @@
 				96CA7802189B9A1D00B9F39C /* SRWebSocket.m */,
 			);
 			path = SocketRocket;
+			sourceTree = "<group>";
+		};
+		96D26AC118AA84AD000C472A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				96D26AC518AA84AE000C472A /* libPKRevealController.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		96D26AC618AA84BE000C472A /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				96D26AC718AA84BE000C472A /* PKRevealController.h */,
+				96D26AC818AA84BE000C472A /* UIViewController+PKRevealController.h */,
+			);
+			name = Headers;
+			path = PKRevealController/Headers;
 			sourceTree = "<group>";
 		};
 		96F2DF16189AA7DB005A3882 /* Facebook */ = {
@@ -434,8 +432,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 96BF19AC18A8F48D00BBB282 /* Products */;
-					ProjectRef = 96BF19AB18A8F48D00BBB282 /* PKRevealController.xcodeproj */;
+					ProductGroup = 96D26AC118AA84AD000C472A /* Products */;
+					ProjectRef = 96D26AC018AA84AD000C472A /* PKRevealController.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -447,11 +445,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		96BF19B018A8F48D00BBB282 /* libPKRevealController.a */ = {
+		96D26AC518AA84AE000C472A /* libPKRevealController.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libPKRevealController.a;
-			remoteRef = 96BF19AF18A8F48D00BBB282 /* PBXContainerItemProxy */;
+			remoteRef = 96D26AC418AA84AE000C472A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
