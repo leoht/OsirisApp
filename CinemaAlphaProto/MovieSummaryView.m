@@ -37,8 +37,6 @@
     
     [[NSNotificationCenter defaultCenter] addObserverForName:ApiPlayingAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSString *timecodeString = [NSString stringWithFormat:@"%@", [note.userInfo objectForKey:@"timecode"]];
-        self.timecodeLabel.text = timecodeString;
-        
         [ApiDelegate requestForNoticeAtTimecode:timecodeString];
     }];
     
