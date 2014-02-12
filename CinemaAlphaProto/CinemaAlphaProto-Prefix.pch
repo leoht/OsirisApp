@@ -17,6 +17,7 @@
     #import "SocketClient.h"
     #import "PKRevealController.h"
     #import "Constants.h"
+    #import "ApiDelegate.h"
 
     // views
     #import "MainMenuView.h"

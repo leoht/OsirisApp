@@ -10,6 +10,7 @@
 #import "MovieSummaryView.h"
 #import "EntryPointView.h"
 #import "AppDelegate.h"
+#import "ApiDelegate.h"
 
 @interface MovieSummaryView ()
 
@@ -33,6 +34,17 @@
     [self.revealController setLeftViewController:[self leftViewController]];
     [self.revealController setMinimumWidth:60.0 maximumWidth:60.0 forViewController:self];
     [self.revealController setAllowsOverdraw:NO];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:ApiPlayingAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSString *timecodeString = [NSString stringWithFormat:@"%@", [note.userInfo objectForKey:@"timecode"]];
+        self.timecodeLabel.text = timecodeString;
+        
+        [ApiDelegate requestForNoticeAtTimecode:timecodeString];
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:ApiNoticeAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
+        self.timecodeLabel.text = (NSString *) [note.userInfo objectForKey:@"content"];
+    }];
 }
 
 - (void)didReceiveMemoryWarning

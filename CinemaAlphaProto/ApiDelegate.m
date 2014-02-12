@@ -55,7 +55,22 @@ static NSString *token;
 + (void)requestForTokenWithFacebookId:(NSString *)facebookId {
     NSDictionary *data = [[NSDictionary alloc] initWithObjectsAndKeys:
                           ApiFromDeviceToPlayer,  @"direction",
-                          facebookId, @"facebook_id", nil];
+                          ApiAssociateWithFacebook, @"name",
+                          [NSDictionary dictionaryWithObjects:@[facebookId] forKeys:@[@"facebook_id"]], @"data", nil];
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:0 error:nil];
+    
+    [[self sharedDelegate] sendData:jsonData];
+}
+
++ (void)requestForNoticeAtTimecode:(NSString *)timecode {
+    NSString *token = [[ApiDelegate sharedDelegate] token];
+    
+    NSDictionary *data = [[NSDictionary alloc] initWithObjectsAndKeys:
+                          ApiFromDeviceToPlayer,  @"direction",
+                          ApiRequestForNoticeAtTimecode, @"name",
+                          token, @"token",
+                          [NSDictionary dictionaryWithObjects:@[timecode] forKeys:@[@"timecode"]], @"data", nil];
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:0 error:nil];
     

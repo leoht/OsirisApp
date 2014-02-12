@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *backHomeButton;
 @property (strong, nonatomic) IBOutlet UIWebView *movieWebView;
 @property (strong, nonatomic) IBOutlet MainMenuView *menu;
+@property (weak, nonatomic) IBOutlet UILabel *timecodeLabel;
 
 
 - (IBAction)backHomeButtonTouched:(id)sender;

@@ -18,6 +18,7 @@
 + (void)connect;
 + (void)requestForTokenWithCode:(NSString *)code;
 + (void)requestForTokenWithFacebookId:(NSString *)facebookId;
++ (void)requestForNoticeAtTimecode:(NSString *)timecode;
 
 - (void)sendData:(NSData *)data;
 
