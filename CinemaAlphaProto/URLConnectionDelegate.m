@@ -53,13 +53,7 @@ static URLConnectionDelegate *sharedObject;
     NSError *myError = nil;
     NSDictionary *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
     
-    NSDictionary *friends = [res objectForKey:@"data"];
-    //NSLog(@"%@", friends);
-    
-    for(NSDictionary *friend in friends) {
-        NSLog(@"%@", friend);
-        //NSLog(@"https://graph.facebook.com/%d/picture?access_token=%@", (int)[friend objectForKey:@"id"], FBSession.activeSession.accessTokenData.accessToken);
-    }
+    NSLog(@"%@", res);
 }
 
 @end

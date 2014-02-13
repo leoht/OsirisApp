@@ -36,7 +36,6 @@
 		96B20DAD189AA49600B6A1B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B20D8C189AA49600B6A1B6 /* UIKit.framework */; };
 		96B20DB5189AA49600B6A1B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96B20DB3189AA49600B6A1B6 /* InfoPlist.strings */; };
 		96B20DB7189AA49600B6A1B6 /* CinemaAlphaProtoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B20DB6189AA49600B6A1B6 /* CinemaAlphaProtoTests.m */; };
-		96B20DC1189AA55A00B6A1B6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B20DC0189AA55A00B6A1B6 /* FacebookSDK.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		96B20DC7189AA5EE00B6A1B6 /* EntryPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B20DC6189AA5EE00B6A1B6 /* EntryPointView.m */; };
 		96CA77E7189B985E00B9F39C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CA77E6189B985E00B9F39C /* Security.framework */; };
 		96CA77E9189B986900B9F39C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CA77E8189B986900B9F39C /* CFNetwork.framework */; };
@@ -48,7 +47,6 @@
 		96D18347189BF53300F32DF9 /* MovieSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D18346189BF53300F32DF9 /* MovieSummaryView.m */; };
 		96D26AC918AA8505000C472A /* libPKRevealController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D26AC518AA84AE000C472A /* libPKRevealController.a */; };
 		96F2DF15189AA7D3005A3882 /* FacebookConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F2DF14189AA7D3005A3882 /* FacebookConnectionManager.m */; };
-		96F2DF19189AA7F8005A3882 /* URLConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F2DF18189AA7F8005A3882 /* URLConnectionDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,7 +108,6 @@
 		96B20DB2189AA49600B6A1B6 /* CinemaAlphaProtoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CinemaAlphaProtoTests-Info.plist"; sourceTree = "<group>"; };
 		96B20DB4189AA49600B6A1B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		96B20DB6189AA49600B6A1B6 /* CinemaAlphaProtoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CinemaAlphaProtoTests.m; sourceTree = "<group>"; };
-		96B20DC0189AA55A00B6A1B6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		96B20DC5189AA5EE00B6A1B6 /* EntryPointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryPointView.h; sourceTree = "<group>"; };
 		96B20DC6189AA5EE00B6A1B6 /* EntryPointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryPointView.m; sourceTree = "<group>"; };
 		96CA77E6189B985E00B9F39C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -133,8 +130,6 @@
 		96D26AC818AA84BE000C472A /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
 		96F2DF13189AA7D3005A3882 /* FacebookConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookConnectionManager.h; sourceTree = "<group>"; };
 		96F2DF14189AA7D3005A3882 /* FacebookConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookConnectionManager.m; sourceTree = "<group>"; };
-		96F2DF17189AA7F8005A3882 /* URLConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLConnectionDelegate.h; sourceTree = "<group>"; };
-		96F2DF18189AA7F8005A3882 /* URLConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLConnectionDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +139,6 @@
 			files = (
 				96D26AC918AA8505000C472A /* libPKRevealController.a in Frameworks */,
 				969A6B0318A8E661003B6170 /* QuartzCore.framework in Frameworks */,
-				96B20DC1189AA55A00B6A1B6 /* FacebookSDK.framework in Frameworks */,
 				96CA77EB189B987A00B9F39C /* libicucore.dylib in Frameworks */,
 				96CA77E9189B986900B9F39C /* CFNetwork.framework in Frameworks */,
 				96CA77E7189B985E00B9F39C /* Security.framework in Frameworks */,
@@ -229,7 +223,6 @@
 				96CA77EA189B987A00B9F39C /* libicucore.dylib */,
 				96CA77E8189B986900B9F39C /* CFNetwork.framework */,
 				96CA77E6189B985E00B9F39C /* Security.framework */,
-				96B20DC0189AA55A00B6A1B6 /* FacebookSDK.framework */,
 				96B20D88189AA49600B6A1B6 /* Foundation.framework */,
 				96B20D8A189AA49600B6A1B6 /* CoreGraphics.framework */,
 				96B20D8C189AA49600B6A1B6 /* UIKit.framework */,
@@ -290,8 +283,6 @@
 			children = (
 				96CA77EC189B988700B9F39C /* Api */,
 				96F2DF16189AA7DB005A3882 /* Facebook */,
-				96F2DF17189AA7F8005A3882 /* URLConnectionDelegate.h */,
-				96F2DF18189AA7F8005A3882 /* URLConnectionDelegate.m */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -499,7 +490,6 @@
 				969A6AFB18A8E658003B6170 /* AMSlideTableCell.m in Sources */,
 				96B20DC7189AA5EE00B6A1B6 /* EntryPointView.m in Sources */,
 				96CA7804189B9A1D00B9F39C /* NSData+SRB64Additions.m in Sources */,
-				96F2DF19189AA7F8005A3882 /* URLConnectionDelegate.m in Sources */,
 				9655336A18A90D25005879A2 /* MainMenuView.m in Sources */,
 				96CA77EF189B98FC00B9F39C /* SocketClient.m in Sources */,
 				96B20D95189AA49600B6A1B6 /* main.m in Sources */,

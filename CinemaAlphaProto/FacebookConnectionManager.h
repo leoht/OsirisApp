@@ -10,7 +10,11 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "URLConnectionDelegate.h"
 
-@interface FacebookConnectionManager : NSObject
+@interface FacebookConnectionManager : NSObject<NSURLConnectionDataDelegate>
+
+@property (strong, nonatomic) NSMutableData *responseData;
+
++ (FacebookConnectionManager *)sharedManager;
 
 + (BOOL)isSessionOpened;
 + (void)initializeFacebookSession;

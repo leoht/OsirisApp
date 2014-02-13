@@ -17,8 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLoginWithFacebook:) name:@"UserDidLoginWithFacebook" object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"UserDidLoginWithFacebook" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        MovieSummaryView *nextViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MovieSummaryView"];
+        [self.navigationController pushViewController:nextViewController animated:YES];
+    }];
+     
     if (![[ApiDelegate sharedDelegate] token]) {
         self.connexionWaitingAlert = [[UIAlertView alloc] initWithTitle:@"Connexion..." message:@"Connexion à internet..." delegate:self cancelButtonTitle:nil otherButtonTitles:0, nil];
     
@@ -27,6 +30,9 @@
     
     [[NSNotificationCenter defaultCenter] addObserverForName:ApiConnectionOpened object:nil queue:nil usingBlock:^(NSNotification *note) {
         [self.connexionWaitingAlert dismissWithClickedButtonIndex:0 animated:YES];
+        if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
+            [FacebookConnectionManager initializeFacebookSession];
+        }
     }];
     
 }
@@ -49,9 +55,5 @@
     }
 }
 
-
-- (void)userDidLoginWithFacebook:(NSNotification *)notification {
-    NSLog(@"View responds !");
-}
 
 @end

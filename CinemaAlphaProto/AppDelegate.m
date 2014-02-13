@@ -18,10 +18,6 @@
     [self adaptStoryboardForScreen];
     [self initializeSlideMenu];
     
-    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
-        [FacebookConnectionManager initializeFacebookSession];
-    }
-    
     [ApiDelegate connect];
     
     return YES;

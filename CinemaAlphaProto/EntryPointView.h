@@ -17,6 +17,4 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *connectionChooser;
 @property (strong, nonatomic) UIAlertView *connexionWaitingAlert;
 
--(void)userDidLoginWithFacebook:(NSNotification *)notification;
-
 @end
