@@ -55,6 +55,16 @@
     
 }
 
+- (IBAction)togglePlayPause:(id)sender {
+    
+    if ([VideoController isPaused]) {
+        self.playPauseButton.titleLabel.text = @"Pause";
+    } else {
+        self.playPauseButton.titleLabel.text = @"Lecture";
+    }
+    
+    [VideoController togglePlayPause];
+}
 
 #pragma mark - Helpers
 

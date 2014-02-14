@@ -18,6 +18,7 @@
 @property (strong, nonatomic) IBOutlet MainMenuView *menu;
 @property (weak, nonatomic) IBOutlet UILabel *timecodeLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *playPauseButton;
 
 - (IBAction)backHomeButtonTouched:(id)sender;
 

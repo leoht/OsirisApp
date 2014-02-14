@@ -19,6 +19,8 @@
 + (void)requestForTokenWithCode:(NSString *)code;
 + (void)requestForTokenWithFacebookId:(NSString *)facebookId;
 + (void)requestForNoticeAtTimecode:(NSString *)timecode;
++ (void)sendPlaySignal;
++ (void)sendPauseSignal;
 
 - (void)sendData:(NSData *)data;
 

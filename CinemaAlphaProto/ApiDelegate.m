@@ -77,6 +77,32 @@ static NSString *token;
     [[self sharedDelegate] sendData:jsonData];
 }
 
++ (void)sendPlaySignal {
+    NSString *token = [[ApiDelegate sharedDelegate] token];
+    
+    NSDictionary *data = [[NSDictionary alloc] initWithObjectsAndKeys:
+                          ApiFromDeviceToPlayer,  @"direction",
+                          ApiRequestPlay, @"name",
+                          token, @"token", nil];
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:0 error:nil];
+    
+    [[self sharedDelegate] sendData:jsonData];
+}
+
++ (void)sendPauseSignal {
+    NSString *token = [[ApiDelegate sharedDelegate] token];
+    
+    NSDictionary *data = [[NSDictionary alloc] initWithObjectsAndKeys:
+                          ApiFromDeviceToPlayer,  @"direction",
+                          ApiRequestPause, @"name",
+                          token, @"token", nil];
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:0 error:nil];
+    
+    [[self sharedDelegate] sendData:jsonData];
+}
+
 - (void)sendData:(NSData *)data {
     NSString* jsonString = [[NSString alloc] initWithBytes:[data bytes] length:[data length] encoding:NSUTF8StringEncoding];
     NSLog(@"Sending data : %@", jsonString);
