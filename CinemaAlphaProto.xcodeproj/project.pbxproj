@@ -47,6 +47,7 @@
 		96D18347189BF53300F32DF9 /* MovieSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D18346189BF53300F32DF9 /* MovieSummaryView.m */; };
 		96D26AC918AA8505000C472A /* libPKRevealController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D26AC518AA84AE000C472A /* libPKRevealController.a */; };
 		96E496B518AE567E007A21B2 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 96E496B418AE567E007A21B2 /* play.png */; };
+		96E496B918AE5D6B007A21B2 /* TimelineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E496B818AE5D6B007A21B2 /* TimelineView.m */; };
 		96F2DF15189AA7D3005A3882 /* FacebookConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F2DF14189AA7D3005A3882 /* FacebookConnectionManager.m */; };
 		96F78B1618AE10EB0057531F /* VideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F78B1518AE10EB0057531F /* VideoController.m */; };
 /* End PBXBuildFile section */
@@ -131,6 +132,8 @@
 		96D26AC718AA84BE000C472A /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKRevealController.h; sourceTree = "<group>"; };
 		96D26AC818AA84BE000C472A /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
 		96E496B418AE567E007A21B2 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		96E496B718AE5D6B007A21B2 /* TimelineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineView.h; sourceTree = "<group>"; };
+		96E496B818AE5D6B007A21B2 /* TimelineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineView.m; sourceTree = "<group>"; };
 		96F2DF13189AA7D3005A3882 /* FacebookConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookConnectionManager.h; sourceTree = "<group>"; };
 		96F2DF14189AA7D3005A3882 /* FacebookConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookConnectionManager.m; sourceTree = "<group>"; };
 		96F78B1418AE10EB0057531F /* VideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoController.h; sourceTree = "<group>"; };
@@ -297,6 +300,7 @@
 		96B20DC3189AA5C200B6A1B6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				96E496B618AE5D50007A21B2 /* Timeline */,
 				9655336618A90CF9005879A2 /* Menu */,
 				96B20DC5189AA5EE00B6A1B6 /* EntryPointView.h */,
 				96B20DC6189AA5EE00B6A1B6 /* EntryPointView.m */,
@@ -365,6 +369,15 @@
 			);
 			name = Resources;
 			path = CinemaAlphaProto;
+			sourceTree = "<group>";
+		};
+		96E496B618AE5D50007A21B2 /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				96E496B718AE5D6B007A21B2 /* TimelineView.h */,
+				96E496B818AE5D6B007A21B2 /* TimelineView.m */,
+			);
+			name = Timeline;
 			sourceTree = "<group>";
 		};
 		96F2DF16189AA7DB005A3882 /* Facebook */ = {
@@ -506,6 +519,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96540BDA189ABE5300105225 /* SynchronizeWithCodeView.m in Sources */,
+				96E496B918AE5D6B007A21B2 /* TimelineView.m in Sources */,
 				969A6AF918A8E658003B6170 /* AMSlideOutGlobals.m in Sources */,
 				969A6AFA18A8E658003B6170 /* AMSlideOutNavigationController.m in Sources */,
 				96B20D99189AA49600B6A1B6 /* AppDelegate.m in Sources */,

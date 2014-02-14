@@ -142,16 +142,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGx-Pr-tv4">
-                                <rect key="frame" x="25" y="20" width="41" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Home">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="giZ-5b-ajc" kind="modal" id="miQ-Pr-UbZ"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2YT-Ke-itv">
                                 <rect key="frame" x="80" y="185" width="161" height="109"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -169,24 +159,43 @@
                                     <action selector="togglePlayPause:" destination="HOc-R0-htY" eventType="touchUpInside" id="DI7-c6-75r"/>
                                 </connections>
                             </button>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bt6-hF-gdA">
+                                <rect key="frame" x="20" y="493" width="984" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="lWk-Pc-TDI" kind="embed" id="G18-RI-dma"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="tGx-Pr-tv4" firstAttribute="top" secondItem="qSI-hH-usf" secondAttribute="top" constant="20" symbolic="YES" id="6DZ-6Z-qbT"/>
+                            <constraint firstItem="bt6-hF-gdA" firstAttribute="centerX" secondItem="XpE-Ip-EOf" secondAttribute="centerX" id="BAh-oV-3y0"/>
                             <constraint firstItem="XpE-Ip-EOf" firstAttribute="centerY" secondItem="qSI-hH-usf" secondAttribute="centerY" id="G3P-ZW-zed"/>
-                            <constraint firstItem="tGx-Pr-tv4" firstAttribute="leading" secondItem="qSI-hH-usf" secondAttribute="leading" constant="25" id="vxf-HU-gDM"/>
+                            <constraint firstItem="bt6-hF-gdA" firstAttribute="top" secondItem="XpE-Ip-EOf" secondAttribute="bottom" constant="45" id="QXt-pt-7j6"/>
+                            <constraint firstItem="bt6-hF-gdA" firstAttribute="leading" secondItem="qSI-hH-usf" secondAttribute="leading" constant="20" symbolic="YES" id="nzN-nJ-tTG"/>
+                            <constraint firstItem="uIB-Nx-ZtA" firstAttribute="top" secondItem="bt6-hF-gdA" secondAttribute="bottom" constant="125" id="wUA-rn-ZOA"/>
                             <constraint firstItem="XpE-Ip-EOf" firstAttribute="centerX" secondItem="qSI-hH-usf" secondAttribute="centerX" id="zWp-HH-Yfd"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="qbb-5n-QaK" appends="YES" id="h9f-wa-3g1"/>
+                        </connections>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="backHomeButton" destination="tGx-Pr-tv4" id="StM-DT-evn"/>
+                        <outlet property="pinchRecognizer" destination="qbb-5n-QaK" id="AQB-Zb-oDZ"/>
                         <outlet property="playPauseButton" destination="XpE-Ip-EOf" id="Fr5-q7-nEl"/>
                         <outlet property="timecodeLabel" destination="2YT-Ke-itv" id="gLd-St-Rvf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wdn-KN-ynU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="qbb-5n-QaK">
+                    <connections>
+                        <action selector="handlePinch:" destination="HOc-R0-htY" id="P1y-o0-Leg"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2788" y="110"/>
         </scene>
@@ -210,6 +219,46 @@
             </objects>
             <point key="canvasLocation" x="-304" y="366"/>
         </scene>
+        <!--Timeline View-->
+        <scene sceneID="0VT-iR-wYc">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="lWk-Pc-TDI" customClass="TimelineView" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ybu-g5-VwQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="lYq-Wj-Y9x"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Kw8-0U-Z0E">
+                        <rect key="frame" x="0.0" y="0.0" width="984" height="150"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5A-RD-hQB">
+                                <rect key="frame" x="449" y="64" width="86" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="z5A-RD-hQB" firstAttribute="top" secondItem="ybu-g5-VwQ" secondAttribute="bottom" constant="64" id="Me5-t8-qlN"/>
+                            <constraint firstItem="z5A-RD-hQB" firstAttribute="centerX" secondItem="Kw8-0U-Z0E" secondAttribute="centerX" id="Qdg-Gd-J4s"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="qbb-5n-QaK" appends="YES" id="XdV-hx-Mbf"/>
+                        </connections>
+                    </view>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="timecodeLabel" destination="z5A-RD-hQB" id="iZI-zU-eaX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fQz-lm-uPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2788" y="990"/>
+        </scene>
     </scenes>
     <resources>
         <image name="play" width="128" height="128"/>
@@ -219,7 +268,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="miQ-Pr-UbZ"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -29,4 +29,5 @@
     #import "MainMenuView.h"
     #import "SynchronizeWithCodeView.h"
     #import "MovieSummaryView.h"
+    #import "TimelineView.h"
 #endif

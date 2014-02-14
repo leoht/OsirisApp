@@ -15,7 +15,12 @@
 @property (strong, nonatomic) IBOutlet MainMenuView *menu;
 @property (weak, nonatomic) IBOutlet UILabel *timecodeLabel;
 
+
 @property (weak, nonatomic) IBOutlet UIButton *playPauseButton;
+
+@property (strong, nonatomic) IBOutlet UIPinchGestureRecognizer *pinchRecognizer;
+
+- (IBAction)handlePinch:(UIPinchGestureRecognizer *)recognizer;
 
 - (IBAction)backHomeButtonTouched:(id)sender;
 

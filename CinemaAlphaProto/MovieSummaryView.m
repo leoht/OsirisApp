@@ -72,4 +72,9 @@
     NSLog(@"Received response");
 }
 
+- (IBAction)handlePinch:(UIPinchGestureRecognizer *)recognizer {
+    NSLog(@"pinch");
+   
+}
+
 @end
