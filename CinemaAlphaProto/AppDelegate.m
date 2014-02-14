@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Gobelins. All rights reserved.
 //
 
-#import "AppDelegate.h"
-#import "ApiDelegate.h"
 
 @implementation AppDelegate
 
@@ -66,6 +64,12 @@
           && screenBounds.size.height <= 480) {
         
         sb = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+        vc = [sb instantiateViewControllerWithIdentifier:@"EntryPointView"];
+    }
+    
+    // ipad
+    else {
+        sb = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
         vc = [sb instantiateViewControllerWithIdentifier:@"EntryPointView"];
     }
     

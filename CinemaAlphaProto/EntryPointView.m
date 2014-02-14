@@ -6,11 +6,6 @@
 //  Copyright (c) 2014 Gobelins. All rights reserved.
 //
 
-#import "EntryPointView.h"
-#import <FacebookSDK/FacebookSDK.h>
-#import "AppDelegate.h"
-#import "SynchronizeWithCodeView.h"
-#import "ApiDelegate.h"
 
 @implementation EntryPointView
 

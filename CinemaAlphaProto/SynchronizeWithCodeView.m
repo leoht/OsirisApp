@@ -6,10 +6,6 @@
 //  Copyright (c) 2014 Gobelins. All rights reserved.
 //
 
-#import "SynchronizeWithCodeView.h"
-#import "MovieSummaryView.h"
-#import "ApiDelegate.h"
-#import "Constants.h"
 
 @implementation SynchronizeWithCodeView
 

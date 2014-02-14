@@ -6,10 +6,7 @@
 //  Copyright (c) 2014 Gobelins. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "AMSlideOutNavigationController.h"
-
-@interface MovieSummaryView : UIViewController
+@interface MovieSummaryView : UIViewController<NSURLConnectionDataDelegate> 
 
 @property (strong, nonatomic) NSString *token;
 

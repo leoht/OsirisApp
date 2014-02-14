@@ -13,14 +13,19 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import <FacebookSDK/FacebookSDK.h>
+    #import "Constants.h"
     #import "FacebookConnectionManager.h"
+    #import "SRWebSocket.h"
     #import "SocketClient.h"
     #import "PKRevealController.h"
-    #import "Constants.h"
+    #import "SocketClient.h"
     #import "ApiDelegate.h"
     #import "VideoController.h"
+    #import "AppDelegate.h"
 
     // views
+    #import "EntryPointView.h"
     #import "MainMenuView.h"
     #import "SynchronizeWithCodeView.h"
     #import "MovieSummaryView.h"

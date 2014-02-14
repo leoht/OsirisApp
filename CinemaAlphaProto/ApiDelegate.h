@@ -6,9 +6,6 @@
 //  Copyright (c) 2014 Gobelins. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "SocketClient.h"
-
 @interface ApiDelegate : NSObject
 
 @property (strong, nonatomic) SocketClient *client;
@@ -19,8 +16,9 @@
 + (void)requestForTokenWithCode:(NSString *)code;
 + (void)requestForTokenWithFacebookId:(NSString *)facebookId;
 + (void)requestForNoticeAtTimecode:(NSString *)timecode;
-+ (void)sendPlaySignal;
-+ (void)sendPauseSignal;
+
++ (void)sendMessageNamed:(NSString *)name
+                withData:(id)data;
 
 - (void)sendData:(NSData *)data;
 

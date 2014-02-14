@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Gobelins. All rights reserved.
 //
 
-#import "FacebookConnectionManager.h"
 
 @implementation FacebookConnectionManager
 
@@ -25,7 +24,7 @@ static FacebookConnectionManager *sharedObject;
     
         [FBSession.activeSession openWithCompletionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
         [self sessionStateChanged:session state:status error:error];
-//        [FBSession.activeSession closeAndClearTokenInformation];
+        [FBSession.activeSession closeAndClearTokenInformation];
     }];
 }
 

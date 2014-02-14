@@ -6,9 +6,6 @@
 //  Copyright (c) 2014 Gobelins. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <FacebookSDK/FacebookSDK.h>
-#import "URLConnectionDelegate.h"
 
 @interface FacebookConnectionManager : NSObject<NSURLConnectionDataDelegate>
 

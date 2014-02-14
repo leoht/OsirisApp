@@ -6,10 +6,6 @@
 //  Copyright (c) 2014 Gobelins. All rights reserved.
 //
 
-#import "SocketClient.h"
-#import "Constants.h"
-#import "ApiDelegate.h"
-
 @implementation SocketClient
 
 BOOL isSocketOpen = false;

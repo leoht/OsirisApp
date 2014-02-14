@@ -6,9 +6,6 @@
 //  Copyright (c) 2014 Gobelins. All rights reserved.
 //
 
-#import "ApiDelegate.h"
-#import "Constants.h"
-
 @implementation ApiDelegate
 
 static ApiDelegate *sharedObject;
@@ -77,28 +74,16 @@ static NSString *token;
     [[self sharedDelegate] sendData:jsonData];
 }
 
-+ (void)sendPlaySignal {
++ (void)sendMessageNamed:(NSString *)name withData:(id)data {
     NSString *token = [[ApiDelegate sharedDelegate] token];
     
-    NSDictionary *data = [[NSDictionary alloc] initWithObjectsAndKeys:
+    NSDictionary *message = [[NSDictionary alloc] initWithObjectsAndKeys:
                           ApiFromDeviceToPlayer,  @"direction",
-                          ApiRequestPlay, @"name",
-                          token, @"token", nil];
+                          name, @"name",
+                          token, @"token",
+                          data, @"data", nil];
     
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:0 error:nil];
-    
-    [[self sharedDelegate] sendData:jsonData];
-}
-
-+ (void)sendPauseSignal {
-    NSString *token = [[ApiDelegate sharedDelegate] token];
-    
-    NSDictionary *data = [[NSDictionary alloc] initWithObjectsAndKeys:
-                          ApiFromDeviceToPlayer,  @"direction",
-                          ApiRequestPause, @"name",
-                          token, @"token", nil];
-    
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:0 error:nil];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:message options:0 error:nil];
     
     [[self sharedDelegate] sendData:jsonData];
 }

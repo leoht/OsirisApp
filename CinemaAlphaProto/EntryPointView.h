@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Gobelins. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 
 /*
  * The app entry point view.
