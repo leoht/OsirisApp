@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="drC-OH-q2O">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="WCH-5p-uFD">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
@@ -33,11 +33,11 @@
                         <viewControllerLayoutGuide type="bottom" id="mBr-aV-6ro"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TK8-Or-Hnr">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="719"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="0HR-P4-KES">
-                                <rect key="frame" x="339" y="370" width="347" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="0HR-P4-KES">
+                                <rect key="frame" x="340" y="369" width="347" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="347" id="o9E-dV-W0A"/>
@@ -66,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mp8-0u-DDh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="853" y="358"/>
+            <point key="canvasLocation" x="1827" y="358"/>
         </scene>
         <!--Synchronize With Code View-->
         <scene sceneID="pDN-3V-paM">
@@ -149,60 +149,45 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XpE-Ip-EOf">
-                                <rect key="frame" x="448" y="320" width="128" height="128"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGo-6d-mEf">
+                                <rect key="frame" x="40" y="39" width="947" height="692"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="play">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="togglePlayPause:" destination="HOc-R0-htY" eventType="touchUpInside" id="DI7-c6-75r"/>
-                                </connections>
-                            </button>
-                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bt6-hF-gdA">
-                                <rect key="frame" x="20" y="493" width="984" height="150"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYZ-Ju-Jyy">
+                                <rect key="frame" x="472" y="361" width="80" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <connections>
-                                    <segue destination="lWk-Pc-TDI" kind="embed" id="G18-RI-dma"/>
-                                </connections>
-                            </containerView>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="bt6-hF-gdA" firstAttribute="centerX" secondItem="XpE-Ip-EOf" secondAttribute="centerX" id="BAh-oV-3y0"/>
-                            <constraint firstItem="XpE-Ip-EOf" firstAttribute="centerY" secondItem="qSI-hH-usf" secondAttribute="centerY" id="G3P-ZW-zed"/>
-                            <constraint firstItem="bt6-hF-gdA" firstAttribute="top" secondItem="XpE-Ip-EOf" secondAttribute="bottom" constant="45" id="QXt-pt-7j6"/>
-                            <constraint firstItem="bt6-hF-gdA" firstAttribute="leading" secondItem="qSI-hH-usf" secondAttribute="leading" constant="20" symbolic="YES" id="nzN-nJ-tTG"/>
-                            <constraint firstItem="uIB-Nx-ZtA" firstAttribute="top" secondItem="bt6-hF-gdA" secondAttribute="bottom" constant="125" id="wUA-rn-ZOA"/>
-                            <constraint firstItem="XpE-Ip-EOf" firstAttribute="centerX" secondItem="qSI-hH-usf" secondAttribute="centerX" id="zWp-HH-Yfd"/>
+                            <constraint firstItem="JGo-6d-mEf" firstAttribute="top" secondItem="hUH-5S-Kko" secondAttribute="bottom" constant="19" id="2li-vB-ocl"/>
+                            <constraint firstAttribute="trailing" secondItem="JGo-6d-mEf" secondAttribute="trailing" constant="37" id="D7A-6q-CxC"/>
+                            <constraint firstItem="uIB-Nx-ZtA" firstAttribute="top" secondItem="JGo-6d-mEf" secondAttribute="bottom" constant="37" id="TZt-T3-Wie"/>
+                            <constraint firstItem="JGo-6d-mEf" firstAttribute="leading" secondItem="qSI-hH-usf" secondAttribute="leading" constant="40" id="tba-dO-ha9"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="qbb-5n-QaK" appends="YES" id="h9f-wa-3g1"/>
-                        </connections>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="pinchRecognizer" destination="qbb-5n-QaK" id="AQB-Zb-oDZ"/>
-                        <outlet property="playPauseButton" destination="XpE-Ip-EOf" id="Fr5-q7-nEl"/>
-                        <outlet property="timecodeLabel" destination="2YT-Ke-itv" id="gLd-St-Rvf"/>
+                        <outlet property="timecodeLabel" destination="eYZ-Ju-Jyy" id="v1X-z5-u1U"/>
+                        <outlet property="timelineWebView" destination="JGo-6d-mEf" id="CUH-3I-Sr5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wdn-KN-ynU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pinchGestureRecognizer id="qbb-5n-QaK">
-                    <connections>
-                        <action selector="handlePinch:" destination="HOc-R0-htY" id="P1y-o0-Leg"/>
-                    </connections>
-                </pinchGestureRecognizer>
+                <pinchGestureRecognizer id="qbb-5n-QaK"/>
             </objects>
-            <point key="canvasLocation" x="2788" y="110"/>
+            <point key="canvasLocation" x="3762" y="110"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - Item-->
         <scene sceneID="Cl2-Ic-fvX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="drC-OH-q2O" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="0O0-ci-7z5"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -217,52 +202,28 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12J-dV-Dc4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-304" y="366"/>
+            <point key="canvasLocation" x="670" y="366"/>
         </scene>
-        <!--Timeline View-->
-        <scene sceneID="0VT-iR-wYc">
+        <!--Tab Bar Controller-->
+        <scene sceneID="Wg5-TW-Ddj">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="lWk-Pc-TDI" customClass="TimelineView" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ybu-g5-VwQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="lYq-Wj-Y9x"/>
-                    </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Kw8-0U-Z0E">
-                        <rect key="frame" x="0.0" y="0.0" width="984" height="150"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5A-RD-hQB">
-                                <rect key="frame" x="449" y="64" width="86" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstItem="z5A-RD-hQB" firstAttribute="top" secondItem="ybu-g5-VwQ" secondAttribute="bottom" constant="64" id="Me5-t8-qlN"/>
-                            <constraint firstItem="z5A-RD-hQB" firstAttribute="centerX" secondItem="Kw8-0U-Z0E" secondAttribute="centerX" id="Qdg-Gd-J4s"/>
-                        </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="qbb-5n-QaK" appends="YES" id="XdV-hx-Mbf"/>
-                        </connections>
-                    </view>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="WCH-5p-uFD" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="jsE-8w-WIi">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
                     <connections>
-                        <outlet property="timecodeLabel" destination="z5A-RD-hQB" id="iZI-zU-eaX"/>
+                        <segue destination="drC-OH-q2O" kind="relationship" relationship="viewControllers" id="dtz-o1-r5k"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fQz-lm-uPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MPA-cs-d1w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2788" y="990"/>
+            <point key="canvasLocation" x="-512" y="366"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="play" width="128" height="128"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackOpaque"/>
         <simulatedOrientationMetrics key="orientation"/>

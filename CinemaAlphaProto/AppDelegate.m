@@ -76,12 +76,13 @@
     
     nav = [[UINavigationController alloc] initWithRootViewController:vc];
     
-    PKRevealController *revealController = [PKRevealController revealControllerWithFrontViewController:nav leftViewController:nil];
+    self.tabController = [[UITabBarController alloc] init];
+    [self.tabController addChildViewController:nav];
     
-    self.revealController.delegate = self;
-    self.revealController.animationDuration = 0.25;
+    nav.tabBarItem.image = [UIImage imageNamed:@"play.png"];
     
-    self.window.rootViewController = revealController;
+    [self.window setRootViewController:self.tabController];
+    
 }
 
 

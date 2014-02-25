@@ -8,7 +8,7 @@
 
 
 @interface MovieSummaryView ()
-
+    @property WebViewDelegate *webViewDelegate;
 @end
 
 @implementation MovieSummaryView
@@ -23,22 +23,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-    [self.movieWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:ApiWebUrl]]];
     
-    MainMenuView *menu = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenu"];
-    [self.revealController setLeftViewController:menu];
-    [self.revealController setMinimumWidth:100.0 maximumWidth:120.0 forViewController:menu];
-    [self.revealController setAllowsOverdraw:NO];
+    // load html timeline view
+    self.webViewDelegate = [[WebViewDelegate alloc] initWithWebView:self.timelineWebView withWebViewInterface:self];
+    
+	self.timelineWebView.scrollView.scrollEnabled = false;
+	[self.webViewDelegate loadPage:@"timeline.html" fromFolder:@"www"];
+    
     
     [[NSNotificationCenter defaultCenter] addObserverForName:ApiPlayingAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSString *timecodeString = [NSString stringWithFormat:@"%@", [note.userInfo objectForKey:@"timecode"]];
+        [self.timecodeLabel setText:timecodeString];
         [ApiDelegate requestForNoticeAtTimecode:timecodeString];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:ApiNoticeAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
-//        self.timecodeLabel.text = (NSString *) [note.userInfo objectForKey:@"content"];
     }];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,18 +48,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)backHomeButtonTouched:(id)sender {
-    
-}
 
 - (IBAction)togglePlayPause:(id)sender {
-    
-    if ([VideoController isPaused]) {
-        self.playPauseButton.titleLabel.text = @"Pause";
-    } else {
-        self.playPauseButton.titleLabel.text = @"Lecture";
-    }
-    
+
     [VideoController togglePlayPause];
     
 //    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/me/gobelins_crma_cinema:discover?access_token=%@&method=POST&movie=http%%3A%%2F%%2Fsamples.ogp.me%%2F453907197960619", FBSession.activeSession.accessTokenData.accessToken]];
@@ -68,13 +60,12 @@
 //    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    NSLog(@"Received response");
-}
-
-- (IBAction)handlePinch:(UIPinchGestureRecognizer *)recognizer {
-    NSLog(@"pinch");
-   
+- (id) processFunctionFromJS:(NSString *)name withArgs:(NSArray *)args error:(NSError *__autoreleasing *)error {
+    if ([name compare:@"togglePlayPause" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        [VideoController togglePlayPause];
+    }
+    
+    return nil;
 }
 
 @end

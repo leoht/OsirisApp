@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9613EB2D18BC972200D61DAB /* WebViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9613EB2C18BC972200D61DAB /* WebViewDelegate.m */; };
 		963D1A1C189BCC5C00A120B9 /* ApiDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 963D1A1B189BCC5C00A120B9 /* ApiDelegate.m */; };
 		96540BDA189ABE5300105225 /* SynchronizeWithCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96540BD9189ABE5300105225 /* SynchronizeWithCodeView.m */; };
 		96540BDC189ABFCB00105225 /* Main_iPhone_large.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96540BDB189ABFCB00105225 /* Main_iPhone_large.storyboard */; };
@@ -22,6 +23,7 @@
 		969A6B0018A8E658003B6170 /* iconSlideBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 969A6AF718A8E658003B6170 /* iconSlideBlack.png */; };
 		969A6B0118A8E658003B6170 /* iconSlideBlack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 969A6AF818A8E658003B6170 /* iconSlideBlack@2x.png */; };
 		969A6B0318A8E661003B6170 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 969A6B0218A8E661003B6170 /* QuartzCore.framework */; };
+		96A3C1C318BCAC1000FA1B8A /* www in Resources */ = {isa = PBXBuildFile; fileRef = 96A3C1C218BCAC1000FA1B8A /* www */; };
 		96B20D89189AA49600B6A1B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B20D88189AA49600B6A1B6 /* Foundation.framework */; };
 		96B20D8B189AA49600B6A1B6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B20D8A189AA49600B6A1B6 /* CoreGraphics.framework */; };
 		96B20D8D189AA49600B6A1B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B20D8C189AA49600B6A1B6 /* UIKit.framework */; };
@@ -47,7 +49,6 @@
 		96D18347189BF53300F32DF9 /* MovieSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D18346189BF53300F32DF9 /* MovieSummaryView.m */; };
 		96D26AC918AA8505000C472A /* libPKRevealController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D26AC518AA84AE000C472A /* libPKRevealController.a */; };
 		96E496B518AE567E007A21B2 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 96E496B418AE567E007A21B2 /* play.png */; };
-		96E496B918AE5D6B007A21B2 /* TimelineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E496B818AE5D6B007A21B2 /* TimelineView.m */; };
 		96F2DF15189AA7D3005A3882 /* FacebookConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F2DF14189AA7D3005A3882 /* FacebookConnectionManager.m */; };
 		96F78B1618AE10EB0057531F /* VideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F78B1518AE10EB0057531F /* VideoController.m */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9613EB2B18BC972200D61DAB /* WebViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewDelegate.h; sourceTree = "<group>"; };
+		9613EB2C18BC972200D61DAB /* WebViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewDelegate.m; sourceTree = "<group>"; };
+		9613EB2E18BC975800D61DAB /* WebViewInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewInterface.h; sourceTree = "<group>"; };
 		963D1A1A189BCC5C00A120B9 /* ApiDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiDelegate.h; sourceTree = "<group>"; };
 		963D1A1B189BCC5C00A120B9 /* ApiDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiDelegate.m; sourceTree = "<group>"; };
 		96540BD8189ABE5300105225 /* SynchronizeWithCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynchronizeWithCodeView.h; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 		969A6AF718A8E658003B6170 /* iconSlideBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconSlideBlack.png; sourceTree = "<group>"; };
 		969A6AF818A8E658003B6170 /* iconSlideBlack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconSlideBlack@2x.png"; sourceTree = "<group>"; };
 		969A6B0218A8E661003B6170 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		96A3C1C218BCAC1000FA1B8A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		96B20D85189AA49600B6A1B6 /* CinemaAlphaProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinemaAlphaProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96B20D88189AA49600B6A1B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		96B20D8A189AA49600B6A1B6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -132,8 +137,6 @@
 		96D26AC718AA84BE000C472A /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKRevealController.h; sourceTree = "<group>"; };
 		96D26AC818AA84BE000C472A /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
 		96E496B418AE567E007A21B2 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
-		96E496B718AE5D6B007A21B2 /* TimelineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineView.h; sourceTree = "<group>"; };
-		96E496B818AE5D6B007A21B2 /* TimelineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineView.m; sourceTree = "<group>"; };
 		96F2DF13189AA7D3005A3882 /* FacebookConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookConnectionManager.h; sourceTree = "<group>"; };
 		96F2DF14189AA7D3005A3882 /* FacebookConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookConnectionManager.m; sourceTree = "<group>"; };
 		96F78B1418AE10EB0057531F /* VideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoController.h; sourceTree = "<group>"; };
@@ -170,6 +173,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9613EB2A18BC970900D61DAB /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				9613EB2B18BC972200D61DAB /* WebViewDelegate.h */,
+				9613EB2C18BC972200D61DAB /* WebViewDelegate.m */,
+				9613EB2E18BC975800D61DAB /* WebViewInterface.h */,
+			);
+			name = Web;
+			sourceTree = "<group>";
+		};
 		9655336618A90CF9005879A2 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +216,7 @@
 		96B20D7C189AA49600B6A1B6 = {
 			isa = PBXGroup;
 			children = (
+				96A3C1C218BCAC1000FA1B8A /* www */,
 				96E496B318AE5657007A21B2 /* Resources */,
 				96B20D8E189AA49600B6A1B6 /* CinemaAlphaProto */,
 				96B20DB0189AA49600B6A1B6 /* CinemaAlphaProtoTests */,
@@ -290,6 +304,7 @@
 		96B20DC2189AA5BD00B6A1B6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				9613EB2A18BC970900D61DAB /* Web */,
 				96F78B1218AE10BB0057531F /* Sync */,
 				96CA77EC189B988700B9F39C /* Api */,
 				96F2DF16189AA7DB005A3882 /* Facebook */,
@@ -300,7 +315,6 @@
 		96B20DC3189AA5C200B6A1B6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				96E496B618AE5D50007A21B2 /* Timeline */,
 				9655336618A90CF9005879A2 /* Menu */,
 				96B20DC5189AA5EE00B6A1B6 /* EntryPointView.h */,
 				96B20DC6189AA5EE00B6A1B6 /* EntryPointView.m */,
@@ -369,15 +383,6 @@
 			);
 			name = Resources;
 			path = CinemaAlphaProto;
-			sourceTree = "<group>";
-		};
-		96E496B618AE5D50007A21B2 /* Timeline */ = {
-			isa = PBXGroup;
-			children = (
-				96E496B718AE5D6B007A21B2 /* TimelineView.h */,
-				96E496B818AE5D6B007A21B2 /* TimelineView.m */,
-			);
-			name = Timeline;
 			sourceTree = "<group>";
 		};
 		96F2DF16189AA7DB005A3882 /* Facebook */ = {
@@ -498,6 +503,7 @@
 				969A6B0118A8E658003B6170 /* iconSlideBlack@2x.png in Resources */,
 				969A6B0018A8E658003B6170 /* iconSlideBlack.png in Resources */,
 				969A6AFF18A8E658003B6170 /* iconSlide@2x.png in Resources */,
+				96A3C1C318BCAC1000FA1B8A /* www in Resources */,
 				969A6AFE18A8E658003B6170 /* iconSlide.png in Resources */,
 				96B20D93189AA49600B6A1B6 /* InfoPlist.strings in Resources */,
 			);
@@ -519,13 +525,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				96540BDA189ABE5300105225 /* SynchronizeWithCodeView.m in Sources */,
-				96E496B918AE5D6B007A21B2 /* TimelineView.m in Sources */,
 				969A6AF918A8E658003B6170 /* AMSlideOutGlobals.m in Sources */,
 				969A6AFA18A8E658003B6170 /* AMSlideOutNavigationController.m in Sources */,
 				96B20D99189AA49600B6A1B6 /* AppDelegate.m in Sources */,
 				969A6AFD18A8E658003B6170 /* AMTableView.m in Sources */,
 				96D18347189BF53300F32DF9 /* MovieSummaryView.m in Sources */,
 				963D1A1C189BCC5C00A120B9 /* ApiDelegate.m in Sources */,
+				9613EB2D18BC972200D61DAB /* WebViewDelegate.m in Sources */,
 				96CA7805189B9A1D00B9F39C /* SRWebSocket.m in Sources */,
 				969A6AFB18A8E658003B6170 /* AMSlideTableCell.m in Sources */,
 				96F78B1618AE10EB0057531F /* VideoController.m in Sources */,

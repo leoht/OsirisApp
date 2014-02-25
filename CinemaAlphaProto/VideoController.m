@@ -38,6 +38,12 @@ static BOOL isPaused = YES;
                          withData:[NSDictionary dictionaryWithObject:volumeString forKey:@"volume"]];
 }
 
++ (void)toggleFastForward {
+    [ApiDelegate sendMessageNamed:ApiFastForward withData:nil];
+}
 
++ (void)toggleFastRewind {
+    [ApiDelegate sendMessageNamed:ApiFastRewind withData:nil];
+}
 
 @end

@@ -11,6 +11,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) PKRevealController *revealController;
+//@property (strong, nonatomic) PKRevealController *revealController;
+
+@property (strong, nonatomic) UITabBarController *tabController;
 
 @end
