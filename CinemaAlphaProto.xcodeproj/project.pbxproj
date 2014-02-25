@@ -11,7 +11,6 @@
 		963D1A1C189BCC5C00A120B9 /* ApiDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 963D1A1B189BCC5C00A120B9 /* ApiDelegate.m */; };
 		96540BDA189ABE5300105225 /* SynchronizeWithCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96540BD9189ABE5300105225 /* SynchronizeWithCodeView.m */; };
 		96540BDC189ABFCB00105225 /* Main_iPhone_large.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96540BDB189ABFCB00105225 /* Main_iPhone_large.storyboard */; };
-		9655336A18A90D25005879A2 /* MainMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9655336918A90D25005879A2 /* MainMenuView.m */; };
 		96653C7318A8DDC9001689F9 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96653C7218A8DDC9001689F9 /* FacebookSDK.framework */; };
 		969A6AF918A8E658003B6170 /* AMSlideOutGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = 969A6AEC18A8E658003B6170 /* AMSlideOutGlobals.m */; };
 		969A6AFA18A8E658003B6170 /* AMSlideOutNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 969A6AEE18A8E658003B6170 /* AMSlideOutNavigationController.m */; };
@@ -79,8 +78,6 @@
 		96540BD8189ABE5300105225 /* SynchronizeWithCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynchronizeWithCodeView.h; sourceTree = "<group>"; };
 		96540BD9189ABE5300105225 /* SynchronizeWithCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynchronizeWithCodeView.m; sourceTree = "<group>"; };
 		96540BDB189ABFCB00105225 /* Main_iPhone_large.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_iPhone_large.storyboard; path = ../Main_iPhone_large.storyboard; sourceTree = "<group>"; };
-		9655336818A90D25005879A2 /* MainMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuView.h; sourceTree = "<group>"; };
-		9655336918A90D25005879A2 /* MainMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuView.m; sourceTree = "<group>"; };
 		96653C7218A8DDC9001689F9 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		969A6AEB18A8E658003B6170 /* AMSlideOutGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSlideOutGlobals.h; sourceTree = "<group>"; };
 		969A6AEC18A8E658003B6170 /* AMSlideOutGlobals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSlideOutGlobals.m; sourceTree = "<group>"; };
@@ -183,15 +180,6 @@
 			name = Web;
 			sourceTree = "<group>";
 		};
-		9655336618A90CF9005879A2 /* Menu */ = {
-			isa = PBXGroup;
-			children = (
-				9655336818A90D25005879A2 /* MainMenuView.h */,
-				9655336918A90D25005879A2 /* MainMenuView.m */,
-			);
-			name = Menu;
-			sourceTree = "<group>";
-		};
 		969A6AEA18A8E658003B6170 /* AMSlideOut */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,7 +245,6 @@
 		96B20D8E189AA49600B6A1B6 /* CinemaAlphaProto */ = {
 			isa = PBXGroup;
 			children = (
-				96B20DC4189AA5C600B6A1B6 /* Entities */,
 				96B20DC3189AA5C200B6A1B6 /* Views */,
 				96B20DC2189AA5BD00B6A1B6 /* Components */,
 				96B20D97189AA49600B6A1B6 /* AppDelegate.h */,
@@ -315,7 +302,6 @@
 		96B20DC3189AA5C200B6A1B6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9655336618A90CF9005879A2 /* Menu */,
 				96B20DC5189AA5EE00B6A1B6 /* EntryPointView.h */,
 				96B20DC6189AA5EE00B6A1B6 /* EntryPointView.m */,
 				96540BD8189ABE5300105225 /* SynchronizeWithCodeView.h */,
@@ -324,13 +310,6 @@
 				96D18346189BF53300F32DF9 /* MovieSummaryView.m */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		96B20DC4189AA5C600B6A1B6 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Entities;
 			sourceTree = "<group>";
 		};
 		96CA77EC189B988700B9F39C /* Api */ = {
@@ -537,7 +516,6 @@
 				96F78B1618AE10EB0057531F /* VideoController.m in Sources */,
 				96B20DC7189AA5EE00B6A1B6 /* EntryPointView.m in Sources */,
 				96CA7804189B9A1D00B9F39C /* NSData+SRB64Additions.m in Sources */,
-				9655336A18A90D25005879A2 /* MainMenuView.m in Sources */,
 				96CA77EF189B98FC00B9F39C /* SocketClient.m in Sources */,
 				96B20D95189AA49600B6A1B6 /* main.m in Sources */,
 				96CA7803189B9A1D00B9F39C /* base64.c in Sources */,

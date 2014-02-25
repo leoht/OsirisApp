@@ -17,7 +17,6 @@
     #import "Constants.h"
     #import "FacebookConnectionManager.h"
     #import "SRWebSocket.h"
-    #import "CustomIOS7AlertView.h"
     #import "SocketClient.h"
     #import "PKRevealController.h"
     #import "SocketClient.h"
@@ -30,7 +29,6 @@
 
     // views
     #import "EntryPointView.h"
-    #import "MainMenuView.h"
     #import "SynchronizeWithCodeView.h"
     #import "MovieSummaryView.h"
 #endif

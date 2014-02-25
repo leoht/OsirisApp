@@ -7,11 +7,37 @@
 
 	<body ontouchmove="event.preventDefault()">
 		
-		<button onclick="calliOSFunction('togglePlayPause', [], null, null);">Play / Pause</button>
+		<button id="play">Play / Pause</button>
 
 		<script src="js/jquery.js" ></script>
 		<script src="js/raphael.js" ></script>
 		
+		<script>
+		$(function () {
+
+			$('#forward')
+				.bind('touchstart', function (e) {
+					e.preventDefault();
+					calliOSFunction('toggleFastForward', []);
+				}).bind('touchend', function () {
+					calliOSFunction('toggleFastForward', []);
+				});
+
+			$('#rewind')
+				.bind('touchstart', function (e) {
+					e.preventDefault();
+					calliOSFunction('toggleFastRewind', []);
+				}).bind('touchend', function () {
+					calliOSFunction('toggleFastRewind', []);
+				});
+
+			$('#play')
+				.bind('touchstart', function (e) {
+					e.preventDefault();
+					calliOSFunction('togglePlayPause', []);
+				});
+		})
+		</script>
 
 	</body>
 </html>

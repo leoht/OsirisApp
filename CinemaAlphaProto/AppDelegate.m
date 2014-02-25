@@ -80,6 +80,7 @@
     [self.tabController addChildViewController:nav];
     
     nav.tabBarItem.image = [UIImage imageNamed:@"play.png"];
+    nav.tabBarItem.title = @"Home";
     
     [self.window setRootViewController:self.tabController];
     
