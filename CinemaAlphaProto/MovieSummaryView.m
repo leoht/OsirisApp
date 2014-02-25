@@ -61,7 +61,6 @@
 }
 
 - (id) processFunctionFromJS:(NSString *)name withArgs:(NSArray *)args error:(NSError *__autoreleasing *)error {
-    
     if ([name compare:@"togglePlayPause" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
         [VideoController togglePlayPause];
     }
@@ -70,7 +69,7 @@
         [VideoController toggleFastForward];
     }
     
-    if ([name compare:@"toggleFastForward" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+    if ([name compare:@"toggleFastRewind" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
         [VideoController toggleFastRewind];
     }
     

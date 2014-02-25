@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 	<head>
+		<meta charset="utf-8" />
 		<link rel="stylesheet" href="css/timeline.css" media="screen" />
 		<script src="js/iosBridge.js" ></script>
 	</head>
@@ -8,36 +9,12 @@
 	<body ontouchmove="event.preventDefault()">
 		
 		<button id="play">Play / Pause</button>
+		<button id="rewind">rewind</button>
+		<button id="forward">forward</button>
 
 		<script src="js/jquery.js" ></script>
 		<script src="js/raphael.js" ></script>
+		<script src="js/controls.js"></script>
 		
-		<script>
-		$(function () {
-
-			$('#forward')
-				.bind('touchstart', function (e) {
-					e.preventDefault();
-					calliOSFunction('toggleFastForward', []);
-				}).bind('touchend', function () {
-					calliOSFunction('toggleFastForward', []);
-				});
-
-			$('#rewind')
-				.bind('touchstart', function (e) {
-					e.preventDefault();
-					calliOSFunction('toggleFastRewind', []);
-				}).bind('touchend', function () {
-					calliOSFunction('toggleFastRewind', []);
-				});
-
-			$('#play')
-				.bind('touchstart', function (e) {
-					e.preventDefault();
-					calliOSFunction('togglePlayPause', []);
-				});
-		})
-		</script>
-
 	</body>
 </html>
