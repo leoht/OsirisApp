@@ -13,6 +13,4 @@
 
 //@property (strong, nonatomic) PKRevealController *revealController;
 
-@property (strong, nonatomic) UITabBarController *tabController;
-
 @end

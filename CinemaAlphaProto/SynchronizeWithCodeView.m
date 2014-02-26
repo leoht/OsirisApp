@@ -12,6 +12,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.synchronizeCodeField setBorderStyle:UITextBorderStyleNone];
+    [self.synchronizeCodeField.layer setBackgroundColor:[UIColor whiteColor].CGColor];
+    [self.synchronizeCodeField.layer setCornerRadius:0.1f];
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];

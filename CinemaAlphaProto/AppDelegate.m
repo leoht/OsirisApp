@@ -28,6 +28,7 @@
          [FacebookConnectionManager sessionStateChanged:session state:state error:error];
      }];
     
+    
     return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication withSession:FBSession.activeSession];
 }
 
@@ -76,13 +77,7 @@
     
     nav = [[UINavigationController alloc] initWithRootViewController:vc];
     
-    self.tabController = [[UITabBarController alloc] init];
-    [self.tabController addChildViewController:nav];
-    
-    nav.tabBarItem.image = [UIImage imageNamed:@"play.png"];
-    nav.tabBarItem.title = @"Home";
-    
-    [self.window setRootViewController:self.tabController];
+    [self.window setRootViewController:nav];
     
 }
 

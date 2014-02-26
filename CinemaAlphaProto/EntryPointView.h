@@ -15,5 +15,6 @@
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *connectionChooser;
 @property (strong, nonatomic) UIAlertView *connexionWaitingAlert;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end

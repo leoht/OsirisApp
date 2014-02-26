@@ -12,6 +12,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.titleLabel setFont:[UIFont fontWithName:@"Twofaced-Bold" size:40]];
+    [self.titleLabel setTextColor:[UIColor colorWithRed:0.2 green:0.4 blue:0.8 alpha:1]];
+    
     [[NSNotificationCenter defaultCenter] addObserverForName:@"UserDidLoginWithFacebook" object:nil queue:nil usingBlock:^(NSNotification *note) {
         MovieSummaryView *nextViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MovieSummaryView"];
         [self.navigationController pushViewController:nextViewController animated:YES];

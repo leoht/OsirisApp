@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="WCH-5p-uFD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="drC-OH-q2O">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
@@ -33,14 +33,14 @@
                         <viewControllerLayoutGuide type="bottom" id="mBr-aV-6ro"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TK8-Or-Hnr">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="719"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="0HR-P4-KES">
-                                <rect key="frame" x="340" y="369" width="347" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="0HR-P4-KES">
+                                <rect key="frame" x="339" y="507" width="347" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="347" id="o9E-dV-W0A"/>
+                                    <constraint firstAttribute="width" constant="347" id="Y2R-uS-lCF"/>
                                 </constraints>
                                 <segments>
                                     <segment title="Facebook"/>
@@ -50,18 +50,26 @@
                                     <action selector="didChooseFacebookOrCode:" destination="giZ-5b-ajc" eventType="valueChanged" id="LDV-1A-tp2"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SC0PE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yph-KX-3EJ">
+                                <rect key="frame" x="339" y="314" width="347" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="0HR-P4-KES" firstAttribute="centerY" secondItem="TK8-Or-Hnr" secondAttribute="centerY" id="SLT-LM-9bg"/>
-                            <constraint firstItem="0HR-P4-KES" firstAttribute="centerX" secondItem="TK8-Or-Hnr" secondAttribute="centerX" id="g6K-JH-60w"/>
+                            <constraint firstItem="0HR-P4-KES" firstAttribute="centerX" secondItem="TK8-Or-Hnr" secondAttribute="centerX" id="ISq-w1-hbg"/>
+                            <constraint firstItem="mBr-aV-6ro" firstAttribute="top" secondItem="0HR-P4-KES" secondAttribute="bottom" constant="233" id="ag6-Pn-ZWB"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="vTP-y6-Dj4"/>
                     <connections>
                         <outlet property="connectionChooser" destination="0HR-P4-KES" id="Uhx-oU-3NM"/>
+                        <outlet property="titleLabel" destination="Yph-KX-3EJ" id="4xf-v9-9ef"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mp8-0u-DDh" sceneMemberID="firstResponder"/>
@@ -83,10 +91,11 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entrer code..." textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="e1l-Gv-5i4">
                                 <rect key="frame" x="405" y="369" width="215" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="contentStretch" x="0.0" y="1.3877787807814457e-17" width="1" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="215" id="pSE-Hk-0H1"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVc-BA-J69">
@@ -128,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTw-Bu-Z5U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1740" y="1321"/>
+            <point key="canvasLocation" x="2596" y="1269"/>
         </scene>
         <!--Movie Summary View-->
         <scene sceneID="dj7-86-kbk">
@@ -203,25 +212,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12J-dV-Dc4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="670" y="366"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="Wg5-TW-Ddj">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="WCH-5p-uFD" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="jsE-8w-WIi">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="drC-OH-q2O" kind="relationship" relationship="viewControllers" id="dtz-o1-r5k"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MPA-cs-d1w" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-512" y="366"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
