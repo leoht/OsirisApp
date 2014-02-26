@@ -12,9 +12,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.synchronizeCodeField setBorderStyle:UITextBorderStyleNone];
-    [self.synchronizeCodeField.layer setBackgroundColor:[UIColor whiteColor].CGColor];
-    [self.synchronizeCodeField.layer setCornerRadius:0.1f];
+    NSArray *codeLabels = [NSArray arrayWithObjects:self.codeLabelA, self.codeLabelB, self.codeLabelC, self.codeLabelD, nil];
+    
+    for (UITextField * label in codeLabels) {
+        [label setBorderStyle:UITextBorderStyleNone];
+        [label.layer setBackgroundColor:[UIColor whiteColor].CGColor];
+        [label.layer setCornerRadius:0.1f];
+        [label setFont:[UIFont fontWithName:@"Twofaced-Bold" size:28]];
+        
+    }
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -30,11 +36,16 @@
 }
 
 - (IBAction)onCodeEntered:(id)sender {
-    NSString *code = self.synchronizeCodeField.text;
+    NSString *code = [NSString stringWithFormat:@"%@%@%@%@",
+                       self.codeLabelA.text,
+                       self.codeLabelB.text,
+                       self.codeLabelC.text,
+                       self.codeLabelD.text
+                      ];
     
     [ApiDelegate requestForTokenWithCode:code];
     
-    self.synchronizeCodeField.hidden = true;
+    self.codeLabelA.hidden = true;
     self.validateCodeButton.hidden = true;
     self.backButton.hidden = true;
     
@@ -54,7 +65,10 @@
 }
 
 - (void)dismissKeyboard {
-    [self.synchronizeCodeField resignFirstResponder];
+    [self.codeLabelA resignFirstResponder];
+    [self.codeLabelB resignFirstResponder];
+    [self.codeLabelC resignFirstResponder];
+    [self.codeLabelD resignFirstResponder];
 }
 
 @end

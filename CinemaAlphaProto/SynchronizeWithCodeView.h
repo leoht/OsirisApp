@@ -9,11 +9,14 @@
 
 @interface SynchronizeWithCodeView : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITextField *synchronizeCodeField;
 @property (weak, nonatomic) IBOutlet UIButton *validateCodeButton;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 @property (strong, nonatomic) UIAlertView *connexionWaitingAlert;
 
+@property (weak, nonatomic) IBOutlet UITextField *codeLabelA;
+@property (weak, nonatomic) IBOutlet UITextField *codeLabelB;
+@property (weak, nonatomic) IBOutlet UITextField *codeLabelC;
+@property (weak, nonatomic) IBOutlet UITextField *codeLabelD;
 
 @end

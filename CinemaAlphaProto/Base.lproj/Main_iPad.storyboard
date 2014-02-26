@@ -88,12 +88,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entrer code..." textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="e1l-Gv-5i4">
-                                <rect key="frame" x="405" y="369" width="215" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="e1l-Gv-5i4">
+                                <rect key="frame" x="386" y="369" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <rect key="contentStretch" x="0.0" y="1.3877787807814457e-17" width="1" height="1"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="215" id="pSE-Hk-0H1"/>
+                                    <constraint firstAttribute="height" constant="42" id="cNf-7v-ZuC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="fH4-bF-mXe">
+                                <rect key="frame" x="451" y="369" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="contentStretch" x="0.0" y="1.3877787807814457e-17" width="1" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="I7D-8x-5vb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="bFY-Bh-LTD">
+                                <rect key="frame" x="516" y="369" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="contentStretch" x="0.0" y="1.3877787807814457e-17" width="1" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="yka-4D-5Eu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="jDp-bh-sO2">
+                                <rect key="frame" x="581" y="369" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="contentStretch" x="0.0" y="1.3877787807814457e-17" width="1" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="CzI-1d-oY1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -108,7 +138,7 @@
                                     <action selector="backButtonTouched:" destination="AEb-YT-8Jf" eventType="touchUpInside" id="GXz-fC-Vt7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qU4-Nk-Dpk">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qU4-Nk-Dpk">
                                 <rect key="frame" x="497" y="428" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="OK">
@@ -120,18 +150,15 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <constraints>
-                            <constraint firstItem="e1l-Gv-5i4" firstAttribute="centerX" secondItem="1ta-az-uaQ" secondAttribute="centerX" id="0Qp-yX-EB1"/>
-                            <constraint firstItem="qU4-Nk-Dpk" firstAttribute="top" secondItem="e1l-Gv-5i4" secondAttribute="bottom" constant="29" id="gf7-d2-DRh"/>
-                            <constraint firstItem="e1l-Gv-5i4" firstAttribute="centerY" secondItem="1ta-az-uaQ" secondAttribute="centerY" id="nGq-7V-aJP"/>
-                            <constraint firstItem="qU4-Nk-Dpk" firstAttribute="centerX" secondItem="e1l-Gv-5i4" secondAttribute="centerX" id="xyp-dV-m4Z"/>
-                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="COw-4a-QwV"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="synchronizeCodeField" destination="e1l-Gv-5i4" id="LkP-Ue-bLU"/>
+                        <outlet property="codeLabelA" destination="e1l-Gv-5i4" id="rbK-OY-wSF"/>
+                        <outlet property="codeLabelB" destination="fH4-bF-mXe" id="1XG-1n-LyN"/>
+                        <outlet property="codeLabelC" destination="bFY-Bh-LTD" id="s8O-H3-Yvz"/>
+                        <outlet property="codeLabelD" destination="jDp-bh-sO2" id="sI6-PA-DKi"/>
                         <outlet property="validateCodeButton" destination="qU4-Nk-Dpk" id="Gi2-9j-DhC"/>
                     </connections>
                 </viewController>

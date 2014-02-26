@@ -10,6 +10,7 @@
 		9613EB2D18BC972200D61DAB /* WebViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9613EB2C18BC972200D61DAB /* WebViewDelegate.m */; };
 		963D1A1C189BCC5C00A120B9 /* ApiDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 963D1A1B189BCC5C00A120B9 /* ApiDelegate.m */; };
 		96424A8C18BE315400B158E7 /* TwoFaced.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96424A8B18BE315400B158E7 /* TwoFaced.ttf */; };
+		96424A8F18BE3E3000B158E7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96424A8E18BE3E3000B158E7 /* Social.framework */; };
 		96540BDA189ABE5300105225 /* SynchronizeWithCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96540BD9189ABE5300105225 /* SynchronizeWithCodeView.m */; };
 		96540BDC189ABFCB00105225 /* Main_iPhone_large.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96540BDB189ABFCB00105225 /* Main_iPhone_large.storyboard */; };
 		96653C7318A8DDC9001689F9 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96653C7218A8DDC9001689F9 /* FacebookSDK.framework */; };
@@ -77,6 +78,7 @@
 		963D1A1A189BCC5C00A120B9 /* ApiDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiDelegate.h; sourceTree = "<group>"; };
 		963D1A1B189BCC5C00A120B9 /* ApiDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiDelegate.m; sourceTree = "<group>"; };
 		96424A8B18BE315400B158E7 /* TwoFaced.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TwoFaced.ttf; sourceTree = "<group>"; };
+		96424A8E18BE3E3000B158E7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		96540BD8189ABE5300105225 /* SynchronizeWithCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynchronizeWithCodeView.h; sourceTree = "<group>"; };
 		96540BD9189ABE5300105225 /* SynchronizeWithCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynchronizeWithCodeView.m; sourceTree = "<group>"; };
 		96540BDB189ABFCB00105225 /* Main_iPhone_large.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_iPhone_large.storyboard; path = ../Main_iPhone_large.storyboard; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96424A8F18BE3E3000B158E7 /* Social.framework in Frameworks */,
 				96D26AC918AA8505000C472A /* libPKRevealController.a in Frameworks */,
 				969A6B0318A8E661003B6170 /* QuartzCore.framework in Frameworks */,
 				96CA77EB189B987A00B9F39C /* libicucore.dylib in Frameworks */,
@@ -227,6 +230,7 @@
 		96B20D87189AA49600B6A1B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				96424A8E18BE3E3000B158E7 /* Social.framework */,
 				96D26AC618AA84BE000C472A /* Headers */,
 				96D26AC018AA84AD000C472A /* PKRevealController.xcodeproj */,
 				969A6B0218A8E661003B6170 /* QuartzCore.framework */,
