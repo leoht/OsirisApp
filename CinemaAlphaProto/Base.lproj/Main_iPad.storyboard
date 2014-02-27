@@ -185,13 +185,13 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGo-6d-mEf">
-                                <rect key="frame" x="40" y="39" width="947" height="692"/>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JGo-6d-mEf">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYZ-Ju-Jyy">
-                                <rect key="frame" x="472" y="361" width="80" height="46"/>
+                                <rect key="frame" x="425" y="334" width="174" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -200,12 +200,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstItem="JGo-6d-mEf" firstAttribute="top" secondItem="hUH-5S-Kko" secondAttribute="bottom" constant="19" id="2li-vB-ocl"/>
-                            <constraint firstAttribute="trailing" secondItem="JGo-6d-mEf" secondAttribute="trailing" constant="37" id="D7A-6q-CxC"/>
-                            <constraint firstItem="uIB-Nx-ZtA" firstAttribute="top" secondItem="JGo-6d-mEf" secondAttribute="bottom" constant="37" id="TZt-T3-Wie"/>
-                            <constraint firstItem="JGo-6d-mEf" firstAttribute="leading" secondItem="qSI-hH-usf" secondAttribute="leading" constant="40" id="tba-dO-ha9"/>
-                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>

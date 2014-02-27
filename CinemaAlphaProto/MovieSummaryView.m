@@ -24,11 +24,13 @@
 {
     [super viewDidLoad];
     
+    [self.timecodeLabel setFont:[UIFont fontWithName:@"Twofaced-Bold" size:20]];
+    
     // load html timeline view
     self.webViewDelegate = [[WebViewDelegate alloc] initWithWebView:self.timelineWebView withWebViewInterface:self];
     
 	self.timelineWebView.scrollView.scrollEnabled = false;
-	[self.webViewDelegate loadPage:@"timeline.html" fromFolder:@"www"];
+	[self.webViewDelegate loadPage:@"home.html" fromFolder:@"www"];
     
     
     [[NSNotificationCenter defaultCenter] addObserverForName:ApiPlayingAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
