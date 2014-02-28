@@ -16,6 +16,7 @@
     #import <FacebookSDK/FacebookSDK.h>
     #import <Social/Social.h>
     #import "Constants.h"
+    #import "Macros.h"
     #import "FacebookConnectionManager.h"
     #import "SRWebSocket.h"
     #import "SocketClient.h"
@@ -32,4 +33,6 @@
     #import "EntryPointView.h"
     #import "SynchronizeWithCodeView.h"
     #import "MovieSummaryView.h"
+
+    
 #endif

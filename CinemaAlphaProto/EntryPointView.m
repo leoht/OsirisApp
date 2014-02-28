@@ -12,8 +12,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.titleLabel setFont:[UIFont fontWithName:@"Twofaced-Bold" size:40]];
-    [self.titleLabel setTextColor:[UIColor colorWithRed:0.2 green:0.4 blue:0.8 alpha:1]];
+    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithAttributedString: self.titleLabel.attributedText];
+    [text addAttribute: NSForegroundColorAttributeName value:ScopeBlue range:NSMakeRange(2, 1)];
+    [self.titleLabel setAttributedText: text];
+    
+    StylizeWithScopeFont(self.titleLabel, 80);
+    
+    StylizeWithScopeFont(self.synchronizeWithCodeButton.titleLabel, 18);
+    BorderedButton(self.synchronizeWithCodeButton, ScopeBlue);
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"UserDidLoginWithFacebook" object:nil queue:nil usingBlock:^(NSNotification *note) {
         MovieSummaryView *nextViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MovieSummaryView"];
@@ -40,18 +46,28 @@
     [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
 
-- (IBAction)didChooseFacebookOrCode:(id)sender {
-    NSInteger index = [self.connectionChooser selectedSegmentIndex];
-    
-    if (index == 0) { // facebook
-        if (false == [FacebookConnectionManager isSessionOpened]) {
-            [FacebookConnectionManager initializeFacebookSession];
-        }
-    } else {
-        SynchronizeWithCodeView *nextViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SynchronizeWithCodeView"];
-        [self.navigationController pushViewController:nextViewController animated:YES];
+- (IBAction)doFacebookLogin:(id)sender {
+    if (false == [FacebookConnectionManager isSessionOpened]) {
+        [FacebookConnectionManager initializeFacebookSession];
     }
 }
 
+- (IBAction)doCodeSynchronization:(id)sender {
+    PushView(@"SynchronizeWithCodeView");
+    
+}
+
+//- (IBAction)didChooseFacebookOrCode:(id)sender {
+//    NSInteger index = [self.connectionChooser selectedSegmentIndex];
+//    
+//    if (index == 0) { // facebook
+//        if (false == [FacebookConnectionManager isSessionOpened]) {
+//            [FacebookConnectionManager initializeFacebookSession];
+//        }
+//    } else {
+//        SynchronizeWithCodeView *nextViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SynchronizeWithCodeView"];
+//        [self.navigationController pushViewController:nextViewController animated:YES];
+//    }
+//}
 
 @end

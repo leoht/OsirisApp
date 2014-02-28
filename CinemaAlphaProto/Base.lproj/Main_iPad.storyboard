@@ -36,39 +36,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="0HR-P4-KES">
-                                <rect key="frame" x="339" y="507" width="347" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="347" id="Y2R-uS-lCF"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Facebook"/>
-                                    <segment title="Utiliser un code"/>
-                                </segments>
-                                <connections>
-                                    <action selector="didChooseFacebookOrCode:" destination="giZ-5b-ajc" eventType="valueChanged" id="LDV-1A-tp2"/>
-                                </connections>
-                            </segmentedControl>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SC0PE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yph-KX-3EJ">
-                                <rect key="frame" x="339" y="314" width="347" height="77"/>
+                                <rect key="frame" x="215" y="313" width="594" height="132"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fj7-u1-3Vi">
+                                <rect key="frame" x="321" y="668" width="383" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="SYNCHRONISATION RAPIDE">
+                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doCodeSynchronization:" destination="giZ-5b-ajc" eventType="touchUpInside" id="QvO-oM-IdJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="0HR-P4-KES" firstAttribute="centerX" secondItem="TK8-Or-Hnr" secondAttribute="centerX" id="ISq-w1-hbg"/>
-                            <constraint firstItem="mBr-aV-6ro" firstAttribute="top" secondItem="0HR-P4-KES" secondAttribute="bottom" constant="233" id="ag6-Pn-ZWB"/>
-                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="vTP-y6-Dj4"/>
                     <connections>
-                        <outlet property="connectionChooser" destination="0HR-P4-KES" id="Uhx-oU-3NM"/>
+                        <outlet property="synchronizeWithCodeButton" destination="fj7-u1-3Vi" id="wph-PP-Yt3"/>
                         <outlet property="titleLabel" destination="Yph-KX-3EJ" id="4xf-v9-9ef"/>
                     </connections>
                 </viewController>

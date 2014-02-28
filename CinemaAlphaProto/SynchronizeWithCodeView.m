@@ -57,10 +57,7 @@
         
         [self.connexionWaitingAlert dismissWithClickedButtonIndex:0 animated:YES];
         
-        MovieSummaryView *nextViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MovieSummaryView"];
-        NSString *token = [[ApiDelegate sharedDelegate] token];
-        nextViewController.token = [NSString stringWithFormat:@"Got token : %@", token];
-        [self.navigationController pushViewController:nextViewController animated:YES];
+        PushView(@"MovieSummaryView");
     }];
 }
 

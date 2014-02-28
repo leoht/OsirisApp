@@ -138,6 +138,7 @@
 		96D26AC718AA84BE000C472A /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKRevealController.h; sourceTree = "<group>"; };
 		96D26AC818AA84BE000C472A /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
 		96E496B418AE567E007A21B2 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		96EA19FE18C0A5A200CB1BB0 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Macros.h; path = ../Macros.h; sourceTree = "<group>"; };
 		96F2DF13189AA7D3005A3882 /* FacebookConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookConnectionManager.h; sourceTree = "<group>"; };
 		96F2DF14189AA7D3005A3882 /* FacebookConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookConnectionManager.m; sourceTree = "<group>"; };
 		96F78B1418AE10EB0057531F /* VideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoController.h; sourceTree = "<group>"; };
@@ -255,6 +256,7 @@
 				96B20DC2189AA5BD00B6A1B6 /* Components */,
 				96B20D97189AA49600B6A1B6 /* AppDelegate.h */,
 				96B20D98189AA49600B6A1B6 /* AppDelegate.m */,
+				96EA19FE18C0A5A200CB1BB0 /* Macros.h */,
 				96D18344189BEEB700F32DF9 /* Constants.h */,
 				96B20D9A189AA49600B6A1B6 /* Main_iPhone.storyboard */,
 				96540BDB189ABFCB00105225 /* Main_iPhone_large.storyboard */,
