@@ -17,6 +17,7 @@
 @property (strong, nonatomic) UIAlertView *connexionWaitingAlert;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *synchronizeWithCodeButton;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 - (IBAction)doCodeSynchronization:(id)sender;
 - (IBAction)doFacebookLogin:(id)sender;

@@ -21,6 +21,8 @@
     StylizeWithScopeFont(self.synchronizeWithCodeButton.titleLabel, 18);
     BorderedButton(self.synchronizeWithCodeButton, ScopeBlue);
     
+    BorderedButton(self.loginButton, ScopeBlue);
+    
     [[NSNotificationCenter defaultCenter] addObserverForName:@"UserDidLoginWithFacebook" object:nil queue:nil usingBlock:^(NSNotification *note) {
         MovieSummaryView *nextViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MovieSummaryView"];
         [self.navigationController pushViewController:nextViewController animated:YES];
@@ -56,18 +58,5 @@
     PushView(@"SynchronizeWithCodeView");
     
 }
-
-//- (IBAction)didChooseFacebookOrCode:(id)sender {
-//    NSInteger index = [self.connectionChooser selectedSegmentIndex];
-//    
-//    if (index == 0) { // facebook
-//        if (false == [FacebookConnectionManager isSessionOpened]) {
-//            [FacebookConnectionManager initializeFacebookSession];
-//        }
-//    } else {
-//        SynchronizeWithCodeView *nextViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SynchronizeWithCodeView"];
-//        [self.navigationController pushViewController:nextViewController animated:YES];
-//    }
-//}
 
 @end
