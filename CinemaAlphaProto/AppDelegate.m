@@ -17,6 +17,7 @@
     [self initializeSlideMenu];
     
     [ApiDelegate connect];
+    [VideoController start];
     
     return YES;
 }

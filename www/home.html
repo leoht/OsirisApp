@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="css/main.css" media="screen" />
+		<link rel="stylesheet" href="css/timeline.css" media="screen" />
+		<script src="js/iosBridge.js" ></script>
+		<script src="js/jquery.js" ></script>
+		<script src="js/ui.js"></script>
+
+		<script>
+			var setMovieInfo = function (title, author) {
+				$('.home-movie-title').text(title);
+			};
+
+			// move the progress bar using timecode
+			var setTimecode = function (seconds) {
+				var w = (seconds * $('.progressbar').width()) / movieDuration;
+				$('.progressbar-progress').css('width', w);
+			}
+		</script>
+	</head>
+
+	<body>
+
+		<div class="container container-home">
+
+			<div class="home-header">
+				<h2 class="home-movie-title">Métropolis</h2>
+			</div>
+
+			<div class="video-controls">
+				<div class="progressbar"><div class="progressbar-progress"></div></div>
+				
+				<button id="rewind">rewind</button>
+				<button id="play">Play / Pause</button>
+				<button id="forward">forward</button>
+			</div>
+		</div>
+		
+
+		<nav class="navbar">
+			<div class="navbar-title with-font">SC<span class="blue">0</span>PE</div>
+
+			<div class="navbar-tabs">
+				<a href="#container-home">Home</a>
+				<a href="#container-timeline">Notifs</a>
+				<a href="#container-comments">Comments</a>
+			</div>
+		</nav>
+
+		
+		<script src="js/raphael.js" ></script>
+		<script src="js/controls.js"></script>
+		
+		
+	</body>
+</html>

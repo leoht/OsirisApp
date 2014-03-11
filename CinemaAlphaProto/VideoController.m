@@ -11,6 +11,15 @@
 
 static BOOL isPaused = YES;
 
+static NSMutableDictionary *movieInfo;
+
++ (void)start {
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:ApiMovieInfo object:nil queue:nil usingBlock:^(NSNotification *note) {
+        movieInfo = (NSMutableDictionary *) note.userInfo;
+    }];
+}
+
 + (BOOL)isPaused {
     return isPaused;
 }
@@ -44,6 +53,14 @@ static BOOL isPaused = YES;
 
 + (void)toggleFastRewind {
     [ApiDelegate sendMessageNamed:ApiFastRewind withData:nil];
+}
+
++ (void)setMovieInfo:(NSMutableDictionary *)info {
+    movieInfo = info;
+}
+
++ (NSMutableDictionary *)movieInfo {
+    return movieInfo;
 }
 
 @end

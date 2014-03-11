@@ -15,7 +15,7 @@
 + (void)connect;
 + (void)requestForTokenWithCode:(NSString *)code;
 + (void)requestForTokenWithFacebookId:(NSString *)facebookId;
-+ (void)requestForNoticeAtTimecode:(NSString *)timecode;
++ (void)requestForNoticeAtTimecode:(NSString *)timecode withMovieId:(NSString *)movieId;
 
 + (void)sendMessageNamed:(NSString *)name
                 withData:(id)data;

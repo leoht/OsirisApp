@@ -26,3 +26,7 @@
 #define ApiSetVolume                    @"api.movie.volume"
 #define ApiFastForward                  @"api.movie.forward"
 #define ApiFastRewind                   @"api.movie.rewind"
+#define ApiMovieInfo                    @"api.movie.info"
+
+
+#define WebViewLoaded                   @"webview.loaded"

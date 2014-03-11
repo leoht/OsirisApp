@@ -211,5 +211,9 @@
     [self createError:error withMessage:jsonStr];
 }
 
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [[NSNotificationCenter defaultCenter] postNotificationName:WebViewLoaded object:nil];
+}
+
 @end
 

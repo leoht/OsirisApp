@@ -1,0 +1,85 @@
+@font-face {
+    font-family: 'TwoFaced';
+    src: url('../fonts/twofaced-webfont.eot');
+    src: url('../fonts/twofaced-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/twofaced-webfont.woff') format('woff'),
+         url('../fonts/twofaced-webfont.ttf') format('truetype'),
+         url('../fonts/twofaced-webfont.svg#twofaced_displaybold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+	-webkit-user-select: none; /* disable selection/Copy of UIWebView */
+    -webkit-touch-callout: none; /* disable the IOS popup when long-press on a link */
+}
+
+body, html {
+	background-color: #000;
+	width: 100%;
+	overflow: hidden;
+	padding: 0; margin: 0;
+}
+
+.with-font {
+	font-family: 'TwoFaced', sans-serif;
+}
+
+.blue {
+	color: #04e5e8;
+}
+
+.navbar {
+	position: absolute; left: 0; bottom: 0;
+	width: 100%; height: 60px;
+	border-top: 2px solid white;
+	color: white;
+}
+
+.navbar-title {
+	font-size: 22px;
+	width: 30%;
+	text-align: center;
+	padding-top: 14px;
+	float: left;
+}
+
+.navbar-tabs {
+	
+}
+
+.navbar-tabs a {
+	border-left: 2px solid white;
+	height: 60px;
+	width: 8%;
+	padding-top: 14px;
+	text-align: center;
+	display: block;
+	float: left;
+}
+
+.video-controls {
+	width: 100%;
+	height: 170px;
+	position: absolute; bottom: 60px;
+	background: #182027;
+	text-align: center;
+}
+
+.video-controls #play { position: relative; top: 70px; }
+.video-controls #rewind { position: absolute; top: 70px; left: 200px; }
+.video-controls #forward { position: absolute; top: 70px; right: 200px; }
+
+.video-controls .progressbar { width: auto; height: 5px; background: #242424; }
+.video-controls .progressbar-progress { width: 0px; height: 5px; background: #04e5e8; }
+
+.home-header {
+	padding: 8px 0 0 30px;
+}
+
+.home-movie-title {
+	color: white;
+	font-family: 'TwoFaced', sans-serif;
+	font-size: 24px;
+	text-transform: uppercase;
+}

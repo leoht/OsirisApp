@@ -35,12 +35,18 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:ApiPlayingAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSString *timecodeString = [NSString stringWithFormat:@"%@", [note.userInfo objectForKey:@"timecode"]];
         [self.timecodeLabel setText:timecodeString];
-        [ApiDelegate requestForNoticeAtTimecode:timecodeString];
+        [ApiDelegate requestForNoticeAtTimecode:timecodeString withMovieId:[[VideoController movieInfo] objectForKey:@"movie_id"]];
+        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setTimecode('%@')", [note.userInfo objectForKey:@"timecode"]]];
     }];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:ApiNoticeAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
+    [[NSNotificationCenter defaultCenter] addObserverForName:WebViewLoaded object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSMutableDictionary * info = [VideoController movieInfo];
+        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setMovieInfo('%@','%@'); movieDuration = %@",
+                                                                              [info objectForKey:@"title"],
+                                                                              [info objectForKey:@"author"],
+                                                                              [info objectForKey:@"duration"]
+                                                                              ]];
     }];
-    
 }
 
 - (void)didReceiveMemoryWarning

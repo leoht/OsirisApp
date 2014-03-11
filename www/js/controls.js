@@ -1,3 +1,5 @@
+var movieDuration = 0;
+
 $(function () {
 
 	$('#forward')

@@ -60,14 +60,18 @@ static NSString *token;
     [[self sharedDelegate] sendData:jsonData];
 }
 
-+ (void)requestForNoticeAtTimecode:(NSString *)timecode {
++ (void)requestForNoticeAtTimecode:(NSString *)timecode withMovieId:(NSString *)movieId {
     NSString *token = [[ApiDelegate sharedDelegate] token];
+    
+    NSDictionary *messageData = [[NSDictionary alloc] initWithObjectsAndKeys:
+                          movieId, @"movie_id",
+                          timecode, @"timecode", nil];
     
     NSDictionary *data = [[NSDictionary alloc] initWithObjectsAndKeys:
                           ApiFromDeviceToPlayer,  @"direction",
                           ApiRequestForNoticeAtTimecode, @"name",
                           token, @"token",
-                          [NSDictionary dictionaryWithObjects:@[timecode] forKeys:@[@"timecode"]], @"data", nil];
+                          messageData, @"data", nil];
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:0 error:nil];
     
