@@ -23,7 +23,7 @@
     
     BorderedButton(self.loginButton, ScopeBlue);
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"UserDidLoginWithFacebook" object:nil queue:nil usingBlock:^(NSNotification *note) {
+    [[NSNotificationCenter defaultCenter] addObserverForName:UserDidLoginWithFacebook object:nil queue:nil usingBlock:^(NSNotification *note) {
         MovieSummaryView *nextViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MovieSummaryView"];
         [self.navigationController pushViewController:nextViewController animated:YES];
     }];

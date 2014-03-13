@@ -30,3 +30,4 @@
 
 
 #define WebViewLoaded                   @"webview.loaded"
+#define UserDidLoginWithFacebook        @"login.facebook"

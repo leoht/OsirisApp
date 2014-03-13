@@ -43,7 +43,7 @@ static FacebookConnectionManager *sharedObject;
         NSURLRequest *request = [NSURLRequest requestWithURL:graphUrl];
         [[NSURLConnection alloc] initWithRequest:request delegate:[self sharedManager] startImmediately:YES];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"UserDidLoginWithFacebook" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:UserDidLoginWithFacebook object:nil];
         
     }
     if (state == FBSessionStateClosed || state == FBSessionStateClosedLoginFailed){

@@ -13,7 +13,7 @@
 
 - (id)initWithWebView:(UIWebView*) webView withWebViewInterface:(id<WebViewInterface>) webViewInterface;
 - (void) loadPage:(NSString*) pageName fromFolder:(NSString*) folderName;
--(void) createError:(NSError**) error withCode:(int) code withMessage:(NSString*) msg;
--(void) callJSFunction:(NSString *) name withArgs:(NSDictionary *) args;
+- (void) createError:(NSError**) error withCode:(int) code withMessage:(NSString*) msg;
+- (void) callJSFunction:(NSString *) name withArgs:(NSDictionary *) args;
 
 @end
