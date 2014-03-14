@@ -36,6 +36,10 @@ static NSString *token;
     [client openWithUrl:ApiConnectionUrl];
 }
 
++ (void)clearToken {
+    token = @"";
+}
+
 + (void)requestForTokenWithCode:(NSString *)code {
     NSDictionary *data = [[NSDictionary alloc] initWithObjectsAndKeys:
                                 ApiFromDeviceToPlayer,  @"direction",
@@ -61,21 +65,13 @@ static NSString *token;
 }
 
 + (void)requestForNoticeAtTimecode:(NSString *)timecode withMovieId:(NSString *)movieId {
-    NSString *token = [[ApiDelegate sharedDelegate] token];
-    
-    NSDictionary *messageData = [[NSDictionary alloc] initWithObjectsAndKeys:
-                          movieId, @"movie_id",
-                          timecode, @"timecode", nil];
+     NSLog(@"Requesting for notice at timecode %@ for movie ID : %@", timecode, movieId);
     
     NSDictionary *data = [[NSDictionary alloc] initWithObjectsAndKeys:
-                          ApiFromDeviceToPlayer,  @"direction",
-                          ApiRequestForNoticeAtTimecode, @"name",
-                          token, @"token",
-                          messageData, @"data", nil];
+                          timecode, @"timecode",
+                          movieId, @"movie_id", nil];
     
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:0 error:nil];
-    
-    [[self sharedDelegate] sendData:jsonData];
+    [self sendMessageNamed:ApiRequestForNoticeAtTimecode withData:data];
 }
 
 + (void)sendMessageNamed:(NSString *)name withData:(id)data {

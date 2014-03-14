@@ -13,6 +13,7 @@
 
 + (ApiDelegate *)sharedDelegate;
 + (void)connect;
++ (void)clearToken;
 + (void)requestForTokenWithCode:(NSString *)code;
 + (void)requestForTokenWithFacebookId:(NSString *)facebookId;
 + (void)requestForNoticeAtTimecode:(NSString *)timecode withMovieId:(NSString *)movieId;

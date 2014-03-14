@@ -1,0 +1,58 @@
+!!!5
+%html
+  %head
+    %meta{charset: "utf-8"}/
+    %link{href: "css/main.css", media: "screen", rel: "stylesheet"}/
+    %link{href: "css/timeline.css", media: "screen", rel: "stylesheet"}/
+    %script{src: "js/iosBridge.js"}
+    %script{src: "js/jquery.js"}
+    %script{src: "js/ui.js"}
+    :javascript
+      var setMovieInfo = function (title, author) {
+        $('.home-movie-title').text(title);
+      };
+
+      // move the progress bar using timecode
+      var setTimecode = function (seconds) {
+      	var w = (seconds * $('.progressbar').width()) / movieDuration;
+      	$('.progressbar-progress').css('width', w);
+      }
+  %body
+    // HOME SCREEN
+    .container.container-home
+      .home-header
+        %h2.home-movie-title Métropolis
+      .chapter-slider
+        .last-chapter.chapter
+          %h4.chapter-title.with-font La découverte
+          %p.chapter-content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ull
+      .video-controls
+        .progressbar
+          .progressbar-progress
+        %button#rewind rewind
+        %button#play Play / Pause
+        %button#forward forward
+
+    // TIMELINE SCREEN
+    .container.container-timeline
+      .timeline-head
+      .timeline-last-notice
+        %h3.title.with-font Déshumanisation
+        %p.content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse 
+      .timeline
+      .timeline-line
+      .timeline-current-time
+
+
+    %nav.navbar
+      .navbar-title.with-font{ onclick: 'calliOSFunction("quit", [])'}
+        SC
+        %span.blue> 0
+        PE
+      .navbar-tabs
+        %a{href: ".container-home"} Home
+        %a{href: ".container-timeline"} Notifs
+        %a{href: ".container-comments"} Comments
+
+    %script{src: "js/raphael.js"}
+    %script{src: "js/controls.js"}

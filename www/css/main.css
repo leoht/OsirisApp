@@ -83,3 +83,19 @@ body, html {
 	font-size: 24px;
 	text-transform: uppercase;
 }
+
+.chapter {
+	padding: 10px;
+	background-color: white;
+	width: 60%;
+	margin: auto;
+	text-align: center;
+}
+
+.chapter .chapter-title {
+	font-size: 24px;
+	text-transform: uppercase;
+}
+.chapter .chapter-content {
+	font-family: sans-serif;
+}

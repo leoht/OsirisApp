@@ -18,7 +18,7 @@
     
     StylizeWithScopeFont(self.titleLabel, 80);
     
-    StylizeWithScopeFont(self.synchronizeWithCodeButton.titleLabel, 18);
+    StylizeWithScopeFont(self.synchronizeWithCodeButton.titleLabel, 20);
     BorderedButton(self.synchronizeWithCodeButton, ScopeBlue);
     
     BorderedButton(self.loginButton, ScopeBlue);

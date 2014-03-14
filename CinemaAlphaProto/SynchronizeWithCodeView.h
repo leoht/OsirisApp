@@ -9,8 +9,8 @@
 
 @interface SynchronizeWithCodeView : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *validateCodeButton;
-@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 @property (strong, nonatomic) UIAlertView *connexionWaitingAlert;
 

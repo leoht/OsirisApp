@@ -39,6 +39,10 @@
         [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setTimecode('%@')", [note.userInfo objectForKey:@"timecode"]]];
     }];
     
+    [[NSNotificationCenter defaultCenter] addObserverForName:ApiNoticeAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSLog(@"Notice !");
+    }];
+    
     [[NSNotificationCenter defaultCenter] addObserverForName:WebViewLoaded object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSMutableDictionary * info = [VideoController movieInfo];
         [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setMovieInfo('%@','%@'); movieDuration = %@",
@@ -78,6 +82,11 @@
     
     if ([name compare:@"toggleFastRewind" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
         [VideoController toggleFastRewind];
+    }
+    
+    if ([name compare:@"quit" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        [ApiDelegate clearToken];
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
     
     return nil;

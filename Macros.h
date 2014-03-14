@@ -18,3 +18,9 @@
 #define PushView(VIEW)                  UIViewController *nextViewController = \
                                         [self.storyboard instantiateViewControllerWithIdentifier:VIEW]; \
                                         [self.navigationController pushViewController:nextViewController animated:YES];
+
+#define PopView(VIEW)                   UIViewController *nextViewController = \
+                                        [self.storyboard instantiateViewControllerWithIdentifier:VIEW]; \
+                                        [self.navigationController popToViewController:nextViewController animated:YES];
+
+#define SegueTo(SEGUE)                  [self performSegueWithIdentifier:SEGUE sender:self];
