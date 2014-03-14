@@ -28,6 +28,8 @@
 #define ApiFastRewind                   @"api.movie.rewind"
 #define ApiMovieInfo                    @"api.movie.info"
 
+#define ApiChooseNoticeSaidYes          @"api.chooser.yes"
+#define ApiChooseNoticeSaidNo           @"api.chooser.no"
 
 #define WebViewLoaded                   @"webview.loaded"
 #define UserDidLoginWithFacebook        @"login.facebook"

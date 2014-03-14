@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) UIAlertView *connexionWaitingAlert;
 
+@property (weak, nonatomic) IBOutlet UIButton *helpButton;
 @property (weak, nonatomic) IBOutlet UITextField *codeLabelA;
 @property (weak, nonatomic) IBOutlet UITextField *codeLabelB;
 @property (weak, nonatomic) IBOutlet UITextField *codeLabelC;

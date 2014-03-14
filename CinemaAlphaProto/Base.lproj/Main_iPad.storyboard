@@ -154,7 +154,8 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qU4-Nk-Dpk">
                                 <rect key="frame" x="386" y="477" width="252" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Valider">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="VALIDER">
                                     <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -184,6 +185,13 @@
                                 <color key="textColor" red="0.23921568627450979" green="0.27450980392156865" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UO2-wP-mb5">
+                                <rect key="frame" x="939" y="20" width="98" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="code-help">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.098039215686274508" green="0.13333333333333333" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -195,14 +203,72 @@
                         <outlet property="codeLabelB" destination="fH4-bF-mXe" id="1XG-1n-LyN"/>
                         <outlet property="codeLabelC" destination="bFY-Bh-LTD" id="s8O-H3-Yvz"/>
                         <outlet property="codeLabelD" destination="jDp-bh-sO2" id="sI6-PA-DKi"/>
+                        <outlet property="helpButton" destination="UO2-wP-mb5" id="QF4-Lj-chX"/>
                         <outlet property="titleLabel" destination="wPZ-Un-1nG" id="awK-cs-mMr"/>
                         <outlet property="validateCodeButton" destination="qU4-Nk-Dpk" id="Gi2-9j-DhC"/>
-                        <segue destination="HOc-R0-htY" kind="push" identifier="GoToMovieSegue" id="I78-KN-d2I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTw-Bu-Z5U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2596" y="1269"/>
+        </scene>
+        <!--Notice Chooser View-->
+        <scene sceneID="hm5-3c-8tA">
+            <objects>
+                <viewController storyboardIdentifier="NoticeChooserView" id="Iy5-dX-SNp" customClass="NoticeChooserView" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lmK-zY-r0m"/>
+                        <viewControllerLayoutGuide type="bottom" id="d5K-c3-IXJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TyD-f1-6KT">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nEd-hm-j1b">
+                                <rect key="frame" x="0.0" y="147" width="1024" height="507"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.098039215690000001" green="0.1333333333" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KA2-xc-6VA">
+                                <rect key="frame" x="359" y="691" width="306" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="PASSER DIRECTEMENT AU FILM">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="skip:" destination="Iy5-dX-SNp" eventType="touchUpInside" id="eZv-22-mLc"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Juste une minute pour personnaliser votre film..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Shr-Ef-dS4">
+                                <rect key="frame" x="117" y="35" width="790" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CE GENRE DE LIENS VOUS INTERESSE T-IL ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0k-Jd-suW">
+                                <rect key="frame" x="117" y="64" width="790" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.098039215690000001" green="0.1333333333" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="VG0-wX-7Ew"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="chooserTitle" destination="S0k-Jd-suW" id="QDQ-e9-vNY"/>
+                        <outlet property="skipButton" destination="KA2-xc-6VA" id="0vg-zx-IgI"/>
+                        <outlet property="webView" destination="nEd-hm-j1b" id="rB9-3Z-6Fi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2cf-NU-ZOB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4073" y="1269"/>
         </scene>
         <!--Movie Summary View-->
         <scene sceneID="dj7-86-kbk">
@@ -251,7 +317,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wdn-KN-ynU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pinchGestureRecognizer id="qbb-5n-QaK"/>
             </objects>
-            <point key="canvasLocation" x="3762" y="110"/>
+            <point key="canvasLocation" x="4566" y="142"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="Cl2-Ic-fvX">
@@ -276,6 +342,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="code-help" width="43" height="43"/>
         <image name="code-layout-left" width="386" height="42"/>
         <image name="code-layout-right" width="386" height="42"/>
         <image name="home-layout-left" width="315" height="24"/>
@@ -287,6 +354,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="IeK-vG-Gp5"/>
+        <segue reference="a6C-3J-dke"/>
     </inferredMetricsTieBreakers>
 </document>

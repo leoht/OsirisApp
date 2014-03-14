@@ -24,7 +24,7 @@
     BorderedButton(self.loginButton, ScopeBlue);
     
     [[NSNotificationCenter defaultCenter] addObserverForName:UserDidLoginWithFacebook object:nil queue:nil usingBlock:^(NSNotification *note) {
-        MovieSummaryView *nextViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MovieSummaryView"];
+        MovieSummaryView *nextViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"NoticeChooserView"];
         [self.navigationController pushViewController:nextViewController animated:YES];
     }];
      

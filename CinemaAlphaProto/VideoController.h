@@ -14,7 +14,7 @@
 + (void)togglePlayPause;
 + (void)toggleFastForward;
 + (void)toggleFastRewind;
-+ (void)setMovieInfo;
++ (void)setMovieInfo:(NSMutableDictionary *)info;
 + (NSMutableDictionary *)movieInfo;
 
 @end

@@ -70,7 +70,7 @@
         
         [self.connexionWaitingAlert dismissWithClickedButtonIndex:0 animated:YES];
         
-        PushView(@"MovieSummaryView");
+        PushView(@"NoticeChooserView");
     }];
 }
 

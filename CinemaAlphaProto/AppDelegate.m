@@ -14,7 +14,6 @@
 {
     
     [self adaptStoryboardForScreen];
-    [self initializeSlideMenu];
     
     [ApiDelegate connect];
     [VideoController start];
@@ -40,7 +39,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    [FBSession.activeSession close];
+    [FBSession.activeSession closeAndClearTokenInformation];
 }
 
 - (void)adaptStoryboardForScreen {
@@ -82,11 +81,5 @@
     
 }
 
-
-
-- (void) initializeSlideMenu {
-
-	
-}
 
 @end

@@ -9,6 +9,7 @@
 
 @implementation FacebookConnectionManager
 
+static NSURLConnection *connection;
 static FacebookConnectionManager *sharedObject;
 
 + (BOOL)isSessionOpened {
@@ -41,7 +42,7 @@ static FacebookConnectionManager *sharedObject;
         
         
         NSURLRequest *request = [NSURLRequest requestWithURL:graphUrl];
-        [[NSURLConnection alloc] initWithRequest:request delegate:[self sharedManager] startImmediately:YES];
+        connection = [[NSURLConnection alloc] initWithRequest:request delegate:[self sharedManager] startImmediately:YES];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:UserDidLoginWithFacebook object:nil];
         
