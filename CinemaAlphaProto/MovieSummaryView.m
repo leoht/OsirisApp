@@ -8,8 +8,7 @@
 
 
 @interface MovieSummaryView ()
-    @property WebViewDelegate *webViewDelegate;
-@end
+    @property WebViewDelegate *webViewDelegate; @end
 
 @implementation MovieSummaryView
 
