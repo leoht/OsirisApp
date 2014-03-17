@@ -81,6 +81,9 @@
     [self.codeLabelD resignFirstResponder];
 }
 
+- (IBAction)backHome:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 - (IBAction)didEnterDigit:(id)sender {
     if (((UITextField *) sender).text.length == 0) return;
