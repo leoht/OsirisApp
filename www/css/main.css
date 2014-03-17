@@ -67,8 +67,10 @@ body, html {
 }
 
 .video-controls #play { position: relative; top: 70px; }
-.video-controls #rewind { position: absolute; top: 70px; left: 200px; }
-.video-controls #forward { position: absolute; top: 70px; right: 200px; }
+.video-controls #prev-chapter { position: absolute; top: 70px; left: 200px; }
+.video-controls #rewind { position: absolute; top: 70px; left: 360px; }
+.video-controls #forward { position: absolute; top: 70px; right: 360px; }
+.video-controls #next-chapter { position: absolute; top: 70px; right: 200px; }
 
 .video-controls .progressbar { width: auto; height: 5px; background: #242424; }
 .video-controls .progressbar-progress { width: 0px; height: 5px; background: #04e5e8; }

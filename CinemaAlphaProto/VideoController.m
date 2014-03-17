@@ -55,6 +55,14 @@ static NSMutableDictionary *movieInfo;
     [ApiDelegate sendMessageNamed:ApiFastRewind withData:nil];
 }
 
++ (void)prevChapter {
+    [ApiDelegate sendMessageNamed:ApiPrevChapter withData:nil];
+}
+
++ (void)nextChapter {
+    [ApiDelegate sendMessageNamed:ApiNextChapter withData:nil];
+}
+
 + (void)setMovieInfo:(NSMutableDictionary *)info {
     movieInfo = info;
 }

@@ -23,4 +23,16 @@ $(function () {
 			e.preventDefault();
 			calliOSFunction('togglePlayPause', []);
 		});
+
+	$('#prev-chapter')
+		.bind('touchstart', function (e) {
+			e.preventDefault();
+			calliOSFunction('prevChapter', []);
+		});
+
+	$('#next-chapter')
+		.bind('touchstart', function (e) {
+			e.preventDefault();
+			calliOSFunction('nextChapter', []);
+		});
 })

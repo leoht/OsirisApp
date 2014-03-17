@@ -83,6 +83,14 @@
         [VideoController toggleFastRewind];
     }
     
+    if ([name compare:@"nextChapter" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        [VideoController nextChapter];
+    }
+    
+    if ([name compare:@"prevChapter" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        [VideoController prevChapter];
+    }
+    
     if ([name compare:@"quit" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
         [ApiDelegate clearToken];
         [self.navigationController popToRootViewControllerAnimated:YES];
