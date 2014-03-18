@@ -1,20 +1,27 @@
 var x, y, pX, pY;
+var isMoving = false;
 
 $(function () {
 
 	var yes = function () {
-		$('.sample-notice').animate({ left: '+=1000px' }, 400);
+		if (isMoving) return;
+
+		isMoving = true;
+		$('.sample-notice').animate({ left: '+=1000px' }, 400, function () { isMoving = false; });
 	};
 
 	var no = function () {
-		$('.sample-notice').animate({ left: '-=1000px' }, 400);
+		if (isMoving) return;
+
+		isMoving = true;
+		$('.sample-notice').animate({ left: '-=1000px' }, 400, function () { isMoving = false; });
 	};
 
-	$('.yes').click(function () {
+	$('.yes').bind('touchstart', function () {
 		yes();
 	});
 
-	$('.no').click(function () {
+	$('.no').bind('touchstart', function () {
 		no();
 	})
 
