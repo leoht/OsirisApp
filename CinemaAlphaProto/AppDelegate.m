@@ -56,7 +56,7 @@
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone
         && screenBounds.size.height > 480) {
         
-        sb = [UIStoryboard storyboardWithName:@"Main_iPhone_Large" bundle:nil];
+        sb = [UIStoryboard storyboardWithName:@"Main_iPhone_large" bundle:nil];
         vc = [sb instantiateViewControllerWithIdentifier:@"EntryPointViewLarge"];
     }
     
