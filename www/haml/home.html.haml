@@ -29,9 +29,11 @@
       .video-controls
         .progressbar
           .progressbar-progress
-        %button#rewind rewind
-        %button#play Play / Pause
-        %button#forward forward
+        %button#prev-chapter
+        %button#rewind
+        %button#play
+        %button#forward
+        %button#next-chapter
 
     // TIMELINE SCREEN
     .container.container-timeline
@@ -50,9 +52,10 @@
         %span.blue> 0
         PE
       .navbar-tabs
-        %a{href: ".container-home"} Home
-        %a{href: ".container-timeline"} Notifs
-        %a{href: ".container-comments"} Comments
+        %a.nav-home{href: ".container-home"}
+        %a.nav-notif{href: ".container-timeline"}
+        %a.nav-social{href: ".container-social"}
+        %a.nav-doc{href: ".container-doc"}
 
     %script{src: "js/raphael.js"}
     %script{src: "js/controls.js"}
