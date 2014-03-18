@@ -111,4 +111,15 @@
     return YES;
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    if (textField == self.codeLabelD) {
+        [self onCodeEntered:nil];
+        [textField resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
+}
+
 @end

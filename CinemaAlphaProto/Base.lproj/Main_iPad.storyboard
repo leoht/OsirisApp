@@ -145,7 +145,7 @@
                                 <rect key="contentStretch" x="0.0" y="1.3877787807814457e-17" width="1" height="1"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 <connections>
                                     <action selector="didEnterDigit:" destination="AEb-YT-8Jf" eventType="editingChanged" id="SIi-Za-xKD"/>
                                     <outlet property="delegate" destination="AEb-YT-8Jf" id="hD4-Ii-w55"/>
