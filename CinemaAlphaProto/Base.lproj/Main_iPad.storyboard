@@ -51,7 +51,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="doCodeSynchronization:" destination="giZ-5b-ajc" eventType="touchUpInside" id="QvO-oM-IdJ"/>
+                                    <segue destination="AEb-YT-8Jf" kind="push" id="IXG-bj-uEI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vxf-xa-e0s">
@@ -365,5 +365,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="a6C-3J-dke"/>
+        <segue reference="IXG-bj-uEI"/>
     </inferredMetricsTieBreakers>
 </document>

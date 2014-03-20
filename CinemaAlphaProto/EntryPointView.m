@@ -54,9 +54,5 @@
     }
 }
 
-- (IBAction)doCodeSynchronization:(id)sender {
-    PushView(@"SynchronizeWithCodeView");
-    
-}
 
 @end

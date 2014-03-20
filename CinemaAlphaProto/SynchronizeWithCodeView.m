@@ -53,6 +53,19 @@
 }
 
 - (IBAction)onCodeEntered:(id)sender {
+    NSArray *codeLabels = [NSArray arrayWithObjects:self.codeLabelA, self.codeLabelB, self.codeLabelC, self.codeLabelD, nil];
+    BOOL missingDigit = NO;
+    
+    for (UITextField * label in codeLabels) {
+        if ([label.text  isEqual: @""]) {
+            [label.layer setBorderColor:[UIColor redColor].CGColor];
+            missingDigit = YES;
+        }
+    }
+    
+    if (missingDigit) return;
+    
+    
     NSString *code = [NSString stringWithFormat:@"%@%@%@%@",
                        self.codeLabelA.text,
                        self.codeLabelB.text,

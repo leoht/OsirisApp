@@ -45,9 +45,16 @@ body, html {
 	float: left;
 }
 
-.navbar-tabs {
-	
+.navbar-tabs a {
+	background-repeat: no-repeat; background-position: center 10px;
 }
+
+.nav-home { background-image: url(../images/nav-home.png);}
+.nav-notif { background-image: url(../images/nav-notif.png);}
+.nav-social { background-image: url(../images/nav-social.png);}
+.nav-doc { background-image: url(../images/nav-doc.png);}
+
+
 
 .navbar-tabs a {
 	border-left: 2px solid white;

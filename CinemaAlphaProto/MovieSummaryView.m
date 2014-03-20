@@ -40,6 +40,13 @@
     
     [[NSNotificationCenter defaultCenter] addObserverForName:ApiNoticeAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSLog(@"Notice !");
+        
+        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onNewNotice('%@', '%@', '%@', '%@');",
+                                            [note.userInfo objectForKey:@"id"],
+                                            [note.userInfo objectForKey:@"title"],
+                                            [note.userInfo objectForKey:@"short_content"],
+                                            [note.userInfo objectForKey:@"category_nicename"]
+        ]];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:WebViewLoaded object:nil queue:nil usingBlock:^(NSNotification *note) {
