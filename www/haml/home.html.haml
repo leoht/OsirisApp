@@ -16,9 +16,12 @@
       var setTimecode = function (seconds) {
       	var w = (seconds * $('.progressbar').width()) / movieDuration;
       	$('.progressbar-progress').css('width', w);
+        $('.timeline-body').css('left', timelinePositionWithTimecode(seconds));
       }
+
+      beginTimelineScrolling();
   %body
-    // HOME SCREEN
+    / HOME SCREEN
     .container.container-home
       .home-header
         %h2.home-movie-title Métropolis
@@ -35,15 +38,23 @@
         %button#forward
         %button#next-chapter
 
-    // TIMELINE SCREEN
+    / TIMELINE SCREEN
     .container.container-timeline
       .timeline-head
       .timeline-last-notice
         %h3.title.with-font Déshumanisation
         %p.content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse 
       .timeline
-      .timeline-line
-      .timeline-current-time
+        .timeline-body-container
+          .timeline-body
+        
+        .timeline-current-time
+
+    / SOCIAL SCREEN
+    .container-social
+
+    / DOC SCREEN
+    .container-doc
 
 
     %nav.navbar
@@ -52,8 +63,8 @@
         %span.blue> 0
         PE
       .navbar-tabs
-        %a.nav-home{href: ".container-home"}
-        %a.nav-notif{href: ".container-timeline"}
+        %a.nav-home{href: ".container-home", onclick: "calliOSFunction('goHome', [])"}
+        %a.nav-notif{href: ".container-timeline", onclick: "calliOSFunction('goTimeline', [])"}
         %a.nav-social{href: ".container-social"}
         %a.nav-doc{href: ".container-doc"}
 

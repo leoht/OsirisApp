@@ -24,8 +24,10 @@
     [super viewDidLoad];
     
     StylizeWithScopeFont(self.timecodeLabel, 20);
+    StylizeWithScopeFont(self.secondTimecodeLabel, 20);
     
     // load html timeline view
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
     self.webViewDelegate = [[WebViewDelegate alloc] initWithWebView:self.timelineWebView withWebViewInterface:self];
     
 	self.timelineWebView.scrollView.scrollEnabled = false;
@@ -34,6 +36,7 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:ApiPlayingAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSString *timecodeString = [NSString stringWithFormat:@"%@", [note.userInfo objectForKey:@"timecode"]];
         [self.timecodeLabel setText:timecodeString];
+        [self.secondTimecodeLabel setText:timecodeString];
         [ApiDelegate requestForNoticeAtTimecode:timecodeString withMovieId:[[VideoController movieInfo] objectForKey:@"movie_id"]];
         [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setTimecode('%@')", [note.userInfo objectForKey:@"timecode"]]];
     }];
@@ -96,6 +99,16 @@
     
     if ([name compare:@"prevChapter" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
         [VideoController prevChapter];
+    }
+    
+    if ([name compare:@"goTimeline" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        [self.timecodeLabel setHidden:YES];
+        [self.secondTimecodeLabel setHidden:NO];
+    }
+    
+    if ([name compare:@"goHome" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        [self.timecodeLabel setHidden:NO];
+        [self.secondTimecodeLabel setHidden:YES];
     }
     
     if ([name compare:@"quit" options:NSCaseInsensitiveSearch] == NSOrderedSame) {

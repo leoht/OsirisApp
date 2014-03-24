@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UIWebView *timelineWebView;
 @property (weak, nonatomic) IBOutlet UILabel *timecodeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *secondTimecodeLabel;
 
 @end

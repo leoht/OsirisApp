@@ -16,11 +16,14 @@
       var setTimecode = function (seconds) {
       	var w = (seconds * $('.progressbar').width()) / movieDuration;
       	$('.progressbar-progress').css('width', w);
+        $('.timeline-body').css('left', timelinePositionWithTimecode(seconds));
       }
+      
+      beginTimelineScrolling();
     </script>
   </head>
   <body>
-    <!-- / HOME SCREEN -->
+    <!-- HOME SCREEN -->
     <div class='container container-home'>
       <div class='home-header'>
         <h2 class='home-movie-title'>Métropolis</h2>
@@ -42,24 +45,31 @@
         <button id='next-chapter'></button>
       </div>
     </div>
-    <!-- / TIMELINE SCREEN -->
+    <!-- TIMELINE SCREEN -->
     <div class='container container-timeline'>
       <div class='timeline-head'></div>
       <div class='timeline-last-notice'>
         <h3 class='title with-font'>Déshumanisation</h3>
         <p class='content'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</p>
       </div>
-      <div class='timeline'></div>
-      <div class='timeline-line'></div>
-      <div class='timeline-current-time'></div>
+      <div class='timeline'>
+        <div class='timeline-body-container'>
+          <div class='timeline-body'></div>
+        </div>
+        <div class='timeline-current-time'></div>
+      </div>
     </div>
+    <!-- SOCIAL SCREEN -->
+    <div class='container-social'></div>
+    <!-- DOC SCREEN -->
+    <div class='container-doc'></div>
     <nav class='navbar'>
       <div class='navbar-title with-font' onclick='calliOSFunction("quit", [])'>
         SC<span class='blue'>0</span>PE
       </div>
       <div class='navbar-tabs'>
-        <a class='nav-home' href='.container-home'></a>
-        <a class='nav-notif' href='.container-timeline'></a>
+        <a class='nav-home' href='.container-home' onclick="calliOSFunction('goHome', [])"></a>
+        <a class='nav-notif' href='.container-timeline' onclick="calliOSFunction('goTimeline', [])"></a>
         <a class='nav-social' href='.container-social'></a>
         <a class='nav-doc' href='.container-doc'></a>
       </div>
