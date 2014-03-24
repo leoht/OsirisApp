@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Gobelins. All rights reserved.
 //
 
-#define ApiConnectionUrl                @"ws://192.168.0.121:4567"
+#define ApiConnectionUrl                @"ws://localhost:4567"
 #define ApiWebUrl                       @"http://192.168.2.2:8080/tetris/web/_mobile"
 
 #define ApiFromDeviceToPlayer           @"device_to_player"
@@ -29,6 +29,7 @@
 #define ApiPrevChapter                  @"api.movie.prev"
 #define ApiNextChapter                  @"api.movie.next"
 #define ApiMovieInfo                    @"api.movie.info"
+#define ApiPostMessage                  @"api.social.post"
 
 #define ApiChooseNoticeSaidYes          @"api.chooser.yes"
 #define ApiChooseNoticeSaidNo           @"api.chooser.no"

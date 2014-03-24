@@ -4,6 +4,7 @@
     <meta charset='utf-8'>
     <link href='css/main.css' media='screen' rel='stylesheet'>
     <link href='css/timeline.css' media='screen' rel='stylesheet'>
+    <link href='css/social.css' media='screen' rel='stylesheet'>
     <script src='js/iosBridge.js'></script>
     <script src='js/jquery.js'></script>
     <script src='js/ui.js'></script>
@@ -60,20 +61,51 @@
       </div>
     </div>
     <!-- SOCIAL SCREEN -->
-    <div class='container-social'></div>
+    <div class='container container-social'>
+      <div class='social-form'>
+        <div>
+          <label>
+            <span class='label-main with-font'>Votre message</span>
+            <span class='helper'>140 caractères maximum</span>
+          </label>
+          <textarea id='message' placeholder='Votre message'></textarea>
+        </div>
+        <div>
+          <button class='button-link send'>Poster</button>
+          <label>
+            <span class='label-main with-font'>Destinataires</span>
+          </label>
+          <select id='dest'>
+            <option>Tous mes amis</option>
+          </select>
+        </div>
+      </div>
+    </div>
     <!-- DOC SCREEN -->
-    <div class='container-doc'></div>
+    <div class='container container-doc'></div>
+    <!-- ROADMAP SCREEN -->
+    <div class='container container-roadmap'></div>
+    <!-- SETTINGS SCREEN -->
+    <div class='container container-settings'></div>
     <nav class='navbar'>
       <div class='navbar-title with-font' onclick='calliOSFunction("quit", [])'>
         SC<span class='blue'>0</span>PE
       </div>
       <div class='navbar-tabs'>
         <a class='nav-home' href='.container-home' onclick="calliOSFunction('goHome', [])"></a>
-        <a class='nav-notif' href='.container-timeline' onclick="calliOSFunction('goTimeline', [])"></a>
-        <a class='nav-social' href='.container-social'></a>
-        <a class='nav-doc' href='.container-doc'></a>
+        <a class='nav-notif' href='.container-timeline' onclick="calliOSFunction('goTimeline', [])">
+          <!-- %span.unread-counter 0 -->
+        </a>
+        <a class='nav-social' href='.container-social' onclick="calliOSFunction('goSocial', [])"></a>
+        <a class='nav-doc' href='.container-doc' onclick="calliOSFunction('goDoc', [])"></a>
+        <a class='nav-profile'></a>
       </div>
     </nav>
+    <div class='profile-nav'>
+      <a class='nav-movie' href='.container-movie'>Mon film</a>
+      <a class='nav-roadmap' href='.container-roadmap'>Mon parcours</a>
+      <a class='nav-settings' href='.container-settings'>Réglages</a>
+    </div>
     <script src='js/raphael.js'></script>
     <script src='js/controls.js'></script>
   </body>

@@ -9,16 +9,13 @@
     font-style: normal;
 }
 
-* {
-	-webkit-user-select: none; /* disable selection/Copy of UIWebView */
-    -webkit-touch-callout: none; /* disable the IOS popup when long-press on a link */
-}
 
 body, html {
 	background-color: #19222b;
 	width: 100%;
 	overflow: hidden;
 	padding: 0; margin: 0;
+	font-family: sans-serif;
 }
 
 .container-timeline { display: none; }
@@ -33,22 +30,23 @@ body, html {
 
 .navbar {
 	position: absolute; left: 0; bottom: 0;
-	width: 100%; height: 60px;
+	width: 100%; height: 50px;
 	border-top: 2px solid white;
 	color: white;
 	background: #171e26;
+	z-index: 100;
 }
 
 .navbar-title {
 	font-size: 22px;
 	width: 30%;
 	text-align: center;
-	padding-top: 14px;
+	padding-top: 10px;
 	float: left;
 }
 
 .navbar-tabs a {
-	background-repeat: no-repeat; background-position: center 10px;
+	background-repeat: no-repeat; background-position: center 5px;
 }
 
 .nav-home { background-image: url(../images/nav-home.png);}
@@ -56,17 +54,38 @@ body, html {
 .nav-social { background-image: url(../images/nav-social.png);}
 .nav-doc { background-image: url(../images/nav-doc.png);}
 
-
+.navbar-tabs a.nav-profile {  background-image: url(../images/nav-profile.png); position: absolute; right: 0px; border-left: 0px;}
 
 .navbar-tabs a {
 	border-left: 2px solid white;
-	height: 60px;
+	height: 50px;
 	width: 8%;
-	padding-top: 14px;
+	padding-top: 10px;
 	text-align: center;
 	display: block;
 	float: left;
 }
+
+.profile-nav {
+	position: absolute; right: 0; bottom: -100px;
+	padding: 5px;
+	background: #f8f8f8;
+	width: 200px;
+	height: 120px;
+}
+
+.profile-nav a {
+	display: block;
+	padding: 12px 15px 12px 45px;
+	border-bottom: 1px solid #aaa;
+	font-size: 14px;
+	text-decoration: none;
+	color: black;
+}
+
+.profile-nav a.nav-movie { background: url('../images/nav-mymovie.png') no-repeat left center; }
+.profile-nav a.nav-roadmap { background: url('../images/nav-roadmap.png') no-repeat left center; }
+.profile-nav a.nav-settings { background: url('../images/nav-settings.png') no-repeat left center; border-bottom: 0px; }
 
 .video-controls {
 	width: 100%;
@@ -81,7 +100,7 @@ body, html {
 
 .video-controls button { width: 50px; height: 50px; background-repeat: no-repeat; border: none; background-color: #1c2632; }
 
-.video-controls #play { position: relative; top: 60px; background-image: url(../images/play.png); }
+.video-controls #play { width: 85px; height: 85px; position: relative; top: 40px; background-image: url(../images/play.png); }
 .video-controls #prev-chapter { position: absolute; top: 60px; left: 200px;  background-image: url(../images/prev-chapter.png); }
 .video-controls #rewind { position: absolute; top: 60px; left: 360px; background-image: url(../images/rewind.png); }
 .video-controls #forward { position: absolute; top: 60px; right: 360px; background-image: url(../images/forward.png); }

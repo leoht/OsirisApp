@@ -1,11 +1,12 @@
 var timelineScrollInterval = null;
+var profileMenuDisplayed = false;
 
 var beginTimelineScrolling = function () {
 	timelineScrollInterval = setInterval(function () {
 		$('.timeline-body').animate({
 			left: '-=1px'
-		}, 20);
-	}, 100);
+		}, 100);
+	}, 150);
 }
 
 var timelinePositionWithTimecode = function (seconds) {
@@ -14,7 +15,7 @@ var timelinePositionWithTimecode = function (seconds) {
 
 $(function () {
 
-	$('.navbar a').click(function (e) {
+	$('.navbar a[href]').click(function (e) {
 		e.preventDefault();
 
 		var hash = $(this).attr('href');
@@ -23,6 +24,21 @@ $(function () {
 		$(hash).show(0);
 	});
 
-	
+
+	$('.social-form .send').click(function (e) {
+		var message = $('.social-form textarea').val();
+		// TODO : handle select
+		calliOSFunction('postMessage', [message]);
+	});
+
+	$('.nav-profile').click(function (e) {
+		if (profileMenuDisplayed) {
+			$('.profile-nav').animate({ bottom: '-=150px' }, 400);
+			profileMenuDisplayed = false;
+		} else {
+			$('.profile-nav').animate({ bottom: '+=150px' }, 400);
+			profileMenuDisplayed = true;
+		}
+	});
 
 });

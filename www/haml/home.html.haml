@@ -4,6 +4,7 @@
     %meta{charset: "utf-8"}/
     %link{href: "css/main.css", media: "screen", rel: "stylesheet"}/
     %link{href: "css/timeline.css", media: "screen", rel: "stylesheet"}/
+    %link{href: "css/social.css", media: "screen", rel: "stylesheet"}/
     %script{src: "js/iosBridge.js"}
     %script{src: "js/jquery.js"}
     %script{src: "js/ui.js"}
@@ -51,11 +52,30 @@
         .timeline-current-time
 
     / SOCIAL SCREEN
-    .container-social
+    .container.container-social
+      .social-form
+        %div
+          %label
+            %span.label-main.with-font Votre message
+            %span.helper 140 caractères maximum
+          %textarea#message{ placeholder: 'Votre message' }
+        %div
+          %button.button-link.send Poster
+          %label
+            %span.label-main.with-font Destinataires
+          %select#dest
+            %option Tous mes amis
+
+        
 
     / DOC SCREEN
-    .container-doc
+    .container.container-doc
 
+    / ROADMAP SCREEN
+    .container.container-roadmap
+
+    / SETTINGS SCREEN
+    .container.container-settings
 
     %nav.navbar
       .navbar-title.with-font{ onclick: 'calliOSFunction("quit", [])'}
@@ -65,8 +85,16 @@
       .navbar-tabs
         %a.nav-home{href: ".container-home", onclick: "calliOSFunction('goHome', [])"}
         %a.nav-notif{href: ".container-timeline", onclick: "calliOSFunction('goTimeline', [])"}
-        %a.nav-social{href: ".container-social"}
-        %a.nav-doc{href: ".container-doc"}
+          / %span.unread-counter 0
+        %a.nav-social{href: ".container-social", onclick: "calliOSFunction('goSocial', [])"}
+        %a.nav-doc{href: ".container-doc", onclick: "calliOSFunction('goDoc', [])"}
+        %a.nav-profile
+
+    .profile-nav
+      %a.nav-movie{ href: ".container-movie" } Mon film
+      %a.nav-roadmap{ href: ".container-roadmap" } Mon parcours
+      %a.nav-settings{ href: ".container-settings" } Réglages 
+
 
     %script{src: "js/raphael.js"}
     %script{src: "js/controls.js"}

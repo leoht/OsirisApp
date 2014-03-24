@@ -8,7 +8,9 @@
 
 
 @interface MovieSummaryView ()
-    @property WebViewDelegate *webViewDelegate; @end
+    @property WebViewDelegate *webViewDelegate;
+    @property NSString *currentTimecode;
+@end
 
 @implementation MovieSummaryView
 
@@ -23,11 +25,11 @@
 {
     [super viewDidLoad];
     
-    StylizeWithScopeFont(self.timecodeLabel, 20);
+    StylizeWithScopeFont(self.timecodeLabel, 16);
     StylizeWithScopeFont(self.secondTimecodeLabel, 20);
     
     // load html timeline view
-    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+//    [[NSURLCache sharedURLCache] removeAllCachedResponses];
     self.webViewDelegate = [[WebViewDelegate alloc] initWithWebView:self.timelineWebView withWebViewInterface:self];
     
 	self.timelineWebView.scrollView.scrollEnabled = false;
@@ -35,6 +37,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserverForName:ApiPlayingAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSString *timecodeString = [NSString stringWithFormat:@"%@", [note.userInfo objectForKey:@"timecode"]];
+        [self setCurrentTimecode:timecodeString];
         [self.timecodeLabel setText:timecodeString];
         [self.secondTimecodeLabel setText:timecodeString];
         [ApiDelegate requestForNoticeAtTimecode:timecodeString withMovieId:[[VideoController movieInfo] objectForKey:@"movie_id"]];
@@ -109,6 +112,19 @@
     if ([name compare:@"goHome" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
         [self.timecodeLabel setHidden:NO];
         [self.secondTimecodeLabel setHidden:YES];
+    }
+    
+    if ([name compare:@"goSocial" options:NSCaseInsensitiveSearch] == NSOrderedSame
+        || [name compare:@"goDoc" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        [self.timecodeLabel setHidden:YES];
+        [self.secondTimecodeLabel setHidden:YES];
+    }
+    
+    if ([name compare:@"postMessage" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        NSString *message = (NSString *)[args objectAtIndex:0];
+        NSMutableDictionary *data = [NSMutableDictionary dictionaryWithObjects:@[message, [self currentTimecode]]
+                                                                       forKeys:@[@"message", @"timecode"]];
+        [ApiDelegate sendMessageNamed:ApiPostMessage withData:data];
     }
     
     if ([name compare:@"quit" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
