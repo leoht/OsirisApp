@@ -49,7 +49,7 @@
         
 		if (url != nil)
 		{
-       		NSURLRequest *req = [NSURLRequest requestWithURL:url];
+       		NSURLRequest *req = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:0];
             
        		[self.webView loadRequest:req];
 		}

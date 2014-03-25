@@ -20,28 +20,31 @@
         $('.timeline-body').css('left', timelinePositionWithTimecode(seconds));
       }
 
+      var onNewNotice = function (id, title, short_content, category) {
+        $('.timeline-last-notice .title').text(title);
+        $('.timeline-last-notice .content').text(short_content);
+        $('.timeline-last-notice').attr('data-notice-id', id);
+      }
+
       beginTimelineScrolling();
   %body
     / HOME SCREEN
     .container.container-home
       .home-header
         %h2.home-movie-title Métropolis
-      .chapter-slider
-        .last-chapter.chapter
-          %h4.chapter-title.with-font La découverte
-          %p.chapter-content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ull
+      / .chapter-slider
+      /   .last-chapter.chapter
+      /     %h4.chapter-title.with-font La découverte
+      /     %p.chapter-content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ull
       .video-controls
         .progressbar
           .progressbar-progress
-        %button#prev-chapter
-        %button#rewind
+        / %button#prev-chapter
+        / %button#rewind
         %button#play
-        %button#forward
-        %button#next-chapter
+        / %button#forward
+        / %button#next-chapter
 
-    / TIMELINE SCREEN
-    .container.container-timeline
-      .timeline-head
       .timeline-last-notice
         %h3.title.with-font Déshumanisation
         %p.content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse 
@@ -50,6 +53,11 @@
           .timeline-body
         
         .timeline-current-time
+
+    / / TIMELINE SCREEN
+    / .container.container-timeline
+    /   .timeline-head
+      
 
     / SOCIAL SCREEN
     .container.container-social
@@ -84,8 +92,8 @@
         PE
       .navbar-tabs
         %a.nav-home{href: ".container-home", onclick: "calliOSFunction('goHome', [])"}
-        %a.nav-notif{href: ".container-timeline", onclick: "calliOSFunction('goTimeline', [])"}
-          / %span.unread-counter 0
+        / %a.nav-notif{href: ".container-timeline", onclick: "calliOSFunction('goTimeline', [])"}
+        / %span.unread-counter 0
         %a.nav-social{href: ".container-social", onclick: "calliOSFunction('goSocial', [])"}
         %a.nav-doc{href: ".container-doc", onclick: "calliOSFunction('goDoc', [])"}
         %a.nav-profile

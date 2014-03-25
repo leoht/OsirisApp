@@ -25,6 +25,8 @@
 {
     [super viewDidLoad];
     
+    [self setCurrentTimecode:@"0"];
+    
     StylizeWithScopeFont(self.timecodeLabel, 16);
     StylizeWithScopeFont(self.secondTimecodeLabel, 20);
     
@@ -48,11 +50,17 @@
         NSLog(@"Notice !");
         
         [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onNewNotice('%@', '%@', '%@', '%@');",
-                                            [note.userInfo objectForKey:@"id"],
-                                            [note.userInfo objectForKey:@"title"],
-                                            [note.userInfo objectForKey:@"short_content"],
-                                            [note.userInfo objectForKey:@"category_nicename"]
+                        [note.userInfo objectForKey:@"id"],
+                        [note.userInfo objectForKey:@"title"],
+                        [note.userInfo objectForKey:@"short_content"],
+                        [note.userInfo objectForKey:@"category_nicename"]
         ]];
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:ApiCommentAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onNewComment('%@');",
+                        [note.userInfo objectForKey:@"comment"]
+                                                                              ]];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:WebViewLoaded object:nil queue:nil usingBlock:^(NSNotification *note) {
@@ -121,9 +129,11 @@
     }
     
     if ([name compare:@"postMessage" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
-        NSString *message = (NSString *)[args objectAtIndex:0];
-        NSMutableDictionary *data = [NSMutableDictionary dictionaryWithObjects:@[message, [self currentTimecode]]
-                                                                       forKeys:@[@"message", @"timecode"]];
+        NSLog(@"%@", args);
+        NSString *message = (NSString *)[args firstObject];
+        NSString *movieId = (NSString *)[[VideoController movieInfo] objectForKey:@"movie_id"];
+        NSMutableDictionary *data = [NSMutableDictionary dictionaryWithObjects:@[movieId, message, [self currentTimecode]]
+                                                                       forKeys:@[@"movie_id", @"message", @"timecode"]];
         [ApiDelegate sendMessageNamed:ApiPostMessage withData:data];
     }
     

@@ -30,6 +30,7 @@
 #define ApiNextChapter                  @"api.movie.next"
 #define ApiMovieInfo                    @"api.movie.info"
 #define ApiPostMessage                  @"api.social.post"
+#define ApiCommentAtTimecode            @"api.playing.comment"
 
 #define ApiChooseNoticeSaidYes          @"api.chooser.yes"
 #define ApiChooseNoticeSaidNo           @"api.chooser.no"

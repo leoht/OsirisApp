@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>24B88DA3-ABAC-43FA-BC60-778F86E2FA8A</string>
+	<string>B47ACB83-08F5-4B95-B902-89F7EAFBC918</string>
 	<key>IDESourceControlProjectName</key>
 	<string>CinemaAlphaProto</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>BC98C094-4B90-4446-B396-5044A6C6418A</key>
-		<string>https://github.com/leoht/ScopeApp</string>
+		<key>DAD8366F-01D0-451B-B5BA-CC297F9BF5B6</key>
+		<string>http://github.com/leoht/OsirisApp</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>CinemaAlphaProto.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>BC98C094-4B90-4446-B396-5044A6C6418A</key>
+		<key>DAD8366F-01D0-451B-B5BA-CC297F9BF5B6</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/leoht/ScopeApp</string>
+	<string>http://github.com/leoht/OsirisApp</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>BC98C094-4B90-4446-B396-5044A6C6418A</string>
+	<string>DAD8366F-01D0-451B-B5BA-CC297F9BF5B6</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>BC98C094-4B90-4446-B396-5044A6C6418A</string>
+			<string>DAD8366F-01D0-451B-B5BA-CC297F9BF5B6</string>
 			<key>IDESourceControlWCCName</key>
-			<string>ProtoAlpha</string>
+			<string>CinemaProtoAlpha</string>
 		</dict>
 	</array>
 </dict>

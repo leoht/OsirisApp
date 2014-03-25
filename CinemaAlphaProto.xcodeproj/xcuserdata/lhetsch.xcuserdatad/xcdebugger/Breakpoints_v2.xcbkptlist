@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CinemaAlphaProto/MovieSummaryView.m"
-            timestampString = "415015131.749632"
+            timestampString = "417366840.537624"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
             landmarkName = "@implementation MovieSummaryView"
             landmarkType = "3">
          </BreakpointContent>

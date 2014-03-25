@@ -39,7 +39,7 @@ body, html {
 
 .navbar-title {
 	font-size: 22px;
-	width: 30%;
+	width: 35%;
 	text-align: center;
 	padding-top: 10px;
 	float: left;
@@ -52,7 +52,7 @@ body, html {
 .nav-home { background-image: url(../images/nav-home.png);}
 .nav-notif { background-image: url(../images/nav-notif.png);}
 .nav-social { background-image: url(../images/nav-social.png);}
-.nav-doc { background-image: url(../images/nav-doc.png);}
+.nav-doc { background-image: url(../images/nav-doc.png); border-right: 2px solid white;}
 
 .navbar-tabs a.nav-profile {  background-image: url(../images/nav-profile.png); position: absolute; right: 0px; border-left: 0px;}
 
@@ -93,14 +93,14 @@ body, html {
 	position: absolute; bottom: 60px;
 	background: #1c2632;
 	text-align: center;
-	background-image: url(../images/video-controls-layout.png);
+	/*background-image: url(../images/video-controls-layout.png);*/
 	background-repeat: repeat-x;
 	background-position: left center;
 }
 
 .video-controls button { width: 50px; height: 50px; background-repeat: no-repeat; border: none; background-color: #1c2632; }
 
-.video-controls #play { width: 85px; height: 85px; position: relative; top: 40px; background-image: url(../images/play.png); }
+.video-controls #play { width: 85px; height: 85px; position: absolute; bottom: 30px; right: 30px; background-image: url(../images/play.png); }
 .video-controls #prev-chapter { position: absolute; top: 60px; left: 200px;  background-image: url(../images/prev-chapter.png); }
 .video-controls #rewind { position: absolute; top: 60px; left: 360px; background-image: url(../images/rewind.png); }
 .video-controls #forward { position: absolute; top: 60px; right: 360px; background-image: url(../images/forward.png); }

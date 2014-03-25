@@ -20,6 +20,12 @@
         $('.timeline-body').css('left', timelinePositionWithTimecode(seconds));
       }
       
+      var onNewNotice = function (id, title, short_content, category) {
+        $('.timeline-last-notice .title').text(title);
+        $('.timeline-last-notice .content').text(short_content);
+        $('.timeline-last-notice').attr('data-notice-id', id);
+      }
+      
       beginTimelineScrolling();
     </script>
   </head>
@@ -29,26 +35,20 @@
       <div class='home-header'>
         <h2 class='home-movie-title'>Métropolis</h2>
       </div>
-      <div class='chapter-slider'>
-        <div class='last-chapter chapter'>
-          <h4 class='chapter-title with-font'>La découverte</h4>
-          <p class='chapter-content'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ull</p>
-        </div>
-      </div>
+      <!-- .chapter-slider -->
+      <!-- .last-chapter.chapter -->
+      <!-- %h4.chapter-title.with-font La découverte -->
+      <!-- %p.chapter-content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ull -->
       <div class='video-controls'>
         <div class='progressbar'>
           <div class='progressbar-progress'></div>
         </div>
-        <button id='prev-chapter'></button>
-        <button id='rewind'></button>
+        <!-- %button#prev-chapter -->
+        <!-- %button#rewind -->
         <button id='play'></button>
-        <button id='forward'></button>
-        <button id='next-chapter'></button>
+        <!-- %button#forward -->
+        <!-- %button#next-chapter -->
       </div>
-    </div>
-    <!-- TIMELINE SCREEN -->
-    <div class='container container-timeline'>
-      <div class='timeline-head'></div>
       <div class='timeline-last-notice'>
         <h3 class='title with-font'>Déshumanisation</h3>
         <p class='content'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</p>
@@ -60,6 +60,9 @@
         <div class='timeline-current-time'></div>
       </div>
     </div>
+    <!-- / TIMELINE SCREEN -->
+    <!-- .container.container-timeline -->
+    <!-- .timeline-head -->
     <!-- SOCIAL SCREEN -->
     <div class='container container-social'>
       <div class='social-form'>
@@ -93,9 +96,8 @@
       </div>
       <div class='navbar-tabs'>
         <a class='nav-home' href='.container-home' onclick="calliOSFunction('goHome', [])"></a>
-        <a class='nav-notif' href='.container-timeline' onclick="calliOSFunction('goTimeline', [])">
-          <!-- %span.unread-counter 0 -->
-        </a>
+        <!-- %a.nav-notif{href: ".container-timeline", onclick: "calliOSFunction('goTimeline', [])"} -->
+        <!-- %span.unread-counter 0 -->
         <a class='nav-social' href='.container-social' onclick="calliOSFunction('goSocial', [])"></a>
         <a class='nav-doc' href='.container-doc' onclick="calliOSFunction('goDoc', [])"></a>
         <a class='nav-profile'></a>
