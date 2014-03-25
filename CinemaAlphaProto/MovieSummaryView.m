@@ -43,33 +43,50 @@
         [self.timecodeLabel setText:timecodeString];
         [self.secondTimecodeLabel setText:timecodeString];
         [ApiDelegate requestForNoticeAtTimecode:timecodeString withMovieId:[[VideoController movieInfo] objectForKey:@"movie_id"]];
+        [ApiDelegate requestForCommentAtTimecode:timecodeString withMovieId:[[VideoController movieInfo] objectForKey:@"movie_id"]];
+
         [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setTimecode('%@')", [note.userInfo objectForKey:@"timecode"]]];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:ApiNoticeAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
-        NSLog(@"Notice !");
+        NSLog(@"Notice ! %@", note.userInfo);
+        
+        NSString *id = (NSMutableString *)[note.userInfo objectForKey:@"id"];
+        NSString *title = (NSMutableString *)[note.userInfo objectForKey:@"title"];
+        NSString *content = (NSMutableString *)[note.userInfo objectForKey:@"short_content"];
+        NSString *category = (NSMutableString *)[note.userInfo objectForKey:@"category_nicename"];
         
         [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onNewNotice('%@', '%@', '%@', '%@');",
-                        [note.userInfo objectForKey:@"id"],
-                        [note.userInfo objectForKey:@"title"],
-                        [note.userInfo objectForKey:@"short_content"],
-                        [note.userInfo objectForKey:@"category_nicename"]
+                        [id stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"],
+                        [title stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"],
+                        [content stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"],
+                        [category stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"]
         ]];
     }];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:ApiCommentAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
-        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onNewComment('%@');",
-                        [note.userInfo objectForKey:@"comment"]
-                                                                              ]];
-    }];
+//    [[NSNotificationCenter defaultCenter] addObserverForName:ApiCommentAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
+//        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onNewComment('%@');",
+//                        [note.userInfo objectForKey:@"comment"]
+//                                                                              ]];
+//    }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:WebViewLoaded object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSMutableDictionary * info = [VideoController movieInfo];
         [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setMovieInfo('%@','%@'); movieDuration = %@",
-                                                                              [info objectForKey:@"title"],
-                                                                              [info objectForKey:@"author"],
-                                                                              [info objectForKey:@"duration"]
-                                                                              ]];
+                [info objectForKey:@"title"],
+                [info objectForKey:@"author"],
+                [info objectForKey:@"duration"]
+        ]];
+        
+        // If the user is logged in, retrieve FB info to display it in view
+        if ([FacebookConnectionManager isSessionOpened]) {
+            NSLog(@"Logged with FB");
+            NSMutableDictionary *userInfo = [FacebookConnectionManager userInfo];
+            [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setUserInfo('%@ %@', '%@');",
+                [userInfo objectForKey:@"first_name"], [userInfo objectForKey:@"last_name"],
+                [FacebookConnectionManager getUserImageUrl]
+            ]];
+        }
     }];
 }
 

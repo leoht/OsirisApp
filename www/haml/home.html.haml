@@ -26,6 +26,13 @@
         $('.timeline-last-notice').attr('data-notice-id', id);
       }
 
+      var onNewComment = function () {}
+
+      var setUserInfo = function (name, imageUrl) {
+        $('.profile-name').text(name);
+        $('.navbar-tabs a.nav-profile').css('background-image', 'url('+imageUrl+')');
+      }
+
       beginTimelineScrolling();
   %body
     / HOME SCREEN
@@ -46,8 +53,8 @@
         / %button#next-chapter
 
       .timeline-last-notice
-        %h3.title.with-font Déshumanisation
-        %p.content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse 
+        %h3.title.with-font 
+        %p.content 
       .timeline
         .timeline-body-container
           .timeline-body
@@ -78,6 +85,18 @@
 
     / DOC SCREEN
     .container.container-doc
+      .doc-head
+        %h2.home-movie-title.doc-movie-title Métropolis
+        %h3 Documentation
+      .doc-main.doc-home
+        .doc-search
+
+        .doc-block.doc-movie-info
+        .doc-block.doc-themes
+        .doc-block.doc-analyses
+        .doc-block.doc-impact
+        .doc-block.doc-anecdotes
+        .doc-block.doc-social
 
     / ROADMAP SCREEN
     .container.container-roadmap
@@ -97,6 +116,7 @@
         %a.nav-social{href: ".container-social", onclick: "calliOSFunction('goSocial', [])"}
         %a.nav-doc{href: ".container-doc", onclick: "calliOSFunction('goDoc', [])"}
         %a.nav-profile
+          .profile-name
 
     .profile-nav
       %a.nav-movie{ href: ".container-movie" } Mon film

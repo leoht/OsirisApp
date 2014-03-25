@@ -9,6 +9,7 @@
 
 @implementation FacebookConnectionManager
 
+static NSMutableDictionary *userInfo;
 static NSURLConnection *connection;
 static FacebookConnectionManager *sharedObject;
 
@@ -74,6 +75,17 @@ static FacebookConnectionManager *sharedObject;
     return sharedObject;
 }
 
++ (NSString *)getUserImageUrl {
+    return [NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=small", [userInfo objectForKey:@"id"]];
+}
+
++ (NSMutableDictionary *) userInfo {
+    return userInfo;
+}
+
++ (void)setUserInfo:(NSMutableDictionary *)info {
+    userInfo = info;
+}
 
 #pragma mark NSURLConnection Delegate Methods
 
@@ -89,12 +101,15 @@ static FacebookConnectionManager *sharedObject;
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-        // convert to JSON
+    // convert to JSON
     NSError *error = nil;
-    NSDictionary *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&error];
+    NSMutableDictionary *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&error];
+    
+    NSLog(@"%@", res);
     
     NSString *facebookId = (NSString *) [res objectForKey:@"id"];
     [ApiDelegate requestForTokenWithFacebookId:facebookId];
+    userInfo = res;
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {

@@ -20,6 +20,7 @@
 
 #define ApiPlayingAtTimecode            @"api.playing.current_timecode"
 #define ApiRequestForNoticeAtTimecode   @"api.playing.request_notice"
+#define ApiRequestForCommentAtTimecode  @"api.playing.request_comment"
 #define ApiNoticeAtTimecode             @"api.playing.notice"
 #define ApiRequestPlay                  @"api.movie.play"
 #define ApiRequestPause                 @"api.movie.pause"

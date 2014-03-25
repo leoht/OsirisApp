@@ -16,5 +16,8 @@
 + (BOOL)isSessionOpened;
 + (void)initializeFacebookSession;
 + (void)sessionStateChanged:(FBSession *)session state:(FBSessionState)state error:(NSError *)error;
++ (NSMutableDictionary *)userInfo;
++ (void) setUserInfo:(NSMutableDictionary *)info;
++ (NSString *) getUserImageUrl;
 
 @end

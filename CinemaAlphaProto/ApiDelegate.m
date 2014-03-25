@@ -74,6 +74,17 @@ static NSString *token;
     [self sendMessageNamed:ApiRequestForNoticeAtTimecode withData:data];
 }
 
+
++ (void)requestForCommentAtTimecode:(NSString *)timecode withMovieId:(NSString *)movieId {
+    NSLog(@"Requesting for comment at timecode %@ for movie ID : %@", timecode, movieId);
+    
+    NSDictionary *data = [[NSDictionary alloc] initWithObjectsAndKeys:
+                          timecode, @"timecode",
+                          movieId, @"movie_id", nil];
+    
+    [self sendMessageNamed:ApiRequestForCommentAtTimecode withData:data];
+}
+
 + (void)sendMessageNamed:(NSString *)name withData:(id)data {
     NSString *token = [[ApiDelegate sharedDelegate] token];
     

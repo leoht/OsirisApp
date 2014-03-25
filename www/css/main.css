@@ -54,7 +54,15 @@ body, html {
 .nav-social { background-image: url(../images/nav-social.png);}
 .nav-doc { background-image: url(../images/nav-doc.png); border-right: 2px solid white;}
 
-.navbar-tabs a.nav-profile {  background-image: url(../images/nav-profile.png); position: absolute; right: 0px; border-left: 0px;}
+.navbar-tabs a.nav-profile {
+	width: 200px;  
+	background-image: url(../images/nav-profile.png);
+	background-position: right 5px;
+	position: absolute; 
+	right: 0px; 
+	border-left: 0px;
+	padding-top: 16px;
+}
 
 .navbar-tabs a {
 	border-left: 2px solid white;
@@ -68,6 +76,7 @@ body, html {
 
 .profile-nav {
 	position: absolute; right: 0; bottom: -100px;
+	z-index: 80;
 	padding: 5px;
 	background: #f8f8f8;
 	width: 200px;
@@ -100,7 +109,7 @@ body, html {
 
 .video-controls button { width: 50px; height: 50px; background-repeat: no-repeat; border: none; background-color: #1c2632; }
 
-.video-controls #play { width: 85px; height: 85px; position: absolute; bottom: 30px; right: 30px; background-image: url(../images/play.png); }
+.video-controls #play { width: 85px; height: 85px; position: absolute; bottom: 30px; right: 30px; z-index: 50; background-image: url(../images/play.png); }
 .video-controls #prev-chapter { position: absolute; top: 60px; left: 200px;  background-image: url(../images/prev-chapter.png); }
 .video-controls #rewind { position: absolute; top: 60px; left: 360px; background-image: url(../images/rewind.png); }
 .video-controls #forward { position: absolute; top: 60px; right: 360px; background-image: url(../images/forward.png); }
@@ -134,4 +143,27 @@ body, html {
 }
 .chapter .chapter-content {
 	font-family: sans-serif;
+}
+
+
+/******* DOC *********/
+
+.doc-head {
+	width: 100%; text-align: center;
+}
+
+.doc-head .doc-movie-title { font-size: 38px; margin-bottom: 0px; }
+.doc-head h3 { color: white; text-transform: uppercase; font-weight: normal;}
+
+.doc-home {
+	width: 790px; margin: 50px auto 0 auto;
+}
+
+.doc-block {
+	width: 230px; height: 230px;
+	background-color: #fff;
+	float: left;
+	display: block;
+	margin-left: 30px;
+	margin-bottom: 30px;
 }
