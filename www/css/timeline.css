@@ -21,21 +21,25 @@
 }
 
 .timeline {
-	position: absolute; left: 0px; bottom: 110px;
+	position: absolute; left: 0px; bottom: 60px;
 	width: 100%; 
 }
 
 .timeline-body-container {
 	width: 87%;
-	height: 50px;
+	height: 150px;
 	overflow: hidden;
 }
 
 .timeline-body {
 	background: url('../images/timeline-layout.png') repeat-x center center;
 	width: 4500px; /* test : to remove */
-	height: 50px;
+	height: 150px;
 	position: relative;
+}
+
+.timeline-notice {
+	position: absolute; top: 25px; width: 35px; height: 18px; background: url(../images/notif-picto-analyse.png) no-repeat;
 }
 
 .nav-notif .unread-counter {

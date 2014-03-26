@@ -18,13 +18,14 @@
       var setTimecode = function (seconds) {
       	var w = (seconds * $('.progressbar').width()) / movieDuration;
       	$('.progressbar-progress').css('width', w);
-        $('.timeline-body').css('left', timelinePositionWithTimecode(seconds));
+        $('.timeline-body').css('left', timelinePositionWithTimecode(seconds)+'%');
       }
       
-      var onNewNotice = function (id, title, short_content, category) {
+      var onNewNotice = function (timecode, id, title, short_content, category) {
         $('.timeline-last-notice .title').text(title);
         $('.timeline-last-notice .content').text(short_content);
         $('.timeline-last-notice').attr('data-notice-id', id);
+        addNoticeOnTimeline(timecode, category);
       }
       
       var onNewComment = function () {}

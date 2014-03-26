@@ -311,13 +311,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYZ-Ju-Jyy">
-                                <rect key="frame" x="425" y="585" width="174" height="99"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -327,7 +320,6 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="secondTimecodeLabel" destination="jZ1-pt-DsG" id="2oR-Bg-qEE"/>
-                        <outlet property="timecodeLabel" destination="eYZ-Ju-Jyy" id="v1X-z5-u1U"/>
                         <outlet property="timelineWebView" destination="JGo-6d-mEf" id="CUH-3I-Sr5"/>
                         <segue destination="giZ-5b-ajc" kind="push" identifier="BackToEntryPointSegue" id="a6C-3J-dke"/>
                     </connections>

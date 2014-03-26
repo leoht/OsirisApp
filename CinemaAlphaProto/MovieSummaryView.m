@@ -27,7 +27,6 @@
     
     [self setCurrentTimecode:@"0"];
     
-    StylizeWithScopeFont(self.timecodeLabel, 16);
     StylizeWithScopeFont(self.secondTimecodeLabel, 20);
     
     // load html timeline view
@@ -40,7 +39,6 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:ApiPlayingAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSString *timecodeString = [NSString stringWithFormat:@"%@", [note.userInfo objectForKey:@"timecode"]];
         [self setCurrentTimecode:timecodeString];
-        [self.timecodeLabel setText:timecodeString];
         [self.secondTimecodeLabel setText:timecodeString];
         [ApiDelegate requestForNoticeAtTimecode:timecodeString withMovieId:[[VideoController movieInfo] objectForKey:@"movie_id"]];
         [ApiDelegate requestForCommentAtTimecode:timecodeString withMovieId:[[VideoController movieInfo] objectForKey:@"movie_id"]];
@@ -56,7 +54,8 @@
         NSString *content = (NSMutableString *)[note.userInfo objectForKey:@"short_content"];
         NSString *category = (NSMutableString *)[note.userInfo objectForKey:@"category_nicename"];
         
-        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onNewNotice('%@', '%@', '%@', '%@');",
+        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onNewNotice('%@', '%@', '%@', '%@', '%@');",
+                        [note.userInfo objectForKey:@"timecode"],
                         [id stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"],
                         [title stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"],
                         [content stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"],
@@ -72,7 +71,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserverForName:WebViewLoaded object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSMutableDictionary * info = [VideoController movieInfo];
-        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setMovieInfo('%@','%@'); movieDuration = %@",
+        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setMovieInfo('%@','%@'); movieDuration = %@;",
                 [info objectForKey:@"title"],
                 [info objectForKey:@"author"],
                 [info objectForKey:@"duration"]
@@ -139,19 +138,12 @@
         [VideoController prevChapter];
     }
     
-    if ([name compare:@"goTimeline" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
-        [self.timecodeLabel setHidden:YES];
-        [self.secondTimecodeLabel setHidden:NO];
-    }
-    
     if ([name compare:@"goHome" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
-        [self.timecodeLabel setHidden:NO];
-        [self.secondTimecodeLabel setHidden:YES];
+        [self.secondTimecodeLabel setHidden:NO];
     }
     
     if ([name compare:@"goSocial" options:NSCaseInsensitiveSearch] == NSOrderedSame
         || [name compare:@"goDoc" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
-        [self.timecodeLabel setHidden:YES];
         [self.secondTimecodeLabel setHidden:YES];
     }
     
