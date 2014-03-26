@@ -6,10 +6,19 @@
 	padding-top: 40px;
 	background: #e8e9eb;
 	text-align: center;
+	position: relative;
 }
 
 .timeline-last-notice .title { font-size: 28px; text-transform: uppercase; }
-.timeline-last-notice .content { font-family: sans-serif; font-size: 20px; line-height: 26px; width: 60%; margin: auto; }
+.timeline-last-notice .content { font-size: 20px; line-height: 26px; width: 60%; margin: auto; }
+.timeline-last-notice .display-notice-btn {
+	color: #94979c;
+	padding-top: 20px;
+	font-size: 13px;
+	background: url(../images/display-notice-btn.png) no-repeat center top;
+	position: absolute; bottom: 15px;
+	width: 100%; text-align: center;
+}
 
 .timeline {
 	position: absolute; left: 0px; bottom: 110px;

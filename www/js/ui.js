@@ -32,6 +32,7 @@ $(function () {
 	});
 
 	$('.nav-profile').click(function (e) {
+		// e.stopPropagation();
 		if (profileMenuDisplayed) {
 			$('.profile-nav').animate({ bottom: '-=150px' }, 400);
 			profileMenuDisplayed = false;
@@ -40,5 +41,16 @@ $(function () {
 			profileMenuDisplayed = true;
 		}
 	});
+
+	// $('.profile-nav').click(function (e) {
+	// 	e.stopPropagation();
+	// }) ;
+
+	// $('.container').click(function (e) {
+	// 	if (profileMenuDisplayed) {
+	// 		$('.profile-nav').animate({ bottom: '-=150px' }, 400);
+	// 		profileMenuDisplayed = false;
+	// 	} 
+	// })
 
 });

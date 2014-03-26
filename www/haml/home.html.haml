@@ -7,6 +7,7 @@
     %link{href: "css/social.css", media: "screen", rel: "stylesheet"}/
     %script{src: "js/iosBridge.js"}
     %script{src: "js/jquery.js"}
+    %script{src: "js/fastclick.js"}
     %script{src: "js/ui.js"}
     :javascript
       var setMovieInfo = function (title, author) {
@@ -33,6 +34,10 @@
         $('.navbar-tabs a.nav-profile').css('background-image', 'url('+imageUrl+')');
       }
 
+      $(function() {
+          FastClick.attach(document.body);
+      });
+
       beginTimelineScrolling();
   %body
     / HOME SCREEN
@@ -55,6 +60,8 @@
       .timeline-last-notice
         %h3.title.with-font 
         %p.content 
+        / .display-notice-btn
+        /   En savoir +
       .timeline
         .timeline-body-container
           .timeline-body

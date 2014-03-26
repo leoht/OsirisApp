@@ -180,6 +180,7 @@
         if (![VideoController isPaused]) {
             [VideoController togglePlayPause];
         }
+        [FBSession.activeSession closeAndClearTokenInformation];
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }
