@@ -85,16 +85,16 @@ body, html {
 
 .profile-nav a {
 	display: block;
-	padding: 12px 15px 12px 45px;
+	padding: 12px 15px 12px 50px;
 	border-bottom: 1px solid #aaa;
 	font-size: 14px;
 	text-decoration: none;
 	color: black;
 }
 
-.profile-nav a.nav-movie { background: url('../images/nav-mymovie.png') no-repeat left center; }
-.profile-nav a.nav-roadmap { background: url('../images/nav-roadmap.png') no-repeat left center; }
-.profile-nav a.nav-settings { background: url('../images/nav-settings.png') no-repeat left center; border-bottom: 0px; }
+.profile-nav a.nav-movie { background: url('../images/nav-mymovie.png') no-repeat 5px center; }
+.profile-nav a.nav-roadmap { background: url('../images/nav-roadmap.png') no-repeat 5px center; }
+.profile-nav a.nav-settings { background: url('../images/nav-settings.png') no-repeat 5px center; border-bottom: 0px; }
 
 .video-controls {
 	width: 100%;

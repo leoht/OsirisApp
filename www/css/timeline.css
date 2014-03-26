@@ -24,7 +24,7 @@
 
 .timeline-body {
 	background: url('../images/timeline-layout.png') repeat-x center center;
-	width: 2500px; /* test : to remove */
+	width: 4500px; /* test : to remove */
 	height: 50px;
 	position: relative;
 }

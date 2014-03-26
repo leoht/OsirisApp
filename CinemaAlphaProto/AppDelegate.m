@@ -40,6 +40,9 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     [FBSession.activeSession closeAndClearTokenInformation];
+    if (![VideoController isPaused]) {
+        [VideoController togglePlayPause];
+    }
 }
 
 - (void)adaptStoryboardForScreen {

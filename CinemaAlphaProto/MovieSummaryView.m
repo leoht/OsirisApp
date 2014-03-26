@@ -7,7 +7,7 @@
 //
 
 
-@interface MovieSummaryView ()
+@interface MovieSummaryView () <UIAlertViewDelegate>
     @property WebViewDelegate *webViewDelegate;
     @property NSString *currentTimecode;
 @end
@@ -108,6 +108,16 @@
 //    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
+- (void) showExitConfirmAlert {
+    UIAlertView *alert = [[UIAlertView alloc] init];
+    [alert setTitle:@"Retour à l'accueil"];
+    [alert setMessage:@"Voulez-vous vraiment quitter ce film ?"];
+    [alert setDelegate:self];
+    [alert addButtonWithTitle:@"Oui"];
+    [alert addButtonWithTitle:@"Non"];
+    [alert show];
+}
+
 - (id) processFunctionFromJS:(NSString *)name withArgs:(NSArray *)args error:(NSError *__autoreleasing *)error {
     if ([name compare:@"togglePlayPause" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
         [VideoController togglePlayPause];
@@ -155,11 +165,23 @@
     }
     
     if ([name compare:@"quit" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
-        [ApiDelegate clearToken];
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        [self showExitConfirmAlert];
     }
     
     return nil;
+}
+
+
+#pragma mark - UIAlertView delegate methods
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [ApiDelegate clearToken];
+        if (![VideoController isPaused]) {
+            [VideoController togglePlayPause];
+        }
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 
 @end
