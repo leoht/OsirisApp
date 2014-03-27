@@ -1,38 +1,21 @@
 var movieDuration = 0;
+var isPaused = true;
 
 $(function () {
-
-	$('#forward')
-		.bind('touchstart', function (e) {
-			e.preventDefault();
-			calliOSFunction('toggleFastForward', []);
-		}).bind('touchend', function () {
-			calliOSFunction('toggleFastForward', []);
-		});
-
-	$('#rewind')
-		.bind('touchstart', function (e) {
-			e.preventDefault();
-			calliOSFunction('toggleFastRewind', []);
-		}).bind('touchend', function () {
-			calliOSFunction('toggleFastRewind', []);
-		});
 
 	$('#play')
 		.bind('touchstart', function (e) {
 			e.preventDefault();
+			isPaused = !isPaused;
 			calliOSFunction('togglePlayPause', []);
+
+			if (!isPaused) {
+				$('.video-controls #play').css('background-image', 'url(../images/pause.png);');
+				beginTimelineScrolling();
+			} else {
+				$('.video-controls #play').css('background-image', 'url(../images/play.png);');
+				stopTimelineScrolling();
+			}
 		});
 
-	$('#prev-chapter')
-		.bind('touchstart', function (e) {
-			e.preventDefault();
-			calliOSFunction('prevChapter', []);
-		});
-
-	$('#next-chapter')
-		.bind('touchstart', function (e) {
-			e.preventDefault();
-			calliOSFunction('nextChapter', []);
-		});
 })

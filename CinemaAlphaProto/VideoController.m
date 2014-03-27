@@ -24,6 +24,10 @@ static NSMutableDictionary *movieInfo;
     return isPaused;
 }
 
++ (void)setPaused:(BOOL)paused {
+    isPaused = paused;
+}
+
 + (void)togglePlayPause {
     if (isPaused) {
         [ApiDelegate sendMessageNamed:ApiRequestPlay withData:nil];

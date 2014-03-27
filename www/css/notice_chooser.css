@@ -3,11 +3,11 @@ html, body {
 }
 
 .yes, .no {
-	width: 135px; height: 135px;
+	width: 64px; height: 64px; background-repeat: no-repeat;
 }
 
-.yes { position: absolute; top: 250px; right: 80px; background-image: url(../images/choose-yes.png);}
-.no  { position: absolute; top: 250px; left: 80px; background-image: url(../images/choose-no.png); }
+.yes { position: absolute; top: 250px; right: 150px; background-image: url(../images/choose-yes.png);}
+.no  { position: absolute; top: 250px; left: 150px; background-image: url(../images/choose-no.png); }
 
 .notice-slider {
 	width: 100%;

@@ -19,5 +19,6 @@
 + (NSMutableDictionary *)userInfo;
 + (void) setUserInfo:(NSMutableDictionary *)info;
 + (NSString *) getUserImageUrl;
++ (NSString *) getUserName;
 
 @end

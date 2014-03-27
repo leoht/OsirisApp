@@ -39,7 +39,7 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:ApiPlayingAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSString *timecodeString = [NSString stringWithFormat:@"%@", [note.userInfo objectForKey:@"timecode"]];
         [self setCurrentTimecode:timecodeString];
-        [self.secondTimecodeLabel setText:timecodeString];
+        [self.secondTimecodeLabel setText:[self formatTimecode:timecodeString]];
         [ApiDelegate requestForNoticeAtTimecode:timecodeString withMovieId:[[VideoController movieInfo] objectForKey:@"movie_id"]];
         [ApiDelegate requestForCommentAtTimecode:timecodeString withMovieId:[[VideoController movieInfo] objectForKey:@"movie_id"]];
 
@@ -54,20 +54,24 @@
         NSString *content = (NSMutableString *)[note.userInfo objectForKey:@"short_content"];
         NSString *category = (NSMutableString *)[note.userInfo objectForKey:@"category_nicename"];
         
+        NSLog(@"%@", category);
+        
         [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onNewNotice('%@', '%@', '%@', '%@', '%@');",
                         [note.userInfo objectForKey:@"timecode"],
-                        [id stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"],
+                        id,
                         [title stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"],
                         [content stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"],
-                        [category stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"]
+                        category
         ]];
     }];
     
-//    [[NSNotificationCenter defaultCenter] addObserverForName:ApiCommentAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
-//        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onNewComment('%@');",
-//                        [note.userInfo objectForKey:@"comment"]
-//                                                                              ]];
-//    }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:ApiCommentAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onNewComment('%@', '%@', '%@');",
+                        [note.userInfo objectForKey:@"comment"],
+                        [note.userInfo objectForKey:@"author"],
+                        [note.userInfo objectForKey:@"timecode"]
+        ]];
+    }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:WebViewLoaded object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSMutableDictionary * info = [VideoController movieInfo];
@@ -87,6 +91,19 @@
             ]];
         }
     }];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:ApiRequestPlay object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [VideoController setPaused:NO];
+        NSLog(@"Web player now playing.");
+        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:@"onPlay()"];
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:ApiRequestPause object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [VideoController setPaused:NO];
+        NSLog(@"Web player now paused.");
+        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:@"onPause()"];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -105,6 +122,16 @@
 //    NSLog(@"%@", url);
 //    NSURLRequest *request = [NSURLRequest requestWithURL:url];
 //    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+}
+
+- (NSString *) formatTimecode:(NSString *)timecode {
+    NSInteger s = [timecode intValue];
+    NSInteger m = s / 60;
+    s %= 60;
+    NSInteger h = s / 60;
+    s %= 60;
+    
+    return [NSString stringWithFormat:@"%d:%02d:%02d", h, m, s];
 }
 
 - (void) showExitConfirmAlert {
@@ -151,8 +178,10 @@
         NSLog(@"%@", args);
         NSString *message = (NSString *)[args firstObject];
         NSString *movieId = (NSString *)[[VideoController movieInfo] objectForKey:@"movie_id"];
-        NSMutableDictionary *data = [NSMutableDictionary dictionaryWithObjects:@[movieId, message, [self currentTimecode]]
-                                                                       forKeys:@[@"movie_id", @"message", @"timecode"]];
+        NSString *facebookId = [[FacebookConnectionManager userInfo] objectForKey:@"id"];
+        NSMutableDictionary *data = [NSMutableDictionary
+                                     dictionaryWithObjects:@[movieId, facebookId, message, [self currentTimecode]]
+                                     forKeys:@[@"movie_id", @"facebook_id", @"message", @"timecode"]];
         [ApiDelegate sendMessageNamed:ApiPostMessage withData:data];
     }
     

@@ -79,6 +79,13 @@ static FacebookConnectionManager *sharedObject;
     return [NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=small", [userInfo objectForKey:@"id"]];
 }
 
++ (NSString *)getUserName {
+    return [NSString stringWithFormat:@"%@ %@",
+             [userInfo objectForKey:@"first_name"],
+             [userInfo objectForKey:@"last_name"]
+            ];
+}
+
 + (NSMutableDictionary *) userInfo {
     return userInfo;
 }

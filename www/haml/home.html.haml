@@ -9,27 +9,46 @@
     %script{src: "js/jquery.js"}
     %script{src: "js/fastclick.js"}
     %script{src: "js/ui.js"}
+    %script{src: "js/controls.js"}
     :javascript
 
+      var onPlay = function () {
+        isPaused = false;
+        beginTimelineScrolling();
+      };
+
+      var onPause = function () {
+        isPaused = true;
+        stopTimelineScrolling();
+      };
+
       var setMovieInfo = function (title, author) {
-        $('.home-movie-title').text(title);
+        $('.nav-movie-title').text(title);
       };
 
       // move the progress bar using timecode
       var setTimecode = function (seconds) {
       	var w = (seconds * $('.progressbar').width()) / movieDuration;
-      	$('.progressbar-progress').css('width', w);
-        $('.timeline-body').css('left', timelinePositionWithTimecode(seconds)+'%');
+
+        if (!isTimelineScrolling)
+          $('.timeline-body').css('left', timelinePositionWithTimecode(seconds)+'%');
       }
 
       var onNewNotice = function (timecode, id, title, short_content, category) {
         $('.timeline-last-notice .title').text(title);
         $('.timeline-last-notice .content').text(short_content);
         $('.timeline-last-notice').attr('data-notice-id', id);
+        $('.timeline-cat-icon').show(0);
+        $('.timeline-cat-icon img').attr('src', 'images/cat-'+category+'.png');
         addNoticeOnTimeline(timecode, category);
       }
 
-      var onNewComment = function () {}
+      var onNewComment = function (comment, author, timecode) {
+        $('.timeline-last-notice .title').text(author);
+        $('.timeline-last-notice .content').text(comment);
+        $('.timeline-cat-icon img').attr('src', 'images/cat-comment.png');
+        addNoticeOnTimeline(timecode, 'comment');
+      }
 
       var setUserInfo = function (name, imageUrl) {
         $('.profile-name').text(name);
@@ -40,19 +59,17 @@
           FastClick.attach(document.body);
       });
 
-      beginTimelineScrolling();
+      
   %body
     / HOME SCREEN
     .container.container-home
       .home-header
-        %h2.home-movie-title Métropolis
+        
       / .chapter-slider
       /   .last-chapter.chapter
       /     %h4.chapter-title.with-font La découverte
       /     %p.chapter-content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ull
       .video-controls
-        .progressbar
-          .progressbar-progress
         / %button#prev-chapter
         / %button#rewind
         %button#play
@@ -60,6 +77,8 @@
         / %button#next-chapter
 
       .timeline-last-notice
+        .timeline-cat-icon
+          %img{ src: 'images/cat-impact.png' }
         %h3.title.with-font 
         %p.content 
         / .display-notice-btn
@@ -95,7 +114,7 @@
     / DOC SCREEN
     .container.container-doc
       .doc-head
-        %h2.home-movie-title.doc-movie-title Métropolis
+        %h2.home-movie-title.with-font.doc-movie-title Métropolis
         %h3 Documentation
       .doc-main.doc-home
         .doc-search
@@ -118,6 +137,8 @@
         SC
         %span.blue> 0
         PE
+
+      .nav-movie-title Métropolis
       .navbar-tabs
         %a.nav-home{href: ".container-home", onclick: "calliOSFunction('goHome', [])"}
         / %a.nav-notif{href: ".container-timeline", onclick: "calliOSFunction('goTimeline', [])"}
@@ -134,4 +155,4 @@
 
 
     %script{src: "js/raphael.js"}
-    %script{src: "js/controls.js"}
+    

@@ -11,6 +11,7 @@
 
 + (void)start;
 + (BOOL)isPaused;
++ (void)setPaused:(BOOL)paused;
 + (void)togglePlayPause;
 + (void)toggleFastForward;
 + (void)toggleFastRewind;

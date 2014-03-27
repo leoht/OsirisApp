@@ -40,11 +40,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CinemaAlphaProto/VideoController.h"
-            timestampString = "416239229.187545"
+            timestampString = "417608102.257235"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "+nextChapter"
             landmarkType = "4">
          </BreakpointContent>

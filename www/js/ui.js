@@ -1,4 +1,5 @@
 var timelineScrollInterval = null;
+var isTimelineScrolling = false;
 var profileMenuDisplayed = false;
 var movieDuration;
 
@@ -8,6 +9,13 @@ var beginTimelineScrolling = function () {
 			left: '-=1.5px'
 		}, 500);
 	}, 1000);
+
+	isTimelineScrolling = true;
+}
+
+var stopTimelineScrolling = function () {
+	clearInterval(timelineScrollInterval);
+	isTimelineScrolling = false;
 }
 
 var timelinePositionWithTimecode = function (seconds) {
@@ -20,7 +28,9 @@ var timelineWidthFromDuration = function (duration) {
 
 var addNoticeOnTimeline = function (timecode, category_nicename) {
 	var offset = timelinePositionWithTimecode(timecode);
-	var notifEl = $('<div>').addClass('timeline-notice')
+	var notifEl = $('<div>')
+			.addClass('timeline-notice')
+			.addClass('timeline-notice-'+category_nicename)
 			.css('left', offset+'%');
 	$('.timeline-body').append(notifEl);
 	console.log('Notif element added at timecode '+timecode+' (offset left : '+offset+'%)');

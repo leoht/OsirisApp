@@ -2,14 +2,20 @@
 .timeline-last-notice {
 	width: 100%;
 	height: 300px;
-	margin: 160px 0 0 0;
+	margin: 200px 0 0 0;
 	padding-top: 40px;
 	background: #e8e9eb;
 	text-align: center;
 	position: relative;
 }
 
-.timeline-last-notice .title { font-size: 28px; text-transform: uppercase; }
+.timeline-last-notice .timeline-cat-icon {
+	position: absolute; top: -25px; left: 0;
+	width: 100%; text-align: center;
+	display: none;
+}
+
+.timeline-last-notice .title { font-size: 28px; text-transform: uppercase;  }
 .timeline-last-notice .content { font-size: 20px; line-height: 26px; width: 60%; margin: auto; }
 .timeline-last-notice .display-notice-btn {
 	color: #94979c;
@@ -21,14 +27,14 @@
 }
 
 .timeline {
-	position: absolute; left: 0px; bottom: 60px;
+	position: absolute; left: 0px; bottom: 40px;
 	width: 100%; 
 }
 
 .timeline-body-container {
 	width: 87%;
 	height: 150px;
-	overflow: hidden;
+	overflow: hidden;	
 }
 
 .timeline-body {
@@ -36,10 +42,24 @@
 	width: 4500px; /* test : to remove */
 	height: 150px;
 	position: relative;
+	left: 50%;
 }
 
 .timeline-notice {
-	position: absolute; top: 25px; width: 35px; height: 18px; background: url(../images/notif-picto-analyse.png) no-repeat;
+	position: absolute; top: 25px; width: 35px; height: 35px; 
+}
+
+.timeline-notice-analyse { background: url(../images/notif-picto-analyse.png) no-repeat; }
+.timeline-notice-impact { background: url(../images/notif-picto-impact.png) no-repeat; }
+.timeline-notice-themes { background: url(../images/notif-picto-themes.png) no-repeat; }
+.timeline-notice-anecdotes { background: url(../images/notif-picto-anecdotes.png) no-repeat; }
+.timeline-notice-comment { background: url(../images/notif-picto-comment.png) no-repeat; }
+
+.timeline-current-time {
+	position: absolute;
+	left: 87%; bottom: 55px;
+	width: 80px; height: 35px;
+	border-left: 2px solid white;
 }
 
 .nav-notif .unread-counter {
