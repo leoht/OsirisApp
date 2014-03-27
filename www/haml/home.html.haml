@@ -12,6 +12,9 @@
     %script{src: "js/controls.js"}
     :javascript
 
+      var oldTimecode = 0;
+      var currentTimecode = 0;
+
       var onPlay = function () {
         isPaused = false;
         beginTimelineScrolling();
@@ -28,9 +31,11 @@
 
       // move the progress bar using timecode
       var setTimecode = function (seconds) {
-      	var w = (seconds * $('.progressbar').width()) / movieDuration;
 
-        if (!isTimelineScrolling)
+        oldTimecode = currentTimecode;
+        currentTimecode = seconds;
+
+        if (currentTimecode - oldTimecode > 2)
           $('.timeline-body').css('left', timelinePositionWithTimecode(seconds)+'%');
       }
 
@@ -77,14 +82,18 @@
         / %button#next-chapter
 
       .timeline-last-notice
+
         .timeline-cat-icon
           %img{ src: 'images/cat-impact.png' }
         %h3.title.with-font 
         %p.content 
         / .display-notice-btn
         /   En savoir +
+
       .timeline
+
         .timeline-body-container
+          .cursor
           .timeline-body
         
         .timeline-current-time

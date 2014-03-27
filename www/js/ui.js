@@ -5,10 +5,10 @@ var movieDuration;
 
 var beginTimelineScrolling = function () {
 	timelineScrollInterval = setInterval(function () {
-		$('.timeline-body').animate({
-			left: '-=1.5px'
+		$('.timeline-body, .timeline .cursor').animate({
+			left: '-=0.5px'
 		}, 500);
-	}, 1000);
+	}, 1500);
 
 	isTimelineScrolling = true;
 }
@@ -33,6 +33,7 @@ var addNoticeOnTimeline = function (timecode, category_nicename) {
 			.addClass('timeline-notice-'+category_nicename)
 			.css('left', offset+'%');
 	$('.timeline-body').append(notifEl);
+	$('.timeline .cursor').animate({ left: notifEl.offset().left }, 300);
 	console.log('Notif element added at timecode '+timecode+' (offset left : '+offset+'%)');
 }
 
@@ -61,9 +62,11 @@ $(function () {
 		if (profileMenuDisplayed) {
 			$('.profile-nav').animate({ bottom: '-=150px' }, 400);
 			profileMenuDisplayed = false;
+			calliOSFunction('profileMenuHidden', []);
 		} else {
 			$('.profile-nav').animate({ bottom: '+=150px' }, 400);
 			profileMenuDisplayed = true;
+			calliOSFunction('profileMenuDisplayed', []);
 		}
 	});
 

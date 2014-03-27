@@ -11,6 +11,9 @@
     <script src='js/ui.js'></script>
     <script src='js/controls.js'></script>
     <script>
+      var oldTimecode = 0;
+      var currentTimecode = 0;
+      
       var onPlay = function () {
         isPaused = false;
         beginTimelineScrolling();
@@ -27,9 +30,11 @@
       
       // move the progress bar using timecode
       var setTimecode = function (seconds) {
-      	var w = (seconds * $('.progressbar').width()) / movieDuration;
       
-        if (!isTimelineScrolling)
+        oldTimecode = currentTimecode;
+        currentTimecode = seconds;
+      
+        if (currentTimecode - oldTimecode > 2)
           $('.timeline-body').css('left', timelinePositionWithTimecode(seconds)+'%');
       }
       
@@ -85,6 +90,7 @@
       </div>
       <div class='timeline'>
         <div class='timeline-body-container'>
+          <div class='cursor'></div>
           <div class='timeline-body'></div>
         </div>
         <div class='timeline-current-time'></div>

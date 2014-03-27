@@ -77,7 +77,7 @@ body, html {
 .nav-home { background-image: url(../images/nav-home.png);}
 .nav-notif { background-image: url(../images/nav-notif.png);}
 .nav-social { background-image: url(../images/nav-social.png);}
-.nav-doc { background-image: url(../images/nav-doc.png); border-right: 2px solid white;}
+.nav-doc { background-image: url(../images/nav-doc.png); border-right: 1px solid white;}
 
 .navbar-tabs a.nav-profile {
 	width: 200px;  
@@ -92,7 +92,7 @@ body, html {
 .navbar-tabs a:first-child { margin-left: 15%; }
 
 .navbar-tabs a {
-	border-left: 2px solid white;
+	border-left: 1px solid white;
 	height: 50px;
 	width: 8%;
 	padding-top: 10px;

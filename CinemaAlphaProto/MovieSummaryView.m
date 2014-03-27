@@ -169,6 +169,14 @@
         [self.secondTimecodeLabel setHidden:NO];
     }
     
+    if ([name compare:@"profileMenuDisplayed" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        [self.secondTimecodeLabel setHidden:YES];
+    }
+    
+    if ([name compare:@"profileMenuHidden" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        [self.secondTimecodeLabel setHidden:NO];
+    }
+    
     if ([name compare:@"goSocial" options:NSCaseInsensitiveSearch] == NSOrderedSame
         || [name compare:@"goDoc" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
         [self.secondTimecodeLabel setHidden:YES];
