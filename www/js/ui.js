@@ -83,4 +83,14 @@ $(function () {
 
 	$('.timeline-body').css('width', timelineWidthFromDuration(movieDuration)+'%');
 
+	$('.view-grid').click(function (e) {
+		$('.view-line-container').hide(0);
+		$('.view-grid-container').show(0);
+	});
+
+	$('.view-line').click(function (e) {
+		$('.view-grid-container').hide(0);
+		$('.view-line-container').show(0);
+	});
+
 });

@@ -75,7 +75,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.098039215686274508" green="0.13333333333333333" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.027450980392156862" green="0.082352941176470587" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
@@ -175,7 +175,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="code-layout-right" translatesAutoresizingMaskIntoConstraints="NO" id="Wlb-QB-m6U">
-                                <rect key="frame" x="659" y="369" width="365" height="128"/>
+                                <rect key="frame" x="631" y="369" width="393" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VOTRE CODE D'IDENTIFICATION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xu5-NA-MP1">
@@ -203,7 +203,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.098039215686274508" green="0.13333333333333333" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.027450980392156862" green="0.082352941176470587" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="COw-4a-QwV"/>
@@ -265,7 +265,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.098039215690000001" green="0.1333333333" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.027450980392156862" green="0.082352941176470587" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="VG0-wX-7Ew"/>
@@ -353,9 +353,9 @@
     </scenes>
     <resources>
         <image name="code-help" width="43" height="43"/>
-        <image name="code-layout-left" width="386" height="42"/>
-        <image name="code-layout-right" width="386" height="42"/>
-        <image name="home-layout-left" width="315" height="24"/>
+        <image name="code-layout-left" width="304" height="21"/>
+        <image name="code-layout-right" width="304" height="21"/>
+        <image name="home-layout-left" width="304" height="21"/>
         <image name="home-layout-right" width="315" height="24"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

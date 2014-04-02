@@ -3,7 +3,7 @@ var isPaused = true;
 
 $(function () {
 
-	$('#play')
+	$('.play')
 		.bind('touchstart', function (e) {
 			e.preventDefault();
 			isPaused = !isPaused;
