@@ -15,7 +15,10 @@
 			.no
 
 			.notice-slider
-				.sample-notice
+
+			- for i in 1..5
+				
+				.sample-notice{ class: "sample-notice-#{i}", style: "z-index: #{i*10}" }
 					.image
 						%img{ src: 'images/samples/1.png'}
 					.heading

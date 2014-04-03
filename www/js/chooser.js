@@ -1,5 +1,6 @@
 var x, y, pX, pY;
 var isMoving = false;
+var currentNotice = 5;
 
 $(function () {
 
@@ -7,21 +8,41 @@ $(function () {
 		if (isMoving) return;
 
 		isMoving = true;
-		$('.sample-notice').animate({ left: '+=1000px' }, 400, function () { isMoving = false; });
+		$('.sample-notice-'+currentNotice).animate({ left: '+=1000px' }, 400, function () { isMoving = false; });
+
+		currentNotice--;
+
+		calliOSFunction('yes', []);
+
+		if (currentNotice == 0) {
+			setTimeout(function() {
+				calliOSFunction('goToMovieView', []);
+			}, 800);
+		}
 	};
 
 	var no = function () {
 		if (isMoving) return;
 
 		isMoving = true;
-		$('.sample-notice').animate({ left: '-=1000px' }, 400, function () { isMoving = false; });
+		$('.sample-notice-'+currentNotice).animate({ left: '-=1000px' }, 400, function () { isMoving = false; });
+
+		currentNotice--;
+
+		calliOSFunction('no', []);
+
+		if (currentNotice == 0) {
+			setTimeout(function() {
+				calliOSFunction('goToMovieView', []);
+			}, 800);
+		}
 	};
 
-	$('.yes').bind('touchstart', function () {
+	$('.yes').bind('click', function () {
 		yes();
 	});
 
-	$('.no').bind('touchstart', function () {
+	$('.no').bind('click', function () {
 		no();
 	})
 

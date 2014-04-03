@@ -36,7 +36,11 @@
     }
     
     if ([name compare:@"no" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
-        [VideoController togglePlayPause];
+        
+    }
+    
+    if ([name compare:@"goToMovieView" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        PushView(@"MovieSummaryView");
     }
     
     return nil;

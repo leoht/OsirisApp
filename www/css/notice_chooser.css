@@ -16,9 +16,9 @@ html, body {
 .sample-notice {
 	width: 535px;
 	height: 500px;
-	margin: 50px auto 0 auto;
+
 	background: #fff;
-	position: relative;
+	position: absolute; left: 24%; top: 60px;
 }
 
 .sample-notice .image { height: 230px; margin-bottom: 25px ; background: #000; }

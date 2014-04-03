@@ -9,6 +9,7 @@
 
 @interface MovieSummaryView () <UIAlertViewDelegate>
     @property WebViewDelegate *webViewDelegate;
+    @property UIAlertView *movieInfoWaitingAlert;
     @property NSString *currentTimecode;
 @end
 
@@ -103,6 +104,14 @@
         [VideoController setPaused:NO];
         NSLog(@"Web player now paused.");
         [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:@"onPause()"];
+    }];
+    
+    if ([[VideoController movieInfo] count] == 0) {
+        self.movieInfoWaitingAlert = [[UIAlertView alloc] initWithTitle:@"Chargement" message:@"Chargement des données du film..." delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
+    }
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:ApiMovieInfo object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self.movieInfoWaitingAlert dismissWithClickedButtonIndex:0 animated:YES];
     }];
 }
 
