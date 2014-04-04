@@ -9,8 +9,11 @@
     %script{src: "js/jquery.js"}
     %script{src: "js/fastclick.js"}
     %script{src: "js/ui.js"}
+    %script{src: "js/doc.js"}
     %script{src: "js/controls.js"}
     :javascript
+
+      var ROOT_API_URL = '';
 
       var oldTimecode = 0;
       var currentTimecode = 0;
@@ -25,8 +28,10 @@
         stopTimelineScrolling();
       };
 
-      var setMovieInfo = function (title, author) {
+      var setMovieInfo = function (id, title, author) {
+        MOVIE_ID = id;
         $('.nav-movie-title').text(title);
+        getDocumentation(id);
       };
 
       // move the progress bar using timecode
@@ -66,6 +71,9 @@
 
       
   %body
+
+    .navbar-doc
+
     / HOME SCREEN
     .container.container-home
 
@@ -159,17 +167,23 @@
     / DOC SCREEN
     .container.container-doc
       .doc-head
-        %h2.home-movie-title.with-font.doc-movie-title Métropolis
-        %h3 Documentation
+        / %h2.home-movie-title.with-font.doc-movie-title Métropolis
+        / %h3 Documentation
       .doc-main.doc-home
         .doc-search
 
         .doc-block.doc-movie-info
-        .doc-block.doc-themes
-        .doc-block.doc-analyses
-        .doc-block.doc-impact
-        .doc-block.doc-anecdotes
+          .doc-block-title Fiche du film
+        .doc-block.doc-themes{ data: { 'category-id' => 2 } }
+          .doc-block-title Thèmes clés
+        .doc-block.doc-analyses{ data: { 'category-id' => 4 } }
+          .doc-block-title Analyses
+        .doc-block.doc-impact{ data: { 'category-id' => 1 } }
+          .doc-block-title Impact sur la culture
+        .doc-block.doc-anecdotes{ data: { 'category-id' => 5 } }
+          .doc-block-title Anecdotes
         .doc-block.doc-social
+          .doc-block-title Communauté
 
     / ROADMAP SCREEN
     .container.container-roadmap
