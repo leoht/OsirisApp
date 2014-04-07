@@ -2,6 +2,8 @@ var timelineScrollInterval = null;
 var isTimelineScrolling = false;
 var profileMenuDisplayed = false;
 var movieDuration;
+var pX, pY;
+var displayingDocumentation = false;
 
 var beginTimelineScrolling = function () {
 	timelineScrollInterval = setInterval(function () {
@@ -36,6 +38,13 @@ var addNoticeOnTimeline = function (timecode, category_nicename) {
 	$('.timeline .cursor').animate({ left: notifEl.offset().left }, 300);
 	console.log('Notif element added at timecode '+timecode+' (offset left : '+offset+'%)');
 }
+
+var slideToDocumentation = function () {
+	// $('.timeline-last-notice').animate({
+	// 	height: 250
+	// }, 500);
+	displayingDocumentation = true;
+};
 
 $(function () {
 
@@ -97,5 +106,25 @@ $(function () {
 		$('.view-grid-container').hide(0);
 		$('.view-line-container').show(0);
 	});
+
+
+	$('.timeline-last-notice')
+		.bind('touchstart', function (e) {
+			e.preventDefault();
+			pX = e.originalEvent.touches[0].pageX;
+			pY = e.originalEvent.touches[0].pageY;
+		})
+		.bind('touchmove', function (e) {
+			e.preventDefault();
+			x = e.originalEvent.touches[0].pageX;
+			y = e.originalEvent.touches[0].pageY;
+
+			console.log(x, pX, y, pY);
+
+			// touch slide bottom
+			if (pY - y > 100 && !displayingDocumentation) {
+				slideToDocumentation();
+			}
+		});
 
 });

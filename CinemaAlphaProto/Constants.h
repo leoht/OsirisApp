@@ -7,7 +7,7 @@
 //
 
 #define ApiConnectionUrl                @"ws://localhost:4567"
-#define ApiWebUrl                       @"http://192.168.2.2:8080/tetris/web/_mobile"
+#define ApiWebUrl                       @"http://www.scope.dev"
 
 #define ApiFromDeviceToPlayer           @"device_to_player"
 #define ApiFromPlayerToDevice           @"player_to_device"

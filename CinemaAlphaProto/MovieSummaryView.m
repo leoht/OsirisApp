@@ -76,10 +76,13 @@
     
     [[NSNotificationCenter defaultCenter] addObserverForName:WebViewLoaded object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSMutableDictionary * info = [VideoController movieInfo];
-        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setMovieInfo('%@','%@'); movieDuration = %@;",
+        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"ROOT_API_URL = '%@'; setMovieInfo('%@', '%@','%@'); movieDuration = %@; ",
+                ApiWebUrl,
+                [info objectForKey:@"movie_id"],
                 [info objectForKey:@"title"],
                 [info objectForKey:@"author"],
                 [info objectForKey:@"duration"]
+                
         ]];
         
         // If the user is logged in, retrieve FB info to display it in view
