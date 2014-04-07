@@ -12,7 +12,7 @@
     <script src='js/doc.js'></script>
     <script src='js/controls.js'></script>
     <script>
-      var ROOT_API_URL = '';
+      var ROOT_API_URL = 'http://www.scope.dev';
       
       var oldTimecode = 0;
       var currentTimecode = 0;
@@ -39,21 +39,23 @@
         oldTimecode = currentTimecode;
         currentTimecode = seconds;
       
-        if (currentTimecode - oldTimecode > 2)
-          $('.timeline-body').css('left', timelinePositionWithTimecode(seconds)+'%');
+        //if (currentTimecode - oldTimecode > 2)
+        //   $('.timeline-body').css('left', timelinePositionWithTimecode(seconds)+'%');
       }
       
-      var onNewNotice = function (timecode, id, title, short_content, category) {
+      var onNewNotice = function (timecode, id, title, short_content, category, color) {
         $('.timeline-last-notice .title').text(title);
         $('.timeline-last-notice .content').text(short_content);
         $('.timeline-last-notice').attr('data-notice-id', id);
         $('.timeline-cat-icon').show(0);
         $('.timeline-cat-icon img').attr('src', 'images/cat-'+category+'.png');
+        $('.timeline-last-notice .title').css('color', '#'+color);
         addNoticeOnTimeline(timecode, category);
       }
       
       var onNewComment = function (comment, author, timecode) {
         $('.timeline-last-notice .title').text(author);
+        $('.timeline-last-notice .title').css('color', '#00ecea');
         $('.timeline-last-notice .content').text(comment);
         $('.timeline-cat-icon img').attr('src', 'images/cat-comment.png');
         addNoticeOnTimeline(timecode, 'comment');
@@ -70,7 +72,9 @@
     </script>
   </head>
   <body>
-    <div class='navbar-doc'></div>
+    <div class='navbar-doc'>
+      <span class='with-font title'>Documentation</span>
+    </div>
     <!-- HOME SCREEN -->
     <div class='container container-home'>
       <div class='view-nav'>
@@ -78,7 +82,7 @@
         <div class='view-grid'></div>
       </div>
       <div class='view-line-container'>
-        <div class='home-header'></div>
+        <div class='timeline-header'></div>
         <!-- .chapter-slider -->
         <!-- .last-chapter.chapter -->
         <!-- %h4.chapter-title.with-font La découverte -->
@@ -174,7 +178,7 @@
         <div class='doc-block doc-themes' data-category-id='2'>
           <div class='doc-block-title'>Thèmes clés</div>
         </div>
-        <div class='doc-block doc-analyses' data-category-id='4'>
+        <div class='doc-block doc-analyse' data-category-id='4'>
           <div class='doc-block-title'>Analyses</div>
         </div>
         <div class='doc-block doc-impact' data-category-id='1'>
@@ -198,7 +202,7 @@
       </div>
       <div class='nav-movie-title'>Métropolis</div>
       <div class='navbar-tabs'>
-        <a class='nav-home' href='.container-home' onclick="calliOSFunction('goHome', [])"></a>
+        <a class='active nav-home' href='.container-home' onclick="calliOSFunction('goHome', [])"></a>
         <!-- %a.nav-notif{href: ".container-timeline", onclick: "calliOSFunction('goTimeline', [])"} -->
         <!-- %span.unread-counter 0 -->
         <a class='nav-social' href='.container-social' onclick="calliOSFunction('goSocial', [])"></a>

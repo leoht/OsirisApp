@@ -50,23 +50,32 @@ $(function () {
 
 	movieDuration = 8600;
 
-	$('.navbar a[href]').click(function (e) {
+	$('.navbar-tabs a[href]').bind('touchstart', function (e) {
 		e.preventDefault();
 
 		var hash = $(this).attr('href');
 
+		if (hash == '.container-doc') {
+			$('.navbar-doc').fadeIn(500);
+		} else {
+			$('.navbar-doc ').hide(0);
+		}
+
 		$('.container').hide(0);
 		$(hash).show(0);
+
+		$('.navbar-tabs a').removeClass('active');
+		$(this).addClass('active');
 	});
 
 
-	$('.social-form .send').click(function (e) {
+	$('.social-form .send').bind('touchstart', function (e) {
 		var message = $('.social-form textarea').val();
 		// TODO : handle select
-		calliOSFunction('postMessage', [message]);
+		calliOSFunction('postMessage', [ String(message) ]);
 	});
 
-	$('.nav-profile').click(function (e) {
+	$('.nav-profile').bind('touchstart', function (e) {
 		e.stopPropagation();
 		if (profileMenuDisplayed) {
 			$('.profile-nav').animate({ bottom: '-=150px' }, 400);
@@ -91,11 +100,6 @@ $(function () {
 	})
 
 	$('.timeline-body').css('width', timelineWidthFromDuration(movieDuration)+'%');
-
-	$('.navbar-tabs a').bind('touchstart', function (e) {
-		$('.navbar-tabs a').removeClass('active');
-		$(this).addClass('active');
-	});
 
 	$('.view-grid').click(function (e) {
 		$('.view-line-container').hide(0);

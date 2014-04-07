@@ -14,9 +14,9 @@ var getDocumentation = function (movieId) {
 		success: function (data) {
 			$(data).each(function (i, notice) {
 				// no category ? skip it.
-				if (notice.notice_category_id == null) continue;
-
-				DOC_ARRAY[notice.notice_category_id] = notice;
+				if (notice.notice_category_id != null) {
+					DOC_ARRAY[notice.notice_category_id] = notice;
+				}
 			});
 		}
 	});
@@ -76,10 +76,52 @@ var getNoticesOfCategory = function (category) {
 	});
 };
 
+
+var resetDocScreen = function () {
+
+	$('.doc-main').animate({ left: '+=1000px' }, 300, function () {
+		$('.doc-main').html('').append("<div class='doc-block doc-movie-info'> \
+	          <div class='doc-block-title'>Fiche du film</div> \
+	        </div> \
+	        <div class='doc-block doc-themes' data-category-id='2'> \
+	          <div class='doc-block-title'>Thèmes clés</div> \
+	        </div> \
+	        <div class='doc-block doc-analyse' data-category-id='4'> \
+	          <div class='doc-block-title'>Analyses</div> \
+	        </div> \
+	        <div class='doc-block doc-impact' data-category-id='1'> \
+	          <div class='doc-block-title'>Impact sur la culture</div> \
+	        </div> \
+	        <div class='doc-block doc-anecdotes' data-category-id='5'> \
+	          <div class='doc-block-title'>Anecdotes</div> \
+	        </div> \
+	        <div class='doc-block doc-social'> \
+	          <div class='doc-block-title'>Communauté</div> \
+	        </div>");
+
+		$('.doc-block[data-subcategory-id]').bind('touchstart', function (e) {
+			id = $(this).attr('data-subcategory-id');
+			getNoticesOfCategory(id);
+		});
+
+		$('.doc-main').animate({
+			left: '-=2000px'
+		}, 0).animate({
+			left: '+=1000px'
+		}, 300);
+	})
+
+	
+}
+
 $(function () {
 	$('.doc-block[data-category-id]').bind('touchstart', function (e) {
 		var id = $(this).attr('data-category-id');
 		getCategoriesOfParent(id);
+	});
+
+	$('.navbar-doc .title').bind('touchstart', function (e) {
+		resetDocScreen();
 	});
 });
 

@@ -57,12 +57,13 @@
         
         NSLog(@"%@", category);
         
-        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onNewNotice('%@', '%@', '%@', '%@', '%@');",
+        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onNewNotice('%@', %@, '%@', '%@', '%@', '%@');",
                         [note.userInfo objectForKey:@"timecode"],
                         id,
                         [title stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"],
                         [content stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"],
-                        category
+                        category,
+                        [note.userInfo objectForKey:@"color"]
         ]];
     }];
     
@@ -194,11 +195,18 @@
         [self.secondTimecodeLabel setHidden:YES];
     }
     
-    if ([name compare:@"postMessage" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+    if ([name compare:@"postMessage" options:NSCaseInsensitiveSearch] == NSOrderedSame && args.count > 0) {
+        
+        if (![FacebookConnectionManager isSessionOpened]) {
+            NSLog(@"Not logged into FB");
+            return nil;
+        }
+        
         NSLog(@"%@", args);
-        NSString *message = (NSString *)[args firstObject];
+        NSString *message = [NSString stringWithFormat:@"%@",[args objectAtIndex:0]];
         NSString *movieId = (NSString *)[[VideoController movieInfo] objectForKey:@"movie_id"];
         NSString *facebookId = [[FacebookConnectionManager userInfo] objectForKey:@"id"];
+        
         NSMutableDictionary *data = [NSMutableDictionary
                                      dictionaryWithObjects:@[movieId, facebookId, message, [self currentTimecode]]
                                      forKeys:@[@"movie_id", @"facebook_id", @"message", @"timecode"]];

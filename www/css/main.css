@@ -30,7 +30,9 @@ body, html {
 }
 
 
-.container-timeline { display: none; }
+.container-home {
+	background: url(../images/samples/notices/machine.jpg) no-repeat center top;
+}
 
 
 .view-grid-container { display: none; }
@@ -187,7 +189,7 @@ body, html {
 
 /******* DOC *********/
 
-.container-doc { height: 750px; background: #f7f8f8; }
+.container-doc { height: 750px; background: #f7f8f8; display: none; }
 .navbar-doc {
 	position: absolute; top: 0; left: 0;
 	width: 100%;
@@ -197,8 +199,13 @@ body, html {
 	display: none;
 }
 
+.doc-main { position: relative; }
+
+.navbar-doc .title { color: white; text-transform: uppercase; position: relative; top: 12px; left: 15px;}
+
 .doc-head {
-	width: 100%; text-align: center;
+	width: 100%; height: 140px; text-align: center; margin-top: 45px;
+	background: url(../images/doc-title.png) no-repeat center center;
 }
 
 .doc-head .doc-movie-title { font-size: 38px; margin-bottom: 0px; }
@@ -206,17 +213,23 @@ body, html {
 
 .doc-home {
 	width: 790px; margin: 0 auto 0 auto;
-	padding-top: 150px;
 }
 
 .doc-block {
-	width: 230px; height: 230px;
-	background-color: #091320;
+	width: 230px; height: 200px;
+	background-color: #071528;
 	float: left;
 	display: block;
 	margin-left: 30px;
 	margin-bottom: 30px;
 }
+
+.doc-block.doc-movie-info { background: url(../images/samples/doc/block-movie.png) no-repeat center center; background-color: #071528;}
+.doc-block.doc-themes{ background: url(../images/samples/doc/block-themes.png) no-repeat center center; background-color: #071528;}
+.doc-block.doc-analyse{ background: url(../images/samples/doc/block-analyse.png) no-repeat center center; background-color: #071528;}
+.doc-block.doc-impact{ background: url(../images/samples/doc/block-impact.png) no-repeat center center; background-color: #071528;}
+.doc-block.doc-anecdotes{ background: url(../images/samples/doc/block-anecdotes.png) no-repeat center center; background-color: #071528;}
+/*.doc-block.doc-social{ background: url(../images/samples/doc/block-social.png) no-repeat center center; background-color: #071528;}*/
 
 .doc-block-title {
 	text-transform: uppercase; color: white;
@@ -224,5 +237,4 @@ body, html {
 	margin-top: 150px;
 	text-align: center;
 	display: block; width: auto;
-
 }
