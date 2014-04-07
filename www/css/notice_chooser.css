@@ -22,5 +22,5 @@ html, body {
 }
 
 .sample-notice .image { height: 230px; margin-bottom: 25px ; background: #000; }
-.sample-notice .heading { text-transform: uppercase; font-size: 24px; text-align: center; }
-.sample-notice .content { font-family: sans-serif; text-align: center; margin-top: 35px; }
+.sample-notice .heading { text-transform: uppercase; font-size: 24px; text-align: center; padding-top: 15px; }
+.sample-notice .content { font-family: sans-serif; text-align: center; margin: 35px auto 0 auto; padding: 10px; width: 450px;}

@@ -117,6 +117,10 @@ body, html {
 	float: left;
 }
 
+.nav-home.active { background: url(../images/nav-home.png) no-repeat center 5px, url(../images/nav-item-active.png) repeat-x left 45px, #1d1d1d; }
+.nav-social.active { background: url(../images/nav-social.png) no-repeat center 5px, url(../images/nav-item-active.png) repeat-x left 45px, #1d1d1d; }
+.nav-doc.active { background: url(../images/nav-doc.png) no-repeat center 5px, url(../images/nav-item-active.png) repeat-x left 45px, #1d1d1d; }
+
 .profile-nav {
 	position: absolute; right: 0; bottom: -100px;
 	z-index: 80;

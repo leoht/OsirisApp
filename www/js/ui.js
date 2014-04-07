@@ -83,6 +83,11 @@ $(function () {
 
 	$('.timeline-body').css('width', timelineWidthFromDuration(movieDuration)+'%');
 
+	$('.navbar-tabs a').bind('touchstart', function (e) {
+		$('.navbar-tabs a').removeClass('active');
+		$(this).addClass('active');
+	});
+
 	$('.view-grid').click(function (e) {
 		$('.view-line-container').hide(0);
 		$('.view-grid-container').show(0);

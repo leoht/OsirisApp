@@ -27,6 +27,8 @@
     self.webViewDelegate = [[WebViewDelegate alloc] initWithWebView:self.webView withWebViewInterface:self];
 	self.webView.scrollView.scrollEnabled = false;
 	[self.webViewDelegate loadPage:@"notice_chooser.html" fromFolder:@"www"];
+    
+//    [VideoController togglePlayPause];
 }
 
 - (id) processFunctionFromJS:(NSString *)name withArgs:(NSArray *)args error:(NSError *__autoreleasing *)error {

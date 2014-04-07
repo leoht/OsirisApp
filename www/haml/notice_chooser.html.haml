@@ -16,12 +16,28 @@
 
 			.notice-slider
 
-			- for i in 1..5
+				.sample-notice{ class: "sample-notice-3", style: "z-index: 30" }
+					.image
+						%img{ src: 'images/samples/2.jpg'}
+					.heading
+						.with-font Le Cinquième Element
+					%p.content Le laboratoire du Cinquième Element est inspiré d'un des lieux du film.
+					.number 
 				
-				.sample-notice{ class: "sample-notice-#{i}", style: "z-index: #{i*10}" }
+				.sample-notice{ class: "sample-notice-4", style: "z-index: 40" }
 					.image
 						%img{ src: 'images/samples/1.png'}
 					.heading
 						.with-font Star Wars - C3PO
 					%p.content Le design de C3PO de Star Wars possède une troublante ressemblance avec un des personnages du film...
 					.number 
+
+				.sample-notice{ class: "sample-notice-5", style: "z-index: 50" }
+					.image
+						%img{ src: 'images/samples/2.jpg'}
+					.heading
+						.with-font Le Cinquième Element
+					%p.content Le laboratoire du Cinquième Element est inspiré d'un des lieux du film.
+					.number 
+
+
