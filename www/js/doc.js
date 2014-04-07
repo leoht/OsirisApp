@@ -42,7 +42,7 @@ var getCategoriesOfParent = function (parent) {
 				block.append('<div class="doc-block-title">'+category.title+'</div>');
 				$('.doc-main').append(block);
 
-				$('.doc-block[data-subcategory-id]').click(function (e) {
+				$('.doc-block[data-subcategory-id]').bind('touchstart', function (e) {
 					id = $(this).attr('data-subcategory-id');
 					getNoticesOfCategory(id);
 				});
@@ -77,7 +77,7 @@ var getNoticesOfCategory = function (category) {
 };
 
 $(function () {
-	$('.doc-block[data-category-id]').click(function (e) {
+	$('.doc-block[data-category-id]').bind('touchstart', function (e) {
 		var id = $(this).attr('data-category-id');
 		getCategoriesOfParent(id);
 	});
