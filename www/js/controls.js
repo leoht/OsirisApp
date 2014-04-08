@@ -3,19 +3,22 @@ var isPaused = true;
 
 $(function () {
 
-	$('.play')
+	$('.play, .pause')
 		.bind('touchstart', function (e) {
 			e.preventDefault();
 			isPaused = !isPaused;
-			calliOSFunction('togglePlayPause', []);
 
-			if (!isPaused) {
-				$('.video-controls #play').css('background-image', 'url(../images/pause.png);');
+			if (!isTimelineScrolling) {
+				$('.play').hide(0);
+				$('.pause').show(0);
 				beginTimelineScrolling();
 			} else {
-				$('.video-controls #play').css('background-image', 'url(../images/play.png);');
+				$('.pause').hide(0);
+				$('.play').show(0);
 				stopTimelineScrolling();
 			}
+
+			calliOSFunction('togglePlayPause', []);
 		});
 
 })

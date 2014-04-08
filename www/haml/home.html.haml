@@ -7,6 +7,8 @@
     %link{href: "css/social.css", media: "screen", rel: "stylesheet"}/
     %script{src: "js/iosBridge.js"}
     %script{src: "js/jquery.js"}
+    %script{src: "js/jquery.gsap.min.js"}
+    %script{src: "js/TweenLite.min.js"}
     %script{src: "js/fastclick.js"}
     %script{src: "js/ui.js"}
     %script{src: "js/doc.js"}
@@ -57,7 +59,7 @@
       var onNewComment = function (comment, author, timecode) {
         $('.timeline-last-notice .title').text(author);
         $('.timeline-last-notice .title').css('color', '#00ecea');
-        $('.timeline-last-notice .content').text(comment);
+        $('.timeline-last-notice .content').text('"'+comment+'"');
         $('.timeline-cat-icon img').attr('src', 'images/cat-comment.png');
         addNoticeOnTimeline(timecode, 'comment');
       }
@@ -95,6 +97,7 @@
           / %button#prev-chapter
           / %button#rewind
           %button.play
+          %button.pause
           / %button#forward
           / %button#next-chapter
 
@@ -123,11 +126,10 @@
         /     %h4.chapter-title.with-font La découverte
         /     %p.chapter-content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ull
         .video-controls
-          / %button#prev-chapter
-          / %button#rewind
-          %button.play
-          / %button#forward
-          / %button#next-chapter
+          
+          .play
+
+          .pause
 
         .timeline-last-notice
 

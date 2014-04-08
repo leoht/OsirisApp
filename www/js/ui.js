@@ -1,41 +1,44 @@
-var timelineScrollInterval = null;
+var timelineScrollInterval;
 var isTimelineScrolling = false;
+var isTimelineSliding = false;
 var profileMenuDisplayed = false;
 var movieDuration;
-var pX, pY;
+var pX, pY, timelineStartX, timelineStartY;
 var displayingDocumentation = false;
 
 var beginTimelineScrolling = function () {
-	timelineScrollInterval = setInterval(function () {
+	window.timelineScrollInterval = setInterval(function () {
 		$('.timeline-body, .timeline .cursor').animate({
-			left: '-=0.5px'
-		}, 500);
-	}, 1500);
+			left: '-=0.3px'
+		}, 0);
+	}, 500);
 
 	isTimelineScrolling = true;
 }
 
 var stopTimelineScrolling = function () {
-	clearInterval(timelineScrollInterval);
+	$('.timeline-body, .timeline .cursor').stop();
+	window.clearInterval(window.timelineScrollInterval);
 	isTimelineScrolling = false;
 }
 
 var timelinePositionWithTimecode = function (seconds) {
-	return (seconds * 87) / movieDuration;
+	return ((seconds * 87) / movieDuration) - 0.1;
 };
 
 var timelineWidthFromDuration = function (duration) {
-	return 87 * duration / 900; // container width * total duration / seconds in 15 minutes
+	return 87 * duration / 500; // container width * total duration / seconds in 15 minutes
 };
 
 var addNoticeOnTimeline = function (timecode, category_nicename) {
+	$('.timeline-notice').css('opacity', 0.7);
 	var offset = timelinePositionWithTimecode(timecode);
 	var notifEl = $('<div>')
 			.addClass('timeline-notice')
 			.addClass('timeline-notice-'+category_nicename)
 			.css('left', offset+'%');
 	$('.timeline-body').append(notifEl);
-	$('.timeline .cursor').animate({ left: notifEl.offset().left }, 300);
+	$('.timeline .cursor').animate({ left: notifEl.offset().left + 2 }, 300);
 	console.log('Notif element added at timecode '+timecode+' (offset left : '+offset+'%)');
 }
 
@@ -48,7 +51,7 @@ var slideToDocumentation = function () {
 
 $(function () {
 
-	movieDuration = 8600;
+	movieDuration = 8645;
 
 	$('.navbar-tabs a[href]').bind('touchstart', function (e) {
 		e.preventDefault();
@@ -130,5 +133,16 @@ $(function () {
 				slideToDocumentation();
 			}
 		});
+
+
+	$('.timeline-body')
+		.bind('touchstart', function (e) {
+			timelineStartX = e.targetTouches[0].clientX;
+			timelineStartY = e.targetTouches[0].clientY;
+			
+		})
+		.bind('touchmove', function (e) {
+			isTimelineSliding = true;
+		})
 
 });

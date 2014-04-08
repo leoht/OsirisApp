@@ -39,7 +39,7 @@
 .timeline .cursor {
 	background: url(../images/notice-arrow.png) no-repeat;
 	width: 20px; height: 20px;
-	position: relative; top: 0px; left: 55%;
+	position: relative; top: 0px; left: 93%;
 	z-index: 30; 
 }
 
@@ -50,11 +50,11 @@
 }
 
 .timeline-body {
-	background: url('../images/timeline-layout.png') repeat-x center center;
+	background: url('../images/timeline-layout.png') repeat-x 0.5% center;
 	width: 4500px; /* test : to remove */
 	height: 150px;
 	position: relative;
-	left: 55%;
+	left: 95%;
 }
 
 .timeline-notice {
@@ -69,7 +69,7 @@
 
 .timeline-current-time {
 	position: absolute;
-	left: 87%; bottom: 55px;
+	left: 87%; bottom: 65px;
 	width: 80px; height: 35px;
 	border-left: 2px solid white;
 }

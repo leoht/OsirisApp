@@ -7,6 +7,8 @@
     <link href='css/social.css' media='screen' rel='stylesheet'>
     <script src='js/iosBridge.js'></script>
     <script src='js/jquery.js'></script>
+    <script src='js/jquery.gsap.min.js'></script>
+    <script src='js/TweenLite.min.js'></script>
     <script src='js/fastclick.js'></script>
     <script src='js/ui.js'></script>
     <script src='js/doc.js'></script>
@@ -56,7 +58,7 @@
       var onNewComment = function (comment, author, timecode) {
         $('.timeline-last-notice .title').text(author);
         $('.timeline-last-notice .title').css('color', '#00ecea');
-        $('.timeline-last-notice .content').text(comment);
+        $('.timeline-last-notice .content').text('"'+comment+'"');
         $('.timeline-cat-icon img').attr('src', 'images/cat-comment.png');
         addNoticeOnTimeline(timecode, 'comment');
       }
@@ -91,6 +93,7 @@
           <!-- %button#prev-chapter -->
           <!-- %button#rewind -->
           <button class='play'></button>
+          <button class='pause'></button>
           <!-- %button#forward -->
           <!-- %button#next-chapter -->
         </div>
@@ -118,11 +121,8 @@
         <!-- %h4.chapter-title.with-font La découverte -->
         <!-- %p.chapter-content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ull -->
         <div class='video-controls'>
-          <!-- %button#prev-chapter -->
-          <!-- %button#rewind -->
-          <button class='play'></button>
-          <!-- %button#forward -->
-          <!-- %button#next-chapter -->
+          <div class='play'></div>
+          <div class='pause'></div>
         </div>
         <div class='timeline-last-notice'>
           <div class='timeline-cat-icon'>
