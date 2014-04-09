@@ -16,6 +16,8 @@
     <script src='js/controls.js'></script>
     <script>
       var ROOT_API_URL = 'http://www.scope.dev';
+      var FAST_FORWARD = false;
+      var FAST_REWIND  = false;
       
       var oldTimecode = 0;
       var currentTimecode = 0;
@@ -104,7 +106,7 @@
           </div>
           <h3 class='title with-font'></h3>
           <p class='content'></p>
-          <!-- .display-notice-btn -->
+          <div class='display-notice-btn'></div>
           <!-- En savoir + -->
         </div>
         <div class='timeline'>

@@ -21,7 +21,7 @@
 }
 
 .timeline-last-notice .title { font-size: 28px; text-transform: uppercase;  }
-.timeline-last-notice .content { font-size: 20px; line-height: 26px; width: 60%; margin: auto; }
+.timeline-last-notice .content { font-size: 18px; line-height: 26px; width: 60%; margin: auto; }
 .timeline-last-notice .display-notice-btn {
 	color: #94979c;
 	padding-top: 20px;
@@ -29,6 +29,7 @@
 	background: url(../images/display-notice-btn.png) no-repeat center top;
 	position: absolute; bottom: 15px;
 	width: 100%; text-align: center;
+	display: none;
 }
 
 .timeline {

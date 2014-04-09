@@ -10,9 +10,19 @@ var displayingDocumentation = false;
 
 var beginTimelineScrolling = function () {
 	window.timelineScrollInterval = setInterval(function () {
+
+		if (FAST_FORWARD || FAST_REWIND) {
+			dT = '3.0';
+			dir = FAST_FORWARD ? '-' : '+';
+			console.log('yo')
+		} else {
+			dT = '0.4';
+			dir = '-';
+		}
+
 		if (!isTimelineScrolling) return;
 		$('.timeline-body, .timeline .cursor').animate({
-			left: '-=0.4px'
+			left: dir+'='+dT+'px'
 		}, 0);
 	}, 500);
 
@@ -46,6 +56,7 @@ var addNoticeOnTimeline = function (timecode, category_nicename) {
 			.css('left', offset+'%');
 	$('.timeline-body').append(notifEl);
 	$('.timeline .cursor').animate({ left: notifEl.offset().left + 2 }, 300);
+	$('.display-notice-btn').show(0);
 	console.log('Notif element added at timecode '+timecode+' (offset left : '+offset+'%)');
 }
 

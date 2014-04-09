@@ -28,6 +28,8 @@
 #define ApiSetVolume                    @"api.movie.volume"
 #define ApiFastForward                  @"api.movie.forward"
 #define ApiFastRewind                   @"api.movie.rewind"
+#define ApiToggleFastForward            @"api.movie.toggle_forward"
+#define ApiToggleFastRewind             @"api.movie.toggle_rewind"
 #define ApiPrevChapter                  @"api.movie.prev"
 #define ApiNextChapter                  @"api.movie.next"
 #define ApiMovieInfo                    @"api.movie.info"

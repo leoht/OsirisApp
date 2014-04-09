@@ -101,13 +101,13 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:ApiRequestPlay object:nil queue:nil usingBlock:^(NSNotification *note) {
         [VideoController setPaused:NO];
         NSLog(@"Web player now playing.");
-        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:@"onPlay()"];
+        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:@"onPlay();"];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:ApiRequestPause object:nil queue:nil usingBlock:^(NSNotification *note) {
         [VideoController setPaused:NO];
         NSLog(@"Web player now paused.");
-        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:@"onPause()"];
+        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:@"onPause();"];
     }];
     
     if ([[VideoController movieInfo] count] == 0) {
@@ -117,6 +117,17 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:ApiMovieInfo object:nil queue:nil usingBlock:^(NSNotification *note) {
         [self.movieInfoWaitingAlert dismissWithClickedButtonIndex:0 animated:YES];
     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:ApiToggleFastForward object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:@"FAST_FORWARD = !FAST_FORWARD;"];
+        NSLog(@"Toggle FFWD");
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:ApiToggleFastRewind object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:@"FAST_REWIND = !FAST_REWIND;"];
+        NSLog(@"Toggle FRWD");
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning

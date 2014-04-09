@@ -17,6 +17,8 @@
     :javascript
 
       var ROOT_API_URL = 'http://www.scope.dev';
+      var FAST_FORWARD = false;
+      var FAST_REWIND  = false;
 
       var oldTimecode = 0;
       var currentTimecode = 0;
@@ -108,7 +110,7 @@
             %img{ src: 'images/cat-impact.png' }
           %h3.title.with-font 
           %p.content 
-          / .display-notice-btn
+          .display-notice-btn
           /   En savoir +
 
         .timeline

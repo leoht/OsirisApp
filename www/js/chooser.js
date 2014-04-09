@@ -38,11 +38,11 @@ $(function () {
 		}
 	};
 
-	$('.yes').bind('click', function () {
+	$('.yes').bind('touchstart', function () {
 		yes();
 	});
 
-	$('.no').bind('click', function () {
+	$('.no').bind('touchstart', function () {
 		no();
 	})
 
