@@ -4,12 +4,15 @@ var isTimelineSliding = false;
 var profileMenuDisplayed = false;
 var movieDuration;
 var pX, pY, timelineStartX, timelineStartY;
+var timelineSlidingEl;
+var timelineStartLeft;
 var displayingDocumentation = false;
 
 var beginTimelineScrolling = function () {
 	window.timelineScrollInterval = setInterval(function () {
+		if (!isTimelineScrolling) return;
 		$('.timeline-body, .timeline .cursor').animate({
-			left: '-=0.3px'
+			left: '-=0.4px'
 		}, 0);
 	}, 500);
 
@@ -24,6 +27,10 @@ var stopTimelineScrolling = function () {
 
 var timelinePositionWithTimecode = function (seconds) {
 	return ((seconds * 87) / movieDuration) - 0.1;
+};
+
+var timelineOffsetWithTimecode = function (seconds) {
+	return (- timelinePositionWithTimecode(seconds)) + 95;
 };
 
 var timelineWidthFromDuration = function (duration) {
@@ -135,14 +142,12 @@ $(function () {
 		});
 
 
-	$('.timeline-body')
-		.bind('touchstart', function (e) {
-			timelineStartX = e.targetTouches[0].clientX;
-			timelineStartY = e.targetTouches[0].clientY;
-			
-		})
-		.bind('touchmove', function (e) {
-			isTimelineSliding = true;
-		})
+	// Hammer(document.getElementById('timeline-body')).on('dragright', function (e) {
+	// 	$('.timeline-body').css('right', e.deltaX)
+	// });
+
+	// Hammer(document.getElementById('timeline-body')).on('dragleft', function (e) {
+	// 	$('.timeline-body').css('left', e.deltaX)
+	// });
 
 });

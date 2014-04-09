@@ -7,6 +7,7 @@
     %link{href: "css/social.css", media: "screen", rel: "stylesheet"}/
     %script{src: "js/iosBridge.js"}
     %script{src: "js/jquery.js"}
+    %script{src: "js/hammer.min.js"}
     %script{src: "js/jquery.gsap.min.js"}
     %script{src: "js/TweenLite.min.js"}
     %script{src: "js/fastclick.js"}
@@ -42,8 +43,7 @@
         oldTimecode = currentTimecode;
         currentTimecode = seconds;
 
-        //if (currentTimecode - oldTimecode > 2)
-        //   $('.timeline-body').css('left', timelinePositionWithTimecode(seconds)+'%');
+        // $('.timeline-body, .cursor').css('left', timelineOffsetWithTimecode(seconds)+'%');
       }
 
       var onNewNotice = function (timecode, id, title, short_content, category, color) {
@@ -53,6 +53,7 @@
         $('.timeline-cat-icon').show(0);
         $('.timeline-cat-icon img').attr('src', 'images/cat-'+category+'.png');
         $('.timeline-last-notice .title').css('color', '#'+color);
+        $('.container-home').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
         addNoticeOnTimeline(timecode, category);
       }
 
@@ -114,7 +115,7 @@
 
           .timeline-body-container
             .cursor
-            .timeline-body
+            .timeline-body#timeline-body
           
           .timeline-current-time
 
