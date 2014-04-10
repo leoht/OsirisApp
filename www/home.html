@@ -18,6 +18,7 @@
       var ROOT_API_URL = 'http://www.scope.dev';
       var FAST_FORWARD = false;
       var FAST_REWIND  = false;
+      var NOTICES = [];
       
       var oldTimecode = 0;
       var currentTimecode = 0;
@@ -53,9 +54,16 @@
         $('.timeline-last-notice').attr('data-notice-id', id);
         $('.timeline-cat-icon').show(0);
         $('.timeline-cat-icon img').attr('src', 'images/cat-'+category+'.png');
-        $('.timeline-last-notice .title').css('color', '#'+color);
+        $('.view-line-container .timeline-last-notice .title').css('color', '#'+color);
         $('.container-home').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
-        addNoticeOnTimeline(timecode, category);
+        $('.view-grid-container .timeline-last-notice').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
+        addNoticeOnTimeline(timecode, id, category);
+      
+        if ($('.container-home').is(':hidden')) {
+          $('.nav-home').addClass('unread');
+        }
+      
+        NOTICES[id] = { title: title, short_content: short_content, category: category, color: color, timecode: timecode };
       }
       
       var onNewComment = function (comment, author, timecode) {
@@ -63,12 +71,12 @@
         $('.timeline-last-notice .title').css('color', '#00ecea');
         $('.timeline-last-notice .content').text('"'+comment+'"');
         $('.timeline-cat-icon img').attr('src', 'images/cat-comment.png');
-        addNoticeOnTimeline(timecode, 'comment');
+        addNoticeOnTimeline(timecode, null, 'comment');
       }
       
       var setUserInfo = function (name, imageUrl) {
         $('.profile-name').text(name);
-        $('.navbar-tabs a.nav-profile').css('background-image', 'url('+imageUrl+')');
+        $('.navbar-tabs .nav-profile .image').css('background-image', 'url('+imageUrl+')');
       }
       
       $(function() {
@@ -83,7 +91,7 @@
     <!-- HOME SCREEN -->
     <div class='container container-home'>
       <div class='view-nav'>
-        <div class='view-line'></div>
+        <div class='view-line active'></div>
         <div class='view-grid'></div>
       </div>
       <div class='view-line-container'>
@@ -110,7 +118,7 @@
           <!-- En savoir + -->
         </div>
         <div class='timeline'>
-          <div class='timeline-body-container'>
+          <div class='timeline-body-container' id='timeline-body-container'>
             <div class='cursor'></div>
             <div class='timeline-body' id='timeline-body'></div>
           </div>
@@ -118,23 +126,40 @@
         </div>
       </div>
       <div class='view-grid-container'>
-        <div class='home-header'></div>
-        <!-- .chapter-slider -->
-        <!-- .last-chapter.chapter -->
-        <!-- %h4.chapter-title.with-font La découverte -->
-        <!-- %p.chapter-content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ull -->
         <div class='video-controls'>
-          <div class='play'></div>
-          <div class='pause'></div>
+          <button class='play'></button>
+          <button class='pause'></button>
         </div>
         <div class='timeline-last-notice'>
-          <div class='timeline-cat-icon'>
-            <img src='images/cat-impact.png'>
+          <div class='timeline-last-notice-wrapper'>
+            <div class='timeline-cat-icon'>
+              <img>
+            </div>
+            <h3 class='title with-font'>Grid view</h3>
+            <p class='content'></p>
+            <div class='display-notice-btn'>
+              En savoir +
+            </div>
           </div>
-          <h3 class='title with-font'>Grid view</h3>
-          <p class='content'></p>
-          <!-- .display-notice-btn -->
-          <!-- En savoir + -->
+        </div>
+        <div class='notice-grid'>
+          <div class='slider' id='notice-grid-slider'>
+            <!-- .chapter-section -->
+            <!-- .notice-block -->
+            <!-- .notice-block -->
+            <!-- .notice-block -->
+            <!-- .notice-block -->
+            <!-- .notice-block -->
+            <!-- .chapter-section -->
+            <!-- .notice-block -->
+            <!-- .notice-block -->
+            <!-- .notice-block -->
+            <!-- .notice-block -->
+            <!-- .notice-block -->
+          </div>
+        </div>
+        <div class='chapter-timeline-container'>
+          <div class='chapter-timeline'></div>
         </div>
         <!-- .timeline -->
         <!-- .timeline-body-container -->
@@ -212,6 +237,7 @@
         <a class='nav-doc' href='.container-doc' onclick="calliOSFunction('goDoc', [])"></a>
         <a class='nav-profile'>
           <div class='profile-name'></div>
+          <div class='image'></div>
         </a>
       </div>
     </nav>

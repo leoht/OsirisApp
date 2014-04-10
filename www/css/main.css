@@ -47,16 +47,19 @@ body, html {
 
 .view-nav {
 	position: absolute; right: 20px; top: 15px;
+	z-index: 200;
 }
 
 .view-nav div {
 	cursor: pointer; width: 32px; height: 28px;
 	background-repeat: no-repeat;
 	float: right;
+	opacity: 0.5;
 }
 
 .view-nav .view-line { background-image: url(../images/view-line.png); }
 .view-nav .view-grid { background-image: url(../images/view-grid.png); }
+.view-nav .active { opacity: 1; }
 
 .navbar {
 	position: absolute; left: 0; bottom: 0;
@@ -64,7 +67,7 @@ body, html {
 	border-top: 1px solid #0e565f;
 	color: white;
 	background: #030d18;
-	z-index: 100;
+	z-index: 250;
 }
 
 .doc-movie-title {
@@ -100,12 +103,18 @@ body, html {
 
 .navbar-tabs a.nav-profile {
 	width: 200px;  
-	background-image: url(../images/nav-profile.png);
-	background-position: right 5px;
 	position: absolute; 
 	right: 0px; 
 	border-left: 0px;
 	padding-top: 16px;
+}
+
+.nav-profile .image {
+	background-image: url(../images/nav-profile.png);
+	background-position: center;
+	border-radius: 30px;
+	width: 43px; height: 43px;
+	position: absolute; right: 5px; top: 5px;
 }
 
 .navbar-tabs a:first-child { margin-left: 15%; }

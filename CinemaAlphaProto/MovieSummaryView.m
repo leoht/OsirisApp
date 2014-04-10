@@ -198,7 +198,7 @@
     }
     
     if ([name compare:@"profileMenuHidden" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
-        [self.secondTimecodeLabel setHidden:NO];
+        [self.secondTimecodeLabel performSelector:@selector(setHidden:) withObject:NO afterDelay:0.2f];
     }
     
     if ([name compare:@"goSocial" options:NSCaseInsensitiveSearch] == NSOrderedSame

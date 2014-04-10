@@ -19,6 +19,7 @@
       var ROOT_API_URL = 'http://www.scope.dev';
       var FAST_FORWARD = false;
       var FAST_REWIND  = false;
+      var NOTICES = [];
 
       var oldTimecode = 0;
       var currentTimecode = 0;
@@ -54,9 +55,16 @@
         $('.timeline-last-notice').attr('data-notice-id', id);
         $('.timeline-cat-icon').show(0);
         $('.timeline-cat-icon img').attr('src', 'images/cat-'+category+'.png');
-        $('.timeline-last-notice .title').css('color', '#'+color);
+        $('.view-line-container .timeline-last-notice .title').css('color', '#'+color);
         $('.container-home').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
-        addNoticeOnTimeline(timecode, category);
+        $('.view-grid-container .timeline-last-notice').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
+        addNoticeOnTimeline(timecode, id, category);
+
+        if ($('.container-home').is(':hidden')) {
+          $('.nav-home').addClass('unread');
+        }
+
+        NOTICES[id] = { title: title, short_content: short_content, category: category, color: color, timecode: timecode };
       }
 
       var onNewComment = function (comment, author, timecode) {
@@ -64,12 +72,12 @@
         $('.timeline-last-notice .title').css('color', '#00ecea');
         $('.timeline-last-notice .content').text('"'+comment+'"');
         $('.timeline-cat-icon img').attr('src', 'images/cat-comment.png');
-        addNoticeOnTimeline(timecode, 'comment');
+        addNoticeOnTimeline(timecode, null, 'comment');
       }
 
       var setUserInfo = function (name, imageUrl) {
         $('.profile-name').text(name);
-        $('.navbar-tabs a.nav-profile').css('background-image', 'url('+imageUrl+')');
+        $('.navbar-tabs .nav-profile .image').css('background-image', 'url('+imageUrl+')');
       }
 
       $(function() {
@@ -86,7 +94,7 @@
     .container.container-home
 
       .view-nav
-        .view-line
+        .view-line.active
         .view-grid
 
       .view-line-container
@@ -115,33 +123,47 @@
 
         .timeline
 
-          .timeline-body-container
+          .timeline-body-container#timeline-body-container
             .cursor
             .timeline-body#timeline-body
           
           .timeline-current-time
 
       .view-grid-container
-        .home-header
           
-        / .chapter-slider
-        /   .last-chapter.chapter
-        /     %h4.chapter-title.with-font La découverte
-        /     %p.chapter-content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ull
         .video-controls
           
-          .play
-
-          .pause
+          %button.play
+          %button.pause
 
         .timeline-last-notice
+          .timeline-last-notice-wrapper
 
-          .timeline-cat-icon
-            %img{ src: 'images/cat-impact.png' }
-          %h3.title.with-font Grid view
-          %p.content 
-          / .display-notice-btn
-          /   En savoir +
+            .timeline-cat-icon
+              %img
+            %h3.title.with-font Grid view
+            %p.content 
+            .display-notice-btn
+              En savoir +
+
+        .notice-grid
+          .slider#notice-grid-slider
+            / .chapter-section
+            /   .notice-block
+            /   .notice-block
+            /   .notice-block
+            /   .notice-block
+            /   .notice-block
+            / .chapter-section
+            /   .notice-block
+            /   .notice-block
+            /   .notice-block
+            /   .notice-block
+            /   .notice-block
+
+        .chapter-timeline-container
+          .chapter-timeline
+
 
         / .timeline
 
@@ -214,6 +236,7 @@
         %a.nav-doc{href: ".container-doc", onclick: "calliOSFunction('goDoc', [])"}
         %a.nav-profile
           .profile-name
+          .image
 
     .profile-nav
       %a.nav-movie{ href: ".container-movie" } Mon film
