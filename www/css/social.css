@@ -2,7 +2,6 @@
 .container-social { display: none; }
 
 
-
 .social-form {
 	width: 75%;
 	margin: 100px auto 0 auto;
@@ -41,3 +40,5 @@
 	width: 250px;
 	float: right; 
 }
+
+.container-social-notlogged .info { color: white; }

@@ -9,6 +9,7 @@ var timelineStartLeft;
 var displayingDocumentation = false;
 var xLast = 0, posX = 0, xLastGrid = 0, posXGrid = 0;
 var timelineOriginalOffset;
+var IS_LOGGED_IN = false;
 
 var beginTimelineScrolling = function () {
 	window.timelineScrollInterval = setInterval(function () {
@@ -23,7 +24,7 @@ var beginTimelineScrolling = function () {
 		}
 
 		if (!isTimelineScrolling) return;
-		$('.timeline-body, .timeline .cursor').animate({
+		$('.timeline-body, .timeline .cursor, .chapter-timeline, .notice-grid .slider').animate({
 			left: dir+'='+dT+'px'
 		}, 0);
 	}, 500);
@@ -110,17 +111,25 @@ $(function () {
 
 		var hash = $(this).attr('href');
 
+		$('.navbar-tabs a').removeClass('active');
+		$(this).addClass('active');
+
 		if (hash == '.container-doc') {
 			$('.navbar-doc').fadeIn(500);
 		} else {
 			$('.navbar-doc ').hide(0);
 		}
 
+		if (hash == '.container-social' && !IS_LOGGED_IN) {
+			$('.container').hide(0);
+			$('.container-social-notlogged').show(0);
+			return;
+		}
+
 		$('.container').hide(0);
 		$(hash).show(0);
 
-		$('.navbar-tabs a').removeClass('active');
-		$(this).addClass('active');
+
 	});
 
 

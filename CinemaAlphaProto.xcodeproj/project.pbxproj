@@ -11,6 +11,7 @@
 		963D1A1C189BCC5C00A120B9 /* ApiDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 963D1A1B189BCC5C00A120B9 /* ApiDelegate.m */; };
 		96424A8C18BE315400B158E7 /* TwoFaced.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96424A8B18BE315400B158E7 /* TwoFaced.ttf */; };
 		96424A8F18BE3E3000B158E7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96424A8E18BE3E3000B158E7 /* Social.framework */; };
+		9651BFCA18F7D94200D5D77C /* scope_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9651BFC918F7D94200D5D77C /* scope_bg.png */; };
 		96540BDA189ABE5300105225 /* SynchronizeWithCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96540BD9189ABE5300105225 /* SynchronizeWithCodeView.m */; };
 		96540BDC189ABFCB00105225 /* Main_iPhone_large.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96540BDB189ABFCB00105225 /* Main_iPhone_large.storyboard */; };
 		96653C7318A8DDC9001689F9 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96653C7218A8DDC9001689F9 /* FacebookSDK.framework */; };
@@ -73,13 +74,14 @@
 		963D1A1B189BCC5C00A120B9 /* ApiDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiDelegate.m; sourceTree = "<group>"; };
 		96424A8B18BE315400B158E7 /* TwoFaced.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TwoFaced.ttf; sourceTree = "<group>"; };
 		96424A8E18BE3E3000B158E7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		9651BFC918F7D94200D5D77C /* scope_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scope_bg.png; sourceTree = "<group>"; };
 		96540BD8189ABE5300105225 /* SynchronizeWithCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynchronizeWithCodeView.h; sourceTree = "<group>"; };
 		96540BD9189ABE5300105225 /* SynchronizeWithCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynchronizeWithCodeView.m; sourceTree = "<group>"; };
 		96540BDB189ABFCB00105225 /* Main_iPhone_large.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_iPhone_large.storyboard; path = ../Main_iPhone_large.storyboard; sourceTree = "<group>"; };
 		96653C7218A8DDC9001689F9 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		969A6B0218A8E661003B6170 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		96A3C1C218BCAC1000FA1B8A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
-		96B20D85189AA49600B6A1B6 /* CinemaAlphaProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinemaAlphaProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96B20D85189AA49600B6A1B6 /* CinemaAlphaProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = CinemaAlphaProto.app; path = Scope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96B20D88189AA49600B6A1B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		96B20D8A189AA49600B6A1B6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		96B20D8C189AA49600B6A1B6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -333,6 +335,7 @@
 		96E496B318AE5657007A21B2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9651BFC918F7D94200D5D77C /* scope_bg.png */,
 				96424A8B18BE315400B158E7 /* TwoFaced.ttf */,
 				96E496B418AE567E007A21B2 /* play.png */,
 			);
@@ -361,9 +364,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		96B20D84189AA49600B6A1B6 /* CinemaAlphaProto */ = {
+		96B20D84189AA49600B6A1B6 /* Scope */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 96B20DBA189AA49600B6A1B6 /* Build configuration list for PBXNativeTarget "CinemaAlphaProto" */;
+			buildConfigurationList = 96B20DBA189AA49600B6A1B6 /* Build configuration list for PBXNativeTarget "Scope" */;
 			buildPhases = (
 				96B20D81189AA49600B6A1B6 /* Sources */,
 				96B20D82189AA49600B6A1B6 /* Frameworks */,
@@ -373,7 +376,7 @@
 			);
 			dependencies = (
 			);
-			name = CinemaAlphaProto;
+			name = Scope;
 			productName = CinemaAlphaProto;
 			productReference = 96B20D85189AA49600B6A1B6 /* CinemaAlphaProto.app */;
 			productType = "com.apple.product-type.application";
@@ -429,7 +432,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				96B20D84189AA49600B6A1B6 /* CinemaAlphaProto */,
+				96B20D84189AA49600B6A1B6 /* Scope */,
 				96B20DA8189AA49600B6A1B6 /* CinemaAlphaProtoTests */,
 			);
 		};
@@ -452,6 +455,7 @@
 			files = (
 				96B20D9F189AA49600B6A1B6 /* Main_iPad.storyboard in Resources */,
 				96424A8C18BE315400B158E7 /* TwoFaced.ttf in Resources */,
+				9651BFCA18F7D94200D5D77C /* scope_bg.png in Resources */,
 				96E496B518AE567E007A21B2 /* play.png in Resources */,
 				96540BDC189ABFCB00105225 /* Main_iPhone_large.storyboard in Resources */,
 				96B20DA4189AA49600B6A1B6 /* Images.xcassets in Resources */,
@@ -507,7 +511,7 @@
 /* Begin PBXTargetDependency section */
 		96B20DAF189AA49600B6A1B6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 96B20D84189AA49600B6A1B6 /* CinemaAlphaProto */;
+			target = 96B20D84189AA49600B6A1B6 /* Scope */;
 			targetProxy = 96B20DAE189AA49600B6A1B6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -722,7 +726,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		96B20DBA189AA49600B6A1B6 /* Build configuration list for PBXNativeTarget "CinemaAlphaProto" */ = {
+		96B20DBA189AA49600B6A1B6 /* Build configuration list for PBXNativeTarget "Scope" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				96B20DBB189AA49600B6A1B6 /* Debug */,

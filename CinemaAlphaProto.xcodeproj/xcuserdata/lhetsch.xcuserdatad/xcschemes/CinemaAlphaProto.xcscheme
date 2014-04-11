@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "96B20D84189AA49600B6A1B6"
-               BuildableName = "CinemaAlphaProto.app"
-               BlueprintName = "CinemaAlphaProto"
+               BuildableName = "Scope.app"
+               BlueprintName = "Scope"
                ReferencedContainer = "container:CinemaAlphaProto.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "96B20D84189AA49600B6A1B6"
-            BuildableName = "CinemaAlphaProto.app"
-            BlueprintName = "CinemaAlphaProto"
+            BuildableName = "Scope.app"
+            BlueprintName = "Scope"
             ReferencedContainer = "container:CinemaAlphaProto.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "96B20D84189AA49600B6A1B6"
-            BuildableName = "CinemaAlphaProto.app"
-            BlueprintName = "CinemaAlphaProto"
+            BuildableName = "Scope.app"
+            BlueprintName = "Scope"
             ReferencedContainer = "container:CinemaAlphaProto.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -80,8 +80,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "96B20D84189AA49600B6A1B6"
-            BuildableName = "CinemaAlphaProto.app"
-            BlueprintName = "CinemaAlphaProto"
+            BuildableName = "Scope.app"
+            BlueprintName = "Scope"
             ReferencedContainer = "container:CinemaAlphaProto.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

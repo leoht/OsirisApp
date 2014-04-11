@@ -16,6 +16,8 @@
     [text addAttribute: NSForegroundColorAttributeName value:ScopeBlue range:NSMakeRange(2, 1)];
     [self.titleLabel setAttributedText: text];
     
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"scope_bg.png"]];
+    
     StylizeWithScopeFont(self.titleLabel, 80);
     
     StylizeWithScopeFont(self.synchronizeWithCodeButton.titleLabel, 20);

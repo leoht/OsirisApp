@@ -20,6 +20,7 @@
       var FAST_REWIND  = false;
       var NOTICES = [];
       
+      
       var oldTimecode = 0;
       var currentTimecode = 0;
       
@@ -77,6 +78,8 @@
       var setUserInfo = function (name, imageUrl) {
         $('.profile-name').text(name);
         $('.navbar-tabs .nav-profile .image').css('background-image', 'url('+imageUrl+')');
+        $('.container-social-notlogged').remove();
+        IS_LOGGED_IN = true;
       }
       
       $(function() {
@@ -192,6 +195,9 @@
         </div>
       </div>
     </div>
+    <div class='container container-social container-social-notlogged'>
+      <div class='info'>Connectez-vous à l'aide de votre compte Facebook pour pouvoir partager votre expérience avec les gens autour de vous.</div>
+    </div>
     <!-- DOC SCREEN -->
     <div class='container container-doc'>
       <div class='doc-head'>
@@ -203,16 +209,16 @@
         <div class='doc-block doc-movie-info'>
           <div class='doc-block-title'>Fiche du film</div>
         </div>
-        <div class='doc-block doc-themes' data-category-id='2'>
+        <div class='doc-block doc-themes' data-category-id='2' data-category='themes'>
           <div class='doc-block-title'>Thèmes clés</div>
         </div>
-        <div class='doc-block doc-analyse' data-category-id='4'>
+        <div class='doc-block doc-analyse' data-category-id='4' data-category='analyses'>
           <div class='doc-block-title'>Analyses</div>
         </div>
-        <div class='doc-block doc-impact' data-category-id='1'>
+        <div class='doc-block doc-impact' data-category-id='1' data-category='impact'>
           <div class='doc-block-title'>Impact sur la culture</div>
         </div>
-        <div class='doc-block doc-anecdotes' data-category-id='5'>
+        <div class='doc-block doc-anecdotes' data-category-id='5' data-category='anecdotes'>
           <div class='doc-block-title'>Anecdotes</div>
         </div>
         <div class='doc-block doc-social'>

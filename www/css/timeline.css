@@ -92,8 +92,8 @@
 
 .view-grid-container .video-controls { height: 150px;}
 
-.notice-grid .slider { width: 2000px; padding: 40px 25px;}
+.notice-grid .slider { position: relative; width: 2000px; padding: 40px 25px;}
 .notice-grid .slider .chapter-section { border-right: 1px solid black; height: 310px; width: 540px; float: left; margin-left: 30px;}
 .notice-grid .slider .chapter-section .notice-block { width: 165px; height: 130px; background: #091322; float: left; margin: 0 10px 10px 0;  }
 .chapter-timeline-container { position: absolute; left: 0px; bottom: 40px;  z-index: 20;}
-.chapter-timeline { width: 2000px; height: 150px; background: url(../images/chapter-timeline.png) repeat-x -10px 100px; }
+.chapter-timeline { width: 2000px; height: 150px; background: url(../images/chapter-timeline.png) repeat-x -10px 100px; position: relative; }

@@ -20,6 +20,7 @@
       var FAST_FORWARD = false;
       var FAST_REWIND  = false;
       var NOTICES = [];
+      
 
       var oldTimecode = 0;
       var currentTimecode = 0;
@@ -78,6 +79,8 @@
       var setUserInfo = function (name, imageUrl) {
         $('.profile-name').text(name);
         $('.navbar-tabs .nav-profile .image').css('background-image', 'url('+imageUrl+')');
+        $('.container-social-notlogged').remove();
+        IS_LOGGED_IN = true;
       }
 
       $(function() {
@@ -192,6 +195,9 @@
           %select#dest
             %option Tous mes amis
 
+    .container.container-social.container-social-notlogged
+      .info Connectez-vous à l'aide de votre compte Facebook pour pouvoir partager votre expérience avec les gens autour de vous.
+
         
 
     / DOC SCREEN
@@ -204,13 +210,13 @@
 
         .doc-block.doc-movie-info
           .doc-block-title Fiche du film
-        .doc-block.doc-themes{ data: { 'category-id' => 2 } }
+        .doc-block.doc-themes{ data: { 'category-id' => 2, 'category' => 'themes' } }
           .doc-block-title Thèmes clés
-        .doc-block.doc-analyse{ data: { 'category-id' => 4 } }
+        .doc-block.doc-analyse{ data: { 'category-id' => 4, 'category' => 'analyses'  } }
           .doc-block-title Analyses
-        .doc-block.doc-impact{ data: { 'category-id' => 1 } }
+        .doc-block.doc-impact{ data: { 'category-id' => 1, 'category' => 'impact'  } }
           .doc-block-title Impact sur la culture
-        .doc-block.doc-anecdotes{ data: { 'category-id' => 5 } }
+        .doc-block.doc-anecdotes{ data: { 'category-id' => 5, 'category' => 'anecdotes'  } }
           .doc-block-title Anecdotes
         .doc-block.doc-social
           .doc-block-title Communauté

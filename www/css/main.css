@@ -218,6 +218,8 @@ body, html {
 	background: url(../images/doc-title.png) no-repeat center center;
 }
 
+.doc-head.doc-head-themes { background: url(../images/doc-title-themes.png) no-repeat center center; }
+
 .doc-head .doc-movie-title { font-size: 38px; margin-bottom: 0px; }
 .doc-head h3 { color: white; text-transform: uppercase; font-weight: normal;}
 

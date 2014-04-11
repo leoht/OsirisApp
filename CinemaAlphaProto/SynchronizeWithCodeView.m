@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"scope_bg.png"]];
+    
     StylizeWithScopeFont(self.titleLabel, 80);
     BorderedButton(self.validateCodeButton, ScopeBlue);
     

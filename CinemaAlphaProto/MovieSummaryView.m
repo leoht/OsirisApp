@@ -152,7 +152,7 @@
     NSInteger s = [timecode intValue];
     NSInteger m = s / 60;
     s %= 60;
-    NSInteger h = s / 60;
+    NSInteger h = m / 60;
     s %= 60;
     
     return [NSString stringWithFormat:@"%d:%02d:%02d", h, m, s];

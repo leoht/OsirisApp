@@ -23,7 +23,7 @@ var getDocumentation = function (movieId) {
 };
 
 
-var getCategoriesOfParent = function (parent) {
+var getCategoriesOfParent = function (parent, parent_name) {
 	var url = ROOT_API_URL + '/movies/' + MOVIE_ID + '/notice_categories/' + parent + '.json';
 
 	console.log(url);
@@ -41,6 +41,8 @@ var getCategoriesOfParent = function (parent) {
 				var block = $('<div class="doc-block" data-subcategory-id="'+category.id+'">');
 				block.append('<div class="doc-block-title">'+category.title+'</div>');
 				$('.doc-main').append(block);
+
+				$('.doc-head').addClass('doc-head-themes');
 
 				$('.doc-block[data-subcategory-id]').bind('touchstart', function (e) {
 					id = $(this).attr('data-subcategory-id');
@@ -83,26 +85,29 @@ var resetDocScreen = function () {
 		$('.doc-main').html('').append("<div class='doc-block doc-movie-info'> \
 	          <div class='doc-block-title'>Fiche du film</div> \
 	        </div> \
-	        <div class='doc-block doc-themes' data-category-id='2'> \
+	        <div class='doc-block doc-themes' data-category-id='2' data-category='themes'> \
 	          <div class='doc-block-title'>Thèmes clés</div> \
 	        </div> \
-	        <div class='doc-block doc-analyse' data-category-id='4'> \
+	        <div class='doc-block doc-analyse' data-category-id='4' data-category='analyses'> \
 	          <div class='doc-block-title'>Analyses</div> \
 	        </div> \
-	        <div class='doc-block doc-impact' data-category-id='1'> \
+	        <div class='doc-block doc-impact' data-category-id='1' data-category='impact'> \
 	          <div class='doc-block-title'>Impact sur la culture</div> \
 	        </div> \
-	        <div class='doc-block doc-anecdotes' data-category-id='5'> \
+	        <div class='doc-block doc-anecdotes' data-category-id='5' data-category='anecdotes'> \
 	          <div class='doc-block-title'>Anecdotes</div> \
 	        </div> \
 	        <div class='doc-block doc-social'> \
 	          <div class='doc-block-title'>Communauté</div> \
 	        </div>");
 
-		$('.doc-block[data-subcategory-id]').bind('touchstart', function (e) {
-			id = $(this).attr('data-subcategory-id');
-			getNoticesOfCategory(id);
+		$('.doc-block[data-category-id]').bind('touchstart', function (e) {
+			var id = $(this).attr('data-category-id');
+			var cat = $(this).attr('data-category');
+			getCategoriesOfParent(id, cat);
 		});
+
+		$('.doc-head').removeClass().addClass('doc-head');
 
 		$('.doc-main').animate({
 			left: '-=2000px'
@@ -117,7 +122,8 @@ var resetDocScreen = function () {
 $(function () {
 	$('.doc-block[data-category-id]').bind('touchstart', function (e) {
 		var id = $(this).attr('data-category-id');
-		getCategoriesOfParent(id);
+		var cat = $(this).attr('data-category');
+		getCategoriesOfParent(id, cat);
 	});
 
 	$('.navbar-doc .title').bind('touchstart', function (e) {
