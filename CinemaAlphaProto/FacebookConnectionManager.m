@@ -116,6 +116,7 @@ static FacebookConnectionManager *sharedObject;
     
     NSString *facebookId = (NSString *) [res objectForKey:@"id"];
     [ApiDelegate requestForTokenWithFacebookId:facebookId];
+    
     userInfo = res;
 }
 

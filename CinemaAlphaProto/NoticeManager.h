@@ -7,13 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface NoticeManager : NSObject
+
+@property (strong, nonatomic) NSString *lastNoticeTimecode;
 
 + (NoticeManager *)sharedManager;
 - (BOOL)isAcceptingNoticeType:(NSString *)type;
 - (void)pushNotice:(NSMutableDictionary *)noticeData;
 - (void)answered:(BOOL)answer toNoticeWithId:(NSString *)noticeId;
 - (void)enableAllNotices;
+- (void)sendNotice:(Notice *)notice toWebview:(UIWebView *)webView;
 
 @end

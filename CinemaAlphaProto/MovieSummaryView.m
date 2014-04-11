@@ -50,21 +50,9 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:ApiNoticeAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSLog(@"Notice ! %@", note.userInfo);
         
-        NSString *id = (NSMutableString *)[note.userInfo objectForKey:@"id"];
-        NSString *title = (NSMutableString *)[note.userInfo objectForKey:@"title"];
-        NSString *content = (NSMutableString *)[note.userInfo objectForKey:@"short_content"];
-        NSString *category = (NSMutableString *)[note.userInfo objectForKey:@"category_nicename"];
-        
-        NSLog(@"%@", category);
-        
-        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onNewNotice('%@', %@, '%@', '%@', '%@', '%@');",
-                        [note.userInfo objectForKey:@"timecode"],
-                        id,
-                        [title stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"],
-                        [content stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"],
-                        category,
-                        [note.userInfo objectForKey:@"color"]
-        ]];
+        Notice *notice = [Notice createFromDictionnary:note.userInfo];
+        [[NoticeManager sharedManager] sendNotice:notice toWebview:self.webViewDelegate.webView];
+        [[NoticeManager sharedManager] setLastNoticeTimecode:[note.userInfo objectForKey:@"timecode"]];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:ApiCommentAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {

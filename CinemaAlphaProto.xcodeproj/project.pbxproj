@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9613EB2D18BC972200D61DAB /* WebViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9613EB2C18BC972200D61DAB /* WebViewDelegate.m */; };
+		96250ECB18F83DB400C700EE /* Notice.m in Sources */ = {isa = PBXBuildFile; fileRef = 96250ECA18F83DB400C700EE /* Notice.m */; };
 		963D1A1C189BCC5C00A120B9 /* ApiDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 963D1A1B189BCC5C00A120B9 /* ApiDelegate.m */; };
 		96424A8C18BE315400B158E7 /* TwoFaced.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96424A8B18BE315400B158E7 /* TwoFaced.ttf */; };
 		96424A8F18BE3E3000B158E7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96424A8E18BE3E3000B158E7 /* Social.framework */; };
@@ -69,6 +70,8 @@
 		9613EB2B18BC972200D61DAB /* WebViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewDelegate.h; sourceTree = "<group>"; };
 		9613EB2C18BC972200D61DAB /* WebViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewDelegate.m; sourceTree = "<group>"; };
 		9613EB2E18BC975800D61DAB /* WebViewInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewInterface.h; sourceTree = "<group>"; };
+		96250EC918F83DB400C700EE /* Notice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notice.h; sourceTree = "<group>"; };
+		96250ECA18F83DB400C700EE /* Notice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notice.m; sourceTree = "<group>"; };
 		9637A75218D0705600CD48CE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		963D1A1A189BCC5C00A120B9 /* ApiDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiDelegate.h; sourceTree = "<group>"; };
 		963D1A1B189BCC5C00A120B9 /* ApiDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiDelegate.m; sourceTree = "<group>"; };
@@ -172,6 +175,15 @@
 			name = Web;
 			sourceTree = "<group>";
 		};
+		96250EC718F83DA300C700EE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				96250EC918F83DB400C700EE /* Notice.h */,
+				96250ECA18F83DB400C700EE /* Notice.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		96B20D7C189AA49600B6A1B6 = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +229,7 @@
 		96B20D8E189AA49600B6A1B6 /* CinemaAlphaProto */ = {
 			isa = PBXGroup;
 			children = (
+				96250EC718F83DA300C700EE /* Models */,
 				96B20DC3189AA5C200B6A1B6 /* Views */,
 				96B20DC2189AA5BD00B6A1B6 /* Components */,
 				96B20D97189AA49600B6A1B6 /* AppDelegate.h */,
@@ -264,6 +277,8 @@
 		96B20DC2189AA5BD00B6A1B6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				96C669D718D33B4400B61E26 /* NoticeManager.h */,
+				96C669D818D33B4400B61E26 /* NoticeManager.m */,
 				9613EB2A18BC970900D61DAB /* Web */,
 				96F78B1218AE10BB0057531F /* Sync */,
 				96CA77EC189B988700B9F39C /* Api */,
@@ -294,8 +309,6 @@
 				96CA77EE189B98FC00B9F39C /* SocketClient.m */,
 				963D1A1A189BCC5C00A120B9 /* ApiDelegate.h */,
 				963D1A1B189BCC5C00A120B9 /* ApiDelegate.m */,
-				96C669D718D33B4400B61E26 /* NoticeManager.h */,
-				96C669D818D33B4400B61E26 /* NoticeManager.m */,
 			);
 			name = Api;
 			sourceTree = "<group>";
@@ -485,6 +498,7 @@
 				96D18347189BF53300F32DF9 /* MovieSummaryView.m in Sources */,
 				963D1A1C189BCC5C00A120B9 /* ApiDelegate.m in Sources */,
 				9613EB2D18BC972200D61DAB /* WebViewDelegate.m in Sources */,
+				96250ECB18F83DB400C700EE /* Notice.m in Sources */,
 				96CA7805189B9A1D00B9F39C /* SRWebSocket.m in Sources */,
 				96F78B1618AE10EB0057531F /* VideoController.m in Sources */,
 				96B20DC7189AA5EE00B6A1B6 /* EntryPointView.m in Sources */,

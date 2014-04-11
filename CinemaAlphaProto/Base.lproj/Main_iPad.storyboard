@@ -74,6 +74,17 @@
                                 <rect key="frame" x="644" y="665" width="380" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aU2-Qq-q5Y">
+                                <rect key="frame" x="31" y="20" width="90" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Déconnexion">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signout:" destination="giZ-5b-ajc" eventType="touchUpInside" id="f1O-v4-6wu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.027450980392156862" green="0.082352941176470587" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -82,6 +93,7 @@
                     <navigationItem key="navigationItem" id="vTP-y6-Dj4"/>
                     <connections>
                         <outlet property="loginButton" destination="Vxf-xa-e0s" id="FCT-hC-4TA"/>
+                        <outlet property="signoutButton" destination="aU2-Qq-q5Y" id="nfm-A2-sRw"/>
                         <outlet property="synchronizeWithCodeButton" destination="fj7-u1-3Vi" id="wph-PP-Yt3"/>
                         <outlet property="titleLabel" destination="Yph-KX-3EJ" id="4xf-v9-9ef"/>
                         <segue destination="AEb-YT-8Jf" kind="push" identifier="GoToCodeSegue" id="UOh-4C-GFZ"/>

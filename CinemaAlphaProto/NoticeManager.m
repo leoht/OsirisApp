@@ -56,4 +56,18 @@ static NoticeManager *sharedObject;
     [self setAcceptedNoticeTypes:(NSMutableArray *)@[@"impact", @"themes", @"analyse", @"anecdotes"]];
 }
 
+- (void)sendNotice:(Notice *)notice toWebview:(UIWebView *)webView {
+    [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onNewNotice('%@', %@, '%@', '%@', '%@', '%@');",
+          notice.timecode,
+          notice.id,
+          [notice.title stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"],
+          [notice.shortContent stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"],
+          notice.category,
+          notice.color
+    ]];
+    
+    [[]
+    
+}
+
 @end

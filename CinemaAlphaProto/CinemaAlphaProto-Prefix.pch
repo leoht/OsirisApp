@@ -23,6 +23,7 @@
     #import "PKRevealController.h"
     #import "SocketClient.h"
     #import "ApiDelegate.h"
+    #import "Notice.h"
     #import "NoticeManager.h"
     #import "VideoController.h"
     #import "AppDelegate.h"

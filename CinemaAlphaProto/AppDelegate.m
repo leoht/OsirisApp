@@ -12,6 +12,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [UIApplication sharedApplication].idleTimerDisabled = YES; // prevent sleep mode
     
     [self adaptStoryboardForScreen];
     
