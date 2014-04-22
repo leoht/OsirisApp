@@ -49,7 +49,7 @@
         // $('.timeline-body, .cursor').css('left', timelineOffsetWithTimecode(seconds)+'%');
       }
       
-      var onNewNotice = function (timecode, id, title, short_content, category, color) {
+      var onNewNotice = function (timecode, endTimecode, id, title, short_content, category, color) {
         $('.timeline-last-notice .title').text(title);
         $('.timeline-last-notice .content').text(short_content);
         $('.timeline-last-notice').attr('data-notice-id', id);
@@ -58,7 +58,7 @@
         $('.view-line-container .timeline-last-notice .title').css('color', '#'+color);
         $('.container-home').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
         $('.view-grid-container .timeline-last-notice').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
-        addNoticeOnTimeline(timecode, id, category);
+        addNoticeOnTimeline(timecode, endTimecode, id, category);
       
         if ($('.container-home').is(':hidden')) {
           $('.nav-home').addClass('unread');
@@ -115,17 +115,29 @@
           <div class='timeline-cat-icon'>
             <img src='images/cat-impact.png'>
           </div>
-          <h3 class='title with-font'></h3>
+          <h3 class='title'></h3>
           <p class='content'></p>
           <div class='display-notice-btn'></div>
           <!-- En savoir + -->
         </div>
         <div class='timeline'>
           <div class='timeline-body-container' id='timeline-body-container'>
-            <div class='cursor'></div>
+            <!-- .cursor -->
             <div class='timeline-body' id='timeline-body'></div>
           </div>
           <div class='timeline-current-time'></div>
+        </div>
+        <div class='additional-content'>
+          <div class='content'>
+            <div class='image'></div>
+            <div class='title'>Saturne dévorant ses enfants</div>
+            <p>Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....</p>
+          </div>
+          <div class='content'>
+            <div class='image'></div>
+            <div class='title'>Chronos</div>
+            <p>Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....</p>
+          </div>
         </div>
       </div>
       <div class='view-grid-container'>

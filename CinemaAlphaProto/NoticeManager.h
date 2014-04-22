@@ -11,7 +11,7 @@
 
 @interface NoticeManager : NSObject
 
-@property (strong, nonatomic) NSString *lastNoticeTimecode;
+@property NSInteger lastNoticeTimecode;
 
 + (NoticeManager *)sharedManager;
 - (BOOL)isAcceptingNoticeType:(NSString *)type;

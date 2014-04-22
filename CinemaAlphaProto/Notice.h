@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) NSString *id;
 @property (strong, nonatomic) NSString *timecode;
+@property (strong, nonatomic) NSString *endTimecode;
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *shortContent;
 @property (strong, nonatomic) NSString *content;

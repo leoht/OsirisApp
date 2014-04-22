@@ -2,6 +2,19 @@ var x, y, pX, pY;
 var isMoving = false;
 var currentNotice = 5;
 
+var processNotices = function (data) {
+		var a = 5;
+		$(data).each(function (i, el) {
+			var $notice = $('<div class="sample-notice sample-notice-'+a+'" style="z-index:'+(a*10)+'"></div>')
+							.append('<div class="image"><img src="images/samples/'+el.id+'.png" /></div>')
+							.append('<div class="heading"><div class="with-font">'+el.title+'</div></div>')
+							.append('<p class="content">'+el.short_content+'</p>');
+
+			$('.notice-slider').append($notice);
+			a--;
+		});
+	};
+
 $(function () {
 
 	var yes = function () {
@@ -37,6 +50,8 @@ $(function () {
 			}, 800);
 		}
 	};
+
+	
 
 	$('.yes').bind('touchstart', function () {
 		yes();

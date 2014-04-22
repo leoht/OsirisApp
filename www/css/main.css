@@ -84,10 +84,10 @@ body, html {
 }
 
 .nav-movie-title {
-	font-size: 16px;
+	font-size: 15px;
 	text-transform: uppercase;
 	float: left;
-	width: 150px; height: 25px;
+	width: 100px; height: 25px;
 	margin-top: 15px;
 	text-align: center;
 }
@@ -157,19 +157,20 @@ body, html {
 
 .video-controls {
 	width: 100%;
-	height: 190px;
+	height: 115px;
 	position: absolute; bottom: 50px;
-	background: #071528;
+	background: #091524;
 	text-align: center;
 	/*background-image: url(../images/video-controls-layout.png);*/
 	background-repeat: repeat-x;
 	background-position: left center;
+	text-align: center;
 }
 
 .video-controls button { width: 50px; height: 50px; background-repeat: no-repeat; border: none; background-color: #071528; }
 
-.video-controls .play { width: 40px; height: 40px; position: absolute; bottom: 80px; right: 55px; z-index: 50; background-image: url(../images/play.png); }
-.video-controls .pause { display: none; width: 40px; height: 40px; position: absolute; bottom: 80px; right: 55px; z-index: 51; background-image: url(../images/pause.png); }
+.video-controls .play { width: 80px; height: 80px;  z-index: 50; margin-top: 25px; background-image: url(../images/play.png); }
+.video-controls .pause { display: none; width: 80px; height: 80px; margin-top: 25px;  z-index: 51; background-image: url(../images/pause.png); }
 .video-controls #prev-chapter { position: absolute; top: 60px; left: 200px;  background-image: url(../images/prev-chapter.png); }
 .video-controls #rewind { position: absolute; top: 60px; left: 360px; background-image: url(../images/rewind.png); }
 .video-controls #forward { position: absolute; top: 60px; right: 360px; background-image: url(../images/forward.png); }
@@ -196,6 +197,26 @@ body, html {
 }
 
 
+/**** DOC CONTENT *****/
+
+.additional-content {
+	position: absolute; bottom: -370px;
+	width: 100%; height: 340px;
+	background: #fff;
+	z-index: 300;
+	padding: 15px;
+}
+
+.additional-content .title {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: 'Aller', sans-serif;
+	font-size: 20px;	
+}
+
+.additional-content p {
+	font-size: 14px;
+}
 
 /******* DOC *********/
 
@@ -206,7 +227,7 @@ body, html {
 	height: 45px;
 	background: #161e26;
 	border-bottom: 1px solid #04e5e8;
-	display: none;
+	display: none; z-index: 30;
 }
 
 .doc-main { position: relative; }

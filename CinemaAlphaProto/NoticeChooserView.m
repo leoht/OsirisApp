@@ -28,6 +28,10 @@
 	self.webView.scrollView.scrollEnabled = false;
 	[self.webViewDelegate loadPage:@"notice_chooser.html" fromFolder:@"www"];
     
+    [[NSNotificationCenter defaultCenter] addObserverForName:WebViewLoaded object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"ROOT_API_URL = '%@'; loadNotices();", ApiWebUrl]];
+    }];
+    
 //    [VideoController togglePlayPause];
 }
 

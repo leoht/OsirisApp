@@ -7,62 +7,62 @@
     <script src='js/iosBridge.js'></script>
     <script src='js/jquery.js'></script>
     <script src='js/chooser.js'></script>
+    <script>
+      var ROOT_API_URL = 'http://www.scope.dev';
+      
+      var loadNotices = function () {
+      	$.ajax({
+      		url: ROOT_API_URL + '/notices/random.json',
+      		dataType: 'json',
+      		type: 'GET',
+      		success: function (data) {
+      			console.log(data)
+      			processNotices(data);
+      		}
+      	});
+      };
+    </script>
   </head>
   <body>
     <div class='chooser'>
       <div class='yes'></div>
       <div class='no'></div>
       <div class='notice-slider'>
-        <div class='sample-notice sample-notice-1' style='z-index: 30'>
-          <div class='image'>
-            <img src='images/samples/3.png'>
-          </div>
-          <div class='heading'>
-            <div class='with-font'>Déshumanisation des ouvriers</div>
-          </div>
-          <p class='content'>Dans Métropolis, Fritz Lang dépeint une usine dévorant ses ouvriers.</p>
-          <div class='number'></div>
-        </div>
-        <div class='sample-notice sample-notice-2' style='z-index: 30'>
-          <div class='image'>
-            <img src='images/samples/3.png'>
-          </div>
-          <div class='heading'>
-            <div class='with-font'>Déshumanisation des ouvriers</div>
-          </div>
-          <p class='content'>Dans Métropolis, Fritz Lang dépeint une usine dévorant ses ouvriers.</p>
-          <div class='number'></div>
-        </div>
-        <div class='sample-notice sample-notice-3' style='z-index: 30'>
-          <div class='image'>
-            <img src='images/samples/3.png'>
-          </div>
-          <div class='heading'>
-            <div class='with-font'>Déshumanisation des ouvriers</div>
-          </div>
-          <p class='content'>Dans Métropolis, Fritz Lang dépeint une usine dévorant ses ouvriers.</p>
-          <div class='number'></div>
-        </div>
-        <div class='sample-notice sample-notice-4' style='z-index: 40'>
-          <div class='image'>
-            <img src='images/samples/1.png'>
-          </div>
-          <div class='heading'>
-            <div class='with-font'>Star Wars - C3PO</div>
-          </div>
-          <p class='content'>Le design de C3PO de Star Wars possède une troublante ressemblance avec un des personnages du film...</p>
-          <div class='number'></div>
-        </div>
-        <div class='sample-notice sample-notice-5' style='z-index: 50'>
-          <div class='image'>
-            <img src='images/samples/2.jpg'>
-          </div>
-          <div class='heading'>
-            <div class='with-font'>Le Cinquième Element</div>
-          </div>
-          <p class='content'>Le laboratoire du Cinquième Element est inspiré d'un des lieux du film.</p>
-          <div class='number'></div>
-        </div>
+        <!-- .sample-notice{ class: "sample-notice-1", style: "z-index: 30" } -->
+        <!-- .image -->
+        <!-- %img{ src: 'images/samples/3.png'} -->
+        <!-- .heading -->
+        <!-- .with-font Déshumanisation des ouvriers -->
+        <!-- %p.content Dans Métropolis, Fritz Lang dépeint une usine dévorant ses ouvriers. -->
+        <!-- .number -->
+        <!-- .sample-notice{ class: "sample-notice-2", style: "z-index: 30" } -->
+        <!-- .image -->
+        <!-- %img{ src: 'images/samples/3.png'} -->
+        <!-- .heading -->
+        <!-- .with-font Déshumanisation des ouvriers -->
+        <!-- %p.content Dans Métropolis, Fritz Lang dépeint une usine dévorant ses ouvriers. -->
+        <!-- .number -->
+        <!-- .sample-notice{ class: "sample-notice-3", style: "z-index: 30" } -->
+        <!-- .image -->
+        <!-- %img{ src: 'images/samples/3.png'} -->
+        <!-- .heading -->
+        <!-- .with-font Déshumanisation des ouvriers -->
+        <!-- %p.content Dans Métropolis, Fritz Lang dépeint une usine dévorant ses ouvriers. -->
+        <!-- .number -->
+        <!-- .sample-notice{ class: "sample-notice-4", style: "z-index: 40" } -->
+        <!-- .image -->
+        <!-- %img{ src: 'images/samples/1.png'} -->
+        <!-- .heading -->
+        <!-- .with-font Star Wars - C3PO -->
+        <!-- %p.content Le design de C3PO de Star Wars possède une troublante ressemblance avec un des personnages du film... -->
+        <!-- .number -->
+        <!-- .sample-notice{ class: "sample-notice-5", style: "z-index: 50" } -->
+        <!-- .image -->
+        <!-- %img{ src: 'images/samples/2.jpg'} -->
+        <!-- .heading -->
+        <!-- .with-font Le Cinquième Element -->
+        <!-- %p.content Le laboratoire du Cinquième Element est inspiré d'un des lieux du film. -->
+        <!-- .number -->
       </div>
     </div>
   </body>

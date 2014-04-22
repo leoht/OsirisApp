@@ -15,11 +15,11 @@ var beginTimelineScrolling = function () {
 	window.timelineScrollInterval = setInterval(function () {
 
 		if (FAST_FORWARD || FAST_REWIND) {
-			dT = '3.0';
+			dT = '3.4';
 			dir = FAST_FORWARD ? '-' : '+';
 			console.log('yo')
 		} else {
-			dT = '0.4';
+			dT = '0.2';
 			dir = '-';
 		}
 
@@ -27,7 +27,7 @@ var beginTimelineScrolling = function () {
 		$('.timeline-body, .timeline .cursor, .chapter-timeline, .notice-grid .slider').animate({
 			left: dir+'='+dT+'px'
 		}, 0);
-	}, 500);
+	}, 350);
 
 	isTimelineScrolling = true;
 }
@@ -39,7 +39,7 @@ var stopTimelineScrolling = function () {
 }
 
 var timelinePositionWithTimecode = function (seconds) {
-	return ((seconds * 87) / movieDuration) - 0.1;
+	return ((seconds * 95) / movieDuration) - 0.1;
 };
 
 var timelineOffsetWithTimecode = function (seconds) {
@@ -47,7 +47,7 @@ var timelineOffsetWithTimecode = function (seconds) {
 };
 
 var timelineWidthFromDuration = function (duration) {
-	return 87 * duration / 500; // container width * total duration / seconds in 15 minutes
+	return 95 * duration / 500; // container width * total duration / seconds in 15 minutes
 };
 
 var updateTimelineNoticeListeners = function () {
@@ -71,7 +71,7 @@ var updateTimelineNoticeListeners = function () {
 	});
 };
 
-var addNoticeOnTimeline = function (timecode, id, category_nicename) {
+var addNoticeOnTimeline = function (timecode, endTimecode, id, category_nicename) {
 	$('.timeline-notice').css('opacity', 0.7);
 	var offset = timelinePositionWithTimecode(timecode);
 	var notifEl = $('<div>')
@@ -91,13 +91,19 @@ var addNoticeOnTimeline = function (timecode, id, category_nicename) {
 		.addClass('notice-block-'+category_nicename);
 	$('.chapter-section:last-child').append(noticeBlock);
 
+	$('<div>').addClass('timeline-notice-bar')
+			.addClass('timeline-notice-bar-'+category_nicename)
+			.css('left', offset+'%')
+			.css('width', timelineWidthFromDuration(endTimecode - timecode))
+			.appendTo($('.timeline-body'));
+
 	updateTimelineNoticeListeners();
 }
 
 var slideToDocumentation = function () {
-	$('.timeline-last-notice').animate({
-		height: 260,
-		top: '+=40px'
+	$('.navbar-doc').fadeIn(500);
+	$('.additional-content').animate({
+		bottom: '+=360px'
 	}, 500);
 	displayingDocumentation = true;
 };

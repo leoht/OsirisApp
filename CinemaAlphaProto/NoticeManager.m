@@ -10,8 +10,8 @@
 
 @interface NoticeManager ()
 
-@property NSMutableArray *acceptedNoticeTypes;
-@property NSMutableArray *receivedNotices;
+@property (strong, nonatomic) NSMutableArray *acceptedNoticeTypes;
+@property (strong, nonatomic) NSMutableArray *receivedNotices;
 
 @end
 
@@ -32,6 +32,12 @@ static NoticeManager *sharedObject;
     return sharedObject;
 }
 
+- (id)init {
+    self.lastNoticeTimecode = -1000;
+    
+    return self;
+}
+
 - (BOOL)isAcceptingNoticeType:(NSString *)type {
     if ([[self acceptedNoticeTypes] containsObject:type]) {
         return YES;
@@ -43,13 +49,13 @@ static NoticeManager *sharedObject;
 }
 
 - (void)answered:(BOOL)answer toNoticeWithId:(NSString *)noticeId {
-//    NSMutableDictionary *data = [NSMutableDictionary dictionaryWithObject:@[noticeId] forKey:@[@"notice_id"]];
+    NSMutableDictionary *data = [NSMutableDictionary dictionaryWithObject:@[noticeId] forKey:@[@"notice_id"]];
     
-//    if (answer == YES) {
-//        [ApiDelegate sendMessageNamed:ApiChooseNoticeSaidYes withData:data];
-//    } else {
-//        [ApiDelegate sendMessageNamed:ApiChooseNoticeSaidNo withData:data];
-//    }
+    if (answer == YES) {
+        [ApiDelegate sendMessageNamed:ApiChooseNoticeSaidYes withData:data];
+    } else {
+        [ApiDelegate sendMessageNamed:ApiChooseNoticeSaidNo withData:data];
+    }
 }
 
 - (void)enableAllNotices {
@@ -57,16 +63,29 @@ static NoticeManager *sharedObject;
 }
 
 - (void)sendNotice:(Notice *)notice toWebview:(UIWebView *)webView {
-    [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onNewNotice('%@', %@, '%@', '%@', '%@', '%@');",
-          notice.timecode,
-          notice.id,
-          [notice.title stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"],
-          [notice.shortContent stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"],
-          notice.category,
-          notice.color
-    ]];
     
-    [[]
+    NSInteger timecodeInt = [notice.timecode integerValue];
+    
+    NSLog(@"last timecode : %ld, current : %d", (long)timecodeInt, self.lastNoticeTimecode);
+    
+//    if (timecodeInt - self.lastNoticeTimecode > 60) {
+        [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onNewNotice('%@', '%@', %@, '%@', '%@', '%@', '%@');",
+                                                         notice.timecode,
+                                                         notice.endTimecode,
+                                                         notice.id,
+                                                         [notice.title stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"],
+                                                         [notice.shortContent stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"],
+                                                         notice.category,
+                                                         notice.color
+        ]];
+
+//    } else {
+////        notice.viewed = NO;
+//    }
+    
+    [self.receivedNotices addObject:notice];
+    
+    self.lastNoticeTimecode = timecodeInt;
     
 }
 

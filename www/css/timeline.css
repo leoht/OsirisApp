@@ -1,13 +1,13 @@
 
 .timeline-header {
-	height: 508px; width: 100%;
+	height: 420px; width: 100%;
 
 }
 
 .timeline-last-notice {
 	position: absolute; top: 0; left: 0;
 	width: 100%;
-	height: 508px;
+	height: 385px;
 	padding-top: 40px;
 	background: rgba(7,21,40,0.8);
 	background: rgba(0,0,0,0.75);
@@ -24,12 +24,12 @@
 .view-grid-container .timeline-last-notice .display-notice-btn { bottom: 5px; color: white;}
 
 .timeline-last-notice .timeline-cat-icon {
-	margin-top: 120px;
+	margin-top: 40px;
 	width: 100%; text-align: center;
 	display: none;
 }
 
-.timeline-last-notice .title { font-size: 28px; text-transform: uppercase;  color: white; }
+.timeline-last-notice .title { font-size: 28px; font-family: 'Aller', sans-serif; text-transform: uppercase;  color: white; }
 .timeline-last-notice .content { font-size: 18px; line-height: 26px; width: 60%; margin: auto; color: white;}
 .timeline-last-notice .display-notice-btn {
 	color: #94979c;
@@ -42,8 +42,10 @@
 }
 
 .timeline {
-	position: absolute; left: 0px; bottom: 40px;
+	position: absolute; left: 0px; bottom: 165px;
 	width: 100%; 
+	background: #081220 url(../images/timeline-cursor.png) no-repeat 93% top;
+	border-bottom: 1px solid #343639;
 }
 
 .timeline .cursor {
@@ -54,7 +56,7 @@
 }
 
 .timeline-body-container, .chapter-timeline-container {
-	width: 87%;
+	width: 92%;
 	height: 180px;
 	overflow: hidden;	
 }
@@ -73,17 +75,27 @@
 	position: absolute; top: 25px; width: 35px; height: 35px; z-index: 150;
 }
 
+.timeline-notice-bar {
+	position: absolute; top: 74px; height: 2px; z-index: 150; 
+}
+
 .timeline-notice-analyses { background: url(../images/notif-picto-analyses.png) no-repeat; }
 .timeline-notice-impact { background: url(../images/notif-picto-impact.png) no-repeat; }
 .timeline-notice-themes { background: url(../images/notif-picto-themes.png) no-repeat; }
 .timeline-notice-anecdotes { background: url(../images/notif-picto-anecdotes.png) no-repeat; }
 .timeline-notice-comment { background: url(../images/notif-picto-comment.png) no-repeat; }
 
+.timeline-notice-bar-analyses { background: #f0004e; }
+.timeline-notice-bar-impact { background: #ffc99d; }
+.timeline-notice-bar-themes { background: #e4a100; }
+.timeline-notice-bar-anecdotes { background: #21ff9d; }
+.timeline-notice-bar-comment { background: #00ecea; }
+
 .timeline-current-time {
 	position: absolute;
 	left: 87%; bottom: 65px;
 	width: 80px; height: 35px;
-	border-left: 2px solid white;
+	/*border-left: 2px solid white;*/
 }
 
 .notice-grid {

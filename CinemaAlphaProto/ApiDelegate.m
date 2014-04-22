@@ -41,10 +41,10 @@ static NSString *token;
 }
 
 + (void)requestForTokenWithCode:(NSString *)code {
-    NSDictionary *data = [[NSDictionary alloc] initWithObjectsAndKeys:
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                                 ApiFromDeviceToPlayer,  @"direction",
                                 ApiAssociateWithCode, @"name",
-                                [NSDictionary dictionaryWithObjects:@[code] forKeys:@[@"code"]], @"data", nil];
+                                [NSMutableDictionary dictionaryWithObjects:@[code] forKeys:@[@"code"]], @"data", nil];
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:0 error:nil];
     
@@ -54,10 +54,10 @@ static NSString *token;
 }
 
 + (void)requestForTokenWithFacebookId:(NSString *)facebookId {
-    NSDictionary *data = [[NSDictionary alloc] initWithObjectsAndKeys:
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                           ApiFromDeviceToPlayer,  @"direction",
                           ApiAssociateWithFacebook, @"name",
-                          [NSDictionary dictionaryWithObjects:@[facebookId] forKeys:@[@"facebook_id"]], @"data", nil];
+                          [NSMutableDictionary dictionaryWithObjects:@[facebookId] forKeys:@[@"facebook_id"]], @"data", nil];
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:0 error:nil];
     
@@ -67,7 +67,7 @@ static NSString *token;
 + (void)requestForNoticeAtTimecode:(NSString *)timecode withMovieId:(NSString *)movieId {
      NSLog(@"Requesting for notice at timecode %@ for movie ID : %@", timecode, movieId);
     
-    NSDictionary *data = [[NSDictionary alloc] initWithObjectsAndKeys:
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                           timecode, @"timecode",
                           movieId, @"movie_id", nil];
     
@@ -78,21 +78,27 @@ static NSString *token;
 + (void)requestForCommentAtTimecode:(NSString *)timecode withMovieId:(NSString *)movieId {
     NSLog(@"Requesting for comment at timecode %@ for movie ID : %@", timecode, movieId);
     
-    NSDictionary *data = [[NSDictionary alloc] initWithObjectsAndKeys:
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                           timecode, @"timecode",
                           movieId, @"movie_id", nil];
     
     [self sendMessageNamed:ApiRequestForCommentAtTimecode withData:data];
 }
 
-+ (void)sendMessageNamed:(NSString *)name withData:(id)data {
++ (void)sendMessageNamed:(NSString *)name withData:(NSMutableDictionary *)data {
     NSString *token = [[ApiDelegate sharedDelegate] token];
     
-    NSDictionary *message = [[NSDictionary alloc] initWithObjectsAndKeys:
+    NSMutableDictionary *message = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                           ApiFromDeviceToPlayer,  @"direction",
                           name, @"name",
                           token, @"token",
                           data, @"data", nil];
+    
+    if ([FacebookConnectionManager isSessionOpened]) {
+        NSString *userId = [[FacebookConnectionManager userInfo] objectForKey:@"id"];
+        NSMutableDictionary *data = [message objectForKey:@"data"];
+        [data setObject:userId forKey:@"uid"];
+    }
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:message options:0 error:nil];
     
