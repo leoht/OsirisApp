@@ -28,7 +28,8 @@
     
     [self setCurrentTimecode:@"0"];
     
-    StylizeWithScopeFont(self.secondTimecodeLabel, 20);
+//    StylizeWithScopeFont(self.secondTimecodeLabel, 20);
+    [self.secondTimecodeLabel setFont:[UIFont fontWithName:@"Aller-Italic" size:16]];
     
     // load html timeline view
 //    [[NSURLCache sharedURLCache] removeAllCachedResponses];

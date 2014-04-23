@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *synchronizeWithCodeButton;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIButton *signoutButton;
+@property (weak, nonatomic) IBOutlet UILabel *textLabel;
 
 - (IBAction)doFacebookLogin:(id)sender;
 

@@ -18,7 +18,7 @@ var beginTimelineScrolling = function () {
 		window.timelineScrollInterval = setInterval(function () {
 
 			if (FAST_FORWARD || FAST_REWIND) {
-				dT = '4';
+				dT = '6';
 				dir = FAST_FORWARD ? '-' : '+';
 				console.log('yo')
 			} else {
@@ -157,6 +157,11 @@ $(function () {
 			return;
 		}
 
+		if (hash == '.container-home' && displayingDocumentation) {
+			unslideDocumentation();
+			return;
+		}
+
 		$('.container').hide(0);
 		$(hash).show(0);
 
@@ -265,9 +270,10 @@ $(function () {
 
 			console.log(x, pX, y, pY);
 
-			// touch slide bottom
-			if (pY - y < -100 && displayingDocumentation) {
-				unslideDocumentation();
+			// scroll
+			if (pY - y < -20 && displayingDocumentation) {
+				var scroll = $('.additional-content').scrollTop();
+				$('.additional-content').scrollTop(scroll - 5);
 			}
 
 			// scroll

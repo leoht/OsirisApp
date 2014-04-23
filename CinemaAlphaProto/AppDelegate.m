@@ -19,6 +19,16 @@
     [ApiDelegate connect];
     [VideoController start];
     
+    for (NSString* family in [UIFont familyNames])
+    {
+        NSLog(@"%@", family);
+        
+        for (NSString* name in [UIFont fontNamesForFamilyName: family])
+        {
+            NSLog(@"  %@", name);
+        }
+    }
+    
     return YES;
 }
 
@@ -40,10 +50,10 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    [FBSession.activeSession closeAndClearTokenInformation];
     if (![VideoController isPaused]) {
         [VideoController togglePlayPause];
     }
+    [FBSession.activeSession closeAndClearTokenInformation];
 }
 
 - (void)adaptStoryboardForScreen {

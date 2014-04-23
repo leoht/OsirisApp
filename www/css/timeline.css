@@ -1,18 +1,17 @@
 
 .timeline-header {
-	height: 420px; width: 100%;
+	height: 440px; width: 100%;
 
 }
 
 .timeline-last-notice {
 	position: absolute; top: 0; left: 0;
 	width: 100%;
-	height: 385px;
+	height: 405px;
 	padding-top: 40px;
 	background: rgba(7,21,40,0.8);
 	background: rgba(0,0,0,0.75);
 	text-align: center;
-	
 }
 
 .view-grid-container .timeline-last-notice { height: 150px; position: relative;  }
@@ -65,7 +64,7 @@
 
 .timeline-body-container, .chapter-timeline-container {
 	width: 92%;
-	height: 180px;
+	height: 160px;
 	overflow: hidden;	
 }
 
@@ -74,7 +73,7 @@
 	width: 4500px; /* test : to remove */
 	height: 150px;
 	position: relative;
-	left: 95%;
+	left: 100%;
 	-webkit-animation-duration: 500ms;
 	animation-duration: 500ms;
 }

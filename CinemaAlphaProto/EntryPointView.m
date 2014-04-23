@@ -26,6 +26,8 @@
     
     BorderedButton(self.loginButton, ScopeBlue);
     
+    [self.textLabel setFont:[UIFont fontWithName:@"Aller-Light" size:14]];
+    
     [[NSNotificationCenter defaultCenter] addObserverForName:ApiAssociatedWithToken object:nil queue:nil usingBlock:^(NSNotification *note) {
         MovieSummaryView *nextViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"NoticeChooserView"];
         [self.navigationController pushViewController:nextViewController animated:YES];
