@@ -32,6 +32,7 @@ body, html {
 
 .container-home {
 	/*background: url(../images/samples/notices/machine.jpg) no-repeat center top;*/
+	background-size: 100%;
 }
 
 
@@ -201,21 +202,49 @@ body, html {
 
 .additional-content {
 	position: absolute; bottom: -370px;
-	width: 100%; height: 340px;
+	width: 100%; height: 360px;
+	overflow: auto;
 	background: #fff;
-	z-index: 300;
-	padding: 15px;
+	z-index: 230;
 }
 
-.additional-content .title {
+.additional-content .content {
+	height: 162px;
+	clear: both;
+	border-bottom: 1px solid #e1e1e1;
+	padding: 0;
+}
+
+.additional-content .right .title {
 	text-transform: uppercase;
 	font-weight: bold;
 	font-family: 'Aller', sans-serif;
-	font-size: 20px;	
+	font-size: 18px;	
+	padding-top: 15px;
 }
 
-.additional-content p {
-	font-size: 14px;
+.additional-content .image {
+	float: left;
+}
+
+.additional-content .right {
+	float: right;
+	padding: 0 10px 0 10px;
+	width: 570px;
+	height: 162px;
+	position: relative;
+}
+
+.additional-content .more {
+	position: absolute; top: 40%; right: 30px;
+	cursor: pointer;
+	width: 38px; height: 38px; 
+	background: url(../images/notice-more-content.png) no-repeat;
+}
+
+.additional-content .right p {
+	font-size: 12.5px;
+	width: 460px;
 }
 
 /******* DOC *********/

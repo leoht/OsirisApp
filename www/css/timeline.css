@@ -32,12 +32,20 @@
 .timeline-last-notice .title { font-size: 28px; font-family: 'Aller', sans-serif; text-transform: uppercase;  color: white; }
 .timeline-last-notice .content { font-size: 18px; line-height: 26px; width: 60%; margin: auto; color: white;}
 .timeline-last-notice .display-notice-btn {
-	color: #94979c;
+	color: #03e1df;
 	padding-top: 20px;
 	font-size: 13px;
 	background: url(../images/display-notice-btn.png) no-repeat center top;
-	position: absolute; bottom: 70px;
+	position: absolute; bottom: 30px;
 	width: 100%; text-align: center;
+	display: none;
+}
+
+.timeline-last-notice .replay-btn {
+	background: url(../images/replay-btn.png) no-repeat center top;
+	position: absolute; bottom: 50px;
+	width: 100%;
+	height: 50px;
 	display: none;
 }
 
@@ -76,7 +84,7 @@
 }
 
 .timeline-notice-bar {
-	position: absolute; top: 74px; height: 2px; z-index: 150; 
+	position: absolute; top: 69px; height: 15px; z-index: 150; 
 }
 
 .timeline-notice-analyses { background: url(../images/notif-picto-analyses.png) no-repeat; }
@@ -85,11 +93,11 @@
 .timeline-notice-anecdotes { background: url(../images/notif-picto-anecdotes.png) no-repeat; }
 .timeline-notice-comment { background: url(../images/notif-picto-comment.png) no-repeat; }
 
-.timeline-notice-bar-analyses { background: #f0004e; }
-.timeline-notice-bar-impact { background: #ffc99d; }
-.timeline-notice-bar-themes { background: #e4a100; }
-.timeline-notice-bar-anecdotes { background: #21ff9d; }
-.timeline-notice-bar-comment { background: #00ecea; }
+.timeline-notice-bar-analyses { background: #f0004e; background: url(../images/notice-bar-analyses.png) no-repeat ; }
+.timeline-notice-bar-impact { background: #ffc99d;  background: url(../images/notice-bar-impact.png) no-repeat ;  }
+.timeline-notice-bar-themes { background: #e4a100;  background: url(../images/notice-bar-themes.png) no-repeat ; }
+.timeline-notice-bar-anecdotes { background: #21ff9d; background: url(../images/notice-bar-anecdotes.png) no-repeat ;  }
+.timeline-notice-bar-comment { background: #00ecea; background: url(../images/notice-bar-comment.png) no-repeat ;  }
 
 .timeline-current-time {
 	position: absolute;

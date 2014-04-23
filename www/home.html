@@ -20,6 +20,7 @@
       var FAST_REWIND  = false;
       var NOTICES = [];
       
+      var LAST_NOTICE_TIMECODE = -9999;
       
       var oldTimecode = 0;
       var currentTimecode = 0;
@@ -50,6 +51,15 @@
       }
       
       var onNewNotice = function (timecode, endTimecode, id, title, short_content, category, color) {
+      
+        console.log('Last timecode : '+LAST_NOTICE_TIMECODE+', current : '+timecode);
+      
+        if (Number(timecode) - LAST_NOTICE_TIMECODE < 150 ) {
+          return;
+        }
+      
+        LAST_NOTICE_TIMECODE = Number(timecode);
+      
         $('.timeline-last-notice .title').text(title);
         $('.timeline-last-notice .content').text(short_content);
         $('.timeline-last-notice').attr('data-notice-id', id);
@@ -117,8 +127,10 @@
           </div>
           <h3 class='title'></h3>
           <p class='content'></p>
-          <div class='display-notice-btn'></div>
-          <!-- En savoir + -->
+          <div class='display-notice-btn'>
+            en savoir +
+          </div>
+          <div class='replay-btn'></div>
         </div>
         <div class='timeline'>
           <div class='timeline-body-container' id='timeline-body-container'>
@@ -129,14 +141,36 @@
         </div>
         <div class='additional-content'>
           <div class='content'>
-            <div class='image'></div>
-            <div class='title'>Saturne dévorant ses enfants</div>
-            <p>Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....</p>
+            <img class='image' src='images/samples/doc/add-sample-1.jpg'>
+            <div class='right'>
+              <div class='title'>Saturne dévorant ses enfants</div>
+              <div class='more'></div>
+              <p>Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....</p>
+            </div>
           </div>
           <div class='content'>
-            <div class='image'></div>
-            <div class='title'>Chronos</div>
-            <p>Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....</p>
+            <img class='image' src='images/samples/doc/add-sample-2.jpg'>
+            <div class='right'>
+              <div class='title'>Chronos</div>
+              <div class='more'></div>
+              <p>Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....</p>
+            </div>
+          </div>
+          <div class='content'>
+            <img class='image' src='images/samples/doc/add-sample-2.jpg'>
+            <div class='right'>
+              <div class='title'>Chronos</div>
+              <div class='more'></div>
+              <p>Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....</p>
+            </div>
+          </div>
+          <div class='content'>
+            <img class='image' src='images/samples/doc/add-sample-2.jpg'>
+            <div class='right'>
+              <div class='title'>Chronos</div>
+              <div class='more'></div>
+              <p>Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....</p>
+            </div>
           </div>
         </div>
       </div>

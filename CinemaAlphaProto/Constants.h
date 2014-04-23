@@ -7,8 +7,8 @@
 //
 
 #define ApiConnectionUrl                @"ws://192.168.2.1:4567"
-#define ApiWebUrl                       @"http://www.scope.dev"
-//#define ApiWebUrl                       @"http://192.168.2.1:3000"
+//#define ApiWebUrl                       @"http://www.scope.dev"
+#define ApiWebUrl                       @"http://192.168.2.1:3000"
 
 #define ApiFromDeviceToPlayer           @"device_to_player"
 #define ApiFromPlayerToDevice           @"player_to_device"
