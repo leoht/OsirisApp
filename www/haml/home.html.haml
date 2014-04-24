@@ -20,6 +20,7 @@
       var FAST_FORWARD = false;
       var FAST_REWIND  = false;
       var NOTICES = [];
+      var USER_FACEBOOK_ID = null;
 
       var LAST_NOTICE_TIMECODE = -9999;
 
@@ -68,8 +69,8 @@
         $('.timeline-cat-icon img').attr('src', 'images/cat-'+category+'.png');
         $('.view-line-container .timeline-last-notice .title').css('color', '#'+color);
         $('.container-home').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
-        $('.view-grid-container .timeline-last-notice').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
-        addNoticeOnTimeline(timecode, endTimecode, id, category);
+        //$('.view-grid-container .timeline-last-notice').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
+        addNoticeOnTimeline(timecode, endTimecode, id, category, title);
 
         if ($('.container-home').is(':hidden')) {
           $('.nav-home').addClass('unread');
@@ -83,14 +84,16 @@
         $('.timeline-last-notice .title').css('color', '#00ecea');
         $('.timeline-last-notice .content').text('"'+comment+'"');
         $('.timeline-cat-icon img').attr('src', 'images/cat-comment.png');
-        addNoticeOnTimeline(timecode, null, 'comment');
+        addNoticeOnTimeline(timecode, timecode+30, null, 'comment', author);
       }
 
-      var setUserInfo = function (name, imageUrl) {
+      var setUserInfo = function (id, name, imageUrl) {
         $('.profile-name').text(name);
         $('.navbar-tabs .nav-profile .image').css('background-image', 'url('+imageUrl+')');
         $('.container-social-notlogged').remove();
+        $('.container-social .profile-image').attr('src', 'http://graph.facebook.com/'+id+'/picture?type=normal');
         IS_LOGGED_IN = true;
+        USER_FACEBOOK_ID = id;
       }
 
       $(function() {
@@ -101,7 +104,13 @@
   %body
 
     .navbar-doc
-      %span.with-font.title Documentation
+      .doc-breadcrumb
+        .item.item-1 Documentation
+        .item.item-2 Thèmes clés
+        .item.item-3 Déshumanisation
+
+      .doc-search
+        %input#doc-search-input{ placeholder: "Recherche rapide" }
 
     / HOME SCREEN
     .container.container-home
@@ -129,7 +138,7 @@
 
           .timeline-cat-icon
             %img{ src: 'images/cat-impact.png' }
-          %h3.title 
+          %h3.title.with-font
           %p.content 
           .display-notice-btn
             en savoir +
@@ -140,79 +149,43 @@
           .timeline-body-container#timeline-body-container
             / .cursor
             .timeline-body#timeline-body
+              / .timeline-notice-title Test test
           
           .timeline-current-time
 
-        .additional-content
-          .content
-            %img.image{ src: 'images/samples/doc/add-sample-1.jpg' }
-            .right
-              .title Saturne dévorant ses enfants
-              .more
-              %p Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....
-          .content
-            %img.image{ src: 'images/samples/doc/add-sample-2.jpg' }
-            .right
-              .title Chronos
-              .more
-              %p Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....
-          .content
-            %img.image{ src: 'images/samples/doc/add-sample-2.jpg' }
-            .right
-              .title Chronos
-              .more
-              %p Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....
-          .content
-            %img.image{ src: 'images/samples/doc/add-sample-2.jpg' }
-            .right
-              .title Chronos
-              .more
-              %p Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....
-
-
       .view-grid-container
+        
           
         .video-controls
-          
+          / %button#prev-chapter
+          / %button#rewind
           %button.play
           %button.pause
+          / %button#forward
+          / %button#next-chapter
 
         .timeline-last-notice
-          .timeline-last-notice-wrapper
 
-            .timeline-cat-icon
-              %img
-            %h3.title.with-font Grid view
-            %p.content 
-            .display-notice-btn
-              En savoir +
-
-        .notice-grid
-          .slider#notice-grid-slider
-            / .chapter-section
-            /   .notice-block
-            /   .notice-block
-            /   .notice-block
-            /   .notice-block
-            /   .notice-block
-            / .chapter-section
-            /   .notice-block
-            /   .notice-block
-            /   .notice-block
-            /   .notice-block
-            /   .notice-block
-
-        .chapter-timeline-container
-          .chapter-timeline
+          .timeline-cat-icon
+            %img{ src: 'images/cat-impact.png' }
+          %h3.title.with-font
+          %p.content 
+          .display-notice-btn
+            en savoir +
+          .replay-btn
 
 
-        / .timeline
 
-        /   .timeline-body-container
-        /     .cursor
-        /     .timeline-body
+        .timeline
+
+          .timeline-body-container#timeline-body-container
+            / .cursor
+            .timeline-body#notice-grid-slider
+              / .timeline-notice-title Test test
           
-        /   .timeline-current-time
+          .timeline-current-time
+
+
     / / TIMELINE SCREEN
     / .container.container-timeline
     /   .timeline-head
@@ -220,18 +193,20 @@
 
     / SOCIAL SCREEN
     .container.container-social
-      .social-form
-        %div
-          %label
-            %span.label-main.with-font Votre message
-            %span.helper 140 caractères maximum
-          %textarea#message{ placeholder: 'Votre message' }
-        %div
-          %button.button-link.send Poster
-          %label
-            %span.label-main.with-font Destinataires
-          %select#dest
-            %option Tous mes amis
+      .step-2
+        %img.profile-image
+        .social-form
+          %div
+            %label
+              %span.label-main.with-font Votre message
+              %span.helper 140 caractères maximum
+            %textarea#message{ placeholder: 'Votre message' }
+          %div
+            %button.button-link.send Poster
+            / %label
+            /   %span.label-main.with-font Destinataires
+            / %select#dest
+            /   %option Tous mes amis
 
     .container.container-social.container-social-notlogged
       .info Connectez-vous à l'aide de votre compte Facebook pour pouvoir partager votre expérience avec les gens autour de vous.
@@ -247,17 +222,44 @@
         .doc-search
 
         .doc-block.doc-movie-info
-          .doc-block-title Fiche du film
         .doc-block.doc-themes{ data: { 'category-id' => 2, 'category' => 'themes' } }
-          .doc-block-title Thèmes clés
         .doc-block.doc-analyse{ data: { 'category-id' => 4, 'category' => 'analyses'  } }
-          .doc-block-title Analyses
         .doc-block.doc-impact{ data: { 'category-id' => 1, 'category' => 'impact'  } }
-          .doc-block-title Impact sur la culture
         .doc-block.doc-anecdotes{ data: { 'category-id' => 5, 'category' => 'anecdotes'  } }
-          .doc-block-title Anecdotes
         .doc-block.doc-social
-          .doc-block-title Communauté
+
+      / .doc-category
+      /   .slider
+      /     .cat-icon
+      /     .title Déshumanisation
+      /     .short-content L’usine elle-même, telle Chronos dévorant ses enfants, se nourrit de chair humaine. Lorsqu’ils ne périssent pas physiquement, les ouvriers sont tout simplement anéantis dans leur âme et leur singularité. 
+        
+
+    .additional-content
+      .content
+        %img.image{ src: 'images/samples/doc/add-sample-1.jpg' }
+        .right
+          .title Saturne dévorant ses enfants
+          .more
+          %p Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....
+      .content
+        %img.image{ src: 'images/samples/doc/add-sample-2.jpg' }
+        .right
+          .title Chronos
+          .more
+          %p Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....
+      .content
+        %img.image{ src: 'images/samples/doc/add-sample-2.jpg' }
+        .right
+          .title Chronos
+          .more
+          %p Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....
+      .content
+        %img.image{ src: 'images/samples/doc/add-sample-2.jpg' }
+        .right
+          .title Chronos
+          .more
+          %p Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....
 
     / ROADMAP SCREEN
     .container.container-roadmap

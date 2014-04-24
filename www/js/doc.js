@@ -35,20 +35,31 @@ var getCategoriesOfParent = function (parent, parent_name) {
 		url: url,
 		dataType: 'json',
 		success: function (data) {
-			$('.doc-main').html('');
-			$(data).each(function (i, category) {
-				console.log(category);
-				var block = $('<div class="doc-block" data-subcategory-id="'+category.id+'">');
-				block.append('<div class="doc-block-title">'+category.title+'</div>');
-				$('.doc-main').append(block);
+			$('.doc-main').addClass('flipping');
+			
+			$('.doc-breadcrumb .item-2').text(parent_name);
+			$('.doc-breadcrumb .item-2').show();
 
-				$('.doc-head').addClass('doc-head-themes');
+			setTimeout(function () {
+				$('.doc-main').html('');
+				$(data).each(function (i, category) {
 
-				$('.doc-block[data-subcategory-id]').bind('touchstart', function (e) {
-					id = $(this).attr('data-subcategory-id');
-					getNoticesOfCategory(id);
+					console.log(category);
+					var block = $('<div class="doc-block" data-subcategory-id="'+category.id+'">');
+					block.append('<div class="doc-block-title">'+category.title+'</div>');
+					$('.doc-main').append(block);
+
+					$('.doc-head').addClass('doc-head-'+parent_name);
+
+					$('.doc-block[data-subcategory-id]').bind('touchstart', function (e) {
+						id = $(this).attr('data-subcategory-id');
+						getNoticesOfCategory(id);
+					});
 				});
-			});
+				$('.doc-main').removeClass('flipping');
+				
+
+			}, 400);
 
 		}
 	});
@@ -57,6 +68,8 @@ var getCategoriesOfParent = function (parent, parent_name) {
 var getNoticesOfCategory = function (category) {
 
 	// var isTopLevelCategory = Number(category) <= 4;
+
+	$('.doc-breadcrumb .item-3').text(category).show(0);
 
 	var url = ROOT_API_URL + '/movies/' + MOVIE_ID + '/notice_categories/' + category + '.json';
 
@@ -81,24 +94,20 @@ var getNoticesOfCategory = function (category) {
 
 var resetDocScreen = function () {
 
-	$('.doc-main').animate({ left: '+=1000px' }, 300, function () {
+	$('.doc-main').addClass('flipping');
+
+	setTimeout(function () {
 		$('.doc-main').html('').append("<div class='doc-block doc-movie-info'> \
-	          <div class='doc-block-title'>Fiche du film</div> \
 	        </div> \
 	        <div class='doc-block doc-themes' data-category-id='2' data-category='themes'> \
-	          <div class='doc-block-title'>Thèmes clés</div> \
 	        </div> \
 	        <div class='doc-block doc-analyse' data-category-id='4' data-category='analyses'> \
-	          <div class='doc-block-title'>Analyses</div> \
 	        </div> \
 	        <div class='doc-block doc-impact' data-category-id='1' data-category='impact'> \
-	          <div class='doc-block-title'>Impact sur la culture</div> \
 	        </div> \
 	        <div class='doc-block doc-anecdotes' data-category-id='5' data-category='anecdotes'> \
-	          <div class='doc-block-title'>Anecdotes</div> \
 	        </div> \
 	        <div class='doc-block doc-social'> \
-	          <div class='doc-block-title'>Communauté</div> \
 	        </div>");
 
 		$('.doc-block[data-category-id]').bind('touchstart', function (e) {
@@ -109,13 +118,11 @@ var resetDocScreen = function () {
 
 		$('.doc-head').removeClass().addClass('doc-head');
 
-		$('.doc-main').animate({
-			left: '-=2000px'
-		}, 0).animate({
-			left: '+=1000px'
-		}, 300);
-	})
+		$('.doc-main').removeClass('flipping');
+	}, 400);
 
+	$('.doc-breadcrumb .item-2').hide(0);
+	$('.doc-breadcrumb .item-3').hide(0);
 	
 }
 
@@ -126,7 +133,7 @@ $(function () {
 		getCategoriesOfParent(id, cat);
 	});
 
-	$('.navbar-doc .title').bind('touchstart', function (e) {
+	$('.doc-breadcrumb .item-1').bind('touchstart', function (e) {
 		resetDocScreen();
 	});
 });

@@ -79,7 +79,8 @@
         if ([FacebookConnectionManager isSessionOpened]) {
             NSLog(@"Logged with FB");
             NSMutableDictionary *userInfo = [FacebookConnectionManager userInfo];
-            [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setUserInfo('%@ %@', '%@');",
+            [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setUserInfo('%@', '%@ %@', '%@');",
+                [userInfo objectForKey:@"id"],
                 [userInfo objectForKey:@"first_name"], [userInfo objectForKey:@"last_name"],
                 [FacebookConnectionManager getUserImageUrl]
             ]];

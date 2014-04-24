@@ -19,6 +19,7 @@
       var FAST_FORWARD = false;
       var FAST_REWIND  = false;
       var NOTICES = [];
+      var USER_FACEBOOK_ID = null;
       
       var LAST_NOTICE_TIMECODE = -9999;
       
@@ -67,8 +68,8 @@
         $('.timeline-cat-icon img').attr('src', 'images/cat-'+category+'.png');
         $('.view-line-container .timeline-last-notice .title').css('color', '#'+color);
         $('.container-home').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
-        $('.view-grid-container .timeline-last-notice').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
-        addNoticeOnTimeline(timecode, endTimecode, id, category);
+        //$('.view-grid-container .timeline-last-notice').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
+        addNoticeOnTimeline(timecode, endTimecode, id, category, title);
       
         if ($('.container-home').is(':hidden')) {
           $('.nav-home').addClass('unread');
@@ -82,14 +83,16 @@
         $('.timeline-last-notice .title').css('color', '#00ecea');
         $('.timeline-last-notice .content').text('"'+comment+'"');
         $('.timeline-cat-icon img').attr('src', 'images/cat-comment.png');
-        addNoticeOnTimeline(timecode, null, 'comment');
+        addNoticeOnTimeline(timecode, timecode+30, null, 'comment', author);
       }
       
-      var setUserInfo = function (name, imageUrl) {
+      var setUserInfo = function (id, name, imageUrl) {
         $('.profile-name').text(name);
         $('.navbar-tabs .nav-profile .image').css('background-image', 'url('+imageUrl+')');
         $('.container-social-notlogged').remove();
+        $('.container-social .profile-image').attr('src', 'http://graph.facebook.com/'+id+'/picture?type=normal');
         IS_LOGGED_IN = true;
+        USER_FACEBOOK_ID = id;
       }
       
       $(function() {
@@ -99,7 +102,14 @@
   </head>
   <body>
     <div class='navbar-doc'>
-      <span class='with-font title'>Documentation</span>
+      <div class='doc-breadcrumb'>
+        <div class='item item-1'>Documentation</div>
+        <div class='item item-2'>Thèmes clés</div>
+        <div class='item item-3'>Déshumanisation</div>
+      </div>
+      <div class='doc-search'>
+        <input id='doc-search-input' placeholder='Recherche rapide'>
+      </div>
     </div>
     <!-- HOME SCREEN -->
     <div class='container container-home'>
@@ -125,7 +135,7 @@
           <div class='timeline-cat-icon'>
             <img src='images/cat-impact.png'>
           </div>
-          <h3 class='title'></h3>
+          <h3 class='title with-font'></h3>
           <p class='content'></p>
           <div class='display-notice-btn'>
             en savoir +
@@ -135,86 +145,42 @@
         <div class='timeline'>
           <div class='timeline-body-container' id='timeline-body-container'>
             <!-- .cursor -->
-            <div class='timeline-body' id='timeline-body'></div>
+            <div class='timeline-body' id='timeline-body'>
+              <!-- .timeline-notice-title Test test -->
+            </div>
           </div>
           <div class='timeline-current-time'></div>
-        </div>
-        <div class='additional-content'>
-          <div class='content'>
-            <img class='image' src='images/samples/doc/add-sample-1.jpg'>
-            <div class='right'>
-              <div class='title'>Saturne dévorant ses enfants</div>
-              <div class='more'></div>
-              <p>Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....</p>
-            </div>
-          </div>
-          <div class='content'>
-            <img class='image' src='images/samples/doc/add-sample-2.jpg'>
-            <div class='right'>
-              <div class='title'>Chronos</div>
-              <div class='more'></div>
-              <p>Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....</p>
-            </div>
-          </div>
-          <div class='content'>
-            <img class='image' src='images/samples/doc/add-sample-2.jpg'>
-            <div class='right'>
-              <div class='title'>Chronos</div>
-              <div class='more'></div>
-              <p>Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....</p>
-            </div>
-          </div>
-          <div class='content'>
-            <img class='image' src='images/samples/doc/add-sample-2.jpg'>
-            <div class='right'>
-              <div class='title'>Chronos</div>
-              <div class='more'></div>
-              <p>Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....</p>
-            </div>
-          </div>
         </div>
       </div>
       <div class='view-grid-container'>
         <div class='video-controls'>
+          <!-- %button#prev-chapter -->
+          <!-- %button#rewind -->
           <button class='play'></button>
           <button class='pause'></button>
+          <!-- %button#forward -->
+          <!-- %button#next-chapter -->
         </div>
         <div class='timeline-last-notice'>
-          <div class='timeline-last-notice-wrapper'>
-            <div class='timeline-cat-icon'>
-              <img>
-            </div>
-            <h3 class='title with-font'>Grid view</h3>
-            <p class='content'></p>
-            <div class='display-notice-btn'>
-              En savoir +
+          <div class='timeline-cat-icon'>
+            <img src='images/cat-impact.png'>
+          </div>
+          <h3 class='title with-font'></h3>
+          <p class='content'></p>
+          <div class='display-notice-btn'>
+            en savoir +
+          </div>
+          <div class='replay-btn'></div>
+        </div>
+        <div class='timeline'>
+          <div class='timeline-body-container' id='timeline-body-container'>
+            <!-- .cursor -->
+            <div class='timeline-body' id='notice-grid-slider'>
+              <!-- .timeline-notice-title Test test -->
             </div>
           </div>
+          <div class='timeline-current-time'></div>
         </div>
-        <div class='notice-grid'>
-          <div class='slider' id='notice-grid-slider'>
-            <!-- .chapter-section -->
-            <!-- .notice-block -->
-            <!-- .notice-block -->
-            <!-- .notice-block -->
-            <!-- .notice-block -->
-            <!-- .notice-block -->
-            <!-- .chapter-section -->
-            <!-- .notice-block -->
-            <!-- .notice-block -->
-            <!-- .notice-block -->
-            <!-- .notice-block -->
-            <!-- .notice-block -->
-          </div>
-        </div>
-        <div class='chapter-timeline-container'>
-          <div class='chapter-timeline'></div>
-        </div>
-        <!-- .timeline -->
-        <!-- .timeline-body-container -->
-        <!-- .cursor -->
-        <!-- .timeline-body -->
-        <!-- .timeline-current-time -->
       </div>
     </div>
     <!-- / TIMELINE SCREEN -->
@@ -222,22 +188,23 @@
     <!-- .timeline-head -->
     <!-- SOCIAL SCREEN -->
     <div class='container container-social'>
-      <div class='social-form'>
-        <div>
-          <label>
-            <span class='label-main with-font'>Votre message</span>
-            <span class='helper'>140 caractères maximum</span>
-          </label>
-          <textarea id='message' placeholder='Votre message'></textarea>
-        </div>
-        <div>
-          <button class='button-link send'>Poster</button>
-          <label>
-            <span class='label-main with-font'>Destinataires</span>
-          </label>
-          <select id='dest'>
-            <option>Tous mes amis</option>
-          </select>
+      <div class='step-2'>
+        <img class='profile-image'>
+        <div class='social-form'>
+          <div>
+            <label>
+              <span class='label-main with-font'>Votre message</span>
+              <span class='helper'>140 caractères maximum</span>
+            </label>
+            <textarea id='message' placeholder='Votre message'></textarea>
+          </div>
+          <div>
+            <button class='button-link send'>Poster</button>
+            <!-- %label -->
+            <!-- %span.label-main.with-font Destinataires -->
+            <!-- %select#dest -->
+            <!-- %option Tous mes amis -->
+          </div>
         </div>
       </div>
     </div>
@@ -252,23 +219,50 @@
       </div>
       <div class='doc-main doc-home'>
         <div class='doc-search'></div>
-        <div class='doc-block doc-movie-info'>
-          <div class='doc-block-title'>Fiche du film</div>
+        <div class='doc-block doc-movie-info'></div>
+        <div class='doc-block doc-themes' data-category-id='2' data-category='themes'></div>
+        <div class='doc-block doc-analyse' data-category-id='4' data-category='analyses'></div>
+        <div class='doc-block doc-impact' data-category-id='1' data-category='impact'></div>
+        <div class='doc-block doc-anecdotes' data-category-id='5' data-category='anecdotes'></div>
+        <div class='doc-block doc-social'></div>
+      </div>
+      <!-- .doc-category -->
+      <!-- .slider -->
+      <!-- .cat-icon -->
+      <!-- .title Déshumanisation -->
+      <!-- .short-content L’usine elle-même, telle Chronos dévorant ses enfants, se nourrit de chair humaine. Lorsqu’ils ne périssent pas physiquement, les ouvriers sont tout simplement anéantis dans leur âme et leur singularité. -->
+    </div>
+    <div class='additional-content'>
+      <div class='content'>
+        <img class='image' src='images/samples/doc/add-sample-1.jpg'>
+        <div class='right'>
+          <div class='title'>Saturne dévorant ses enfants</div>
+          <div class='more'></div>
+          <p>Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....</p>
         </div>
-        <div class='doc-block doc-themes' data-category-id='2' data-category='themes'>
-          <div class='doc-block-title'>Thèmes clés</div>
+      </div>
+      <div class='content'>
+        <img class='image' src='images/samples/doc/add-sample-2.jpg'>
+        <div class='right'>
+          <div class='title'>Chronos</div>
+          <div class='more'></div>
+          <p>Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....</p>
         </div>
-        <div class='doc-block doc-analyse' data-category-id='4' data-category='analyses'>
-          <div class='doc-block-title'>Analyses</div>
+      </div>
+      <div class='content'>
+        <img class='image' src='images/samples/doc/add-sample-2.jpg'>
+        <div class='right'>
+          <div class='title'>Chronos</div>
+          <div class='more'></div>
+          <p>Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....</p>
         </div>
-        <div class='doc-block doc-impact' data-category-id='1' data-category='impact'>
-          <div class='doc-block-title'>Impact sur la culture</div>
-        </div>
-        <div class='doc-block doc-anecdotes' data-category-id='5' data-category='anecdotes'>
-          <div class='doc-block-title'>Anecdotes</div>
-        </div>
-        <div class='doc-block doc-social'>
-          <div class='doc-block-title'>Communauté</div>
+      </div>
+      <div class='content'>
+        <img class='image' src='images/samples/doc/add-sample-2.jpg'>
+        <div class='right'>
+          <div class='title'>Chronos</div>
+          <div class='more'></div>
+          <p>Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....</p>
         </div>
       </div>
     </div>
