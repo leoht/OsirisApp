@@ -83,7 +83,7 @@
 }
 
 .timeline-notice {
-	position: absolute; top: 25px; width: 35px; height: 35px; z-index: 150;
+	position: absolute; top: 25px; width: 35px; height: 35px; z-index: 150; opacity: 0.3;
 }
 
 .timeline-notice-bar {
@@ -94,6 +94,32 @@
 	position: absolute; top: 95px; height: 60px; max-width: 120px; z-index: 150;
 	font-size: 12px; color: white; font-family: 'Aller', sans-serif;
 }
+
+.grid-timeline {
+	background: url(../images/timeline-grid.png) repeat-x left 90px;
+	height: 170px;
+	padding: 30px 0 0 20px;
+	position: relative;
+}
+
+.timeline-notice-block {
+	width: 161px; height: 121px;
+	background: #040404;
+	border: 1px solid #292626;
+	float: left; margin-left: 25px;
+	text-align: center;
+}
+
+.timeline .mask {
+	position: absolute; right: 0;
+	z-index: 200;
+	height: 100%;
+	width: 300px;
+	background: url(../images/timeline-grid-mask.png) repeat-y;
+}
+
+.timeline-notice-block img.icon { margin-top: 25px; max-width: 45px; max-height: 45px; }
+.timeline-notice-block .title { text-align:center; text-transform: uppercase; font-family: 'Aller', sans-serif; color: white; font-size: 12px; }
 
 .timeline-notice-analyses { background: url(../images/notif-picto-analyses.png) no-repeat; }
 .timeline-notice-impact { background: url(../images/notif-picto-impact.png) no-repeat; }

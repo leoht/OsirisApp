@@ -40,7 +40,8 @@
       var setMovieInfo = function (id, title, author) {
         MOVIE_ID = id;
         $('.nav-movie-title').text(title);
-        getDocumentation(id);
+
+        getAllNotices(id);
       };
 
       // move the progress bar using timecode
@@ -177,11 +178,17 @@
 
 
         .timeline
-
+          .mask
           .timeline-body-container#timeline-body-container
             / .cursor
-            .timeline-body#notice-grid-slider
-              / .timeline-notice-title Test test
+            .grid-timeline#grid-timeline
+              / .timeline-notice-block.timeline-notice-block-themes
+              /   %img.icon{ src: 'images/cat-themes.png' }
+              /   .title L'enfer
+              / .timeline-notice-block
+              /   %img.icon{ src: 'images/cat-anecdotes.png' }
+              /   .title L'enfer
+
           
           .timeline-current-time
 
@@ -224,15 +231,20 @@
         .doc-block.doc-movie-info
         .doc-block.doc-themes{ data: { 'category-id' => 2, 'category' => 'themes' } }
         .doc-block.doc-analyse{ data: { 'category-id' => 4, 'category' => 'analyses'  } }
-        .doc-block.doc-impact{ data: { 'category-id' => 1, 'category' => 'impact'  } }
-        .doc-block.doc-anecdotes{ data: { 'category-id' => 5, 'category' => 'anecdotes'  } }
         .doc-block.doc-social
+        .doc-block.doc-anecdotes{ data: { 'category-id' => 5, 'category' => 'anecdotes'  } }
+        .doc-block.doc-impact{ data: { 'category-id' => 1, 'category' => 'impact'  } }
+        
 
       / .doc-category
       /   .slider
+      /     .slide-counter
+      /       %span.current> 1
+      /       \/
+      /       %span.total 
       /     .cat-icon
       /     .title Déshumanisation
-      /     .short-content L’usine elle-même, telle Chronos dévorant ses enfants, se nourrit de chair humaine. Lorsqu’ils ne périssent pas physiquement, les ouvriers sont tout simplement anéantis dans leur âme et leur singularité. 
+      /     .short-content L’usine elle-même, telle Chronos dévorant ses enfants, se nourrit de chair humaine. Lorsqu’ils ne périssent pas physiquement, les ouvriers sont tout simplement anéantis dans leur âme et leur singularité. 
         
 
     .additional-content

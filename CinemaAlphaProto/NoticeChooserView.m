@@ -19,6 +19,8 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"scope_bg.png"]];
+    
     StylizeWithScopeFont(self.skipButton.titleLabel, 18);
     BorderedButton(self.skipButton, ScopeBlue);
     

@@ -39,7 +39,8 @@
       var setMovieInfo = function (id, title, author) {
         MOVIE_ID = id;
         $('.nav-movie-title').text(title);
-        getDocumentation(id);
+      
+        getAllNotices(id);
       };
       
       // move the progress bar using timecode
@@ -173,10 +174,16 @@
           <div class='replay-btn'></div>
         </div>
         <div class='timeline'>
+          <div class='mask'></div>
           <div class='timeline-body-container' id='timeline-body-container'>
             <!-- .cursor -->
-            <div class='timeline-body' id='notice-grid-slider'>
-              <!-- .timeline-notice-title Test test -->
+            <div class='grid-timeline' id='grid-timeline'>
+              <!-- .timeline-notice-block.timeline-notice-block-themes -->
+              <!-- %img.icon{ src: 'images/cat-themes.png' } -->
+              <!-- .title L'enfer -->
+              <!-- .timeline-notice-block -->
+              <!-- %img.icon{ src: 'images/cat-anecdotes.png' } -->
+              <!-- .title L'enfer -->
             </div>
           </div>
           <div class='timeline-current-time'></div>
@@ -222,15 +229,19 @@
         <div class='doc-block doc-movie-info'></div>
         <div class='doc-block doc-themes' data-category-id='2' data-category='themes'></div>
         <div class='doc-block doc-analyse' data-category-id='4' data-category='analyses'></div>
-        <div class='doc-block doc-impact' data-category-id='1' data-category='impact'></div>
-        <div class='doc-block doc-anecdotes' data-category-id='5' data-category='anecdotes'></div>
         <div class='doc-block doc-social'></div>
+        <div class='doc-block doc-anecdotes' data-category-id='5' data-category='anecdotes'></div>
+        <div class='doc-block doc-impact' data-category-id='1' data-category='impact'></div>
       </div>
       <!-- .doc-category -->
       <!-- .slider -->
+      <!-- .slide-counter -->
+      <!-- %span.current> 1 -->
+      <!-- \/ -->
+      <!-- %span.total -->
       <!-- .cat-icon -->
       <!-- .title Déshumanisation -->
-      <!-- .short-content L’usine elle-même, telle Chronos dévorant ses enfants, se nourrit de chair humaine. Lorsqu’ils ne périssent pas physiquement, les ouvriers sont tout simplement anéantis dans leur âme et leur singularité. -->
+      <!-- .short-content L’usine elle-même, telle Chronos dévorant ses enfants, se nourrit de chair humaine. Lorsqu’ils ne périssent pas physiquement, les ouvriers sont tout simplement anéantis dans leur âme et leur singularité. -->
     </div>
     <div class='additional-content'>
       <div class='content'>

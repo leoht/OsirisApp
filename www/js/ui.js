@@ -27,7 +27,7 @@ var beginTimelineScrolling = function () {
 			}
 
 			if (!isTimelineScrolling) return;
-			$('.timeline-body, .timeline .cursor, .chapter-timeline, .notice-grid .slider').animate({
+			$('.timeline-body, .timeline .cursor, .grid-timeline').animate({
 				left: dir+'='+dT+'px'
 			}, 0);
 		}, 500);
@@ -73,13 +73,13 @@ var updateTimelineNoticeListeners = function () {
         $('.container-home').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
         $('.view-grid-container .timeline-last-notice').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
         $('.timeline .cursor').css('transform', 'none').animate({ left: $el.offset().left + 2 }, 300);
-        $('.timeline-notice').css('opacity', 0.7);
-        $el.css('opacity', 1)
+        $('.timeline-notice').css('opacity', 1);
+        $el.css('opacity', 0.3)
 	});
 };
 
 var addNoticeOnTimeline = function (timecode, endTimecode, id, category_nicename, title) {
-	$('.timeline-notice').css('opacity', 0.7);
+	$('.timeline-notice').css('opacity', 1);
 	var offset = timelinePositionWithTimecode(timecode);
 	var notifEl = $('<div>')
 			.addClass('timeline-notice')
@@ -91,12 +91,13 @@ var addNoticeOnTimeline = function (timecode, endTimecode, id, category_nicename
 	$('.display-notice-btn').show(0);
 	console.log('Notif element added at timecode '+timecode+' (offset left : '+offset+'%)');
 
-	$('.notice-grid .slider').append('<div class="chapter-section"></div>');
 
 	var noticeBlock = $('<div>')
-		.addClass('notice-block')
-		.addClass('notice-block-'+category_nicename);
-	$('.chapter-section:last-child').append(noticeBlock);
+		.addClass('timeline-notice-block')
+		.addClass('timeline-notice-block-'+category_nicename);
+	noticeBlock.append('<img class="icon" src="images/cat-'+category_nicename+'.png" />');
+	noticeBlock.append('<div class="title">'+title+'</div>');
+	$('.grid-timeline').append(noticeBlock);
 
 	$('<div>').addClass('timeline-notice-bar')
 			.addClass('timeline-notice-bar-'+category_nicename)
@@ -126,7 +127,7 @@ var slideToDocumentation = function () {
 };
 
 var unslideDocumentation = function () {
-	$('.navbar-doc').fadeOut(500);
+	$('.navbar-doc').hide(0);
 	$('.view-nav').show(0);
 	$('.additional-content').animate({
 		bottom: '-=360px'
@@ -151,8 +152,13 @@ $(function () {
 		$(this).addClass('active');
 
 		if (hash == '.container-doc') {
-			$('.navbar-doc').fadeIn(500);
 			if (displayingDocumentation) unslideDocumentation();
+			if (showingDocumentationDetail) {
+				unshowDocumentationDetail();
+				resetDocScreen();
+			}
+
+			$('.navbar-doc').show(0);
 		} else {
 			$('.navbar-doc ').hide(0);
 		}
@@ -160,6 +166,9 @@ $(function () {
 		if (hash == '.container-social' && !IS_LOGGED_IN) {
 			$('.container').hide(0);
 			$('.container-social-notlogged').show(0);
+
+			if (displayingDocumentation) unslideDocumentation();
+
 			return;
 		}
 
@@ -205,7 +214,7 @@ $(function () {
 		} 
 	})
 
-	$('.timeline-body').css('width', timelineWidthFromDuration(movieDuration));
+	$('.timeline-body, .grid-timeline').css('width', timelineWidthFromDuration(movieDuration));
 
 	$('.view-grid').bind('touchstart', function (e) {
 		$('.view-nav .view-line').removeClass('active');
@@ -277,13 +286,13 @@ $(function () {
 			console.log(x, pX, y, pY);
 
 			// scroll
-			if (pY - y < -20 && displayingDocumentation) {
+			if (pY - y < -20) {
 				var scroll = $('.additional-content').scrollTop();
 				$('.additional-content').scrollTop(scroll - 5);
 			}
 
 			// scroll
-			if (pY - y > 20 && displayingDocumentation) {
+			if (pY - y > 20) {
 				var scroll = $('.additional-content').scrollTop();
 				$('.additional-content').scrollTop(scroll + 5);
 			}
@@ -309,30 +318,30 @@ $(function () {
 		
 	});
 
-	// Hammer(document.getElementById('notice-grid-slider')).on('drag dragend', function (e) {
-	// 	if ($('.notice-grid .slider').offset().left > 0 && e.gesture.direction == 'right') {
-	// 		return;
-	// 	}
+	Hammer(document.getElementById('grid-timeline')).on('drag dragend', function (e) {
+		if ($('.grid-timeline').offset().left > 0 && e.gesture.direction == 'right') {
+			return;
+		}
 
-	// 	switch(e.type) {
-	// 		case 'drag' :
-	// 			posXGrid = e.gesture.deltaX + xLastGrid;
+		switch(e.type) {
+			case 'drag' :
+				posXGrid = e.gesture.deltaX + xLastGrid;
 
-	// 			if ($('.notice-grid .slider').offset().left > 0 && e.gesture.direction == 'right') {
-	// 				return;
-	// 			}
+				if ($('.grid-timeline').offset().left > 0 && e.gesture.direction == 'right') {
+					return;
+				}
 
-	// 			$('.notice-grid .slider').css('transform', 'translateX(' + posXGrid  +'px)' );
-	// 			$('.chapter-timeline').css('transform', 'translateX(' + posXGrid  +'px)' );
-	// 			break;
-	// 		case 'dragend' :
-	// 			xLastGrid = posXGrid;
-	// 			// $('.timeline-body').animate({ left: '-=100px' }, 200);
-	// 			break;
+				$('.grid-timeline').css('transform', 'translateX(' + posXGrid  +'px)' );
+				// $('.chapter-timeline').css('transform', 'translateX(' + posXGrid  +'px)' );
+				break;
+			case 'dragend' :
+				xLastGrid = posXGrid;
+				// $('.timeline-body').animate({ left: '-=100px' }, 200);
+				break;
 			
-	// 	}
+		}
 		
-	// });
+	});
 
 
 });

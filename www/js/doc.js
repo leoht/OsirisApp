@@ -2,22 +2,71 @@ var DOC_ARRAY = [];
 var DOC_CATEGORIES = [];
 var MOVIE_ID;
 var isDocLoaded = false;
+var showingDocumentationDetail = false;
 
 var getDocumentation = function (movieId) {
 
+	var url = ROOT_API_URL + '/movies/' + movieId + '/notice_categories.json';
+	console.log('GET ' + url);
+	$.ajax({
+		type: 'GET',
+		url: url,
+		dataType: 'json',
+		success: function (data) {
+			$(data).each(function (i, category) {
+				// only sub categories
+				if (category.parent_id) {
+
+					// no notice in this category?
+					if (!(category.id in DOC_ARRAY)) {
+						return;
+					}
+
+					DOC_ARRAY[category.id].title = category.title;
+					DOC_ARRAY[category.id].parent_id = category.parent_id;
+					
+					$page = $('<div id="doc-category-'+category.id+'" class="doc-category doc-category-'+category.id+'"></div>');
+					$slider = $('<div class="slider"></div>');
+					$slider.append('<div class="cat-icon cat-icon-'+category.parent_id+'"><img src="images/cat-icon-'+category.parent_id+'.png" /></div>')
+					$slider.append('<div class="title with-font">'+category.title+'</div>');
+
+					$(DOC_ARRAY[category.id]).each(function (i, notice) {
+						$slider.append('<div class="short-content short-content-'+(i+1)+'">'+notice.short_content+'</div>');
+					});
+
+					$page.append($slider);
+					$page.css('display', 'none');
+					$('.container-doc').append($page);
+					
+				}
+
+
+			});
+			console.log(DOC_ARRAY);
+		}
+	});
+};
+
+var getAllNotices = function (movieId) {
 	var url = ROOT_API_URL + '/movies/' + movieId + '/notices.json';
-	console.log(url);
+	console.log('GET ' + url);
 	$.ajax({
 		type: 'GET',
 		url: url,
 		dataType: 'json',
 		success: function (data) {
 			$(data).each(function (i, notice) {
-				// no category ? skip it.
-				if (notice.notice_category_id != null) {
-					DOC_ARRAY[notice.notice_category_id] = notice;
+				
+				if (notice.notice_category_id && notice.id != 1) {
+					if (!(notice.notice_category_id in DOC_ARRAY)) {
+						DOC_ARRAY[notice.notice_category_id] = [];
+					}
+
+					DOC_ARRAY[notice.notice_category_id].push(notice);
 				}
 			});
+
+			getDocumentation(movieId);
 		}
 	});
 };
@@ -51,10 +100,26 @@ var getCategoriesOfParent = function (parent, parent_name) {
 
 					$('.doc-head').addClass('doc-head-'+parent_name);
 
-					$('.doc-block[data-subcategory-id]').bind('touchstart', function (e) {
-						id = $(this).attr('data-subcategory-id');
-						getNoticesOfCategory(id);
+					$(block).bind('touchstart', function (e) {
+						var id = $(this).attr('data-subcategory-id');
+						$('.doc-breadcrumb .item-3').text(category.title).show(0);
+
+						$('.additional-content').animate({
+							bottom: '+=360px'
+						}, 500);
+						$('.doc-category-'+id).addClass('current').show(0).animate({
+							top: '+=400px'
+						}, 500);
+
+						$('.slide-counter .total').text(DOC_ARRAY[category.id].length);
+
+						showingDocumentationDetail = true;
+
+						Hammer(document.getElementById('doc-category-'+category.id)).on('dragleft', function (e) {
+							nextDocSlide();
+						});
 					});
+
 				});
 				$('.doc-main').removeClass('flipping');
 				
@@ -103,11 +168,11 @@ var resetDocScreen = function () {
 	        </div> \
 	        <div class='doc-block doc-analyse' data-category-id='4' data-category='analyses'> \
 	        </div> \
-	        <div class='doc-block doc-impact' data-category-id='1' data-category='impact'> \
+	        <div class='doc-block doc-social'> \
 	        </div> \
 	        <div class='doc-block doc-anecdotes' data-category-id='5' data-category='anecdotes'> \
 	        </div> \
-	        <div class='doc-block doc-social'> \
+	        <div class='doc-block doc-impact' data-category-id='1' data-category='impact'> \
 	        </div>");
 
 		$('.doc-block[data-category-id]').bind('touchstart', function (e) {
@@ -119,12 +184,35 @@ var resetDocScreen = function () {
 		$('.doc-head').removeClass().addClass('doc-head');
 
 		$('.doc-main').removeClass('flipping');
+
+		if (showingDocumentationDetail) {
+			unshowDocumentationDetail();
+		}
 	}, 400);
 
 	$('.doc-breadcrumb .item-2').hide(0);
 	$('.doc-breadcrumb .item-3').hide(0);
 	
 }
+
+var unshowDocumentationDetail = function () {
+	$('.doc-category.current').removeClass('current').animate({
+		top: '-=400px'
+	}, 500, function () { $(this).hide(0); });
+	$('.additional-content').animate({
+		bottom: '-=360px'
+	}, 500);
+
+	showingDocumentationDetail = false;
+}
+
+var nextDocSlide = function () {
+
+};
+
+var prevDocSlide = function () {
+	
+};
 
 $(function () {
 	$('.doc-block[data-category-id]').bind('touchstart', function (e) {
@@ -133,9 +221,22 @@ $(function () {
 		getCategoriesOfParent(id, cat);
 	});
 
+
+
 	$('.doc-breadcrumb .item-1').bind('touchstart', function (e) {
-		resetDocScreen();
+		if (displayingDocumentation) { 
+			unslideDocumentation();
+			$('.navbar-doc').show(0);
+			$('.container').hide(0);
+			$('.container-doc').show(0);
+		} else {
+			
+			resetDocScreen();
+		}
 	});
+
+	
+
 });
 
 

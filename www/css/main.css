@@ -169,10 +169,10 @@ body, html {
 	text-align: center;
 }
 
-.video-controls button { width: 50px; height: 50px; background-repeat: no-repeat; border: none; background-color: #161e26; }
+.video-controls button { width: 50px; height: 50px; background-repeat: no-repeat; border: none; background-color: transparent; }
 
-.video-controls .play { position: absolute; bottom: 85px; right: 30px; width: 80px; height: 80px; z-index: 50; margin-top: 25px; background-image: url(../images/play.png); }
-.video-controls .pause { position: absolute; bottom: 85px; right: 30px; display: none; width: 80px; height: 80px; margin-top: 25px;  z-index: 51; background-image: url(../images/pause.png); }
+.video-controls .play { position: absolute; z-index: 210; bottom: 85px; right: 30px; width: 80px; height: 80px;  margin-top: 25px; background-image: url(../images/play.png); }
+.video-controls .pause { position: absolute; z-index: 211; bottom: 85px; right: 30px; display: none; width: 80px; height: 80px; margin-top: 25px; background-image: url(../images/pause.png); }
 .video-controls #prev-chapter { position: absolute; top: 60px; left: 200px;  background-image: url(../images/prev-chapter.png); }
 .video-controls #rewind { position: absolute; top: 60px; left: 360px; background-image: url(../images/rewind.png); }
 .video-controls #forward { position: absolute; top: 60px; right: 360px; background-image: url(../images/forward.png); }
@@ -255,17 +255,19 @@ body, html {
 	position: absolute; top: 0; left: 0;
 	width: 100%;
 	height: 15px;
-	padding: 16px 16px 10px 16px;
+	padding: 16px 0 10px 0;
 	background: #161e26;
 	border-bottom: 1px solid #04e5e8;
 	display: none; z-index: 30;
 }
 
+.doc-breadcrumb { padding-left: 25px; }
+
 .doc-breadcrumb .item { background: url(../images/doc-breadcrumb-item.png) no-repeat left center; float: left; width: 130px; padding-left: 24px; color: white; font-size: 13px; text-transform: uppercase;}
 .doc-breadcrumb .item-2 { display: none; }
-.doc-breadcrumb .item-3 { display: none; }
+.doc-breadcrumb .item-3 { display: none; width: 200px;}
 
-.doc-search { position: absolute; right: 55px; top: 8px; width: 180px;}
+.doc-search { position: absolute; right: 25px; top: 8px; width: 180px;}
 .doc-search input { border: 1px solid #969696; background: none; padding: 4px; width: 100%;}
 
 .doc-main {
@@ -327,20 +329,31 @@ body, html {
 	line-height: 18px;
 }
 
+.doc-category {
+	background:  url('../images/samples/notices/machine.jpg') no-repeat center center;
+	position: absolute; top: -400px;
+	z-index: 10;
+	width: 100%;
+}
 
 .doc-category .slider {
 	height: 350px; width: 100%;
-	background: #444;
 	position: relative;
 	text-align: center;
-	padding-top: 120px;
+	padding-top: 50px;
+	background: rgba(0,0,0,0.7);
+}
+
+.doc-category .slider .slide-counter {
+	position: absolute; right: 40px; top: 60px;
+	color: white;
+	font-size: 22px;
 }
 
 .doc-category .slider .cat-icon {
-	margin-top: 90px;
-	width: 100%; text-align: center;
-	display: none;
+	width: 500px; text-align: center; margin: 40px auto 0 auto;
 }
 
-.doc-category .slider .title { font-size: 28px; font-family: 'Aller', sans-serif; text-transform: uppercase;  color: white; }
-.doc-category .slider .short-content {font-size: 18px; line-height: 26px; width: 60%; margin: 15px auto; color: white;}
+.doc-category .slider .title { margin: 20px auto 20px auto; width: 500px; font-size: 28px; text-transform: uppercase;  color: white; }
+.doc-category .slider .short-content {display: none; font-size: 18px; line-height: 26px; width: 60%; margin: 15px auto; color: white;}
+.doc-category .slider .short-content-1 {display: block; }

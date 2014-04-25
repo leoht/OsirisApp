@@ -46,6 +46,8 @@
             if ([FacebookConnectionManager isSessionOpened]) {
                 [self.signoutButton setHidden:NO];
             }
+            
+            
 
         }
     }];

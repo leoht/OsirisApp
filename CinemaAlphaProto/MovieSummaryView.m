@@ -28,6 +28,21 @@
     
     [self setCurrentTimecode:@"0"];
     
+    
+    [FBSession.activeSession requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceFriends completionHandler:^(FBSession *session, NSError *error) {
+        if (error) {
+            NSLog(@"Error");
+        }
+    }];
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/me/gobelins_crma_cinema:discover?access_token=%@&movie=108250085865894", FBSession.activeSession.accessTokenData.accessToken]];
+    
+    NSLog(@"%@", url);
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    
 //    StylizeWithScopeFont(self.secondTimecodeLabel, 20);
     [self.secondTimecodeLabel setFont:[UIFont fontWithName:@"Aller-Italic" size:16]];
     
@@ -130,12 +145,6 @@
 - (IBAction)togglePlayPause:(id)sender {
 
     [VideoController togglePlayPause];
-    
-//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/me/gobelins_crma_cinema:discover?access_token=%@&method=POST&movie=http%%3A%%2F%%2Fsamples.ogp.me%%2F453907197960619", FBSession.activeSession.accessTokenData.accessToken]];
-//    
-//    NSLog(@"%@", url);
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
 - (NSString *) formatTimecode:(NSString *)timecode {
@@ -143,7 +152,7 @@
     NSInteger m = s / 60;
     s %= 60;
     NSInteger h = m / 60;
-    s %= 60;
+    m %= 60;
     
     return [NSString stringWithFormat:@"%d:%02d:%02d", h, m, s];
 }
