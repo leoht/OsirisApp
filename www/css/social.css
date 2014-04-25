@@ -1,25 +1,33 @@
 
-.container-social { display: none; }
+.container-social { display: none;  background: #0b1219; height: 100%; }
 
+.social-head {
+
+}
 
 .social-form {
 	width: 100%;
-	margin: 100px auto 0 auto;
+	height: 380px;
+	margin: 200px auto 0 auto;
 	color: white;
+	background: #161e26;
+	border-top: 1px solid #252a2f;
+	border-bottom: 1px solid #252a2f;
 }
 
 .social-form div { margin-top: 30px; width: 100%; }
 
-.social-form label { display: block; float: left; height: 150px; width: 250px;  }
-.social-form .label-main { display: block; text-transform: uppercase; font-size: 22px; margin-bottom: 10px; }
-.social-form .helper { display: block; font-family: sans-serif; font-size: 14px; }
 .social-form textarea {
-	width: 600px;
-	height: 130px;
-	padding: 10px;
+	display: block;
+	width: 560px;
+	height: 180px;
+	padding: 20px;
 	margin: auto;
 	background: none;
 	font-family: sans-serif;
+	border: none;
+	background: url(../images/social-textarea-bg.png) no-repeat;
+	margin-top: 80px;
 }
 
 .social-form select {
@@ -40,7 +48,7 @@
 	text-decoration: none;
 	font-size: 14px;	
 	width: 250px;
-	float: right; 
+	margin: 30px auto 30px auto;
 }
 
 .container-social-notlogged .info { color: white; }

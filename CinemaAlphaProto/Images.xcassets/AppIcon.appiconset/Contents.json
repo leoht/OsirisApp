@@ -38,12 +38,13 @@
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "scope.png",
+      "filename" : "scope-1.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "76x76",
+      "idiom" : "ipad",
+      "filename" : "scope.png",
       "scale" : "2x"
     }
   ],

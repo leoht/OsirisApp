@@ -20,6 +20,7 @@
       var FAST_REWIND  = false;
       var NOTICES = [];
       var USER_FACEBOOK_ID = null;
+      var CURRENT_VIEWED_NOTICE = null;
       
       var LAST_NOTICE_TIMECODE = -9999;
       
@@ -61,6 +62,7 @@
         }
       
         LAST_NOTICE_TIMECODE = Number(timecode);
+        CURRENT_VIEWED_NOTICE = id;
       
         $('.timeline-last-notice .title').text(title);
         $('.timeline-last-notice .content').text(short_content);
@@ -114,6 +116,10 @@
     </div>
     <!-- HOME SCREEN -->
     <div class='container container-home'>
+      <div class='socials'>
+        <div class='facebook' onclick='calliOSFunction("shareNotice", ["facebook", CURRENT_VIEWED_NOTICE])'></div>
+        <div class='twitter' onclick='calliOSFunction("shareNotice", ["twitter", CURRENT_VIEWED_NOTICE])'></div>
+      </div>
       <div class='view-nav'>
         <div class='view-line active'></div>
         <div class='view-grid'></div>
@@ -196,23 +202,14 @@
     <!-- SOCIAL SCREEN -->
     <div class='container container-social'>
       <div class='step-2'>
+        <div class='social-head'>
+          <div class='with-font'>VOTRE MESSAGE...</div>
+        </div>
         <img class='profile-image'>
         <div class='social-form'>
-          <div>
-            <label>
-              <span class='label-main with-font'>Votre message</span>
-              <span class='helper'>140 caractères maximum</span>
-            </label>
-            <textarea id='message' placeholder='Votre message'></textarea>
-          </div>
-          <div>
-            <button class='button-link send'>Poster</button>
-            <!-- %label -->
-            <!-- %span.label-main.with-font Destinataires -->
-            <!-- %select#dest -->
-            <!-- %option Tous mes amis -->
-          </div>
+          <textarea id='message' placeholder='Votre message'></textarea>
         </div>
+        <button class='button-link send'>Poster</button>
       </div>
     </div>
     <div class='container container-social container-social-notlogged'>

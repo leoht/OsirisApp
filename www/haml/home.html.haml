@@ -21,6 +21,7 @@
       var FAST_REWIND  = false;
       var NOTICES = [];
       var USER_FACEBOOK_ID = null;
+      var CURRENT_VIEWED_NOTICE = null;
 
       var LAST_NOTICE_TIMECODE = -9999;
 
@@ -62,6 +63,7 @@
         }
 
         LAST_NOTICE_TIMECODE = Number(timecode);
+        CURRENT_VIEWED_NOTICE = id;
 
         $('.timeline-last-notice .title').text(title);
         $('.timeline-last-notice .content').text(short_content);
@@ -115,6 +117,11 @@
 
     / HOME SCREEN
     .container.container-home
+
+      .socials
+        .facebook{ onclick: 'calliOSFunction("shareNotice", ["facebook", CURRENT_VIEWED_NOTICE])'}
+        .twitter{ onclick: 'calliOSFunction("shareNotice", ["twitter", CURRENT_VIEWED_NOTICE])'}
+
 
       .view-nav
         .view-line.active
@@ -200,20 +207,15 @@
 
     / SOCIAL SCREEN
     .container.container-social
+
       .step-2
+        .social-head
+          .with-font VOTRE MESSAGE...
         %img.profile-image
         .social-form
-          %div
-            %label
-              %span.label-main.with-font Votre message
-              %span.helper 140 caractères maximum
-            %textarea#message{ placeholder: 'Votre message' }
-          %div
-            %button.button-link.send Poster
-            / %label
-            /   %span.label-main.with-font Destinataires
-            / %select#dest
-            /   %option Tous mes amis
+          %textarea#message{ placeholder: 'Votre message' }
+            
+        %button.button-link.send Poster
 
     .container.container-social.container-social-notlogged
       .info Connectez-vous à l'aide de votre compte Facebook pour pouvoir partager votre expérience avec les gens autour de vous.

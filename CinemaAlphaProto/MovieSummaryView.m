@@ -28,19 +28,22 @@
     
     [self setCurrentTimecode:@"0"];
     
+    // FACEBOOK OPEN GRAPH POST DISCOVER
     
-    [FBSession.activeSession requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceFriends completionHandler:^(FBSession *session, NSError *error) {
-        if (error) {
-            NSLog(@"Error");
-        }
-    }];
+//    [FBSession.activeSession requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceFriends completionHandler:^(FBSession *session, NSError *error) {
+//        if (error) {
+//            NSLog(@"Error");
+//        }
+//    }];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/me/gobelins_crma_cinema:discover?access_token=%@&movie=108250085865894", FBSession.activeSession.accessTokenData.accessToken]];
     
-    NSLog(@"%@", url);
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    [request setHTTPMethod:@"POST"];
-    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/me/gobelins_crma_cinema:discover?access_token=%@&movie=108250085865894", FBSession.activeSession.accessTokenData.accessToken]];
+//    
+//    NSLog(@"%@", url);
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+//    [request setHTTPMethod:@"POST"];
+//    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     
 //    StylizeWithScopeFont(self.secondTimecodeLabel, 20);
@@ -205,6 +208,16 @@
         [self.secondTimecodeLabel setHidden:YES];
     }
     
+    if ([name compare:@"shareNotice" options:NSCaseInsensitiveSearch] == NSOrderedSame && args.count > 0) {
+        NSString *serviceType = [[args objectAtIndex:0] isEqualToString:@"facebook"] ? SLServiceTypeFacebook : SLServiceTypeTwitter;
+        SLComposeViewController *composeVc = [SLComposeViewController composeViewControllerForServiceType:serviceType];
+        
+        [composeVc setInitialText:@"Je viens de découvrir une notice sur le film Métropolis grâce à l'application Scope, jetez-y un coup d'oeil !"];
+        [composeVc addURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.scope.dev/notices/%@.html", [args objectAtIndex:1]]]];
+        [composeVc addImage:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"www/images/samples/notices/%@_big.jpg", [args objectAtIndex:1]]]];
+        
+        [self presentViewController:composeVc animated:YES completion:nil];
+    }
     if ([name compare:@"postMessage" options:NSCaseInsensitiveSearch] == NSOrderedSame && args.count > 0) {
         
         if (![FacebookConnectionManager isSessionOpened]) {
@@ -239,7 +252,7 @@
         if (![VideoController isPaused]) {
             [VideoController togglePlayPause];
         }
-        [FBSession.activeSession closeAndClearTokenInformation];
+//        [FBSession.activeSession closeAndClearTokenInformation];
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }

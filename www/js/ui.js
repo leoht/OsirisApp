@@ -58,11 +58,13 @@ var noticeBarWidthFromDuration = function (duration) {
 };
 
 var updateTimelineNoticeListeners = function () {
-	$('.timeline-notice').bind('touchstart', function (e) {
+	$('.timeline-notice, .timeline-notice-block').bind('touchstart', function (e) {
 		var id = $(this).attr('data-id');
 
 		var n = NOTICES[id];
 		var $el = $(this);
+
+		CURRENT_VIEWED_NOTICE = id;
 
 		$('.timeline-last-notice .title').text(n.title);
         $('.timeline-last-notice .content').text(n.short_content);
@@ -93,6 +95,7 @@ var addNoticeOnTimeline = function (timecode, endTimecode, id, category_nicename
 
 
 	var noticeBlock = $('<div>')
+		.attr('data-id', id)
 		.addClass('timeline-notice-block')
 		.addClass('timeline-notice-block-'+category_nicename);
 	noticeBlock.append('<img class="icon" src="images/cat-'+category_nicename+'.png" />');
