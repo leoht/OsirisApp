@@ -124,7 +124,7 @@ var getCategoriesOfParent = function (parent, parent_name) {
 				$('.doc-main').removeClass('flipping');
 				
 
-			}, 400);
+			}, 500);
 
 		}
 	});

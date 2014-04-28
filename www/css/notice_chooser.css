@@ -24,6 +24,7 @@ html, body {
 	position: absolute; left: 24%; top: 60px;
 }
 
-.sample-notice .image { height: 230px; margin-bottom: 25px ; background: #000; }
+.sample-notice .image { height: 230px; margin-bottom: 25px ; background: #000; background-size: 530px auto; background-position: center center; }
+.sample-notice .image img { max-height: 230px; max-width: 535px; }
 .sample-notice .heading { text-transform: uppercase; font-size: 24px; text-align: center; padding-top: 15px; }
 .sample-notice .content { font-family: sans-serif; text-align: center; margin: 35px auto 0 auto; padding: 10px; width: 450px;}

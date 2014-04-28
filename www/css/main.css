@@ -114,6 +114,7 @@ body, html {
 .nav-profile .image {
 	background-image: url(../images/nav-profile.png);
 	background-position: center;
+	background-size: 43px 43px;
 	border-radius: 30px;
 	width: 43px; height: 43px;
 	position: absolute; right: 5px; top: 5px;
@@ -137,7 +138,7 @@ body, html {
 
 .profile-nav {
 	position: absolute; right: 0; bottom: -100px;
-	z-index: 80;
+	z-index: 215;
 	padding: 5px;
 	background: #f8f8f8;
 	width: 200px;
@@ -254,15 +255,15 @@ body, html {
 .navbar-doc {
 	position: absolute; top: 0; left: 0;
 	width: 100%;
-	height: 15px;
-	padding: 16px 0 10px 0;
+	height: 34px;
+	padding: 0px 0 10px 0;
 	background: #161e26;
 	border-bottom: 1px solid #04e5e8;
 	display: none; z-index: 30;
 }
 
-.doc-breadcrumb { padding-left: 25px; }
-
+.doc-breadcrumb { padding-left: 20px; }
+.doc-breadcrumb div { padding: 14px 7px; }
 .doc-breadcrumb .item { background: url(../images/doc-breadcrumb-item.png) no-repeat left center; float: left; width: 130px; padding-left: 24px; color: white; font-size: 13px; text-transform: uppercase;}
 .doc-breadcrumb .item-2 { display: none; }
 .doc-breadcrumb .item-3 { display: none; width: 200px;}
@@ -274,7 +275,7 @@ body, html {
 	position: relative; 
 	-webkit-transform: rotateY(0deg);
 	-webkit-backface-visibility: hidden;
-	-webkit-transition: 0.4s;
+	-webkit-transition: 0.5s;
 	perspective: 1000;
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
@@ -341,7 +342,7 @@ body, html {
 	position: relative;
 	text-align: center;
 	padding-top: 50px;
-	background: rgba(0,0,0,0.7);
+	
 }
 
 .doc-category .slider .slide-counter {

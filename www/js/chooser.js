@@ -6,7 +6,7 @@ var processNotices = function (data) {
 		var a = 5;
 		$(data).each(function (i, el) {
 			var $notice = $('<div class="sample-notice sample-notice-'+a+'" style="z-index:'+(a*10)+'"></div>')
-							.append('<div class="image"><img src="images/samples/'+el.id+'.png" /></div>')
+							.append('<div class="image" style="background: url(images/samples/notices/'+el.id+'_big.jpg);" /></div>')
 							.append('<div class="heading"><div class="with-font">'+el.title+'</div></div>')
 							.append('<p class="content">'+el.short_content+'</p>');
 

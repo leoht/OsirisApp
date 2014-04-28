@@ -5,6 +5,7 @@
     <link href='css/main.css' media='screen' rel='stylesheet'>
     <link href='css/timeline.css' media='screen' rel='stylesheet'>
     <link href='css/social.css' media='screen' rel='stylesheet'>
+    <link href='css/retina.css' media='screen' rel='stylesheet'>
     <script src='js/iosBridge.js'></script>
     <script src='js/jquery.js'></script>
     <script src='js/hammer.min.js'></script>
@@ -30,11 +31,15 @@
       var onPlay = function () {
         isPaused = false;
         beginTimelineScrolling();
+        $('.play').hide(0);
+        $('.pause').show(0);
       };
       
       var onPause = function () {
         isPaused = true;
         stopTimelineScrolling();
+        $('.play').show(0);
+        $('.pause').hide(0);
       };
       
       var setMovieInfo = function (id, title, author) {
@@ -57,7 +62,7 @@
       
         console.log('Last timecode : '+LAST_NOTICE_TIMECODE+', current : '+timecode);
       
-        if (Number(timecode) - LAST_NOTICE_TIMECODE < 70 ) {
+        if (Number(timecode) - LAST_NOTICE_TIMECODE < 60 ) {
           return;
         }
       
@@ -68,8 +73,7 @@
         $('.timeline-last-notice .content').text(short_content);
         $('.timeline-last-notice').attr('data-notice-id', id);
         $('.timeline-cat-icon').show(0);
-        $('.timeline-cat-icon img').attr('src', 'images/cat-'+category+'.png');
-        $('.view-line-container .timeline-last-notice .title').css('color', '#'+color);
+        $('.timeline-cat-icon img').attr('src', 'images/cat-'+category+'@2x.png');
         $('.container-home').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
         //$('.view-grid-container .timeline-last-notice').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
         addNoticeOnTimeline(timecode, endTimecode, id, category, title);
@@ -83,10 +87,9 @@
       
       var onNewComment = function (comment, author, timecode) {
         $('.timeline-last-notice .title').text(author);
-        $('.timeline-last-notice .title').css('color', '#00ecea');
         $('.timeline-last-notice .content').text('"'+comment+'"');
         $('.timeline-cat-icon img').attr('src', 'images/cat-comment.png');
-        addNoticeOnTimeline(timecode, timecode+30, null, 'comment', author);
+        addNoticeOnTimeline(timecode, Number(timecode)+20, null, 'comment', '');
       }
       
       var setUserInfo = function (id, name, imageUrl) {

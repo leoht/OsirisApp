@@ -1,0 +1,24 @@
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+screen and (min--moz-device-pixel-ratio: 2), 
+screen and (-o-min-device-pixel-ratio: 2 / 1),
+screen and (min-device-pixel-ratio: 2),
+screen and (min-resolution: 192dpi),
+screen and (min-resolution: 2dppx) {
+
+    .nav-home { background-image: url(../images/nav-home@2x.png); background-size: 33px 33px; }
+	.nav-doc { background-image: url(../images/nav-doc@2x.png); background-size: 33px 33px; }
+	.nav-social { background-image: url(../images/nav-social@2x.png); background-size: 33px 33px; }
+
+	.nav-home.active { background: url(../images/nav-home@2x.png) no-repeat center 5px, url(../images/nav-item-active.png) repeat-x left 45px, #1d1d1d;  background-size: 33px 33px;   }
+	.nav-social.active { background: url(../images/nav-social@2x.png) no-repeat center 5px, url(../images/nav-item-active.png) repeat-x left 45px, #1d1d1d;  background-size: 33px 33px;  }
+	.nav-doc.active { background: url(../images/nav-doc@2x.png) no-repeat center 5px, url(../images/nav-item-active.png) repeat-x left 45px, #1d1d1d;  background-size: 33px 33px;  }
+
+	.video-controls .play { position: absolute; z-index: 210; bottom: 85px; right: 30px; width: 80px; height: 80px;  margin-top: 25px; background-image: url(../images/play@2x.png); background-size: 69px 65px; }
+	.video-controls .pause { position: absolute; z-index: 211; bottom: 85px; right: 30px; display: none; width: 80px; height: 80px; margin-top: 25px; background-image: url(../images/pause@2x.png); background-size: 69px 65px; }
+
+	.timeline-notice-analyses { background: url(../images/notif-picto-analyses@2x.png) no-repeat; background-size: 32px 32px;  }
+	.timeline-notice-impact { background: url(../images/notif-picto-impact@2x.png) no-repeat; background-size: 32px 32px; }
+	.timeline-notice-themes { background: url(../images/notif-picto-themes@2x.png) no-repeat; background-size: 32px 32px; }
+	.timeline-notice-anecdotes { background: url(../images/notif-picto-anecdotes@2x.png) no-repeat; background-size: 32px 32px; }
+	.timeline-notice-comment { background: url(../images/notif-picto-comment@2x.png) no-repeat; background-size: 32px 32px; }
+}

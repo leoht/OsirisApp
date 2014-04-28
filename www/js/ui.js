@@ -71,11 +71,11 @@ var updateTimelineNoticeListeners = function () {
         $('.timeline-last-notice').attr('data-notice-id', id);
         $('.timeline-cat-icon').show(0);
         $('.timeline-cat-icon img').attr('src', 'images/cat-'+n.category+'.png');
-        $('.view-line-container .timeline-last-notice .title').css('color', '#'+n.color);
+
         $('.container-home').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
         $('.view-grid-container .timeline-last-notice').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
         $('.timeline .cursor').css('transform', 'none').animate({ left: $el.offset().left + 2 }, 300);
-        $('.timeline-notice').css('opacity', 1);
+        $('.timeline-notice, .timeline-notice-block').css('opacity', 1);
         $el.css('opacity', 0.3)
 	});
 };
