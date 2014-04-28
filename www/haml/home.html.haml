@@ -75,7 +75,7 @@
         $('.timeline-last-notice').attr('data-notice-id', id);
         $('.timeline-cat-icon').show(0);
         $('.timeline-cat-icon img').attr('src', 'images/cat-'+category+'@2x.png');
-        $('.container-home').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
+        $('.container-home').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat');
         //$('.view-grid-container .timeline-last-notice').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
         addNoticeOnTimeline(timecode, endTimecode, id, category, title);
 
@@ -90,7 +90,7 @@
         $('.timeline-last-notice .title').text(author);
         $('.timeline-last-notice .content').text('"'+comment+'"');
         $('.timeline-cat-icon img').attr('src', 'images/cat-comment.png');
-        addNoticeOnTimeline(timecode, Number(timecode)+20, null, 'comment', '');
+        addNoticeOnTimeline(timecode, Number(timecode)+20, null, 'comment', author);
       }
 
       var setUserInfo = function (id, name, imageUrl) {
@@ -211,7 +211,7 @@
     / SOCIAL SCREEN
     .container.container-social
 
-      .step-2
+      .step.step-2
         .social-head
           .with-font VOTRE MESSAGE...
         %img.profile-image

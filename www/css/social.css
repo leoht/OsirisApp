@@ -1,5 +1,7 @@
 
-.container-social { display: none;  background: #0b1219; height: 100%; }
+.container-social { display: none;  background: #0b1219; }
+
+.container-social .step { text-align: center; }
 
 .social-head {
 
@@ -48,7 +50,7 @@
 	text-decoration: none;
 	font-size: 14px;	
 	width: 250px;
-	margin: 30px auto 30px auto;
+	margin: 30px auto 60px auto;
 }
 
 .container-social-notlogged .info { color: white; }

@@ -21,4 +21,5 @@ screen and (min-resolution: 2dppx) {
 	.timeline-notice-themes { background: url(../images/notif-picto-themes@2x.png) no-repeat; background-size: 32px 32px; }
 	.timeline-notice-anecdotes { background: url(../images/notif-picto-anecdotes@2x.png) no-repeat; background-size: 32px 32px; }
 	.timeline-notice-comment { background: url(../images/notif-picto-comment@2x.png) no-repeat; background-size: 32px 32px; }
+	.timeline-notice-scope { background: url(../images/notif-picto-scope@2x.png) no-repeat; background-size: 32px 32px; }
 }

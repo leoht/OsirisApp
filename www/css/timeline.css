@@ -22,7 +22,7 @@
 .view-grid-container .timeline-last-notice .display-notice-btn { bottom: 5px; color: white;}*/
 
 .timeline-last-notice .timeline-cat-icon {
-	margin-top: 60px;
+	margin-top: 40px;
 	width: 100%; text-align: center;
 	display: none;
 
@@ -100,7 +100,7 @@
 .grid-timeline {
 	background: url(../images/timeline-grid.png) repeat-x left 90px;
 	height: 170px;
-	padding: 30px 0 0 20px;
+	padding: 30px 0 0 830px;
 	position: relative;
 }
 
@@ -110,6 +110,7 @@
 	border: 1px solid #292626;
 	float: left; margin-left: 25px;
 	text-align: center;
+	background-size: cover;
 }
 
 .timeline .mask {
@@ -128,6 +129,7 @@
 .timeline-notice-themes { background: url(../images/notif-picto-themes.png) no-repeat; }
 .timeline-notice-anecdotes { background: url(../images/notif-picto-anecdotes.png) no-repeat; }
 .timeline-notice-comment { background: url(../images/notif-picto-comment.png) no-repeat; }
+.timeline-notice-scope { background: url(../images/notif-picto-scope.png) no-repeat; }
 
 .timeline-notice-bar-analyses { background: #f0004e; background: url(../images/notice-bar-analyses.png) no-repeat ; }
 .timeline-notice-bar-impact { background: #ffc99d;  background: url(../images/notice-bar-impact.png) no-repeat ;  }

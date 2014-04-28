@@ -27,7 +27,7 @@ var beginTimelineScrolling = function () {
 			}
 
 			if (!isTimelineScrolling) return;
-			$('.timeline-body, .timeline .cursor, .grid-timeline').animate({
+			$('.timeline-body, .timeline .cursor').animate({
 				left: dir+'='+dT+'px'
 			}, 0);
 		}, 500);
@@ -96,6 +96,7 @@ var addNoticeOnTimeline = function (timecode, endTimecode, id, category_nicename
 
 	var noticeBlock = $('<div>')
 		.attr('data-id', id)
+		.attr('style', 'background-image: url(images/samples/notices/'+id+'_big.jpg')
 		.addClass('timeline-notice-block')
 		.addClass('timeline-notice-block-'+category_nicename);
 	noticeBlock.append('<img class="icon" src="images/cat-'+category_nicename+'.png" />');
@@ -112,6 +113,10 @@ var addNoticeOnTimeline = function (timecode, endTimecode, id, category_nicename
 			.css('left', (offset-0.005)+'%')
 			.text(title)
 			.appendTo($('.timeline-body'));
+
+	$('.grid-timeline').animate({
+		left: '-=180px'
+	}, 300);
 
 	updateTimelineNoticeListeners();
 }

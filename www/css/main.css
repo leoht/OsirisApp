@@ -33,6 +33,7 @@ body, html {
 .container-home {
 	/*background: url(../images/samples/notices/machine.jpg) no-repeat center top;*/
 	background-size: 100%;
+	background-repeat: no-repeat;
 }
 
 
