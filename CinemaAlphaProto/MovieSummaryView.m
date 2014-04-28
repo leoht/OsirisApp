@@ -103,6 +103,11 @@
                 [FacebookConnectionManager getUserImageUrl]
             ]];
         }
+        
+        [VideoController togglePlayPause];
+        [VideoController setPaused:NO];
+        NSLog(@"Web player now playing.");
+        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:@"onPlay();"];
     }];
     
     
@@ -135,6 +140,8 @@
         [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:@"FAST_REWIND = !FAST_REWIND;"];
         NSLog(@"Toggle FRWD");
     }];
+    
+    
     
 }
 

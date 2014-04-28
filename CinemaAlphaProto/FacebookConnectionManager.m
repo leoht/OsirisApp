@@ -76,7 +76,7 @@ static FacebookConnectionManager *sharedObject;
 }
 
 + (NSString *)getUserImageUrl {
-    return [NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=small", [userInfo objectForKey:@"id"]];
+    return [NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=normal", [userInfo objectForKey:@"id"]];
 }
 
 + (NSString *)getUserName {
