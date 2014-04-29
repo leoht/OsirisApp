@@ -11,6 +11,7 @@
 @interface NoticeChooserView () <WebViewInterface>
 
 @property WebViewDelegate *webViewDelegate;
+@property (weak, nonatomic) IBOutlet UILabel *introTextLabel;
 
 @end
 
@@ -20,11 +21,13 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"scope_bg.png"]];
+    [self.introTextLabel setFont:[UIFont fontWithName:@"Aller-Light" size:22]];
     
     StylizeWithScopeFont(self.skipButton.titleLabel, 18);
     BorderedButton(self.skipButton, ScopeBlue);
     
-    StylizeWithScopeFont(self.chooserTitle, 26);
+    
+    StylizeWithScopeFont(self.chooserTitle, 32);
     
     self.webViewDelegate = [[WebViewDelegate alloc] initWithWebView:self.webView withWebViewInterface:self];
 	self.webView.scrollView.scrollEnabled = false;
