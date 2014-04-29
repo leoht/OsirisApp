@@ -9,7 +9,7 @@ screen and (min-resolution: 2dppx) {
 	.nav-doc { background-image: url(../images/nav-doc@2x.png); background-size: 33px 33px; }
 	.nav-social { background-image: url(../images/nav-social@2x.png); background-size: 33px 33px; }
 
-	.nav-home.active { background: url(../images/nav-home@2x.png) no-repeat center 5px, url(../images/nav-item-active.png) repeat-x left 45px, #1d1d1d;  background-size: 33px 33px;   }
+	.nav-home.active { background: url(../images/nav-item-active.png) repeat-x left 45px, url(../images/nav-home@2x.png) no-repeat center 5px, #1d1d1d;  background-size: 33px 33px;   }
 	.nav-social.active { background: url(../images/nav-social@2x.png) no-repeat center 5px, url(../images/nav-item-active.png) repeat-x left 45px, #1d1d1d;  background-size: 33px 33px;  }
 	.nav-doc.active { background: url(../images/nav-doc@2x.png) no-repeat center 5px, url(../images/nav-item-active.png) repeat-x left 45px, #1d1d1d;  background-size: 33px 33px;  }
 
@@ -22,4 +22,7 @@ screen and (min-resolution: 2dppx) {
 	.timeline-notice-anecdotes { background: url(../images/notif-picto-anecdotes@2x.png) no-repeat; background-size: 32px 32px; }
 	.timeline-notice-comment { background: url(../images/notif-picto-comment@2x.png) no-repeat; background-size: 32px 32px; }
 	.timeline-notice-scope { background: url(../images/notif-picto-scope@2x.png) no-repeat; background-size: 32px 32px; }
+
+	.socials .twitter { background: url(../images/share-twitter@2x.png) no-repeat; background-size: 30px 30px; }
+	.socials .facebook { background: url(../images/share-facebook@2x.png) no-repeat; background-size: 30px 30px; }
 }

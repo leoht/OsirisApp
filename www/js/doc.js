@@ -86,8 +86,8 @@ var getCategoriesOfParent = function (parent, parent_name) {
 		success: function (data) {
 			$('.doc-main').addClass('flipping');
 			
-			$('.doc-breadcrumb .item-2').text(parent_name);
-			$('.doc-breadcrumb .item-2').show();
+			// $('.doc-breadcrumb .item-2').text(parent_name);
+			// $('.doc-breadcrumb .item-2').show();
 
 			setTimeout(function () {
 				$('.doc-main').html('');
@@ -95,14 +95,14 @@ var getCategoriesOfParent = function (parent, parent_name) {
 
 					console.log(category);
 					var block = $('<div class="doc-block" data-subcategory-id="'+category.id+'">');
-					block.append('<div class="doc-block-title">'+category.title+'</div>');
+					block.append('<div class="doc-block-title doc-block-title-sub">'+category.title+'</div>');
 					$('.doc-main').append(block);
 
 					$('.doc-head').addClass('doc-head-'+parent_name);
 
 					$(block).bind('touchstart', function (e) {
 						var id = $(this).attr('data-subcategory-id');
-						$('.doc-breadcrumb .item-3').text(category.title).show(0);
+						// $('.doc-breadcrumb .item-3').text(category.title).show(0);
 
 						$('.additional-content').animate({
 							bottom: '+=360px'
@@ -124,7 +124,7 @@ var getCategoriesOfParent = function (parent, parent_name) {
 				$('.doc-main').removeClass('flipping');
 				
 
-			}, 500);
+			}, 380);
 
 		}
 	});
@@ -134,7 +134,7 @@ var getNoticesOfCategory = function (category) {
 
 	// var isTopLevelCategory = Number(category) <= 4;
 
-	$('.doc-breadcrumb .item-3').text(category).show(0);
+	// $('.doc-breadcrumb .item-3').text(category).show(0);
 
 	var url = ROOT_API_URL + '/movies/' + MOVIE_ID + '/notice_categories/' + category + '.json';
 
@@ -163,16 +163,22 @@ var resetDocScreen = function () {
 
 	setTimeout(function () {
 		$('.doc-main').html('').append("<div class='doc-block doc-movie-info'> \
+				<div class='doc-block-title'>Fiche du film</div> \
 	        </div> \
 	        <div class='doc-block doc-themes' data-category-id='2' data-category='themes'> \
+	        	<div class='doc-block-title'>Themes clés</div> \
 	        </div> \
 	        <div class='doc-block doc-analyse' data-category-id='4' data-category='analyses'> \
+	        	<div class='doc-block-title'>Analyses</div> \
 	        </div> \
 	        <div class='doc-block doc-social'> \
+	        	<div class='doc-block-title'>Communauté</div> \
 	        </div> \
 	        <div class='doc-block doc-anecdotes' data-category-id='5' data-category='anecdotes'> \
+	        	<div class='doc-block-title'>Anecdotes</div> \
 	        </div> \
 	        <div class='doc-block doc-impact' data-category-id='1' data-category='impact'> \
+	        	<div class='doc-block-title'>Impact<br />sur la culture</div> \
 	        </div>");
 
 		$('.doc-block[data-category-id]').bind('touchstart', function (e) {
@@ -188,7 +194,7 @@ var resetDocScreen = function () {
 		if (showingDocumentationDetail) {
 			unshowDocumentationDetail();
 		}
-	}, 400);
+	}, 380);
 
 	$('.doc-breadcrumb .item-2').hide(0);
 	$('.doc-breadcrumb .item-3').hide(0);

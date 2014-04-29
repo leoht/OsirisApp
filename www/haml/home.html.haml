@@ -104,6 +104,8 @@
 
       $(function() {
           FastClick.attach(document.body);
+
+          addNoticeOnTimeline(0, 0, 0, 'scope', 'Bienvenue');
       });
 
       
@@ -148,9 +150,9 @@
         .timeline-last-notice
 
           .timeline-cat-icon
-            %img{ src: 'images/cat-impact.png' }
-          %h3.title.with-font
-          %p.content 
+            %img{ src: 'images/cat-scope@2x.png' }
+          %h3.title.with-font Bienvenue
+          %p.content Ici s'afficheront les différentes notifications liées au film
           .display-notice-btn
             en savoir +
           .replay-btn
@@ -178,9 +180,9 @@
         .timeline-last-notice
 
           .timeline-cat-icon
-            %img{ src: 'images/cat-impact.png' }
-          %h3.title.with-font
-          %p.content 
+            %img{ src: 'images/cat-scope@2x.png' }
+          %h3.title.with-font Bienvenue
+          %p.content Ici s'afficheront les différentes notifications liées au film
           .display-notice-btn
             en savoir +
           .replay-btn
@@ -198,6 +200,7 @@
               / .timeline-notice-block
               /   %img.icon{ src: 'images/cat-anecdotes.png' }
               /   .title L'enfer
+              / .timeline-notice-time 00:56:00
 
           
           .timeline-current-time
@@ -234,11 +237,20 @@
         .doc-search
 
         .doc-block.doc-movie-info
+          .doc-block-title Fiche du film
         .doc-block.doc-themes{ data: { 'category-id' => 2, 'category' => 'themes' } }
+          .doc-block-title Themes clés
         .doc-block.doc-analyse{ data: { 'category-id' => 4, 'category' => 'analyses'  } }
+          .doc-block-title Analyses
         .doc-block.doc-social
+          .doc-block-title Communauté
         .doc-block.doc-anecdotes{ data: { 'category-id' => 5, 'category' => 'anecdotes'  } }
+          .doc-block-title Anecdotes
         .doc-block.doc-impact{ data: { 'category-id' => 1, 'category' => 'impact'  } }
+          .doc-block-title
+            Impact
+            %br
+            sur la culture
         
 
       / .doc-category

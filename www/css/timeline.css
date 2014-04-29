@@ -24,13 +24,12 @@
 .timeline-last-notice .timeline-cat-icon {
 	margin-top: 40px;
 	width: 100%; text-align: center;
-	display: none;
 
 }
 
 .timeline-cat-icon img { height: 55px ; width: 55px; }
 
-.timeline-last-notice .title { font-size: 28px; text-transform: uppercase;  color: white; }
+.timeline-last-notice .title { font-size: 28px; text-transform: uppercase;  color: white; margin-top: 10px; }
 .timeline-last-notice .content { font-size: 18px; line-height: 26px; width: 60%; margin: auto; color: white;}
 .timeline-last-notice .display-notice-btn {
 	color: #03e1df;
@@ -44,7 +43,7 @@
 
 .timeline-last-notice .replay-btn {
 	background: url(../images/replay-btn.png) no-repeat center top;
-	position: absolute; bottom: 50px;
+	position: absolute; bottom: 0px;
 	width: 100%;
 	height: 50px;
 	display: none;
@@ -71,7 +70,8 @@
 .timeline-body-container, .chapter-timeline-container {
 	width: 86%;
 	height: 160px;
-	overflow: hidden;	
+	overflow: hidden;
+	-webkit-box-shadow: inset 0 0 10px #171e26;
 }
 
 .timeline-body {
@@ -97,11 +97,18 @@
 	font-size: 12px; color: white; font-family: 'Aller', sans-serif;
 }
 
+.timeline-notice-time {
+	height: 10px; width: 120px; z-index: 150;
+	font-size: 12px; color: white; font-family: 'Aller', sans-serif;
+	text-align: center; float: left;
+}
+
 .grid-timeline {
 	background: url(../images/timeline-grid.png) repeat-x left 90px;
-	height: 170px;
+	height: 190px;
 	padding: 30px 0 0 830px;
 	position: relative;
+	-webkit-box-shadow: inset 0 0 10px #171e26;
 }
 
 .timeline-notice-block {
@@ -111,6 +118,7 @@
 	float: left; margin-left: 25px;
 	text-align: center;
 	background-size: cover;
+	/*background-image: url(../images/samples/notices/1_big.jpg)*/
 }
 
 .timeline .mask {
@@ -122,7 +130,7 @@
 }
 
 .timeline-notice-block img.icon { margin-top: 25px; max-width: 34px; max-height: 34px; }
-.timeline-notice-block .title { text-align:center; text-transform: uppercase; font-family: 'Aller', sans-serif; color: white; font-size: 12px; }
+.timeline-notice-block .title { width: 90%; margin: 5px auto; text-align:center; text-transform: uppercase; font-family: 'Aller', sans-serif; color: white; font-size: 12px; }
 
 .timeline-notice-analyses { background: url(../images/notif-picto-analyses.png) no-repeat; }
 .timeline-notice-impact { background: url(../images/notif-picto-impact.png) no-repeat; }

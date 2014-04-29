@@ -90,15 +90,15 @@ var addNoticeOnTimeline = function (timecode, endTimecode, id, category_nicename
 			.attr('data-id', id);
 	$('.timeline-body').append(notifEl);
 	$('.timeline .cursor').css('transform', 'none').animate({ left: notifEl.offset().left + 2 }, 300);
-	$('.display-notice-btn').show(0);
+	if (id > 0) $('.display-notice-btn').show(0);
 	console.log('Notif element added at timecode '+timecode+' (offset left : '+offset+'%)');
 
 
 	var noticeBlock = $('<div>')
 		.attr('data-id', id)
-		.attr('style', 'background-image: url(images/samples/notices/'+id+'_big.jpg')
 		.addClass('timeline-notice-block')
-		.addClass('timeline-notice-block-'+category_nicename);
+		.addClass('timeline-notice-block-'+category_nicename)
+		.attr('style', 'background-image: url(images/samples/notices/'+String(id)+'_big.jpg)');
 	noticeBlock.append('<img class="icon" src="images/cat-'+category_nicename+'.png" />');
 	noticeBlock.append('<div class="title">'+title+'</div>');
 	$('.grid-timeline').append(noticeBlock);

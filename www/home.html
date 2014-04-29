@@ -103,6 +103,8 @@
       
       $(function() {
           FastClick.attach(document.body);
+      
+          addNoticeOnTimeline(0, 0, 0, 'scope', 'Bienvenue');
       });
     </script>
   </head>
@@ -143,10 +145,10 @@
         </div>
         <div class='timeline-last-notice'>
           <div class='timeline-cat-icon'>
-            <img src='images/cat-impact.png'>
+            <img src='images/cat-scope@2x.png'>
           </div>
-          <h3 class='title with-font'></h3>
-          <p class='content'></p>
+          <h3 class='title with-font'>Bienvenue</h3>
+          <p class='content'>Ici s'afficheront les différentes notifications liées au film</p>
           <div class='display-notice-btn'>
             en savoir +
           </div>
@@ -173,10 +175,10 @@
         </div>
         <div class='timeline-last-notice'>
           <div class='timeline-cat-icon'>
-            <img src='images/cat-impact.png'>
+            <img src='images/cat-scope@2x.png'>
           </div>
-          <h3 class='title with-font'></h3>
-          <p class='content'></p>
+          <h3 class='title with-font'>Bienvenue</h3>
+          <p class='content'>Ici s'afficheront les différentes notifications liées au film</p>
           <div class='display-notice-btn'>
             en savoir +
           </div>
@@ -193,6 +195,7 @@
               <!-- .timeline-notice-block -->
               <!-- %img.icon{ src: 'images/cat-anecdotes.png' } -->
               <!-- .title L'enfer -->
+              <!-- .timeline-notice-time 00:56:00 -->
             </div>
           </div>
           <div class='timeline-current-time'></div>
@@ -226,12 +229,28 @@
       </div>
       <div class='doc-main doc-home'>
         <div class='doc-search'></div>
-        <div class='doc-block doc-movie-info'></div>
-        <div class='doc-block doc-themes' data-category-id='2' data-category='themes'></div>
-        <div class='doc-block doc-analyse' data-category-id='4' data-category='analyses'></div>
-        <div class='doc-block doc-social'></div>
-        <div class='doc-block doc-anecdotes' data-category-id='5' data-category='anecdotes'></div>
-        <div class='doc-block doc-impact' data-category-id='1' data-category='impact'></div>
+        <div class='doc-block doc-movie-info'>
+          <div class='doc-block-title'>Fiche du film</div>
+        </div>
+        <div class='doc-block doc-themes' data-category-id='2' data-category='themes'>
+          <div class='doc-block-title'>Themes clés</div>
+        </div>
+        <div class='doc-block doc-analyse' data-category-id='4' data-category='analyses'>
+          <div class='doc-block-title'>Analyses</div>
+        </div>
+        <div class='doc-block doc-social'>
+          <div class='doc-block-title'>Communauté</div>
+        </div>
+        <div class='doc-block doc-anecdotes' data-category-id='5' data-category='anecdotes'>
+          <div class='doc-block-title'>Anecdotes</div>
+        </div>
+        <div class='doc-block doc-impact' data-category-id='1' data-category='impact'>
+          <div class='doc-block-title'>
+            Impact
+            <br>
+            sur la culture
+          </div>
+        </div>
       </div>
       <!-- .doc-category -->
       <!-- .slider -->
