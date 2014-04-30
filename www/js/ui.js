@@ -125,7 +125,7 @@ var slideToDocumentation = function () {
 	$('.navbar-doc').fadeIn(500);
 	$('.view-nav').hide(0);
 	$('.additional-content').animate({
-		bottom: '+=360px'
+		bottom: '+=700px'
 	}, 500);
 	displayingDocumentation = true;
 	$('.navbar-tabs a').removeClass('active');
@@ -138,8 +138,10 @@ var unslideDocumentation = function () {
 	$('.navbar-doc').hide(0);
 	$('.view-nav').show(0);
 	$('.additional-content').animate({
-		bottom: '-=360px'
+		bottom: '-=700px'
 	}, 500);
+	$('.container-home').animate({ top: 0 }, 300);
+	$('.additional-content').animate({ bottom: '-1000px' }, 300);
 	displayingDocumentation = false;
 	// $('.navbar-tabs a').removeClass('active');
 	// $('.nav-home').addClass('active');
@@ -180,6 +182,14 @@ $(function () {
 			return;
 		}
 
+		if (hash == '.container-social' && IS_LOGGED_IN) {
+
+			socialPostCurrentTimecode = currentTimecode;
+			$('.container-social .begin-time').text(formatTimecode(socialPostCurrentTimecode - 15));
+			$('.container-social .end-time').text(formatTimecode(socialPostCurrentTimecode + 15));
+	
+		}
+
 		if (hash == '.container-home' && displayingDocumentation) {
 			unslideDocumentation();
 			return;
@@ -192,11 +202,7 @@ $(function () {
 	});
 
 
-	$('.social-form .send').bind('touchstart', function (e) {
-		var message = $('.social-form textarea').val();
-		// TODO : handle select
-		calliOSFunction('postMessage', [ String(message) ]);
-	});
+	
 
 	$('.nav-profile').bind('touchstart', function (e) {
 		e.stopPropagation();
@@ -296,13 +302,20 @@ $(function () {
 			// scroll
 			if (pY - y < -20) {
 				var scroll = $('.additional-content').scrollTop();
-				$('.additional-content').scrollTop(scroll - 5);
+				// $('body').scrollTop(scroll - 5);
+
+				if ($('.container-home').offset().top >= 0) return;
+
+				$('.container-home').animate({ top: '+=10px' }, 0);
+				$('.additional-content').animate({ bottom: '-=10px' }, 0);
 			}
 
 			// scroll
 			if (pY - y > 20) {
 				var scroll = $('.additional-content').scrollTop();
-				$('.additional-content').scrollTop(scroll + 5);
+				// $('body').scrollTop(scroll + 5);
+				$('.container-home').animate({ top: '-=10px' }, 0);
+				$('.additional-content').animate({ bottom: '+=10px' }, 0);
 			}
 		});
 

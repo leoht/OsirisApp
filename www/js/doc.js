@@ -105,7 +105,7 @@ var getCategoriesOfParent = function (parent, parent_name) {
 						// $('.doc-breadcrumb .item-3').text(category.title).show(0);
 
 						$('.additional-content').animate({
-							bottom: '+=360px'
+							bottom: '+=700px'
 						}, 500);
 						$('.doc-category-'+id).addClass('current').show(0).animate({
 							top: '+=400px'
@@ -206,7 +206,7 @@ var unshowDocumentationDetail = function () {
 		top: '-=400px'
 	}, 500, function () { $(this).hide(0); });
 	$('.additional-content').animate({
-		bottom: '-=360px'
+		bottom: '-=700px'
 	}, 500);
 
 	showingDocumentationDetail = false;
@@ -241,6 +241,9 @@ $(function () {
 		}
 	});
 
+	$('.additional-content .more').bind('touchstart', function (e) {
+		$(this).parents('.content').animate({ height: 500 }, 400);
+	});
 	
 
 });

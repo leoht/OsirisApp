@@ -34,6 +34,8 @@ body, html {
 	background: url(../images/samples/notices/1_big.jpg) no-repeat center top;
 	background-size: 100%;
 	background-repeat: no-repeat;
+	position: relative;
+	height: 768px;
 }
 
 
@@ -64,7 +66,7 @@ body, html {
 .view-nav .active { opacity: 1; }
 
 .navbar {
-	position: absolute; left: 0; bottom: 0;
+	position: fixed; left: 0; bottom: 0;
 	width: 100%; height: 50px;
 	border-top: 1px solid #0e565f;
 	color: white;
@@ -204,8 +206,8 @@ body, html {
 /**** DOC CONTENT *****/
 
 .additional-content {
-	position: absolute; bottom: -370px;
-	width: 100%; height: 360px;
+	position: absolute; bottom: -1000px;
+	width: 100%; 
 	overflow: auto;
 	background: #fff;
 	z-index: 230;
@@ -213,6 +215,7 @@ body, html {
 
 .additional-content .content {
 	height: 162px;
+	overflow: hidden;
 	clear: both;
 	border-bottom: 1px solid #e1e1e1;
 	padding: 0;
