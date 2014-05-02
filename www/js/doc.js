@@ -203,10 +203,13 @@ var resetDocScreen = function () {
 
 var unshowDocumentationDetail = function () {
 	$('.doc-category.current').removeClass('current').animate({
-		top: '-=400px'
+		top: '-400px'
 	}, 500, function () { $(this).hide(0); });
 	$('.additional-content').animate({
-		bottom: '-=700px'
+		bottom: '-1000px'
+	}, 500);
+	$('.container-home').animate({
+		top: 0
 	}, 500);
 
 	showingDocumentationDetail = false;

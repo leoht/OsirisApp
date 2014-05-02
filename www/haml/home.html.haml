@@ -5,6 +5,7 @@
     %link{href: "css/main.css", media: "screen", rel: "stylesheet"}/
     %link{href: "css/timeline.css", media: "screen", rel: "stylesheet"}/
     %link{href: "css/social.css", media: "screen", rel: "stylesheet"}/
+    %link{href: "css/map.css", media: "screen", rel: "stylesheet"}/
     %link{href: "css/retina.css", media: "screen", rel: "stylesheet"}/
     %script{src: "js/iosBridge.js"}
     %script{src: "js/jquery.js"}
@@ -15,6 +16,7 @@
     %script{src: "js/ui.js"}
     %script{src: "js/doc.js"}
     %script{src: "js/social.js"}
+    %script{src: "js/map.js"}
     %script{src: "js/controls.js"}
     :javascript
 
@@ -64,9 +66,14 @@
 
         console.log('Last timecode : '+LAST_NOTICE_TIMECODE+', current : '+timecode);
 
+        
+
         if (Number(timecode) - LAST_NOTICE_TIMECODE < 60 ) {
+          addNoticeOnMap(timecode, id, category, title, true);
           return;
         }
+
+        addNoticeOnMap(timecode, id, category, title, false);
 
         LAST_NOTICE_TIMECODE = Number(timecode);
         CURRENT_VIEWED_NOTICE = id;
@@ -80,6 +87,7 @@
         //$('.view-grid-container .timeline-last-notice').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
         addNoticeOnTimeline(timecode, endTimecode, id, category, title);
 
+
         if ($('.container-home').is(':hidden')) {
           $('.nav-home').addClass('unread');
         }
@@ -89,6 +97,7 @@
       }
 
       var onNewComment = function (facebook_id, comment, author, timecode) {
+        addNoticeOnMap(timecode, null, 'comment', author);
         $('.timeline-last-notice .title').text(author);
         $('.timeline-last-notice .content').text('"'+comment+'"');
         $('.timeline-cat-icon img').attr('src', 'http://graph.facebook.com/'+facebook_id+'/picture?type=normal');
@@ -294,6 +303,47 @@
       /     .short-content L’usine elle-même, telle Chronos dévorant ses enfants, se nourrit de chair humaine. Lorsqu’ils ne périssent pas physiquement, les ouvriers sont tout simplement anéantis dans leur âme et leur singularité. 
         
 
+    / ROADMAP SCREEN
+
+    .container.container-map
+      .map-navbar
+        .select-view
+          .view-missed à voir
+          .view-seen.selected vues
+          
+      .map-main#map-main
+        / .map-col
+        /   .map-col-wrapper
+        /     .map-notice
+        /       %img.icon{ src: 'images/cat-themes.png' }
+        /       .title Déshumanisation
+        /     .map-notice
+        /       %img.icon{ src: 'images/cat-analyses.png' }
+        /       .title L'enfer
+        / .map-col
+        /   .map-col-wrapper
+        /     .map-notice
+        /       %img.icon{ src: 'images/cat-anecdotes.png' }
+        /       .title Réalisateur acharné
+        /     .map-notice
+        /       %img.icon{ src: 'images/cat-themes.png' }
+        /       .title Thème du double
+        /     .map-notice
+        /       %img.icon{ src: 'images/cat-analyses.png' }
+        /       .title L'enfer
+        /     .map-notice
+        /       %img.icon{ src: 'images/cat-analyses.png' }
+        /       .title L'enfer
+        / .map-col
+        /   .map-col-wrapper
+        /     .map-notice
+        /       %img.icon{ src: 'images/cat-comment.png' }
+        /       .title Léo Hetsch
+        /     .map-notice
+        /       %img.icon{ src: 'images/cat-themes.png' }
+        /       .title Thème du doublest
+      .map-timeline#map-timeline
+
     .additional-content
       .content
         %img.image{ src: 'images/samples/doc/add-sample-1.jpg' }
@@ -320,8 +370,7 @@
           .more
           %p Saturne dévorant un de ses fils, également appelée Saturne dévorant son enfant ou simplement Saturne, est une des Peintures noires de Francisco de Goya, peinte entre 1819 et 1823 directement sur les murs de sa maison appelée la Quinta del Sordo (« Maison de campagne du Sourd ») dans les environs de Madrid. La peinture a été transférée sur une to....
 
-    / ROADMAP SCREEN
-    .container.container-roadmap
+  
 
     / SETTINGS SCREEN
     .container.container-settings

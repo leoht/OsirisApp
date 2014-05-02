@@ -306,7 +306,7 @@ $(function () {
 
 				if ($('.container-home').offset().top >= 0) return;
 
-				$('.container-home').animate({ top: '+=10px' }, 0);
+				$('.container-home, .doc-category').animate({ top: '+=10px' }, 0);
 				$('.additional-content').animate({ bottom: '-=10px' }, 0);
 			}
 
@@ -314,7 +314,7 @@ $(function () {
 			if (pY - y > 20) {
 				var scroll = $('.additional-content').scrollTop();
 				// $('body').scrollTop(scroll + 5);
-				$('.container-home').animate({ top: '-=10px' }, 0);
+				$('.container-home, .doc-category').animate({ top: '-=10px' }, 0);
 				$('.additional-content').animate({ bottom: '+=10px' }, 0);
 			}
 		});

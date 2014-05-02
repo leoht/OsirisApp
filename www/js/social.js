@@ -35,11 +35,11 @@ var resetIntervalCursor = function () {
 }
 
 $(function () {
-	// $('.social-form .send').bind('touchstart', function (e) {
-	// 	var message = $('.social-form textarea').val();
-	// 	// TODO : handle select
-	// 	calliOSFunction('postMessage', [ String(message) ]);
-	// });
+	$('.step-3 .send').bind('touchstart', function (e) {
+		var message = $('.social-form textarea').val();
+		// TODO : handle select
+		calliOSFunction('postMessage', [ String(message) ]);
+	});
 
 	// hide whatever will mess up with the keyboard appearence
 	$('.container-social textarea, .doc-search input')

@@ -157,6 +157,8 @@ body, html {
 	color: black;
 }
 
+.profile-nav a:hover { color: #00ecea; }
+
 .profile-nav a.nav-movie { background: url('../images/nav-mymovie.png') no-repeat 5px center; }
 .profile-nav a.nav-roadmap { background: url('../images/nav-roadmap.png') no-repeat 5px center; }
 .profile-nav a.nav-settings { background: url('../images/nav-settings.png') no-repeat 5px center; border-bottom: 0px; }

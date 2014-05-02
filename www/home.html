@@ -5,6 +5,7 @@
     <link href='css/main.css' media='screen' rel='stylesheet'>
     <link href='css/timeline.css' media='screen' rel='stylesheet'>
     <link href='css/social.css' media='screen' rel='stylesheet'>
+    <link href='css/map.css' media='screen' rel='stylesheet'>
     <link href='css/retina.css' media='screen' rel='stylesheet'>
     <script src='js/iosBridge.js'></script>
     <script src='js/jquery.js'></script>
@@ -15,6 +16,7 @@
     <script src='js/ui.js'></script>
     <script src='js/doc.js'></script>
     <script src='js/social.js'></script>
+    <script src='js/map.js'></script>
     <script src='js/controls.js'></script>
     <script>
       var ROOT_API_URL = 'http://www.scope.dev';
@@ -63,9 +65,14 @@
       
         console.log('Last timecode : '+LAST_NOTICE_TIMECODE+', current : '+timecode);
       
+        
+      
         if (Number(timecode) - LAST_NOTICE_TIMECODE < 60 ) {
+          addNoticeOnMap(timecode, id, category, title, true);
           return;
         }
+      
+        addNoticeOnMap(timecode, id, category, title, false);
       
         LAST_NOTICE_TIMECODE = Number(timecode);
         CURRENT_VIEWED_NOTICE = id;
@@ -79,6 +86,7 @@
         //$('.view-grid-container .timeline-last-notice').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
         addNoticeOnTimeline(timecode, endTimecode, id, category, title);
       
+      
         if ($('.container-home').is(':hidden')) {
           $('.nav-home').addClass('unread');
         }
@@ -88,6 +96,7 @@
       }
       
       var onNewComment = function (facebook_id, comment, author, timecode) {
+        addNoticeOnMap(timecode, null, 'comment', author);
         $('.timeline-last-notice .title').text(author);
         $('.timeline-last-notice .content').text('"'+comment+'"');
         $('.timeline-cat-icon img').attr('src', 'http://graph.facebook.com/'+facebook_id+'/picture?type=normal');
@@ -292,6 +301,48 @@
       <!-- .title Déshumanisation -->
       <!-- .short-content L’usine elle-même, telle Chronos dévorant ses enfants, se nourrit de chair humaine. Lorsqu’ils ne périssent pas physiquement, les ouvriers sont tout simplement anéantis dans leur âme et leur singularité. -->
     </div>
+    <!-- ROADMAP SCREEN -->
+    <div class='container container-map'>
+      <div class='map-navbar'>
+        <div class='select-view'>
+          <div class='view-missed'>à voir</div>
+          <div class='view-seen selected'>vues</div>
+        </div>
+      </div>
+      <div class='map-main' id='map-main'>
+        <!-- .map-col -->
+        <!-- .map-col-wrapper -->
+        <!-- .map-notice -->
+        <!-- %img.icon{ src: 'images/cat-themes.png' } -->
+        <!-- .title Déshumanisation -->
+        <!-- .map-notice -->
+        <!-- %img.icon{ src: 'images/cat-analyses.png' } -->
+        <!-- .title L'enfer -->
+        <!-- .map-col -->
+        <!-- .map-col-wrapper -->
+        <!-- .map-notice -->
+        <!-- %img.icon{ src: 'images/cat-anecdotes.png' } -->
+        <!-- .title Réalisateur acharné -->
+        <!-- .map-notice -->
+        <!-- %img.icon{ src: 'images/cat-themes.png' } -->
+        <!-- .title Thème du double -->
+        <!-- .map-notice -->
+        <!-- %img.icon{ src: 'images/cat-analyses.png' } -->
+        <!-- .title L'enfer -->
+        <!-- .map-notice -->
+        <!-- %img.icon{ src: 'images/cat-analyses.png' } -->
+        <!-- .title L'enfer -->
+        <!-- .map-col -->
+        <!-- .map-col-wrapper -->
+        <!-- .map-notice -->
+        <!-- %img.icon{ src: 'images/cat-comment.png' } -->
+        <!-- .title Léo Hetsch -->
+        <!-- .map-notice -->
+        <!-- %img.icon{ src: 'images/cat-themes.png' } -->
+        <!-- .title Thème du doublest -->
+      </div>
+      <div class='map-timeline' id='map-timeline'></div>
+    </div>
     <div class='additional-content'>
       <div class='content'>
         <img class='image' src='images/samples/doc/add-sample-1.jpg'>
@@ -326,8 +377,6 @@
         </div>
       </div>
     </div>
-    <!-- ROADMAP SCREEN -->
-    <div class='container container-roadmap'></div>
     <!-- SETTINGS SCREEN -->
     <div class='container container-settings'></div>
     <nav class='navbar'>
