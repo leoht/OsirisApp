@@ -40,7 +40,7 @@ var mapDragHandler = function (e) {
 				return;
 			}
 
-			$('.map-main, .map-timeline').css('transform', 'translateX(' + map_posXGrid  +'px)' );
+			$('.map-main, .map-timeline').css('transform', 'translateX(' + map_posXGrid  +'px) translateZ(0)' );
 			// $('.chapter-timeline').css('transform', 'translateX(' + posXGrid  +'px)' );
 			break;
 		case 'dragend' :

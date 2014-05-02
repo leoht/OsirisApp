@@ -75,7 +75,7 @@ $(function () {
 		switch(e.type) {
 			case 'drag' :
 				socialCursor_posX = e.gesture.deltaX + socialCursor_xLast;
-				$('#social-interval-cursor').css('transform', 'translateX(' + socialCursor_posX  +'px)' );
+				$('#social-interval-cursor').css('transform', 'translateX(' + socialCursor_posX  +'px) translateZ(0)' );
 			
 				break;
 			case 'dragend' :
