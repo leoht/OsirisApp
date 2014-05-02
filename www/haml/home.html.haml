@@ -84,7 +84,7 @@
         $('.timeline-cat-icon').show(0);
         $('.timeline-cat-icon img').attr('src', 'images/cat-'+category+'@2x.png');
         $('.container-home').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat');
-        //$('.view-grid-container .timeline-last-notice').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
+        $('.view-grid-container .timeline-last-notice').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat');
         addNoticeOnTimeline(timecode, endTimecode, id, category, title);
 
 
@@ -256,6 +256,11 @@
             %span.blue>3
             \/3
           .title.with-font PUBLIER SUR...
+
+          .publication-select
+            .item.item-scope.checked Scope
+            .item.item-fb Facebook
+
         
         .social-form
          

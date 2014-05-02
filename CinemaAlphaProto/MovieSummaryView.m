@@ -27,23 +27,7 @@
     [super viewDidLoad];
     
     [self setCurrentTimecode:@"0"];
-    
-    // FACEBOOK OPEN GRAPH POST DISCOVER
-    
-//    [FBSession.activeSession requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceFriends completionHandler:^(FBSession *session, NSError *error) {
-//        if (error) {
-//            NSLog(@"Error");
-//        }
-//    }];
-    
-    
-    
-//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/me/gobelins_crma_cinema:discover?access_token=%@&movie=108250085865894", FBSession.activeSession.accessTokenData.accessToken]];
-//    
-//    NSLog(@"%@", url);
-//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-//    [request setHTTPMethod:@"POST"];
-//    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+
     
     
 //    StylizeWithScopeFont(self.secondTimecodeLabel, 20);
@@ -75,7 +59,8 @@
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:ApiCommentAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
-        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onNewComment('%@', '%@', '%@');",
+        [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onNewComment('%@', '%@', '%@', '%@');",
+                        [note.userInfo objectForKey:@"facebook_id"],
                         [note.userInfo objectForKey:@"comment"],
                         [note.userInfo objectForKey:@"author"],
                         [note.userInfo objectForKey:@"timecode"]
@@ -241,6 +226,39 @@
                                      dictionaryWithObjects:@[movieId, facebookId, message, [self currentTimecode]]
                                      forKeys:@[@"movie_id", @"facebook_id", @"message", @"timecode"]];
         [ApiDelegate sendMessageNamed:ApiPostMessage withData:data];
+        
+        
+            
+            // FACEBOOK OPEN GRAPH POST MESSAGE
+            
+            [FBSession.activeSession requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceFriends completionHandler:^(FBSession *session, NSError *error) {
+                if (error) {
+                    NSLog(@"Error");
+                }
+            }];
+            
+            NSLog(@"Post on FB");
+            
+            NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                           [NSString stringWithFormat:@"Je viens de poster un commentaire sur le film Métropolis : \"%@\"", message], @"message",
+                                           nil];
+            
+            // Make the request
+            [FBRequestConnection startWithGraphPath:@"/me/feed"
+                                         parameters:params
+                                         HTTPMethod:@"POST"
+                                  completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                                      if (!error) {
+                                          // Link posted successfully to Facebook
+                                          NSLog(@"result: %@", result);
+                                      } else {
+                                          // An error occurred, we need to handle the error
+                                          // See: https://developers.facebook.com/docs/ios/errors
+                                          NSLog(@"%@", error.description);
+                                      }
+                                  }];
+        
+    
     }
     
     if ([name compare:@"quit" options:NSCaseInsensitiveSearch] == NSOrderedSame) {

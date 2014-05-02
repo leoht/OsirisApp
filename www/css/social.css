@@ -105,3 +105,28 @@
 
 .interval-chooser .begin-time { color: #00ecea; font-size: 13px; position: absolute; bottom: 0px; left: 0;}
 .interval-chooser .end-time { color: #00ecea; font-size: 13px; position: absolute; bottom: 0px; right: 0;}
+
+.publication-select {
+	width: 290px; height: 200px; margin: 240px auto 0 auto;
+}
+
+.publication-select .item {
+	height: 35px; padding-left: 60px; padding-top: 15px; color: white; text-transform: uppercase;
+	background-size: 292px 41px;
+	background-repeat: no-repeat;
+	font-size: 12px;
+	text-align: left;
+	border-bottom: 1px solid #e4e4e4;
+	margin-top: 10px;
+	opacity: 0.3;
+}
+
+.publication-select .item.checked { opacity: 1; }
+
+.publication-select .item-scope {
+	background-image: url(../images/social-select-scope.png);
+}
+
+.publication-select .item-fb {
+	background-image: url(../images/social-select-fb.png);
+}

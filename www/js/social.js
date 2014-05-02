@@ -2,6 +2,7 @@ var SOCIAL_CURRENT_STEP = 1;
 var socialCursorOriginalOffset = 0;
 var socialCursor_posX = 0, socialCursor_xLast = 0;
 var socialPostCurrentTimecode = 0;
+var publishOnFacebook = false;
 
 String.prototype.lpad = function(padString, length) {
     var str = this;
@@ -30,15 +31,28 @@ var socialNextStep = function () {
 var resetIntervalCursor = function () {
 	$('.interval-chooser .cursor').css('transform', 'none');
 	socialPostCurrentTimecode = currentTimecode;
-	$('.container-social .begin-time').text(formatTimecode(socialPostCurrentTimecode - 15));
-	$('.container-social .end-time').text(formatTimecode(socialPostCurrentTimecode + 15));
+	$('.container-social .begin-time').text(formatTimecode(Number(socialPostCurrentTimecode) - 15));
+	$('.container-social .end-time').text(formatTimecode(Number(socialPostCurrentTimecode) + 15));
 }
 
 $(function () {
 	$('.step-3 .send').bind('touchstart', function (e) {
 		var message = $('.social-form textarea').val();
 		// TODO : handle select
-		calliOSFunction('postMessage', [ String(message) ]);
+		calliOSFunction('postMessage', [ String(message), publishOnFacebook ]);
+
+		$('.container-social .step').hide(0);
+		$('.container-social .step-1').show(0);
+		$('.container').hide(0);
+		$('.container-home').show(0);
+	});
+
+	$('.publication-select .item').bind('touchstart', function (e) {
+		$(this).addClass('checked');
+	});
+
+	$('.publication-select .item-fb').bind('touchstart', function (e) {
+		publishOnFacebook = true;
 	});
 
 	// hide whatever will mess up with the keyboard appearence

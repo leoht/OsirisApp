@@ -83,7 +83,7 @@
         $('.timeline-cat-icon').show(0);
         $('.timeline-cat-icon img').attr('src', 'images/cat-'+category+'@2x.png');
         $('.container-home').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat');
-        //$('.view-grid-container .timeline-last-notice').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
+        $('.view-grid-container .timeline-last-notice').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat');
         addNoticeOnTimeline(timecode, endTimecode, id, category, title);
       
       
@@ -252,6 +252,10 @@
           <div class='step-nb'><span class='blue'>3</span>/3
           </div>
           <div class='title with-font'>PUBLIER SUR...</div>
+          <div class='publication-select'>
+            <div class='item item-scope checked'>Scope</div>
+            <div class='item item-fb'>Facebook</div>
+          </div>
         </div>
         <div class='social-form'></div>
         <button class='button-link send'>Poster</button>

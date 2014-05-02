@@ -29,18 +29,18 @@
 
 .map-main {
 	background: #09111c url(../images/map-bg.png);
-	height: 460px; width: 2500px;
+	height: 460px; width: 3500px;
 	padding-left: 75px; padding-top: 105px;
 	position: relative;
 }
 
 .map-timeline {
-	background-color: #192129; width: 2500px; height: 110px;
+	width: 3500px; height: 110px;
 	-webkit-box-shadow: inset 0 0 10px #12181e;
 	border-top: 1px solid #3c3c3c;
 	border-bottom: 1px solid #3c3c3c;
 
-	background: url(../images/map-timeline.png) repeat-x left 52px;
+	background: #192129 url(../images/map-timeline.png) repeat-x left 52px;
 	background-size: 153px 13px;
 }
 

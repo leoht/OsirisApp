@@ -328,7 +328,7 @@ $(function () {
 		switch(e.type) {
 			case 'drag' :
 				posX = e.gesture.deltaX + xLast;
-				$('.timeline-body, .cursor').css('transform', 'translateX(' + posX  +'px)' );
+				$('.timeline-body, .cursor').css('transform', 'translateX(' + posX  +'px) translateZ(0px)' );
 				break;
 			case 'dragend' :
 				xLast = posX;
@@ -352,7 +352,7 @@ $(function () {
 					return;
 				}
 
-				$('.grid-timeline').css('transform', 'translateX(' + posXGrid  +'px)' );
+				$('.grid-timeline').css('transform', 'translateX(' + posXGrid  +'px) translateZ(0px)' );
 				// $('.chapter-timeline').css('transform', 'translateX(' + posXGrid  +'px)' );
 				break;
 			case 'dragend' :
