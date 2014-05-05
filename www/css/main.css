@@ -21,6 +21,18 @@
 
 }
 
+@font-face {
+    font-family: 'Sanchez';
+    src: url('../fonts/sanchezregular-ita-webfont.eot');
+    src: url('../fonts/sanchezregular-ita-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/sanchezregular-ita-webfont.woff') format('woff'),
+         url('../fonts/sanchezregular-ita-webfont.ttf') format('truetype'),
+         url('../fonts/sanchezregular-ita-webfont.svg#sanchez_regular_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body, html {
 	background-color: #071528;
 	width: 100%;
@@ -265,17 +277,17 @@ body, html {
 }
 
 .additional-content .slider {
-	width: 100%; height: 45px;
+	width: 100%; height: 35px;
 	background-color: #101316;
 	background-image: url(../images/doc-additional-slider-bg.png);
 	background-repeat: no-repeat;
 	background-position: center center; position: relative;
 	text-align: center;
-	padding-top: 25px;
+	padding-top: 15px;
 }
 
-.additional-content .slider .next { position: absolute; right: 30px; bottom: 20px; width: 30px; height: 30px; background: url(../images/doc-slider-right.png); background-size: 30px 30px; }
-.additional-content .slider .prev { position: absolute; left: 30px; bottom: 20px; width: 30px; height: 30px; background: url(../images/doc-slider-left.png); background-size: 30px 30px; }
+.additional-content .slider .next { position: absolute; right: 30px; bottom: 10px; width: 30px; height: 30px; background: url(../images/doc-slider-right.png); background-size: 30px 30px; }
+.additional-content .slider .prev { position: absolute; left: 30px; bottom: 10px; width: 30px; height: 30px; background: url(../images/doc-slider-left.png); background-size: 30px 30px; }
 .additional-content .slider .item { 
 	display: inline-block;
 	background: #292b2d;
@@ -299,7 +311,7 @@ body, html {
 	padding: 0px 0 10px 0;
 	background: #161e26;
 	border-bottom: 1px solid #04e5e8;
-	display: none; z-index: 30;
+	display: none; z-index: 250;
 }
 
 .doc-breadcrumb { padding-left: 20px; }

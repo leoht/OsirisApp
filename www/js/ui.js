@@ -86,7 +86,7 @@ var addNoticeOnTimeline = function (timecode, endTimecode, id, category_nicename
 	var notifEl = $('<div>')
 			.addClass('timeline-notice')
 			.addClass('timeline-notice-'+category_nicename)
-			.css('left', offset+'%')
+			.css('left', (offset-0.05)+'%')
 			.attr('data-id', id);
 	$('.timeline-body').append(notifEl);
 	$('.timeline .cursor').css('transform', 'none').animate({ left: notifEl.offset().left + 2 }, 300);
@@ -102,10 +102,10 @@ var addNoticeOnTimeline = function (timecode, endTimecode, id, category_nicename
 	noticeBlock.append('<img class="icon" src="images/cat-'+category_nicename+'.png" />');
 	noticeBlock.append('<div class="title">'+title+'</div>');
 
-	if (id != 0)
+	if (id != 0) {
 		noticeBlock.append('<div class="timeline-notice-time">'+formatTimecode(timecode)+'</div>');
-
-	$('.grid-timeline').append(noticeBlock);
+		$('.grid-timeline').append(noticeBlock);
+	}
 
 	$('<div>').addClass('timeline-notice-bar')
 			.addClass('timeline-notice-bar-'+category_nicename)

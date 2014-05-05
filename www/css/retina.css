@@ -13,15 +13,15 @@ screen and (min-resolution: 2dppx) {
 	.nav-social.active { background: url(../images/nav-social@2x.png) no-repeat center 5px, url(../images/nav-item-active.png) repeat-x left 45px, #1d1d1d;  background-size: 33px 33px;  }
 	.nav-doc.active { background: url(../images/nav-doc@2x.png) no-repeat center 5px, url(../images/nav-item-active.png) repeat-x left 45px, #1d1d1d;  background-size: 33px 33px;  }
 
-	.video-controls .play { position: absolute; z-index: 210; bottom: 85px; right: 30px; width: 80px; height: 80px;  margin-top: 25px; background-image: url(../images/play@2x.png); background-size: 69px 65px; }
-	.video-controls .pause { position: absolute; z-index: 211; bottom: 85px; right: 30px; display: none; width: 80px; height: 80px; margin-top: 25px; background-image: url(../images/pause@2x.png); background-size: 69px 65px; }
+	.video-controls .play { position: absolute; z-index: 210; bottom: 85px; right: 25px; width: 80px; height: 80px;  margin-top: 25px; background-image: url(../images/play@2x.png); background-size: 69px 65px; }
+	.video-controls .pause { position: absolute; z-index: 211; bottom: 85px; right: 25px; display: none; width: 80px; height: 80px; margin-top: 25px; background-image: url(../images/pause@2x.png); background-size: 69px 65px; }
 
-	.timeline-notice-analyses { background: url(../images/notif-picto-analyses@2x.png) no-repeat; background-size: 32px 32px;  }
-	.timeline-notice-impact { background: url(../images/notif-picto-impact@2x.png) no-repeat; background-size: 32px 32px; }
-	.timeline-notice-themes { background: url(../images/notif-picto-themes@2x.png) no-repeat; background-size: 32px 32px; }
-	.timeline-notice-anecdotes { background: url(../images/notif-picto-anecdotes@2x.png) no-repeat; background-size: 32px 32px; }
-	.timeline-notice-comment { background: url(../images/notif-picto-comment@2x.png) no-repeat; background-size: 32px 32px; }
-	.timeline-notice-scope { background: url(../images/notif-picto-scope@2x.png) no-repeat; background-size: 32px 32px; }
+	.timeline-notice-analyses { background: url(../images/notif-picto-analyses@2x.png) no-repeat; background-size: 35px 35px;  }
+	.timeline-notice-impact { background: url(../images/notif-picto-impact@2x.png) no-repeat; background-size: 35px 35px; }
+	.timeline-notice-themes { background: url(../images/notif-picto-themes@2x.png) no-repeat; background-size: 35px 35px; }
+	.timeline-notice-anecdotes { background: url(../images/notif-picto-anecdotes@2x.png) no-repeat; background-size: 35px 35px; }
+	.timeline-notice-comment { background: url(../images/notif-picto-comment@2x.png) no-repeat; background-size: 35px 35px; }
+	.timeline-notice-scope { background: url(../images/notif-picto-scope@2x.png) no-repeat; background-size: 35px 35px; }
 
 	.socials .twitter { background: url(../images/share-twitter@2x.png) no-repeat; background-size: 30px 30px; }
 	.socials .facebook { background: url(../images/share-facebook@2x.png) no-repeat; background-size: 30px 30px; }

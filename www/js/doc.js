@@ -138,6 +138,8 @@ var getCategoriesOfParent = function (parent, parent_name) {
 
 						$('.slide-counter .total').text(DOC_ARRAY[category.id].length);
 
+						$('.slider .item').remove();
+
 						for (var i = 0 ; i < DOC_ARRAY[category.id].length ; i++) {
 							addItemOnSlider(i, DOC_ARRAY[category.id][i].id);
 						}

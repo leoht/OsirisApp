@@ -2,6 +2,7 @@ var SOCIAL_CURRENT_STEP = 1;
 var socialCursorOriginalOffset = 0;
 var socialCursor_posX = 0, socialCursor_xLast = 0;
 var socialPostCurrentTimecode = 0;
+var oldSocialCurrentTimecode = 0;
 var publishOnFacebook = false;
 
 String.prototype.lpad = function(padString, length) {
@@ -94,15 +95,24 @@ $(function () {
 	Hammer(document.getElementById('social-interval-cursor')).on('dragright', function (e) {
 
 		socialPostCurrentTimecode += 5;
-		$('.container-social .begin-time').text(formatTimecode(socialPostCurrentTimecode - 15));
-		$('.container-social .end-time').text(formatTimecode(socialPostCurrentTimecode + 15));
+
+		if (socialPostCurrentTimecode > oldSocialCurrentTimecode + 20) {
+			$('.container-social .begin-time').text(formatTimecode(socialPostCurrentTimecode - 15));
+			$('.container-social .end-time').text(formatTimecode(socialPostCurrentTimecode + 15));
+			oldSocialCurrentTimecode = socialPostCurrentTimecode;
+		}
+		
 	});
 
 	Hammer(document.getElementById('social-interval-cursor')).on('dragleft', function (e) {
 
 		socialPostCurrentTimecode -= 5;
-		$('.container-social .begin-time').text(formatTimecode(socialPostCurrentTimecode - 15));
-		$('.container-social .end-time').text(formatTimecode(socialPostCurrentTimecode + 15));
+
+		if (socialPostCurrentTimecode < oldSocialCurrentTimecode - 5) {
+			$('.container-social .begin-time').text(formatTimecode(socialPostCurrentTimecode - 15));
+			$('.container-social .end-time').text(formatTimecode(socialPostCurrentTimecode + 15));
+			oldSocialCurrentTimecode = socialPostCurrentTimecode;
+		}
 	});
 				
 });
