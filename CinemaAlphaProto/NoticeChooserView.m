@@ -23,7 +23,7 @@
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"scope_bg.png"]];
     [self.introTextLabel setFont:[UIFont fontWithName:@"Aller-Light" size:22]];
     
-    StylizeWithScopeFont(self.skipButton.titleLabel, 18);
+    [self.skipButton.titleLabel setFont:[UIFont fontWithName:@"Aller-Light" size:18]];
     BorderedButton(self.skipButton, ScopeBlue);
     
     
@@ -58,7 +58,8 @@
 }
 
 - (IBAction)skip:(id)sender {
-    [[NoticeManager sharedManager] enableAllNotices];
+//    [[NoticeManager sharedManager] enableAllNotices];
+    NSLog(@"SKIP");
     PushView(@"MovieSummaryView");
 }
 
