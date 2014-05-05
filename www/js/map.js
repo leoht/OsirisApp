@@ -21,6 +21,8 @@ var addNoticeOnMap = function (timecode, id, cat, title, missed) {
 		var $col = $('<div class="map-col"></div>');
 		$col.append($wrapper);
 
+		$('.map-timeline').append('<div class="map-timeline-time">'+formatTimecode(timecode)+'</div>');
+
 		$('.map-main').append($col);
 	} else {
 		$('.map-col:last-child').find('.map-col-wrapper').append($n);

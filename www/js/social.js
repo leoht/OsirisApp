@@ -47,6 +47,10 @@ $(function () {
 		$('.container-home').show(0);
 	});
 
+	$('.interval-chooser .reset').bind('touchstart', function (e) {
+		resetIntervalCursor();
+	});
+
 	$('.publication-select .item').bind('touchstart', function (e) {
 		$(this).addClass('checked');
 	});

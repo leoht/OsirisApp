@@ -27,6 +27,7 @@ var getDocumentation = function (movieId) {
 					
 					$page = $('<div id="doc-category-'+category.id+'" class="doc-category doc-category-'+category.id+'"></div>');
 					$slider = $('<div class="slider"></div>');
+					$slider.append('<div class="slide-counter"><span class="current">1</span>/<span class="total"></span></div>')
 					$slider.append('<div class="cat-icon cat-icon-'+category.parent_id+'"><img src="images/cat-icon-'+category.parent_id+'.png" /></div>')
 					$slider.append('<div class="title with-font">'+category.title+'</div>');
 
@@ -71,6 +72,30 @@ var getAllNotices = function (movieId) {
 	});
 };
 
+var addItemOnSlider = function (i, id) {
+	var $item = $('<div class="item" data-n="'+(i+1)+'" data-notice-id="'+id+'"></div>');
+	$item.appendTo('.additional-content .slider');
+
+	if (i == 0)
+		$item.addClass('active')
+
+	$('.additional-content .slider .item').unbind().bind('touchstart', function (e) {
+		var n = $(this).attr('data-n');
+		$('.slider .item').removeClass('active');
+		$(this).addClass('active');
+		$('.slider .short-content').hide(0);
+		$('.slider .short-content-'+n).show(0);
+		$('.additional-content .notice-1').hide(0);
+		$('.additional-content .notice-2').show(0);
+
+		$('.doc-category').animate({
+			top: '0px'
+		}, 300);
+		// $('.additional-content').animate({
+		// 	bottom: '650px'
+		// }, 300);
+	});
+}
 
 var getCategoriesOfParent = function (parent, parent_name) {
 	var url = ROOT_API_URL + '/movies/' + MOVIE_ID + '/notice_categories/' + parent + '.json';
@@ -95,7 +120,7 @@ var getCategoriesOfParent = function (parent, parent_name) {
 
 					console.log(category);
 					var block = $('<div class="doc-block" data-subcategory-id="'+category.id+'">');
-					block.append('<div class="doc-block-title doc-block-title-sub">'+category.title+'</div>');
+					block.append('<div class="doc-block-title doc-block-title-sub">'+category.title+'</div><div class="doc-block-count">'+DOC_ARRAY[category.id].length+' notices</div>');
 					$('.doc-main').append(block);
 
 					$('.doc-head').addClass('doc-head-'+parent_name);
@@ -105,13 +130,17 @@ var getCategoriesOfParent = function (parent, parent_name) {
 						// $('.doc-breadcrumb .item-3').text(category.title).show(0);
 
 						$('.additional-content').animate({
-							bottom: '+=700px'
+							bottom: '+=650px'
 						}, 500);
 						$('.doc-category-'+id).addClass('current').show(0).animate({
 							top: '+=400px'
 						}, 500);
 
 						$('.slide-counter .total').text(DOC_ARRAY[category.id].length);
+
+						for (var i = 0 ; i < DOC_ARRAY[category.id].length ; i++) {
+							addItemOnSlider(i, DOC_ARRAY[category.id][i].id);
+						}
 
 						showingDocumentationDetail = true;
 
@@ -245,9 +274,16 @@ $(function () {
 	});
 
 	$('.additional-content .more').bind('touchstart', function (e) {
-		$(this).parents('.content').animate({ height: 500 }, 400);
+		$(this).hide(0);
+		$(this).parents('.content').animate({ height: 540 }, 400);
+		$(this).parents('.content').find('.less').show(0);
 	});
 	
+	$('.additional-content .less').bind('touchstart', function (e) {
+		$(this).hide(0);
+		$(this).parents('.content').animate({ height: 167 }, 400);
+		$(this).parents('.content').find('.more').show(0);
+	});
 
 });
 

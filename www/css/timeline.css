@@ -43,7 +43,7 @@
 
 .timeline-last-notice .replay-btn {
 	background: url(../images/replay-btn.png) no-repeat center top;
-	position: absolute; bottom: 0px;
+	position: absolute; bottom: 125px;
 	width: 100%;
 	height: 50px;
 	display: none;
@@ -84,6 +84,8 @@
 	animation-duration: 500ms;
 }
 
+
+
 .timeline-notice {
 	position: absolute; top: 25px; width: 35px; height: 35px; z-index: 150; opacity: 0.3;
 }
@@ -98,9 +100,10 @@
 }
 
 .timeline-notice-time {
-	height: 10px; width: 120px; z-index: 150;
-	font-size: 12px; color: white; font-family: 'Aller', sans-serif;
-	text-align: center; float: left;
+	height: 10px; width: 145px; z-index: 150;
+	font-size: 11px; color: white; font-family: 'Aller', sans-serif;
+	text-align: center;
+	margin: 45px auto;
 }
 
 .grid-timeline {
@@ -112,13 +115,20 @@
 }
 
 .timeline-notice-block {
-	width: 161px; height: 121px;
-	background: #040404;
-	border: 1px solid #292626;
+	width: 160px; height: 160px;
 	float: left; margin-left: 25px;
 	text-align: center;
-	background-size: cover;
+	background-size: 240px 118px;
+	background-clip: padding-box;
+	background-repeat: no-repeat;
+	background-position: center top;
+	padding-bottom: 40px;
 	/*background-image: url(../images/samples/notices/1_big.jpg)*/
+}
+
+.timeline-notice-block-opaque {
+	width: 161px; height: 160px;
+	background-color: #192129;
 }
 
 .timeline .mask {

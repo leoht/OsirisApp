@@ -112,6 +112,7 @@ body, html {
 	right: 0px; 
 	border-left: 0px;
 	padding-top: 16px;
+	font-size: 13px;
 }
 
 .nav-profile .image {
@@ -123,12 +124,12 @@ body, html {
 	position: absolute; right: 5px; top: 5px;
 }
 
-.navbar-tabs a:first-child { margin-left: 15%; }
+.navbar-tabs a:first-child { margin-left: 17%; }
 
 .navbar-tabs a {
 	border-left: 1px solid #233849;
 	height: 50px;
-	width: 8%;
+	width: 75px;
 	padding-top: 10px;
 	text-align: center;
 	display: block;
@@ -215,6 +216,8 @@ body, html {
 	z-index: 230;
 }
 
+.additional-content .notice-2 { display: none; }
+
 .additional-content .content {
 	height: 162px;
 	overflow: hidden;
@@ -233,6 +236,7 @@ body, html {
 
 .additional-content .image {
 	float: left;
+	width: 411px;
 }
 
 .additional-content .right {
@@ -243,16 +247,46 @@ body, html {
 	position: relative;
 }
 
-.additional-content .more {
+.additional-content .more, .additional-content .less {
 	position: absolute; top: 40%; right: 30px;
 	cursor: pointer;
 	width: 38px; height: 38px; 
 	background: url(../images/notice-more-content.png) no-repeat;
 }
 
+.additional-content .less {
+	display: none;
+	background: url(../images/less-btn.png) no-repeat;
+}
+
 .additional-content .right p {
 	font-size: 12.5px;
 	width: 460px;
+}
+
+.additional-content .slider {
+	width: 100%; height: 45px;
+	background-color: #101316;
+	background-image: url(../images/doc-additional-slider-bg.png);
+	background-repeat: no-repeat;
+	background-position: center center; position: relative;
+	text-align: center;
+	padding-top: 25px;
+}
+
+.additional-content .slider .next { position: absolute; right: 30px; bottom: 20px; width: 30px; height: 30px; background: url(../images/doc-slider-right.png); background-size: 30px 30px; }
+.additional-content .slider .prev { position: absolute; left: 30px; bottom: 20px; width: 30px; height: 30px; background: url(../images/doc-slider-left.png); background-size: 30px 30px; }
+.additional-content .slider .item { 
+	display: inline-block;
+	background: #292b2d;
+	border-radius: 20px;
+	width: 15px; height: 15px;
+	margin-right: 40px;
+}
+
+.additional-content .slider .item.active {
+	width: 18px; height: 18px;
+	background: #fff; position: relative; top: 2px;
 }
 
 /******* DOC *********/
@@ -331,15 +365,33 @@ body, html {
 	text-transform: uppercase; color: white;
 	font-size: 11px;
 	margin: 115px auto 0 auto;
-	width: 120px;
+	width: 130px;
 	text-align: center;
 	display: block;
 	line-height: 16px;
 }
 
+.doc-block-info {
+	color: white; font-size: 10px;
+	text-align: center; margin-top: 55px;
+}
+.doc-block-info-last {
+	margin-top: 40px;
+}
+
+.doc-block-count {
+	text-transform: uppercase; color: white;
+	font-size: 10px;
+	margin: 5px auto 0 auto;
+	color: white;
+	text-align: center;
+	display: block;
+}
+
 .doc-block-title-sub {
 	color: #fcb200;
 	margin-top: 87px;
+	text-shadow: 2px 2px #212830;
 }
 
 .doc-category {

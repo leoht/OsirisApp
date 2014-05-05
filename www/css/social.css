@@ -89,6 +89,13 @@
 	position: relative;
 }
 
+.interval-chooser .reset {
+	width: 35px; height: 35px;
+	background: url(../images/social-interval-reset.png) no-repeat;
+	background-size: 35px 35px;
+	position: absolute; right: 35px; top: 15px;
+}
+
 .interval-chooser .line {
 	background: url(../images/social-interval-line.png) repeat-x;
 	width: 100%;

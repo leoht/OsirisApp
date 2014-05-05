@@ -42,6 +42,15 @@
 
 	background: #192129 url(../images/map-timeline.png) repeat-x left 52px;
 	background-size: 153px 13px;
+	padding-left: 75px;
+}
+
+.map-timeline-time {
+	color: white;
+	font-size: 11px;
+	width: 155px; text-align: center;
+	position: relative; top: 75px;
+	float: left;
 }
 
 .map-col {

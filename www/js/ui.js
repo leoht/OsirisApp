@@ -22,7 +22,7 @@ var beginTimelineScrolling = function () {
 				dir = FAST_FORWARD ? '-' : '+';
 				console.log('yo')
 			} else {
-				dT = '0.6';
+				dT = '0.7';
 				dir = '-';
 			}
 
@@ -101,6 +101,10 @@ var addNoticeOnTimeline = function (timecode, endTimecode, id, category_nicename
 		.attr('style', 'background-image: url(images/samples/notices/'+String(id)+'_big.jpg)');
 	noticeBlock.append('<img class="icon" src="images/cat-'+category_nicename+'.png" />');
 	noticeBlock.append('<div class="title">'+title+'</div>');
+
+	if (id != 0)
+		noticeBlock.append('<div class="timeline-notice-time">'+formatTimecode(timecode)+'</div>');
+
 	$('.grid-timeline').append(noticeBlock);
 
 	$('<div>').addClass('timeline-notice-bar')
@@ -114,6 +118,8 @@ var addNoticeOnTimeline = function (timecode, endTimecode, id, category_nicename
 			.text(title)
 			.appendTo($('.timeline-body'));
 
+
+
 	$('.grid-timeline').animate({
 		left: '-=180px'
 	}, 300);
@@ -125,20 +131,21 @@ var slideToDocumentation = function () {
 	$('.navbar-doc').fadeIn(500);
 	$('.view-nav').hide(0);
 	$('.additional-content').animate({
-		bottom: '+=700px'
+		bottom: '+=650px'
 	}, 500);
 	displayingDocumentation = true;
 	$('.navbar-tabs a').removeClass('active');
 	$('.nav-doc').addClass('active');
 	$('.display-notice-btn').hide(0);
 	$('.replay-btn').show(0);
+	$('.socials').hide(0);
 };
 
 var unslideDocumentation = function () {
 	$('.navbar-doc').hide(0);
 	$('.view-nav').show(0);
 	$('.additional-content').animate({
-		bottom: '-=700px'
+		bottom: '-=650px'
 	}, 500);
 	$('.container-home').animate({ top: 0 }, 300);
 	$('.additional-content').animate({ bottom: '-1000px' }, 300);
@@ -147,6 +154,7 @@ var unslideDocumentation = function () {
 	// $('.nav-home').addClass('active');
 	$('.display-notice-btn').show(0);
 	$('.replay-btn').hide(0);
+	$('.socials').show(0);
 };
 
 $(function () {
@@ -314,6 +322,11 @@ $(function () {
 			if (pY - y > 20) {
 				var scroll = $('.additional-content').scrollTop();
 				// $('body').scrollTop(scroll + 5);
+
+				var bottom = $(window).height() - $('.additional-content').offset().top - $('.additional-content').height();
+				console.log(bottom);
+				if (bottom >= 50) return;
+
 				$('.container-home, .doc-category').animate({ top: '-=10px' }, 0);
 				$('.additional-content').animate({ bottom: '+=10px' }, 0);
 			}

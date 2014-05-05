@@ -32,6 +32,8 @@ html, body {
 	width: 535px;
 	height: 510px;
 
+	/*border: 1px solid #1b2129;*/
+
 	background: #fff;
 	position: absolute; left: 24%; top: 0px;
 }
