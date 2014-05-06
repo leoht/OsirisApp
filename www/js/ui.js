@@ -324,10 +324,10 @@ $(function () {
 				// $('body').scrollTop(scroll - 5);
 
 				if ($('.container-home').offset().top >= 0 && !showingDocumentationDetail) return;
-				if ($('.doc-category.current').offset().top >= 0 && showingDocumentationDetail) return;
+				if (showingDocumentationDetail && $('.doc-category.current').offset().top >= 0 ) return;
 
-				$('.container-home, .doc-category').animate({ top: '+=10px' }, 0);
-				$('.additional-content').animate({ bottom: '-=10px' }, 0);
+				$('.container-home, .doc-category').animate({ top: '+=15px' }, 0);
+				$('.additional-content').animate({ bottom: '-=15px' }, 0);
 			}
 
 			// scroll
@@ -339,8 +339,8 @@ $(function () {
 				console.log(bottom);
 				if (bottom >= 50) return;
 
-				$('.container-home, .doc-category').animate({ top: '-=10px' }, 0);
-				$('.additional-content').animate({ bottom: '+=10px' }, 0);
+				$('.container-home, .doc-category').animate({ top: '-=15px' }, 0);
+				$('.additional-content').animate({ bottom: '+=15px' }, 0);
 			}
 		});
 

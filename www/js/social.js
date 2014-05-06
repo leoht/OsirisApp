@@ -81,11 +81,13 @@ $(function () {
 		
 		switch(e.type) {
 			case 'drag' :
+				$('.interval-chooser-mask').hide(0);
 				socialCursor_posX = e.gesture.deltaX + socialCursor_xLast;
 				$('#social-interval-cursor').css('transform', 'translateX(' + socialCursor_posX  +'px) translateZ(0)' );
 			
 				break;
 			case 'dragend' :
+				$('.interval-chooser-mask').show(0);
 				socialCursor_xLast = socialCursor_posX;
 				// $('.timeline-body').animate({ left: '-=100px' }, 200);
 				break;
@@ -98,10 +100,7 @@ $(function () {
 
 		socialPostCurrentTimecode += 5;
 
-		
-
-
-		if (socialPostCurrentTimecode > oldSocialCurrentTimecode + 20) {
+		if (socialPostCurrentTimecode > oldSocialCurrentTimecode + 30) {
 			if (INTERVAL_CURRENT_SPRITE < 30)  INTERVAL_CURRENT_SPRITE++;
 			$('.interval-chooser').css('background-image', 'url(images/samples/interval/'+INTERVAL_CURRENT_SPRITE+'.jpg)');
 
@@ -116,10 +115,7 @@ $(function () {
 
 		socialPostCurrentTimecode -= 5;
 
-		
-
-
-		if (socialPostCurrentTimecode < oldSocialCurrentTimecode - 20) {
+		if (socialPostCurrentTimecode < oldSocialCurrentTimecode - 30) {
 			if (INTERVAL_CURRENT_SPRITE > 0) INTERVAL_CURRENT_SPRITE--;
 
 			$('.interval-chooser').css('background-image', 'url(images/samples/interval/'+INTERVAL_CURRENT_SPRITE+'.jpg)');

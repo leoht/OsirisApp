@@ -285,12 +285,22 @@ $(function () {
 		$(this).hide(0);
 		$(this).parents('.content').animate({ height: 540 }, 400);
 		$(this).parents('.content').find('.less').show(0);
+		$(this).parents('.content').addClass('open');
 	});
 	
 	$('.additional-content .less').bind('touchstart', function (e) {
 		$(this).hide(0);
 		$(this).parents('.content').animate({ height: 167 }, 400);
 		$(this).parents('.content').find('.more').show(0);
+		$(this).parents('.content').removeClass('open');
+	});
+
+	$('.open').bind('touchstart', function (e) {
+		e.stopPropagation();
+		$('.less').hide(0);
+		$(this).animate({ height: 167 }, 400);
+		$(this).find('.more').show(0);
+		$(this).removeClass('open');
 	});
 
 });
