@@ -119,10 +119,20 @@ var addNoticeOnTimeline = function (timecode, endTimecode, id, category_nicename
 			.appendTo($('.timeline-body'));
 
 
+	if (id != 0) {
+		$('.grid-timeline').animate({
+			width: '+=180px'
+		}, 300);
+		$('.view-grid-container .timeline-body-container').animate({
+			scrollLeft: '+=200px'
+		});
 
-	$('.grid-timeline').animate({
-		left: '-=180px'
-	}, 300);
+		if ($('.grid-timeline').width() > 700) {
+			$('.scroller').show(0).animate({
+				width: '-=40px'
+			}, 300);
+		}
+	}
 
 	updateTimelineNoticeListeners();
 }
@@ -131,7 +141,7 @@ var slideToDocumentation = function () {
 	$('.navbar-doc').fadeIn(500);
 	$('.view-nav').hide(0);
 	$('.additional-content').animate({
-		bottom: '+=650px'
+		bottom: '+=670px'
 	}, 500);
 	displayingDocumentation = true;
 	$('.navbar-tabs a').removeClass('active');
@@ -145,7 +155,7 @@ var unslideDocumentation = function () {
 	$('.navbar-doc').hide(0);
 	$('.view-nav').show(0);
 	$('.additional-content').animate({
-		bottom: '-=650px'
+		bottom: '-=670px'
 	}, 500);
 	$('.container-home').animate({ top: 0 }, 300);
 	$('.additional-content').animate({ bottom: '-1000px' }, 300);
@@ -200,6 +210,7 @@ $(function () {
 
 		if (hash == '.container-home' && displayingDocumentation) {
 			unslideDocumentation();
+
 			return;
 		}
 
@@ -236,7 +247,7 @@ $(function () {
 		} 
 	})
 
-	$('.timeline-body, .grid-timeline').css('width', timelineWidthFromDuration(movieDuration));
+	$('.timeline-body').css('width', timelineWidthFromDuration(movieDuration));
 
 	$('.view-grid').bind('touchstart', function (e) {
 		$('.view-nav .view-line').removeClass('active');
@@ -312,7 +323,8 @@ $(function () {
 				var scroll = $('.additional-content').scrollTop();
 				// $('body').scrollTop(scroll - 5);
 
-				if ($('.container-home').offset().top >= 0) return;
+				if ($('.container-home').offset().top >= 0 && !showingDocumentationDetail) return;
+				if ($('.doc-category.current').offset().top >= 0 && showingDocumentationDetail) return;
 
 				$('.container-home, .doc-category').animate({ top: '+=10px' }, 0);
 				$('.additional-content').animate({ bottom: '-=10px' }, 0);

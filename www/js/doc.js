@@ -30,6 +30,7 @@ var getDocumentation = function (movieId) {
 					$slider.append('<div class="slide-counter"><span class="current">1</span>/<span class="total"></span></div>')
 					$slider.append('<div class="cat-icon cat-icon-'+category.parent_id+'"><img src="images/cat-icon-'+category.parent_id+'.png" /></div>')
 					$slider.append('<div class="title with-font">'+category.title+'</div>');
+					$slider.append('<div class="replay-btn" ></div>');
 
 					$(DOC_ARRAY[category.id]).each(function (i, notice) {
 						$slider.append('<div class="short-content short-content-'+(i+1)+'">'+notice.short_content+'</div>');
@@ -91,11 +92,14 @@ var addItemOnSlider = function (i, id) {
 		$('.doc-category').animate({
 			top: '0px'
 		}, 300);
-		// $('.additional-content').animate({
-		// 	bottom: '650px'
-		// }, 300);
+		$('.additional-content').animate({
+			bottom: '-330px'
+		}, 300);
+
+		$('.slider .prev').removeClass('disabled');
 	});
-}
+
+};
 
 var getCategoriesOfParent = function (parent, parent_name) {
 	var url = ROOT_API_URL + '/movies/' + MOVIE_ID + '/notice_categories/' + parent + '.json';
@@ -130,7 +134,7 @@ var getCategoriesOfParent = function (parent, parent_name) {
 						// $('.doc-breadcrumb .item-3').text(category.title).show(0);
 
 						$('.additional-content').animate({
-							bottom: '+=650px'
+							bottom: '+=670px'
 						}, 500);
 						$('.doc-category-'+id).addClass('current').show(0).animate({
 							top: '+=400px'
@@ -191,6 +195,8 @@ var getNoticesOfCategory = function (category) {
 var resetDocScreen = function () {
 
 	$('.doc-main').addClass('flipping');
+
+	$('.doc-image-slider').fadeOut(400);
 
 	setTimeout(function () {
 		$('.doc-main').html('').append("<div class='doc-block doc-movie-info'> \

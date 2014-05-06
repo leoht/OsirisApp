@@ -9,6 +9,8 @@
     <link href='css/retina.css' media='screen' rel='stylesheet'>
     <script src='js/iosBridge.js'></script>
     <script src='js/jquery.js'></script>
+    <script src='js/jquery-ui.js'></script>
+    <script src='js/iscroll.js'></script>
     <script src='js/hammer.min.js'></script>
     <script src='js/jquery.gsap.min.js'></script>
     <script src='js/TweenLite.min.js'></script>
@@ -18,6 +20,8 @@
     <script src='js/social.js'></script>
     <script src='js/map.js'></script>
     <script src='js/controls.js'></script>
+    <script src='js/timeline-slider.js'></script>
+    <script src='js/gallery.js'></script>
     <script>
       var ROOT_API_URL = 'http://www.scope.dev';
       var FAST_FORWARD = false;
@@ -183,6 +187,9 @@
           <button class='pause'></button>
           <!-- %button#forward -->
           <!-- %button#next-chapter -->
+          <div class='timeline-slider'>
+            <div class='scroller' id='timeline-scroller'></div>
+          </div>
         </div>
         <div class='timeline-last-notice'>
           <div class='timeline-cat-icon'>
@@ -360,7 +367,7 @@
     <div class='additional-content'>
       <div class='notice-1'>
         <div class='content'>
-          <img class='image' src='images/samples/doc/add-sample-1.jpg'>
+          <img class='image slider-click' src='images/samples/doc/add-sample-1.jpg'>
           <div class='right'>
             <div class='title'>Saturne dévorant ses enfants</div>
             <div class='more'></div>
@@ -428,14 +435,40 @@
             <p>Frederick Winslow Taylor (20 mars 1856, Germantown (Pennsylvanie) - 21 mars 1915, Philadelphie (Pennsylvanie)) est un ingénieur américain, promoteur le plus connu de l'organisation scientifique du travail. Celle-ci a trouvé un domaine d'application naturel dans le cadre de la révolution industrielle du xxe siècle.</p>
           </div>
         </div>
+        <div class='content'>
+          <img class='image' src='images/samples/doc/add-sample-7.jpg'>
+          <div class='right'>
+            <div class='title'>2001 L'odyssée de l'espace : Stanley Kubrick</div>
+            <div class='more'></div>
+            <div class='less'></div>
+            <p>2001, l'Odyssée de l'espaceN 1 (2001: A Space Odyssey) est un film anglo-américain de science-fiction produit et réalisé par Stanley Kubrick, sorti en 1968. Le scénario est écrit par Kubrick et Arthur C. Clarke, et est partiellement inspiré d'une nouvelle de Clarke intitulée La Sentinelle. Clarke rédige parallèlement au tournage le roman 2001....</p>
+          </div>
+        </div>
+        <div class='content'>
+          <img class='image' src='images/samples/doc/add-sample-8.jpg'>
+          <div class='right'>
+            <div class='title'>Tatline chez lui : Raoul Haussmann</div>
+            <div class='more'></div>
+            <div class='less'></div>
+            <p>Curabitur ut erat ut nisi laoreet ultrices. Aliquam nec ligula lobortis, vehicula ligula a, porta eros. Duis et justo sapien. Nunc nisl urna, consequat non porttitor sit amet, pulvinar nec diam. Sed fringilla rhoncus purus et ultrices. Proin cursus augue id enim imperdiet malesuada. Curabitur nunc turpis, tempus ut hendrerit in, convallis vitae tortor.</p>
+          </div>
+        </div>
       </div>
       <div class='slider'>
-        <div class='prev'></div>
+        <div class='prev disabled'></div>
         <div class='next'></div>
       </div>
     </div>
-    <!-- SETTINGS SCREEN -->
-    <div class='container container-settings'></div>
+    <div class='doc-image-slider'>
+      <div class='prev'></div>
+      <div class='next'></div>
+      <img class='image' src='images/samples/doc/slider-image-1.jpg'>
+      <div class='legend'>
+        <div class='title'>Saturne dévorant l'un de ces enfants</div>
+        <div class='author'>Rubens</div>
+        <div class='year'>1636</div>
+      </div>
+    </div>
     <nav class='navbar'>
       <div class='navbar-title with-font' onclick='calliOSFunction("quit", [])'>
         SC<span class='blue'>0</span>PE

@@ -5,6 +5,8 @@ var socialPostCurrentTimecode = 0;
 var oldSocialCurrentTimecode = 0;
 var publishOnFacebook = false;
 
+var INTERVAL_CURRENT_SPRITE = 15;
+
 String.prototype.lpad = function(padString, length) {
     var str = this;
     while (str.length < length)
@@ -96,7 +98,13 @@ $(function () {
 
 		socialPostCurrentTimecode += 5;
 
+		
+
+
 		if (socialPostCurrentTimecode > oldSocialCurrentTimecode + 20) {
+			if (INTERVAL_CURRENT_SPRITE < 30)  INTERVAL_CURRENT_SPRITE++;
+			$('.interval-chooser').css('background-image', 'url(images/samples/interval/'+INTERVAL_CURRENT_SPRITE+'.jpg)');
+
 			$('.container-social .begin-time').text(formatTimecode(socialPostCurrentTimecode - 15));
 			$('.container-social .end-time').text(formatTimecode(socialPostCurrentTimecode + 15));
 			oldSocialCurrentTimecode = socialPostCurrentTimecode;
@@ -108,7 +116,14 @@ $(function () {
 
 		socialPostCurrentTimecode -= 5;
 
-		if (socialPostCurrentTimecode < oldSocialCurrentTimecode - 5) {
+		
+
+
+		if (socialPostCurrentTimecode < oldSocialCurrentTimecode - 20) {
+			if (INTERVAL_CURRENT_SPRITE > 0) INTERVAL_CURRENT_SPRITE--;
+
+			$('.interval-chooser').css('background-image', 'url(images/samples/interval/'+INTERVAL_CURRENT_SPRITE+'.jpg)');
+
 			$('.container-social .begin-time').text(formatTimecode(socialPostCurrentTimecode - 15));
 			$('.container-social .end-time').text(formatTimecode(socialPostCurrentTimecode + 15));
 			oldSocialCurrentTimecode = socialPostCurrentTimecode;

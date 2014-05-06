@@ -25,4 +25,6 @@ screen and (min-resolution: 2dppx) {
 
 	.socials .twitter { background: url(../images/share-twitter@2x.png) no-repeat; background-size: 30px 30px; }
 	.socials .facebook { background: url(../images/share-facebook@2x.png) no-repeat; background-size: 30px 30px; }
+
+	.timeline-last-notice .replay-btn, .doc-category .replay-btn  { background: url(../images/replay-btn@2x.png) no-repeat center top; background-size: 100px 50px; }
 }

@@ -41,12 +41,17 @@
 	display: none;
 }
 
-.timeline-last-notice .replay-btn {
+.timeline-last-notice .replay-btn, .doc-category .replay-btn {
 	background: url(../images/replay-btn.png) no-repeat center top;
 	position: absolute; bottom: 120px;
 	width: 100%;
 	height: 50px;
 	display: none;
+}
+
+.doc-category .replay-btn {
+	display: block;
+	bottom: 20px;
 }
 
 .timeline {
@@ -58,7 +63,32 @@
 }
 
 .view-grid-container .timeline{  background-image: none;  }
-.view-grid-container .timeline-body-container { height: 190px; position: relative;  }
+.view-grid-container .timeline-body-container {  height: 190px; position: relative;
+    /*overflow-y: scroll;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;*/
+}
+
+/* TIMELINE SCROLL */
+
+/*::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #303135;
+    
+}
+
+::-webkit-scrollbar-track {
+	background: #18191c;
+	border-top: 1px solid #1b1b1d;
+	border-bottom: 1px solid #1b1b1d;
+}
+*/
+
 
 .timeline .cursor {
 	background: url(../images/notice-arrow.png) no-repeat;
@@ -103,15 +133,16 @@
 	height: 10px; width: 145px; z-index: 150;
 	font-size: 11px; color: white; font-family: 'Aller', sans-serif;
 	text-align: center;
-	margin: 45px auto;
+	position: absolute; bottom: 0px;
 }
 
 .grid-timeline {
 	background: url(../images/timeline-grid.png) repeat-x left 90px;
-	height: 190px;
-	padding: 30px 0 0 1050px;
+	height: 150px;
+	padding: 20px 0 0 800px;
 	position: relative;
 	-webkit-box-shadow: inset 0 0 10px #171e26;
+	width: 0;
 }
 
 .timeline-notice-block {
@@ -129,6 +160,21 @@
 .timeline-notice-block-opaque {
 	width: 161px; height: 160px;
 	background-color: #192129;
+}
+
+.view-grid-container .timeline-slider {
+	width: 100%;
+	height: 14px; background: #18191c;
+	border-top: 1px solid #1b1b1d;
+	border-bottom: 1px solid #1b1b1d;
+}
+
+.view-grid-container .timeline-slider .scroller {
+	height: 10px; width: 900px;
+	margin-top: 2px;
+	background: #303135;
+	border-radius: 4px;
+	position: absolute; right: 0; display: none;
 }
 
 .timeline .mask {

@@ -9,6 +9,8 @@
     %link{href: "css/retina.css", media: "screen", rel: "stylesheet"}/
     %script{src: "js/iosBridge.js"}
     %script{src: "js/jquery.js"}
+    %script{src: "js/jquery-ui.js"}
+    %script{src: "js/iscroll.js"}
     %script{src: "js/hammer.min.js"}
     %script{src: "js/jquery.gsap.min.js"}
     %script{src: "js/TweenLite.min.js"}
@@ -18,6 +20,8 @@
     %script{src: "js/social.js"}
     %script{src: "js/map.js"}
     %script{src: "js/controls.js"}
+    %script{src: "js/timeline-slider.js"}
+    %script{src: "js/gallery.js"}
     :javascript
 
       var ROOT_API_URL = 'http://www.scope.dev';
@@ -187,6 +191,8 @@
           %button.pause
           / %button#forward
           / %button#next-chapter
+          .timeline-slider
+            .scroller#timeline-scroller
 
         .timeline-last-notice
 
@@ -360,7 +366,7 @@
     .additional-content
       .notice-1
         .content
-          %img.image{ src: 'images/samples/doc/add-sample-1.jpg' }
+          %img.image.slider-click{ src: 'images/samples/doc/add-sample-1.jpg' }
           .right
             .title Saturne dévorant ses enfants
             .more
@@ -429,16 +435,36 @@
             .more
             .less
             %p Frederick Winslow Taylor (20 mars 1856, Germantown (Pennsylvanie) - 21 mars 1915, Philadelphie (Pennsylvanie)) est un ingénieur américain, promoteur le plus connu de l'organisation scientifique du travail. Celle-ci a trouvé un domaine d'application naturel dans le cadre de la révolution industrielle du xxe siècle.
+        .content
+          %img.image{ src: 'images/samples/doc/add-sample-7.jpg' }
+          .right
+            .title 2001 L'odyssée de l'espace : Stanley Kubrick
+            .more
+            .less
+            %p 2001, l'Odyssée de l'espaceN 1 (2001: A Space Odyssey) est un film anglo-américain de science-fiction produit et réalisé par Stanley Kubrick, sorti en 1968. Le scénario est écrit par Kubrick et Arthur C. Clarke, et est partiellement inspiré d'une nouvelle de Clarke intitulée La Sentinelle. Clarke rédige parallèlement au tournage le roman 2001....
+        .content
+          %img.image{ src: 'images/samples/doc/add-sample-8.jpg' }
+          .right
+            .title Tatline chez lui : Raoul Haussmann
+            .more
+            .less
+            %p Curabitur ut erat ut nisi laoreet ultrices. Aliquam nec ligula lobortis, vehicula ligula a, porta eros. Duis et justo sapien. Nunc nisl urna, consequat non porttitor sit amet, pulvinar nec diam. Sed fringilla rhoncus purus et ultrices. Proin cursus augue id enim imperdiet malesuada. Curabitur nunc turpis, tempus ut hendrerit in, convallis vitae tortor. 
 
 
          
       
       .slider
-        .prev
+        .prev.disabled
         .next
 
-    / SETTINGS SCREEN
-    .container.container-settings
+    .doc-image-slider
+      .prev
+      .next
+      %img.image{ src: 'images/samples/doc/slider-image-1.jpg' }
+      .legend
+        .title Saturne dévorant l'un de ces enfants
+        .author Rubens
+        .year 1636
 
     %nav.navbar
       .navbar-title.with-font{ onclick: 'calliOSFunction("quit", [])'}
