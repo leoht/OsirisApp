@@ -9,7 +9,7 @@
     %link{href: "css/retina.css", media: "screen", rel: "stylesheet"}/
     %script{src: "js/iosBridge.js"}
     %script{src: "js/jquery.js"}
-    %script{src: "js/jquery-ui.js"}
+    %script{src: "js/preloadjs.js"}
     %script{src: "js/iscroll.js"}
     %script{src: "js/hammer.min.js"}
     %script{src: "js/jquery.gsap.min.js"}
@@ -60,6 +60,10 @@
       // move the progress bar using timecode
       var setTimecode = function (seconds) {
 
+        if (seconds - oldTimecode > 20 || oldTimecode - seconds > 20) { // jump ?
+          $('.timeline-body').css('left', timelineOffsetWithTimecode(seconds));
+        }
+
         oldTimecode = currentTimecode;
         currentTimecode = seconds;
 
@@ -73,11 +77,11 @@
         
 
         if (Number(timecode) - LAST_NOTICE_TIMECODE < 60 ) {
-          addNoticeOnMap(timecode, id, category, title, true);
+          addNoticeOnMap(timecode, id, category, title, short_content, true);
           return;
         }
 
-        addNoticeOnMap(timecode, id, category, title, false);
+        addNoticeOnMap(timecode, id, category, title, short_content, false);
 
         LAST_NOTICE_TIMECODE = Number(timecode);
         CURRENT_VIEWED_NOTICE = id;
@@ -324,6 +328,16 @@
     / ROADMAP SCREEN
 
     .container.container-map
+      .socials
+        .facebook{ onclick: 'calliOSFunction("shareNotice", ["facebook", CURRENT_VIEWED_NOTICE])'}
+        .twitter{ onclick: 'calliOSFunction("shareNotice", ["twitter", CURRENT_VIEWED_NOTICE])'}
+      / .map-notice-detail
+      /   .cat-icon
+      /     %img{ src: 'images/cat-themes.png' }
+      /   .title.with-font Test
+      /   .content Ceci est un test
+      .map-detail-bottom
+        .close
       .map-navbar
         .select-view
           .view-missed à voir

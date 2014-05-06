@@ -46,7 +46,7 @@ var timelinePositionWithTimecode = function (seconds) {
 };
 
 var timelineOffsetWithTimecode = function (seconds) {
-	return (- timelinePositionWithTimecode(seconds)) + 95;
+	return (- timelinePositionWithTimecode(seconds)) + 100;
 };
 
 var timelineWidthFromDuration = function (duration) {
@@ -214,6 +214,11 @@ $(function () {
 			return;
 		}
 
+		if (showingDocumentationDetail) {
+			unshowDocumentationDetail();
+			resetDocScreen();
+		}
+
 		$('.container').hide(0);
 		$(hash).show(0);
 
@@ -292,6 +297,14 @@ $(function () {
 				$('.timeline-last-notice').animate({ zoom: 1 }, 200);
 				$('.container-home').animate({ backgroundSize: '100%' }, 200);
 			}
+
+			// zoom
+			// if (pY - y > 50  && !aboutToSlideToDocumentation) {
+			// 	$('.timeline-last-notice *').animate({ opacity: 0.3 }, 200);
+			// 	$('.container-home').animate({ backgroundSize: '110%' }, 200, function () {
+			// 		$('.zoom').show(0);
+			// 	});
+			// }
 		})
 		.bind('touchend', function (e) {
 			
@@ -373,12 +386,12 @@ $(function () {
 			case 'drag' :
 				posXGrid = e.gesture.deltaX + xLastGrid;
 
-				if ($('.grid-timeline').offset().left > 0 && e.gesture.direction == 'right') {
+				if ($('.grid-timeline').offset().left > 800 && e.gesture.direction == 'right') {
 					return;
 				}
 
 				$('.grid-timeline').css('transform', 'translateX(' + posXGrid  +'px) translateZ(0px)' );
-				// $('.chapter-timeline').css('transform', 'translateX(' + posXGrid  +'px)' );
+				$('.scroller').css('transform', 'translateX(' + (-posXGrid)  +'px)' );
 				break;
 			case 'dragend' :
 				xLastGrid = posXGrid;

@@ -9,7 +9,7 @@
     <link href='css/retina.css' media='screen' rel='stylesheet'>
     <script src='js/iosBridge.js'></script>
     <script src='js/jquery.js'></script>
-    <script src='js/jquery-ui.js'></script>
+    <script src='js/preloadjs.js'></script>
     <script src='js/iscroll.js'></script>
     <script src='js/hammer.min.js'></script>
     <script src='js/jquery.gsap.min.js'></script>
@@ -59,6 +59,10 @@
       // move the progress bar using timecode
       var setTimecode = function (seconds) {
       
+        if (seconds - oldTimecode > 20 || oldTimecode - seconds > 20) { // jump ?
+          $('.timeline-body').css('left', timelineOffsetWithTimecode(seconds));
+        }
+      
         oldTimecode = currentTimecode;
         currentTimecode = seconds;
       
@@ -72,11 +76,11 @@
         
       
         if (Number(timecode) - LAST_NOTICE_TIMECODE < 60 ) {
-          addNoticeOnMap(timecode, id, category, title, true);
+          addNoticeOnMap(timecode, id, category, title, short_content, true);
           return;
         }
       
-        addNoticeOnMap(timecode, id, category, title, false);
+        addNoticeOnMap(timecode, id, category, title, short_content, false);
       
         LAST_NOTICE_TIMECODE = Number(timecode);
         CURRENT_VIEWED_NOTICE = id;
@@ -322,6 +326,18 @@
     </div>
     <!-- ROADMAP SCREEN -->
     <div class='container container-map'>
+      <div class='socials'>
+        <div class='facebook' onclick='calliOSFunction("shareNotice", ["facebook", CURRENT_VIEWED_NOTICE])'></div>
+        <div class='twitter' onclick='calliOSFunction("shareNotice", ["twitter", CURRENT_VIEWED_NOTICE])'></div>
+      </div>
+      <!-- .map-notice-detail -->
+      <!-- .cat-icon -->
+      <!-- %img{ src: 'images/cat-themes.png' } -->
+      <!-- .title.with-font Test -->
+      <!-- .content Ceci est un test -->
+      <div class='map-detail-bottom'>
+        <div class='close'></div>
+      </div>
       <div class='map-navbar'>
         <div class='select-view'>
           <div class='view-missed'>à voir</div>

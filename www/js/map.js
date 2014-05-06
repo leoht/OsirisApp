@@ -1,7 +1,18 @@
 var map_posXGrid = 0, map_xLastGrid = 0;
 var CURRENT_COL = 0;
 
-var addNoticeOnMap = function (timecode, id, cat, title, missed) {
+var createMapNotice = function (id, cat, title, content) {
+	var $n = $('<div class="map-notice-detail map-notice-detail-'+id+'" ></div>');
+	$n.append('<div class="cat-icon"><img src="images/cat-'+cat+'.png"/></div>');
+	$n.append('<div class="title">'+title+'</div>');
+	$n.append('<div class="content">'+content+'</div>');
+
+	$n.css('background-image', 'url(images/samples/notices/'+id+'_big.jpg)')
+
+	$n.appendTo($('.container-map'));
+};
+
+var addNoticeOnMap = function (timecode, id, cat, title, content, missed) {
 	var $n = $('<div class="map-notice" data-id="'+id+'"></div>');
 	$n.css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat');
 	$n.css('background-size', 'cover');
@@ -27,6 +38,13 @@ var addNoticeOnMap = function (timecode, id, cat, title, missed) {
 	} else {
 		$('.map-col:last-child').find('.map-col-wrapper').append($n);
 	}
+
+	$n.bind('touchstart', function () {
+		$('.map-notice-detail-'+id).fadeIn(400);
+		$('.map-detail-bottom').fadeIn(400);
+	});
+
+	createMapNotice(id, cat, title, content);
 }
 
 var mapDragHandler = function (e) {
@@ -75,6 +93,10 @@ $(function () {
 	$('.select-view .view-seen').bind('touchstart', function (e) {
 		$('.map-notice').show(0);
 		$('.map-notice.missed').hide(0);
+	});
+
+	$('.container-map .close').bind('touchstart', function (e) {
+		$('.map-notice-detail, .map-detail-bottom').fadeOut(400);
 	});
 
 

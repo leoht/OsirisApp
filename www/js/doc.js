@@ -86,10 +86,17 @@ var addItemOnSlider = function (i, id) {
 		$(this).addClass('active');
 		$('.slider .short-content').hide(0);
 		$('.slider .short-content-'+n).show(0);
-		$('.additional-content .notice-1').hide(0);
-		$('.additional-content .notice-2').show(0);
 
-		$('.doc-category').animate({
+		if ($('.additional-content .notice-2').is(':hidden')) {
+			$('.additional-content .notice-1').hide(0);
+			$('.additional-content .notice-2').show(0);
+		} else {
+			$('.additional-content .notice-1').show(0);
+			$('.additional-content .notice-2').hide(0);
+		}
+			
+
+		$('.doc-category, .container-home').animate({
 			top: '0px'
 		}, 300);
 		$('.additional-content').animate({

@@ -33,12 +33,25 @@ var socialNextStep = function () {
 
 var resetIntervalCursor = function () {
 	$('.interval-chooser .cursor').css('transform', 'none');
+	$('.interval-chooser ').css('background-image', 'url(images/samples/interval/15.jpg)');
 	socialPostCurrentTimecode = currentTimecode;
 	$('.container-social .begin-time').text(formatTimecode(Number(socialPostCurrentTimecode) - 15));
 	$('.container-social .end-time').text(formatTimecode(Number(socialPostCurrentTimecode) + 15));
+	socialCursor_posX = 0;
+	socialCursor_xLast = 0;
 }
 
 $(function () {
+	var queue = new createjs.LoadQueue(false);
+
+	var manifest = [];
+
+	for (var i = 1 ; i <= 30 ; i++) {
+		manifest.push({ id: i, src: 'images/samples/interval/'+i+'.jpg'})
+	}
+
+	queue.loadManifest(manifest);
+
 	$('.step-3 .send').bind('touchstart', function (e) {
 		var message = $('.social-form textarea').val();
 		// TODO : handle select
@@ -100,12 +113,13 @@ $(function () {
 
 		socialPostCurrentTimecode += 5;
 
-		if (socialPostCurrentTimecode > oldSocialCurrentTimecode + 30) {
-			if (INTERVAL_CURRENT_SPRITE < 30)  INTERVAL_CURRENT_SPRITE++;
-			$('.interval-chooser').css('background-image', 'url(images/samples/interval/'+INTERVAL_CURRENT_SPRITE+'.jpg)');
+		if (socialPostCurrentTimecode > oldSocialCurrentTimecode + 20) {
+			
+			INTERVAL_CURRENT_SPRITE++;
+			$('.interval-chooser').css('background-image', 'url(images/samples/interval/'+(INTERVAL_CURRENT_SPRITE%30)+'.jpg)');
 
-			$('.container-social .begin-time').text(formatTimecode(socialPostCurrentTimecode - 15));
-			$('.container-social .end-time').text(formatTimecode(socialPostCurrentTimecode + 15));
+			// $('.container-social .begin-time').text(formatTimecode(socialPostCurrentTimecode - 15));
+			// $('.container-social .end-time').text(formatTimecode(socialPostCurrentTimecode + 15));
 			oldSocialCurrentTimecode = socialPostCurrentTimecode;
 		}
 		
@@ -115,13 +129,14 @@ $(function () {
 
 		socialPostCurrentTimecode -= 5;
 
-		if (socialPostCurrentTimecode < oldSocialCurrentTimecode - 30) {
-			if (INTERVAL_CURRENT_SPRITE > 0) INTERVAL_CURRENT_SPRITE--;
+		if (socialPostCurrentTimecode < oldSocialCurrentTimecode - 20) {
+			
+			INTERVAL_CURRENT_SPRITE--;
 
-			$('.interval-chooser').css('background-image', 'url(images/samples/interval/'+INTERVAL_CURRENT_SPRITE+'.jpg)');
+			$('.interval-chooser').css('background-image', 'url(images/samples/interval/'+(INTERVAL_CURRENT_SPRITE%30)+'.jpg)');
 
-			$('.container-social .begin-time').text(formatTimecode(socialPostCurrentTimecode - 15));
-			$('.container-social .end-time').text(formatTimecode(socialPostCurrentTimecode + 15));
+			// $('.container-social .begin-time').text(formatTimecode(socialPostCurrentTimecode - 15));
+			// $('.container-social .end-time').text(formatTimecode(socialPostCurrentTimecode + 15));
 			oldSocialCurrentTimecode = socialPostCurrentTimecode;
 		}
 	});
