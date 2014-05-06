@@ -55,7 +55,7 @@
         
         Notice *notice = [Notice createFromDictionnary:note.userInfo];
         [[NoticeManager sharedManager] sendNotice:notice toWebview:self.webViewDelegate.webView];
-        [[NoticeManager sharedManager] setLastNoticeTimecode:[note.userInfo objectForKey:@"timecode"]];
+        [[NoticeManager sharedManager] setLastNoticeTimecode:(NSInteger)[note.userInfo objectForKey:@"timecode"]];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:ApiCommentAtTimecode object:nil queue:nil usingBlock:^(NSNotification *note) {
