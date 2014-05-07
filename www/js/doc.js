@@ -144,7 +144,7 @@ var getCategoriesOfParent = function (parent, parent_name) {
 							bottom: '+=670px'
 						}, 500);
 						$('.doc-category-'+id).addClass('current').show(0).animate({
-							top: '+=400px'
+							top: '+=410px'
 						}, 500);
 
 						$('.slide-counter .total').text(DOC_ARRAY[category.id].length);

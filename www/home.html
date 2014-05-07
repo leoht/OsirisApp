@@ -60,7 +60,7 @@
       var setTimecode = function (seconds) {
       
         if (seconds - oldTimecode > 20 || oldTimecode - seconds > 20) { // jump ?
-          $('.timeline-body').css('left', timelineOffsetWithTimecode(seconds));
+          $('.timeline-body').css('left', timelineOffsetWithTimecode(seconds)+'%');
         }
       
         oldTimecode = currentTimecode;
@@ -191,9 +191,6 @@
           <button class='pause'></button>
           <!-- %button#forward -->
           <!-- %button#next-chapter -->
-          <div class='timeline-slider'>
-            <div class='scroller' id='timeline-scroller'></div>
-          </div>
         </div>
         <div class='timeline-last-notice'>
           <div class='timeline-cat-icon'>
@@ -219,6 +216,9 @@
               <!-- .title L'enfer -->
               <!-- .timeline-notice-time 00:56:00 -->
             </div>
+          </div>
+          <div class='timeline-slider'>
+            <div class='scroller' id='timeline-scroller'></div>
           </div>
           <div class='timeline-current-time'></div>
         </div>
@@ -268,6 +268,7 @@
           <div class='publication-select'>
             <div class='item item-scope checked'>Scope</div>
             <div class='item item-fb'>Facebook</div>
+            <div class='item item-twitter'>Twitter</div>
           </div>
         </div>
         <div class='social-form'></div>

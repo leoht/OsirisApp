@@ -68,7 +68,7 @@ $(function () {
 	});
 
 	$('.publication-select .item').bind('touchstart', function (e) {
-		$(this).addClass('checked');
+		$(this).toggleClass('checked');
 	});
 
 	$('.publication-select .item-fb').bind('touchstart', function (e) {

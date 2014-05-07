@@ -61,7 +61,7 @@
       var setTimecode = function (seconds) {
 
         if (seconds - oldTimecode > 20 || oldTimecode - seconds > 20) { // jump ?
-          $('.timeline-body').css('left', timelineOffsetWithTimecode(seconds));
+          $('.timeline-body').css('left', timelineOffsetWithTimecode(seconds)+'%');
         }
 
         oldTimecode = currentTimecode;
@@ -195,8 +195,7 @@
           %button.pause
           / %button#forward
           / %button#next-chapter
-          .timeline-slider
-            .scroller#timeline-scroller
+          
 
         .timeline-last-notice
 
@@ -223,7 +222,8 @@
               /   .title L'enfer
               /   .timeline-notice-time 00:56:00
 
-          
+          .timeline-slider
+            .scroller#timeline-scroller
           .timeline-current-time
 
 
@@ -272,6 +272,7 @@
           .publication-select
             .item.item-scope.checked Scope
             .item.item-fb Facebook
+            .item.item-twitter Twitter
 
         
         .social-form
