@@ -96,11 +96,13 @@ $(function () {
 			case 'drag' :
 				$('.interval-chooser-mask').hide(0);
 				socialCursor_posX = e.gesture.deltaX + socialCursor_xLast;
+				$('#social-interval-cursor').css('opacity', 0.3);
 				$('#social-interval-cursor').css('transform', 'translateX(' + socialCursor_posX  +'px) translateZ(0)' );
 			
 				break;
 			case 'dragend' :
 				$('.interval-chooser-mask').show(0);
+				$('#social-interval-cursor').css('opacity', 1);
 				socialCursor_xLast = socialCursor_posX;
 				// $('.timeline-body').animate({ left: '-=100px' }, 200);
 				break;
@@ -113,7 +115,7 @@ $(function () {
 
 		socialPostCurrentTimecode += 5;
 
-		if (socialPostCurrentTimecode > oldSocialCurrentTimecode + 20) {
+		if (socialPostCurrentTimecode > oldSocialCurrentTimecode + 50) {
 			
 			INTERVAL_CURRENT_SPRITE++;
 			$('.interval-chooser').css('background-image', 'url(images/samples/interval/'+(INTERVAL_CURRENT_SPRITE%30)+'.jpg)');
@@ -129,7 +131,7 @@ $(function () {
 
 		socialPostCurrentTimecode -= 5;
 
-		if (socialPostCurrentTimecode < oldSocialCurrentTimecode - 20) {
+		if (socialPostCurrentTimecode < oldSocialCurrentTimecode - 50) {
 			
 			INTERVAL_CURRENT_SPRITE--;
 

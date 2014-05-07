@@ -103,10 +103,12 @@
 	z-index: 40;
 }
 
-.map-detail-bottom .close {
-	background: url(../images/close.png) no-repeat center center; background-size: 33px 33px; width: 100%; position: absolute;  height: 33px; bottom: 60px; 
+.container-map .close {
+	background: url(../images/close.png) no-repeat center center; background-size: 33px 33px;  position: absolute; width: 33px; height: 33px; top: 60px; right: 25px; z-index: 50; 
+	display: none;
 }
 
 .container-map .socials {
 	top: 500px;
+	display: none;
 }

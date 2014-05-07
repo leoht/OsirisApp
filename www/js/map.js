@@ -41,7 +41,7 @@ var addNoticeOnMap = function (timecode, id, cat, title, content, missed) {
 
 	$n.bind('touchstart', function () {
 		$('.map-notice-detail-'+id).fadeIn(400);
-		$('.map-detail-bottom').fadeIn(400);
+		$('.map-detail-bottom, .container-map .socials, .container-map .close').fadeIn(400);
 	});
 
 	createMapNotice(id, cat, title, content);
@@ -96,7 +96,7 @@ $(function () {
 	});
 
 	$('.container-map .close').bind('touchstart', function (e) {
-		$('.map-notice-detail, .map-detail-bottom').fadeOut(400);
+		$('.map-notice-detail, .map-detail-bottom, .container-map .socials, .container-map .close').fadeOut(400);
 	});
 
 

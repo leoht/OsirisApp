@@ -76,8 +76,8 @@ var updateTimelineNoticeListeners = function () {
         $('.container-home').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
         $('.view-grid-container .timeline-last-notice').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
         $('.timeline .cursor').css('transform', 'none').animate({ left: $el.offset().left + 2 }, 300);
-        $('.timeline-notice, .timeline-notice-block').css('opacity', 1);
-        $el.css('opacity', 0.3)
+        $('.timeline-notice').css('opacity', 1);
+        if (!$el.hasClass('timeline-notice-block')) $el.css('opacity', 0.3)
 	});
 };
 
