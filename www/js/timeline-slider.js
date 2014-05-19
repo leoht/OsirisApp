@@ -19,7 +19,7 @@ $(function () {
 				scroll_posXGrid = e.gesture.deltaX + scroll_xLastGrid;
 
 				$('.scroller').css('transform', 'translateX(' + scroll_posXGrid  +'px) translateZ(0px)' );
-				$('.grid-timeline').css('transform', 'translateX(' + (-scroll_posXGrid)  +'px)' );
+				$('.grid-timeline').css('transform', 'translateX(' + (-scroll_posXGrid)  +'px) translateZ(0px)' );
 				break;
 			case 'dragend' :
 				scroll_xLastGrid = scroll_posXGrid;

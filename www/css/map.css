@@ -25,13 +25,23 @@
 	margin-right: 15px; height: 22px;
 }
 
+.map-navbar .select-view .view-all {
+	background: url(../images/map-view-picto2.png) no-repeat left center;
+	background-size: 24px 24px;
+}
+
 .map-navbar .select-view div.selected { opacity: 0.3; }
 
 .map-main {
-	background: #09111c url(../images/map-bg.png);
 	height: 460px; width: 3500px;
 	padding-left: 75px; padding-top: 105px;
-	position: relative;
+	position: relative; z-index: 15;
+}
+
+.map-bg {
+	background: #09111c url(../images/map-bg.png);
+	height: 460px; width: 3500px;
+	position: fixed; z-index: 10;
 }
 
 .map-timeline {

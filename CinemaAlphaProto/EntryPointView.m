@@ -17,16 +17,18 @@
     [text addAttribute: NSForegroundColorAttributeName value:ScopeBlue range:NSMakeRange(2, 1)];
     [self.titleLabel setAttributedText: text];
     
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"scope_bg.png"]];
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"home_bg.png"]];
     
-    StylizeWithScopeFont(self.titleLabel, 80);
+    StylizeWithScopeFont(self.titleLabel, 60);
     
-    StylizeWithScopeFont(self.synchronizeWithCodeButton.titleLabel, 20);
     BorderedButton(self.synchronizeWithCodeButton, ScopeBlue);
     
     BorderedButton(self.loginButton, ScopeBlue);
     
-    [self.textLabel setFont:[UIFont fontWithName:@"Aller-Light" size:14]];
+    [self.textLabel setFont:[UIFont fontWithName:@"Aller-Light" size:11]];
+    
+    [self.loginButton setFont:[UIFont fontWithName:@"Aller-Light" size:14]];
+    [self.synchronizeWithCodeButton setFont:[UIFont fontWithName:@"Aller-Light" size:14]];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:ApiAssociatedWithToken object:nil queue:nil usingBlock:^(NSNotification *note) {
         PushView(@"NoticeChooserView");

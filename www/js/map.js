@@ -95,6 +95,11 @@ $(function () {
 		$('.map-notice.missed').hide(0);
 	});
 
+	$('.select-view .view-all').bind('touchstart', function (e) {
+		$('.map-notice').show(0);
+		$('.map-notice.missed').show(0);
+	});
+
 	$('.container-map .close').bind('touchstart', function (e) {
 		$('.map-notice-detail, .map-detail-bottom, .container-map .socials, .container-map .close').fadeOut(400);
 	});

@@ -20,7 +20,7 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"scope_bg.png"]];
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bg.png"]];
     [self.introTextLabel setFont:[UIFont fontWithName:@"Aller-Light" size:22]];
     
     [self.skipButton.titleLabel setFont:[UIFont fontWithName:@"Aller-Light" size:18]];
