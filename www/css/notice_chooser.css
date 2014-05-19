@@ -38,7 +38,11 @@ html, body {
 	position: absolute; left: 24%; top: 0px;
 }
 
+.sample-notice .counter {
+	width: 100%; text-align: center; font-size: 21px;
+}
+
 .sample-notice .image { height: 250px; margin-bottom: 25px ; background-color: #000; background-size: cover; background-position: center center; }
 .sample-notice .image img { max-height: 230px; max-width: 535px; }
 .sample-notice .heading { text-transform: uppercase; font-size: 24px; text-align: center; padding-top: 0px; }
-.sample-notice .content { font-family: 'Aller', sans-serif; text-align: center; margin: 15px auto 0 auto; padding: 10px; width: 450px; height: 100px; overflow: hidden;}
+.sample-notice .content { font-family: 'Aller', sans-serif; text-align: center; margin: 15px auto 0 auto; padding: 10px; width: 450px; height: 50px; overflow: hidden;}

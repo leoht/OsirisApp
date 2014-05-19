@@ -87,10 +87,12 @@ $(function () {
 			$('.navbar, .profile-nav').hide(0);
 			$('.additional-content').hide(0);
 			$('.container-social .step-2 .profile-image').animate({ top: '+=60px'}, 500);
+			$('.go-back').hide(0);
 		}).on('blur', function () {
 			$('.navbar, .profile-nav').show(0);
 			$('.additional-content').show(0);
 			$('.container-social .step-2 .profile-image').animate({ top: '-=60px'}, 500);
+			$('.go-back').show(0);
 		});;
 
 	$('.container-social .go-back').bind('touchstart', function (e) {
@@ -106,13 +108,13 @@ $(function () {
 			case 'drag' :
 				$('.interval-chooser-mask').hide(0);
 				socialCursor_posX = e.gesture.deltaX + socialCursor_xLast;
-				$('#social-interval-cursor').css('opacity', 0.3);
+				$('.reset').css('opacity', 0.3);
 				$('#social-interval-cursor').css('transform', 'translateX(' + socialCursor_posX  +'px) translateZ(0)' );
 			
 				break;
 			case 'dragend' :
 				$('.interval-chooser-mask').show(0);
-				$('#social-interval-cursor').css('opacity', 1);
+				$('.reset').css('opacity', 1);
 				socialCursor_xLast = socialCursor_posX;
 				// $('.timeline-body').animate({ left: '-=100px' }, 200);
 				break;
@@ -133,8 +135,8 @@ $(function () {
 
 			$('.interval-chooser').css('background-image', 'url(images/samples/interval/'+(INTERVAL_CURRENT_SPRITE%30)+'.jpg)');
 
-			// $('.container-social .begin-time').text(formatTimecode(socialPostCurrentTimecode - 15));
-			// $('.container-social .end-time').text(formatTimecode(socialPostCurrentTimecode + 15));
+			$('.container-social .begin-time').text(formatTimecode(socialPostCurrentTimecode - 15));
+			$('.container-social .end-time').text(formatTimecode(socialPostCurrentTimecode + 15));
 			oldSocialCurrentTimecode = socialPostCurrentTimecode;
 		}
 		
@@ -152,8 +154,8 @@ $(function () {
 
 			$('.interval-chooser').css('background-image', 'url(images/samples/interval/'+(INTERVAL_CURRENT_SPRITE%30)+'.jpg)');
 
-			// $('.container-social .begin-time').text(formatTimecode(socialPostCurrentTimecode - 15));
-			// $('.container-social .end-time').text(formatTimecode(socialPostCurrentTimecode + 15));
+			$('.container-social .begin-time').text(formatTimecode(socialPostCurrentTimecode - 15));
+			$('.container-social .end-time').text(formatTimecode(socialPostCurrentTimecode + 15));
 			oldSocialCurrentTimecode = socialPostCurrentTimecode;
 		}
 	});
