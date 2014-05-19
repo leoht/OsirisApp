@@ -25,6 +25,8 @@
     
     BorderedButton(self.loginButton, ScopeBlue);
     
+    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"fb.png"] forState:UIControlStateNormal];
+    
     [self.textLabel setFont:[UIFont fontWithName:@"Aller-Light" size:11]];
     
     [self.loginButton setFont:[UIFont fontWithName:@"Aller-Light" size:14]];

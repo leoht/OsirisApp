@@ -46,6 +46,7 @@
 		96CA7804189B9A1D00B9F39C /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CA77FF189B9A1D00B9F39C /* NSData+SRB64Additions.m */; };
 		96CA7805189B9A1D00B9F39C /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CA7802189B9A1D00B9F39C /* SRWebSocket.m */; };
 		96D18347189BF53300F32DF9 /* MovieSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D18346189BF53300F32DF9 /* MovieSummaryView.m */; };
+		96DA80F6192A090900794D3F /* fb.png in Resources */ = {isa = PBXBuildFile; fileRef = 96DA80F5192A090900794D3F /* fb.png */; };
 		96E496B518AE567E007A21B2 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 96E496B418AE567E007A21B2 /* play.png */; };
 		96F2DF15189AA7D3005A3882 /* FacebookConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F2DF14189AA7D3005A3882 /* FacebookConnectionManager.m */; };
 		96F78B1618AE10EB0057531F /* VideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F78B1518AE10EB0057531F /* VideoController.m */; };
@@ -123,6 +124,7 @@
 		96D18346189BF53300F32DF9 /* MovieSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieSummaryView.m; sourceTree = "<group>"; };
 		96D26AC718AA84BE000C472A /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKRevealController.h; sourceTree = "<group>"; };
 		96D26AC818AA84BE000C472A /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
+		96DA80F5192A090900794D3F /* fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fb.png; path = www/images/fb.png; sourceTree = "<group>"; };
 		96E496B418AE567E007A21B2 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 		96EA19FE18C0A5A200CB1BB0 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Macros.h; path = ../Macros.h; sourceTree = "<group>"; };
 		96F2DF13189AA7D3005A3882 /* FacebookConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookConnectionManager.h; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		96B20D7C189AA49600B6A1B6 = {
 			isa = PBXGroup;
 			children = (
+				96DA80F5192A090900794D3F /* fb.png */,
 				96A3C1C218BCAC1000FA1B8A /* www */,
 				96E496B318AE5657007A21B2 /* Resources */,
 				96B20D8E189AA49600B6A1B6 /* CinemaAlphaProto */,
@@ -440,6 +443,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96DA80F6192A090900794D3F /* fb.png in Resources */,
 				96B20D9F189AA49600B6A1B6 /* Main_iPad.storyboard in Resources */,
 				96424A8C18BE315400B158E7 /* TwoFaced.ttf in Resources */,
 				9634656A192A00AC006D0053 /* bg.png in Resources */,

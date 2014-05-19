@@ -23,11 +23,17 @@ var formatTimecode = function (seconds) {
 };
 
 var socialNextStep = function () {
-	console.log(SOCIAL_CURRENT_STEP)
+
 	$('.container-social .step-'+SOCIAL_CURRENT_STEP).hide(0);
 	SOCIAL_CURRENT_STEP++;
 	$('.container-social .step-'+SOCIAL_CURRENT_STEP).show(0);
+};
 
+var socialPrevStep = function () {
+
+	$('.container-social .step-'+SOCIAL_CURRENT_STEP).hide(0);
+	SOCIAL_CURRENT_STEP--;
+	$('.container-social .step-'+SOCIAL_CURRENT_STEP).show(0);
 };
 
 
@@ -86,6 +92,10 @@ $(function () {
 			$('.additional-content').show(0);
 			$('.container-social .step-2 .profile-image').animate({ top: '-=60px'}, 500);
 		});;
+
+	$('.container-social .go-back').bind('touchstart', function (e) {
+		socialPrevStep();
+	});
 
 	Hammer(document.getElementById('social-interval-cursor')).on('drag dragend', function (e) {
 		// console.log(e)

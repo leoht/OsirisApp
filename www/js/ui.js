@@ -365,8 +365,8 @@ $(function () {
 				if ($('.container-home').offset().top >= 0 && !showingDocumentationDetail) return;
 				if (showingDocumentationDetail && $('.doc-category.current').offset().top >= 0 ) return;
 
-				$('.container-home, .doc-category').animate({ top: '+=25px' }, 0);
-				$('.additional-content').animate({ bottom: '-=25px' }, 0);
+				$('.container-home, .doc-category').animate({ top: '+=30px' }, 0);
+				$('.additional-content').animate({ bottom: '-=30px' }, 0);
 			}
 
 			// scroll
@@ -378,22 +378,36 @@ $(function () {
 				console.log(bottom);
 				if (bottom >= 50) return;
 
-				$('.container-home, .doc-category').animate({ top: '-=25px' }, 0);
-				$('.additional-content').animate({ bottom: '+=25px' }, 0);
+				$('.container-home, .doc-category').animate({ top: '-=30px' }, 0);
+				$('.additional-content').animate({ bottom: '+=30px' }, 0);
 			}
 		})
 		.bind('touchend', function (e) {
 			if (pY - y < -20) {
 				if ($('.container-home').offset().top >= 0 && !showingDocumentationDetail) return;
 				if (showingDocumentationDetail && $('.doc-category.current').offset().top >= 0 ) return;
-				$('.container-home, .doc-category').animate({ top: '+=100px' }, 400);
+				$('.container-home, .doc-category').animate({ top: '+=100px' }, 400, function (e) {
+					var offsetTop = $('.container-home').offset().top;
+					if (offsetTop > 0) {
+						$('.container-home').animate( { top: 0 }, 200);
+						$('.additional-content').animate( { bottom: -330 }, 200);
+					}
+
+				});
 				$('.additional-content').animate({ bottom: '-=100px' }, 400);
 			}
 			if (pY - y > 20) {
 				var bottom = $(window).height() - $('.additional-content').offset().top - $('.additional-content').height();
 				if (bottom >= 50) return;
 				$('.container-home, .doc-category').animate({ top: '-=100px' }, 400);
-				$('.additional-content').animate({ bottom: '+=100px' }, 400);
+				$('.additional-content').animate({ bottom: '+=100px' }, 400, function () {
+					var offsetBottom = $(this).css('bottom').replace(/[^-\d\.]/g, '');
+					console.log('OFFSET : '+Number(offsetBottom));
+					if (offsetBottom > 0) {
+						$('.additional-content').animate( { bottom: 0 }, 200);
+					}
+
+				});
 			}
 		});
 
