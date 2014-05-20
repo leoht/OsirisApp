@@ -9,9 +9,9 @@ screen and (min-resolution: 2dppx) {
 	.nav-doc { background-image: url(../images/nav-doc@2x.png); background-size: 33px 33px; }
 	.nav-social { background-image: url(../images/nav-social@2x.png); background-size: 33px 33px; }
 
-	.nav-home.active { background: url(../images/nav-item-active.png) repeat-x left 38px, url(../images/nav-home@2x.png) no-repeat center 5px, #1d1d1d;  background-size: 33px 33px;   }
-	.nav-social.active { background: url(../images/nav-social@2x.png) no-repeat center 5px, url(../images/nav-item-active.png) repeat-x left 38px, #1d1d1d;  background-size: 33px 33px;  }
-	.nav-doc.active { background: url(../images/nav-doc@2x.png) no-repeat center 5px, url(../images/nav-item-active.png) repeat-x left 38px, #1d1d1d;  background-size: 33px 33px;  }
+	.nav-home.active { background: url(../images/nav-item-active.png) repeat-x left 44px, url(../images/nav-home@2x.png) no-repeat center 5px, #1d1d1d;  background-size: 33px 33px;   }
+	.nav-social.active { background: url(../images/nav-social@2x.png) no-repeat center 5px, url(../images/nav-item-active.png) repeat-x left 44px, #1d1d1d;  background-size: 33px 33px;  }
+	.nav-doc.active { background: url(../images/nav-doc@2x.png) no-repeat center 5px, url(../images/nav-item-active.png) repeat-x left 44px, #1d1d1d;  background-size: 33px 33px;  }
 
 	.video-controls .play { position: absolute; z-index: 210; bottom: 85px; right: 25px; width: 80px; height: 80px;  margin-top: 25px; background-image: url(../images/play@2x.png); background-size: 69px 65px; }
 	.video-controls .pause { position: absolute; z-index: 211; bottom: 85px; right: 25px; display: none; width: 80px; height: 80px; margin-top: 25px; background-image: url(../images/pause@2x.png); background-size: 69px 65px; }

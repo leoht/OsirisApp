@@ -178,7 +178,7 @@ var unslideDocumentation = function () {
 	// $('.nav-home').addClass('active');
 	$('.display-notice-btn').show(0);
 	$('.replay-btn').hide(0);
-	$('.socials').show(0);
+	$('.container-home .socials').show(0);
 };
 
 $(function () {
