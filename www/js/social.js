@@ -67,6 +67,11 @@ $(function () {
 		$('.container-social .step-1').show(0);
 		$('.container').hide(0);
 		$('.container-home').show(0);
+
+		$('.nav-social').removeClass('active');
+		$('.nav-home').addClass('active');
+
+		SOCIAL_CURRENT_STEP = 1;
 	});
 
 	$('.interval-chooser .reset').bind('touchstart', function (e) {
@@ -86,12 +91,12 @@ $(function () {
 		.on('focus', function () {
 			$('.navbar, .profile-nav').hide(0);
 			$('.additional-content').hide(0);
-			$('.container-social .step-2 .profile-image').animate({ top: '+=60px'}, 500);
+			// $('.container-social .step-2 .profile-image').animate({ top: '+=60px'}, 500);
 			$('.go-back').hide(0);
 		}).on('blur', function () {
 			$('.navbar, .profile-nav').show(0);
 			$('.additional-content').show(0);
-			$('.container-social .step-2 .profile-image').animate({ top: '-=60px'}, 500);
+			// $('.container-social .step-2 .profile-image').animate({ top: '-=60px'}, 500);
 			$('.go-back').show(0);
 		});;
 
