@@ -7,7 +7,7 @@ var scrollTouchBounds = function (offset, direction) {
 
 $(function () {
 
-	Hammer(document.getElementById('timeline-scroller')).on('drag', function (e) {
+	Hammer(document.getElementById('timeline-scroller')).on('drag dragend', function (e) {
 		switch(e.type) {
 			case 'drag' :
 				

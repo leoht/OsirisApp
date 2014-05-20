@@ -135,8 +135,8 @@ $(function () {
 
 			$('.interval-chooser').css('background-image', 'url(images/samples/interval/'+(INTERVAL_CURRENT_SPRITE%30)+'.jpg)');
 
-			$('.container-social .begin-time').text(formatTimecode(socialPostCurrentTimecode - 15));
-			$('.container-social .end-time').text(formatTimecode(socialPostCurrentTimecode + 15));
+			// $('.container-social .begin-time').text(formatTimecode(socialPostCurrentTimecode - 15));
+			// $('.container-social .end-time').text(formatTimecode(socialPostCurrentTimecode + 15));
 			oldSocialCurrentTimecode = socialPostCurrentTimecode;
 		}
 		
@@ -154,8 +154,8 @@ $(function () {
 
 			$('.interval-chooser').css('background-image', 'url(images/samples/interval/'+(INTERVAL_CURRENT_SPRITE%30)+'.jpg)');
 
-			$('.container-social .begin-time').text(formatTimecode(socialPostCurrentTimecode - 15));
-			$('.container-social .end-time').text(formatTimecode(socialPostCurrentTimecode + 15));
+			// $('.container-social .begin-time').text(formatTimecode(socialPostCurrentTimecode - 15));
+			// $('.container-social .end-time').text(formatTimecode(socialPostCurrentTimecode + 15));
 			oldSocialCurrentTimecode = socialPostCurrentTimecode;
 		}
 	});

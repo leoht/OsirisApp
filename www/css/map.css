@@ -50,7 +50,7 @@
 	border-top: 1px solid #3c3c3c;
 	border-bottom: 1px solid #3c3c3c;
 
-	background: #192129 url(../images/map-timeline.png) repeat-x left 52px;
+	background: #192129 url(../images/map-timeline.png) repeat-x left 42px;
 	background-size: 153px 13px;
 	padding-left: 75px;
 }
@@ -59,7 +59,7 @@
 	color: white;
 	font-size: 11px;
 	width: 155px; text-align: center;
-	position: relative; top: 75px;
+	position: relative; top: 65px;
 	float: left;
 }
 
@@ -88,8 +88,8 @@
 .map-notice .title { width: 90%; margin: 5px auto; font-size: 11px; text-align:center; text-transform: uppercase; font-family: 'Aller', sans-serif; color: white; }
 
 .map-notice-detail {
-	width: 100%; height: 530px; background: #000;
-	position: absolute; top: 46px; left: 0; z-index: 20;
+	width: 100%; height: 560px; background: #000;
+	position: absolute; top: 120px; left: 0; z-index: 20;
 	color: white;
 
 	background-image: url(../images/samples/notices/10_big.jpg);

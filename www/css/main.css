@@ -123,8 +123,10 @@ body, html {
 	position: absolute; 
 	right: 0px; 
 	border-left: 0px;
-	padding-top: 16px;
+	padding-top: 18px;
 	font-size: 13px;
+
+	background: url(../images/profile-arrow.png) no-repeat 136px 22px;
 }
 
 .nav-profile .image {
@@ -328,7 +330,7 @@ body, html {
 	position: relative; 
 	-webkit-transform: rotateY(0deg);
 	-webkit-backface-visibility: hidden;
-	-webkit-transition: 0.5s;
+	-webkit-transition: all 0.4s cubic-bezier(0.420, 0.000, 0.580, 1.000);
 	perspective: 1000;
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;

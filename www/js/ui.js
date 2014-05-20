@@ -389,8 +389,8 @@ $(function () {
 				$('.container-home, .doc-category').animate({ top: '+=100px' }, 400, function (e) {
 					var offsetTop = $('.container-home').offset().top;
 					if (offsetTop > 0) {
-						$('.container-home').animate( { top: 0 }, 200);
-						$('.additional-content').animate( { bottom: -330 }, 200);
+						// $('.container-home, .doc-category').animate( { top: 0 }, 200);
+						// $('.additional-content').animate( { bottom: -330 }, 200);
 					}
 
 				});
@@ -404,7 +404,7 @@ $(function () {
 					var offsetBottom = $(this).css('bottom').replace(/[^-\d\.]/g, '');
 					console.log('OFFSET : '+Number(offsetBottom));
 					if (offsetBottom > 0) {
-						$('.additional-content').animate( { bottom: 0 }, 200);
+						// $('.additional-content').animate( { bottom: 0 }, 200);
 					}
 
 				});
