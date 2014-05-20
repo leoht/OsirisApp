@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSString *shortContent;
 @property (strong, nonatomic) NSString *content;
 @property (strong, nonatomic) NSString *category;
+@property (strong, nonatomic) NSString *categoryTitle;
 @property (strong, nonatomic) NSString *color;
 
 + (Notice *)createFromDictionnary:(NSDictionary *)dictionnary;

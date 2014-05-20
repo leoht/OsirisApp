@@ -69,14 +69,15 @@ static NoticeManager *sharedObject;
     NSLog(@"last timecode : %ld, current : %d", (long)timecodeInt, self.lastNoticeTimecode);
     
 //    if (timecodeInt - self.lastNoticeTimecode > 60) {
-        [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onNewNotice('%@', '%@', %@, '%@', '%@', '%@', '%@');",
+        [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onNewNotice('%@', '%@', %@, '%@', '%@', '%@', '%@', '%@');",
                                                          notice.timecode,
                                                          notice.endTimecode,
                                                          notice.id,
                                                          [notice.title stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"],
                                                          [notice.shortContent stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"],
                                                          notice.category,
-                                                         notice.color
+                                                         notice.color,
+                                                         notice.categoryTitle
         ]];
 
 //    } else {

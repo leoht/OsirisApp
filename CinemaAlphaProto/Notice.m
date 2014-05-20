@@ -19,6 +19,7 @@
     notice.timecode = [dictionnary objectForKey:@"timecode"];
     notice.endTimecode = [dictionnary objectForKey:@"end_timecode"];
     notice.category = [dictionnary objectForKey:@"category_nicename"];
+    notice.categoryTitle = [dictionnary objectForKey:@"category_title"];
     notice.color = [dictionnary objectForKey:@"color"];
     
     return notice;
