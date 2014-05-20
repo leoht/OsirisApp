@@ -70,7 +70,7 @@
         // $('.timeline-body, .cursor').css('left', timelineOffsetWithTimecode(seconds)+'%');
       }
 
-      var onNewNotice = function (timecode, endTimecode, id, title, short_content, category, color) {
+      var onNewNotice = function (timecode, endTimecode, id, title, short_content, category, color, categoryTitle) {
 
         console.log('Last timecode : '+LAST_NOTICE_TIMECODE+', current : '+timecode);
 
@@ -93,7 +93,7 @@
         $('.timeline-cat-icon img').attr('src', 'images/cat-'+category+'@2x.png');
         $('.container-home').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat');
         $('.view-grid-container .timeline-last-notice').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat');
-        addNoticeOnTimeline(timecode, endTimecode, id, category, title);
+        addNoticeOnTimeline(timecode, endTimecode, id, category, title, categoryTitle);
 
 
         if ($('.container-home').is(':hidden')) {
