@@ -28,6 +28,11 @@
     [self.loginButton setBackgroundImage:[UIImage imageNamed:@"fb.png"] forState:UIControlStateNormal];
     
     [self.textLabel setFont:[UIFont fontWithName:@"Aller-Light" size:11]];
+    [self.textLabel setTextColor:Rgb2UIColor(125, 125, 125)];
+    
+     NSMutableAttributedString *text2 = [[NSMutableAttributedString alloc] initWithAttributedString: self.textLabel.attributedText];
+    [text2 addAttribute: NSForegroundColorAttributeName value:ScopeBlue range:NSMakeRange(80, 13)];
+    [self.textLabel setAttributedText:text2];
     
     [self.loginButton setFont:[UIFont fontWithName:@"Aller-Light" size:14]];
     [self.synchronizeWithCodeButton setFont:[UIFont fontWithName:@"Aller-Light" size:14]];

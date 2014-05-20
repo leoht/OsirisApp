@@ -52,6 +52,7 @@
     }];
     
     self.navigationController.navigationBar.hidden = YES;
+    
 }
 
 - (IBAction)onCodeEntered:(id)sender {
