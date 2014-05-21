@@ -71,13 +71,27 @@ var updateTimelineNoticeListeners = function () {
         $('.timeline-last-notice .content').text(n.short_content);
         $('.timeline-last-notice').attr('data-notice-id', id);
         $('.timeline-cat-icon').show(0);
-        $('.timeline-cat-icon img').attr('src', 'images/cat-'+n.category+'.png');
+        $('.timeline-cat-icon img').attr('src', 'images/cat-'+n.category+'@2x.png');
 
         $('.container-home').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
         $('.view-grid-container .timeline-last-notice').css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center top');
         $('.timeline .cursor').css('transform', 'none').animate({ left: $el.offset().left + 2 }, 300);
         $('.timeline-notice').css('opacity', 1);
         if (!$el.hasClass('timeline-notice-block')) $el.css('opacity', 0.3)
+
+	});
+
+	$('.timeline-notice-block').bind('touchstart', function (e) {
+
+		$('.timeline-notice-block').each(function (i, el) {
+			var id = $(el).attr('data-id');
+			$(el).css('background-image', 'url(images/samples/notices/'+String(id)+'_big.jpg)')
+		});
+
+		var id = $(this).attr('data-id');
+
+		$(this).css('background-image', 'url(images/notice-block-on.png), url(images/samples/notices/'+String(id)+'_big.jpg)')
+
 	});
 };
 
@@ -100,8 +114,8 @@ var addNoticeOnTimeline = function (timecode, endTimecode, id, category_nicename
 		.addClass('timeline-notice-block')
 		.addClass('timeline-notice-block-'+category_nicename)
 		.attr('style', 'background-image: url(images/samples/notices/'+String(id)+'_big.jpg)');
-	noticeBlock.append('<img class="icon" src="images/cat-'+category_nicename+'.png" />');
-	noticeBlock.append('<div class="title">'+categoryTitle+'</div>');
+	noticeBlock.append('<img class="icon" src="images/cat-'+category_nicename+'@2x.png" />');
+	noticeBlock.append('<div class="title">'+title+'</div>');
 
 	if (id != 0) {
 		noticeBlock.append('<div class="timeline-notice-time">'+formatTimecode(timecode)+'</div>');
@@ -383,32 +397,32 @@ $(function () {
 			}
 		})
 		.bind('touchend', function (e) {
-			if (pY - y < -20) {
-				if ($('.container-home').offset().top >= 0 && !showingDocumentationDetail) return;
-				if (showingDocumentationDetail && $('.doc-category.current').offset().top >= 0 ) return;
-				$('.container-home, .doc-category').animate({ top: '+=100px' }, 400, function (e) {
-					var offsetTop = $('.container-home').offset().top;
-					if (offsetTop > 0) {
-						// $('.container-home, .doc-category').animate( { top: 0 }, 200);
-						// $('.additional-content').animate( { bottom: -330 }, 200);
-					}
+			// if (pY - y < -20) {
+			// 	if ($('.container-home').offset().top >= 0 && !showingDocumentationDetail) return;
+			// 	if (showingDocumentationDetail && $('.doc-category.current').offset().top >= 0 ) return;
+			// 	$('.container-home, .doc-category').animate({ top: '+=100px' }, 400, function (e) {
+			// 		var offsetTop = $('.container-home').offset().top;
+			// 		if (offsetTop > 0) {
+			// 			// $('.container-home, .doc-category').animate( { top: 0 }, 200);
+			// 			// $('.additional-content').animate( { bottom: -330 }, 200);
+			// 		}
 
-				});
-				$('.additional-content').animate({ bottom: '-=100px' }, 400);
-			}
-			if (pY - y > 20) {
-				var bottom = $(window).height() - $('.additional-content').offset().top - $('.additional-content').height();
-				if (bottom >= 50) return;
-				$('.container-home, .doc-category').animate({ top: '-=100px' }, 400);
-				$('.additional-content').animate({ bottom: '+=100px' }, 400, function () {
-					var offsetBottom = $(this).css('bottom').replace(/[^-\d\.]/g, '');
-					console.log('OFFSET : '+Number(offsetBottom));
-					if (offsetBottom > 0) {
-						// $('.additional-content').animate( { bottom: 0 }, 200);
-					}
+			// 	});
+			// 	$('.additional-content').animate({ bottom: '-=100px' }, 400);
+			// }
+			// if (pY - y > 20) {
+			// 	var bottom = $(window).height() - $('.additional-content').offset().top - $('.additional-content').height();
+			// 	if (bottom >= 50) return;
+			// 	$('.container-home, .doc-category').animate({ top: '-=100px' }, 400);
+			// 	$('.additional-content').animate({ bottom: '+=100px' }, 400, function () {
+			// 		var offsetBottom = $(this).css('bottom').replace(/[^-\d\.]/g, '');
+			// 		console.log('OFFSET : '+Number(offsetBottom));
+			// 		if (offsetBottom > 0) {
+			// 			// $('.additional-content').animate( { bottom: 0 }, 200);
+			// 		}
 
-				});
-			}
+			// 	});
+			// }
 		});
 
 
