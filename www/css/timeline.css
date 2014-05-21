@@ -184,7 +184,7 @@
 	z-index: 200;
 	height: 100%;
 	width: 300px;
-	background: url(../images/timeline-grid-mask.png) repeat-y;
+	/*background: url(../images/timeline-grid-mask.png) repeat-y;*/
 }
 
 .timeline-notice-block img.icon { margin-top: 25px; max-width: 34px; max-height: 34px; }

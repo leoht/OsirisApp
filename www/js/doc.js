@@ -17,6 +17,8 @@ var getDocumentation = function (movieId) {
 				// only sub categories
 				if (category.parent_id) {
 
+
+
 					// no notice in this category?
 					if (!(category.id in DOC_ARRAY)) {
 						return;
@@ -129,37 +131,24 @@ var getCategoriesOfParent = function (parent, parent_name) {
 				$('.doc-main').html('');
 				$(data).each(function (i, category) {
 
+
 					console.log(category);
-					var block = $('<div class="doc-block" data-subcategory-id="'+category.id+'">');
-					block.append('<div class="doc-block-title doc-block-title-sub">'+category.title+'</div><div class="doc-block-count">'+DOC_ARRAY[category.id].length+' notices</div>');
+					var block = $('<div class="doc-block" data-subcategory-id="'+category.id+'" style="background: url(images/samples/doc/doc-block-sub-'+category.id+'.png) no-repeat center center; background-size: 170px 170px; ">');
+					block.append('<div class="doc-block-title doc-block-title-sub">'+category.title+'</div><div class="doc-block-count">7 notices</div>');
 					$('.doc-main').append(block);
 
 					$('.doc-head').addClass('doc-head-'+parent_name);
 
+					var catId = category.id;
+
 					$(block).bind('touchstart', function (e) {
 						var id = $(this).attr('data-subcategory-id');
-						// $('.doc-breadcrumb .item-3').text(category.title).show(0);
 
-						$('.additional-content').animate({
-							bottom: '+=670px'
-						}, 500);
-						$('.doc-category-'+id).addClass('current').show(0).animate({
-							top: '+=410px'
-						}, 500);
-
-						$('.slide-counter .total').text(DOC_ARRAY[category.id].length);
-
-						$('.slider .item').remove();
-
-						for (var i = 0 ; i < DOC_ARRAY[category.id].length ; i++) {
-							addItemOnSlider(i, DOC_ARRAY[category.id][i].id);
-						}
-
-						showingDocumentationDetail = true;
-
-						Hammer(document.getElementById('doc-category-'+category.id)).on('dragleft', function (e) {
-							nextDocSlide();
+						$('.doc-home').fadeOut(300, function () {
+							$('.doc-theme-deshumanisation').fadeIn(300);
+							$('.doc-head').css('background', 'url(images/doc-title-deshu.png) no-repeat center center')
 						});
+
 					});
 
 				});
@@ -201,11 +190,16 @@ var getNoticesOfCategory = function (category) {
 
 var resetDocScreen = function () {
 
+	$('.doc-theme-deshumanisation').fadeOut(300);
+
+	$('.doc-head').css('background', 'url(images/doc-title.png) no-repeat center center')
+
 	$('.doc-main').addClass('flipping');
 
 	$('.doc-image-slider').fadeOut(400);
 
 	setTimeout(function () {
+		$('.doc-home').show(0);
 		$('.doc-main').html('').append("<div class='doc-block doc-movie-info'> \
 				<div class='doc-block-title'>Fiche du film</div> \
 	        </div> \
@@ -308,6 +302,35 @@ $(function () {
 		$(this).animate({ height: 167 }, 400);
 		$(this).find('.more').show(0);
 		$(this).removeClass('open');
+	});
+
+	$('.doc-theme-deshumanisation .notices .deshu-notice').bind('touchstart', function (e) {
+
+		var id = $(this).attr('data-theme-id');
+
+		$('.additional-content').animate({
+			bottom: '+=670px'
+		}, 500);
+
+		$('.doc-category-'+id).addClass('current').show(0).animate({
+			top: '+=410px'
+		}, 500);
+
+		$('.slide-counter .total').text('7');
+
+		$('.slider .item').remove();
+
+		for (var i = 0 ; i < DOC_ARRAY[id].length ; i++) {
+			if (typeof DOC_ARRAY[id] !== "undefined" && typeof DOC_ARRAY[id][i] !== "undefined") {
+				addItemOnSlider(i, DOC_ARRAY[id][i].id);
+			}
+		}
+
+		showingDocumentationDetail = true;
+
+		Hammer(document.getElementById('doc-category-'+id)).on('dragleft', function (e) {
+			nextDocSlide();
+		});
 	});
 
 });
