@@ -28,4 +28,10 @@ screen and (min-resolution: 2dppx) {
 
 	.timeline-last-notice .replay-btn, .doc-category .replay-btn  { background: url(../images/replay-btn@2x.png) no-repeat center top; background-size: 100px 50px; }
 	.doc-image-slider .close { background: url(../images/close@2x.png) no-repeat; background-size: 33px 33px; }
+
+
+	.profile-nav a.nav-movie { background: url('../images/nav-mymovie@2x.png') no-repeat 5px center;  background-size: 30px 30px; }
+	.profile-nav a.nav-roadmap { background: url('../images/nav-roadmap@2x.png') no-repeat 5px center; background-size: 30px 30px; }
+	.profile-nav a.nav-settings { background: url('../images/nav-settings@2x.png') no-repeat 5px center; border-bottom: 0px;  background-size: 30px 30px;}
+
 }

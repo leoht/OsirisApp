@@ -144,6 +144,8 @@ var getCategoriesOfParent = function (parent, parent_name) {
 					$(block).bind('touchstart', function (e) {
 						var id = $(this).attr('data-subcategory-id');
 
+						$('.doc-breadcrumb .item-1').text('Thèmes clés');
+
 						$('.doc-home').fadeOut(300, function () {
 							$('.doc-theme-deshumanisation').fadeIn(300);
 							$('.doc-head').css('background', 'url(images/doc-title-deshu.png) no-repeat center center')

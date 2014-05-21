@@ -4,17 +4,18 @@ var CURRENT_COL = 0;
 var createMapNotice = function (id, cat, title, content) {
 	var $n = $('<div class="map-notice-detail map-notice-detail-'+id+'" ></div>');
 	$n.append('<div class="cat-icon"><img src="images/cat-'+cat+'.png"/></div>');
-	$n.append('<div class="title">'+title+'</div>');
+	$n.append('<div class="title with-font">'+title+'</div>');
 	$n.append('<div class="content">'+content+'</div>');
+	$n.append('<div class="display-more">en savoir +</div>');
 
-	$n.css('background-image', 'url(images/samples/notices/'+id+'_big.jpg)')
+	$n.css('background-image', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center center')
 
 	$n.appendTo($('.container-map'));
 };
 
 var addNoticeOnMap = function (timecode, id, cat, title, content, missed) {
 	var $n = $('<div class="map-notice" data-id="'+id+'"></div>');
-	$n.css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat');
+	$n.css('background', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center center');
 	$n.css('background-size', 'cover');
 
 	if (missed) {

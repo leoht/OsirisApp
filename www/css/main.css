@@ -126,8 +126,13 @@ body, html {
 	border-left: 0px;
 	padding-top: 18px;
 	font-size: 13px;
+	height: 60px;
 
 	background: url(../images/profile-arrow.png) no-repeat 75px 18px;
+}
+
+.navbar-tabs a.nav-profile.active {
+	background: url(../images/nav-item-active-menu.png) no-repeat left 45px, url(../images/profile-arrow.png) no-repeat 75px 18px;
 }
 
 .nav-profile .image {

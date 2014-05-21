@@ -262,10 +262,12 @@ $(function () {
 		e.stopPropagation();
 		if (profileMenuDisplayed) {
 			$('.profile-nav').animate({ bottom: '-=150px' }, 400);
+			$(this).removeClass('active');
 			profileMenuDisplayed = false;
 			calliOSFunction('profileMenuHidden', []);
 		} else {
 			$('.profile-nav').animate({ bottom: '+=150px' }, 400);
+			$(this).addClass('active');
 			profileMenuDisplayed = true;
 			calliOSFunction('profileMenuDisplayed', []);
 		}
