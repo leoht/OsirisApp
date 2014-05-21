@@ -8,9 +8,10 @@ var createMapNotice = function (id, cat, title, content) {
 	$n.append('<div class="content">'+content+'</div>');
 	$n.append('<div class="display-more">en savoir +</div>');
 
-	$n.css('background-image', 'url(images/samples/notices/'+id+'_big.jpg) no-repeat center center')
+	$n.css('background', 'url(images/samples/notices/'+String(id)+'_big.jpg) no-repeat center center')
 
 	$n.appendTo($('.container-map'));
+
 };
 
 var addNoticeOnMap = function (timecode, id, cat, title, content, missed) {
@@ -21,6 +22,7 @@ var addNoticeOnMap = function (timecode, id, cat, title, content, missed) {
 	if (missed) {
 		$n.addClass('missed');
 	}
+
 
 	$n.append('<img class="icon" src="images/cat-'+cat+'.png" /><div class="title">'+title+'</div>');
 
