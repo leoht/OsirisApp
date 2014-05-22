@@ -382,8 +382,8 @@ $(function () {
 				if ($('.container-home').offset().top >= 0 && !showingDocumentationDetail) return;
 				if (showingDocumentationDetail && $('.doc-category.current').offset().top >= 0 ) return;
 
-				$('.container-home, .doc-category').animate({ top: '+=30px' }, 0);
-				$('.additional-content').animate({ bottom: '-=30px' }, 0);
+				$('.container-home, .doc-category').animate({ top: '+=40px' }, 0);
+				$('.additional-content').animate({ bottom: '-=40px' }, 0);
 			}
 
 			// scroll
@@ -395,8 +395,8 @@ $(function () {
 				console.log(bottom);
 				if (bottom >= 50) return;
 
-				$('.container-home, .doc-category').animate({ top: '-=30px' }, 0);
-				$('.additional-content').animate({ bottom: '+=30px' }, 0);
+				$('.container-home, .doc-category').animate({ top: '-=40px' }, 0);
+				$('.additional-content').animate({ bottom: '+=40px' }, 0);
 			}
 		})
 		.bind('touchend', function (e) {

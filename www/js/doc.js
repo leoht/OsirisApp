@@ -220,21 +220,27 @@ var resetDocScreen = function () {
 		$('.doc-home').show(0);
 		$('.doc-main').html('').append("<div class='doc-block doc-movie-info'> \
 				<div class='doc-block-title'>Fiche du film</div> \
+				<div class='doc-block-info'>Tout sur le film</div> \
 	        </div> \
 	        <div class='doc-block doc-themes' data-category-id='2' data-category='themes'> \
 	        	<div class='doc-block-title'>Themes clés</div> \
+	        	<div class='doc-block-info'>Les grands thèmes abordés</div> \
 	        </div> \
 	        <div class='doc-block doc-analyse' data-category-id='4' data-category='analyses'> \
 	        	<div class='doc-block-title'>Analyses</div> \
+	        	<div class='doc-block-info'>Analyse des scènes</div> \
 	        </div> \
 	        <div class='doc-block doc-social'> \
 	        	<div class='doc-block-title'>Communauté</div> \
+	        	<div class='doc-block-info'>Les membres de Scope parlent du film</div> \
 	        </div> \
 	        <div class='doc-block doc-anecdotes' data-category-id='5' data-category='anecdotes'> \
 	        	<div class='doc-block-title'>Anecdotes</div> \
+	        	<div class='doc-block-info'>Les anecdotes de réalisation</div> \
 	        </div> \
 	        <div class='doc-block doc-impact' data-category-id='1' data-category='impact'> \
 	        	<div class='doc-block-title'>Impact<br />sur la culture</div> \
+	        	<div class='doc-block-info doc-block-info-last'>Le film a inspiré la culture populaire</div> \
 	        </div>");
 
 		$('.doc-block[data-category-id]').bind('touchstart', function (e) {
@@ -295,12 +301,14 @@ $(function () {
 			case 2:
 				resetDocScreen();
 				currentViewStep = 1;
+				$('.doc-breadcrumb .item-1').text('Documentation');
 				break;
 			case 3:
 				$('.doc-theme-deshumanisation').fadeOut(300, function () {
 					$('.doc-home').fadeIn(0);
 				});
 				currentViewStep = 2;
+				$('.doc-breadcrumb .item-1').text('Documentation');
 				break;
 			case 4:
 				if (displayingDocumentation) { 
@@ -312,6 +320,7 @@ $(function () {
 				if (showingDocumentationDetail) {
 					unshowDocumentationDetail();
 				}
+				$('.doc-breadcrumb .item-1').text('Thèmes clés');
 				currentViewStep = 3;
 				break;
 			default:
