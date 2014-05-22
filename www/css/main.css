@@ -101,6 +101,9 @@ body, html {
 	width: 110px;
 	padding: 5px 0 0 20px;
 	float: left;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .nav-movie-title {
