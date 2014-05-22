@@ -45,6 +45,8 @@ var addNoticeOnMap = function (timecode, id, cat, title, content, missed) {
 	$n.bind('touchstart', function () {
 		$('.map-notice-detail-'+id).fadeIn(400);
 		$('.map-detail-bottom, .container-map .socials, .container-map .close').fadeIn(400);
+		$(this).removeClass('missed');
+		$(this).remove();
 	});
 
 	createMapNotice(id, cat, title, content);

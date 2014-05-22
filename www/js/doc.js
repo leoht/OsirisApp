@@ -3,6 +3,7 @@ var DOC_CATEGORIES = [];
 var MOVIE_ID;
 var isDocLoaded = false;
 var showingDocumentationDetail = false;
+var currentViewStep = 1;
 
 var getDocumentation = function (movieId) {
 
@@ -75,13 +76,7 @@ var getAllNotices = function (movieId) {
 	});
 };
 
-var addItemOnSlider = function (i, id) {
-	var $item = $('<div class="item" data-n="'+(i+1)+'" data-notice-id="'+id+'"></div>');
-	$item.appendTo('.additional-content .slider');
-
-	if (i == 0)
-		$item.addClass('active')
-
+var updateSliderListeners = function () {
 	$('.additional-content .slider .item').unbind().bind('touchstart', function (e) {
 		var n = $(this).attr('data-n');
 		$('.slider .item').removeClass('active');
@@ -107,6 +102,16 @@ var addItemOnSlider = function (i, id) {
 
 		$('.slider .prev').removeClass('disabled');
 	});
+};
+
+var addItemOnSlider = function (i, id) {
+	var $item = $('<div class="item" data-n="'+(i+1)+'" data-notice-id="'+id+'"></div>');
+	$item.appendTo('.additional-content .slider');
+
+	if (i == 0)
+		$item.addClass('active')
+
+	updateSliderListeners();
 
 };
 
@@ -116,6 +121,8 @@ var getCategoriesOfParent = function (parent, parent_name) {
 	console.log(url);
 
 	DOC_CATEGORIES[parent] = [];
+
+	currentViewStep = 2;
 
 	$.ajax({
 		type: 'GET',
@@ -133,7 +140,12 @@ var getCategoriesOfParent = function (parent, parent_name) {
 
 
 					console.log(category);
-					var block = $('<div class="doc-block" data-subcategory-id="'+category.id+'" style="background: url(images/samples/doc/doc-block-sub-'+category.id+'.png) no-repeat center center; background-size: 170px 170px; ">');
+
+					if (parent_name == 'themes') {
+						var block = $('<div class="doc-block" data-subcategory-id="'+category.id+'" style="background: url(images/samples/doc/doc-block-sub-'+category.id+'.png) no-repeat center center; background-size: 170px 170px; ">');
+					} else {
+						var block = $('<div class="doc-block" data-subcategory-id="'+category.id+'" style="background: url(images/doc-block.png) no-repeat center center; background-size: 170px 170px; ">');
+					}
 					block.append('<div class="doc-block-title doc-block-title-sub">'+category.title+'</div><div class="doc-block-count">7 notices</div>');
 					$('.doc-main').append(block);
 
@@ -143,6 +155,8 @@ var getCategoriesOfParent = function (parent, parent_name) {
 
 					$(block).bind('touchstart', function (e) {
 						var id = $(this).attr('data-subcategory-id');
+
+						currentViewStep = 3;
 
 						$('.doc-breadcrumb .item-1').text('Thèmes clés');
 
@@ -199,6 +213,8 @@ var resetDocScreen = function () {
 	$('.doc-main').addClass('flipping');
 
 	$('.doc-image-slider').fadeOut(400);
+
+	currentViewStep = 1;
 
 	setTimeout(function () {
 		$('.doc-home').show(0);
@@ -273,15 +289,35 @@ $(function () {
 
 
 	$('.doc-breadcrumb .item-1').bind('touchstart', function (e) {
-		if (displayingDocumentation) { 
-			unslideDocumentation();
-			$('.navbar-doc').show(0);
-			$('.container').hide(0);
-			$('.container-doc').show(0);
-		} else {
-			
-			resetDocScreen();
+
+		switch (currentViewStep) {
+			case 1:
+			case 2:
+				resetDocScreen();
+				currentViewStep = 1;
+				break;
+			case 3:
+				$('.doc-theme-deshumanisation').fadeOut(300, function () {
+					$('.doc-home').fadeIn(0);
+				});
+				currentViewStep = 2;
+				break;
+			case 4:
+				if (displayingDocumentation) { 
+					unslideDocumentation();
+					$('.navbar-doc').show(0);
+					$('.container').hide(0);
+					$('.container-doc').show(0);
+				}
+				if (showingDocumentationDetail) {
+					unshowDocumentationDetail();
+				}
+				currentViewStep = 3;
+				break;
+			default:
+				resetDocScreen();
 		}
+		
 	});
 
 	$('.additional-content .more').bind('touchstart', function (e) {
@@ -289,6 +325,15 @@ $(function () {
 		$(this).parents('.content').animate({ height: 540 }, 400);
 		$(this).parents('.content').find('.less').show(0);
 		$(this).parents('.content').addClass('open');
+		e.stopPropagation();
+		$(this).parents('.content').bind('touchstart', function (e) {
+			e.stopPropagation();
+			$('.less').hide(0);
+			$(this).animate({ height: 167 }, 400);
+			$(this).find('.more').show(0);
+			$(this).removeClass('open');
+			$(this).unbind();
+		});
 	});
 	
 	$('.additional-content .less').bind('touchstart', function (e) {
@@ -298,17 +343,14 @@ $(function () {
 		$(this).parents('.content').removeClass('open');
 	});
 
-	$('.open').bind('touchstart', function (e) {
-		e.stopPropagation();
-		$('.less').hide(0);
-		$(this).animate({ height: 167 }, 400);
-		$(this).find('.more').show(0);
-		$(this).removeClass('open');
-	});
+	updateSliderListeners();
+
 
 	$('.doc-theme-deshumanisation .notices .deshu-notice').bind('touchstart', function (e) {
 
 		var id = $(this).attr('data-theme-id');
+
+		currentViewStep = 4;
 
 		$('.additional-content').animate({
 			bottom: '+=670px'
@@ -327,6 +369,8 @@ $(function () {
 				addItemOnSlider(i, DOC_ARRAY[id][i].id);
 			}
 		}
+
+		$('.doc-breadcrumb .item-1').text('Déshumanisation');
 
 		showingDocumentationDetail = true;
 

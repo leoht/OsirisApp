@@ -155,7 +155,7 @@ var addNoticeOnTimeline = function (timecode, endTimecode, id, category_nicename
 		if ($('.grid-timeline').width() > 700) {
 			var w = (380 / ($('.timeline-notice-block').length/1.8));
 
-			if ($('.scroller').width() > 100) {
+			if ($('.scroller').width() > 60) {
 				$('.scroller').show(0).animate({
 					width: '-='+w+'px'
 				}, 300);
@@ -191,8 +191,9 @@ var unslideDocumentation = function () {
 	// $('.navbar-tabs a').removeClass('active');
 	// $('.nav-home').addClass('active');
 	$('.display-notice-btn').show(0);
-	$('.replay-btn').hide(0);
+	$('.container-home .replay-btn').hide(0);
 	$('.container-home .socials').show(0);
+	$('.doc-category').css('top', -400);
 };
 
 $(function () {
