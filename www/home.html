@@ -86,7 +86,7 @@
         CURRENT_VIEWED_NOTICE = id;
       
         $('.timeline-last-notice .title').text(title);
-        $('.timeline-last-notice .content').text(short_content);
+        $('.timeline-last-notice .content').text(short_content.truncate(230));
         $('.timeline-last-notice').attr('data-notice-id', id);
         $('.timeline-cat-icon').show(0);
         $('.timeline-cat-icon img').attr('src', 'images/cat-'+category+'@2x.png');

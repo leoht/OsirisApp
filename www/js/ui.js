@@ -196,6 +196,14 @@ var unslideDocumentation = function () {
 	$('.doc-category').css('top', -400);
 };
 
+String.prototype.truncate = function (length) {
+	if (this.length < length) {
+		return this;
+	}
+	
+	return this.substring(0, length) + '...';
+};
+
 $(function () {
 
 	movieDuration = 8645;
@@ -393,7 +401,7 @@ $(function () {
 
 				var bottom = $(window).height() - $('.additional-content').offset().top - $('.additional-content').height();
 				console.log(bottom);
-				if (bottom >= 50) return;
+				if (bottom >= 35) return;
 
 				$('.container-home, .doc-category').animate({ top: '-=40px' }, 0);
 				$('.additional-content').animate({ bottom: '+=40px' }, 0);

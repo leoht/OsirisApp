@@ -87,9 +87,11 @@ var updateSliderListeners = function () {
 		if ($('.additional-content .notice-2').is(':hidden')) {
 			$('.additional-content .notice-1').hide(0);
 			$('.additional-content .notice-2').show(0);
+			$('.doc-category.current').css('background-image', 'url(images/samples/notices/crucifix.jpg)');
 		} else {
 			$('.additional-content .notice-1').show(0);
 			$('.additional-content .notice-2').hide(0);
+			$('.doc-category.current').css('background-image', 'url(images/samples/notices/machine.jpg)');
 		}
 			
 
@@ -108,7 +110,7 @@ var addItemOnSlider = function (i, id) {
 	var $item = $('<div class="item" data-n="'+(i+1)+'" data-notice-id="'+id+'"></div>');
 	$item.appendTo('.additional-content .slider');
 
-	if (i == 0)
+	if (i == 2)
 		$item.addClass('active')
 
 	updateSliderListeners();
@@ -362,8 +364,14 @@ $(function () {
 	$('.doc-theme-deshumanisation .notices .deshu-notice').bind('touchstart', function (e) {
 
 		var id = $(this).attr('data-theme-id');
+		var n = $(this).attr('data-n');
 
 		currentViewStep = 4;
+
+		// $('.doc-category-'+id+' .short-content').hide(0);
+		// $('.doc-category-'+id+' .short-content-'+n).show(0);
+
+		$('.slide-counter .current').text(n);
 
 		$('.additional-content').animate({
 			bottom: '+=670px'
