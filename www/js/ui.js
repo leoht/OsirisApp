@@ -129,7 +129,7 @@ var addNoticeOnTimeline = function (timecode, endTimecode, id, category_nicename
 			.appendTo($('.timeline-body'));
 
 	$('<div>').addClass('timeline-notice-title')
-			.css('left', (offset-0.005)+'%')
+			.css('left', (offset-0.008)+'%')
 			.text(title)
 			.appendTo($('.timeline-body'));
 
@@ -155,7 +155,7 @@ var addNoticeOnTimeline = function (timecode, endTimecode, id, category_nicename
 		if ($('.grid-timeline').width() > 700) {
 			var w = (380 / ($('.timeline-notice-block').length/1.8));
 
-			if ($('.scroller').width() > 60) {
+			if ($('.scroller').width() > 100) {
 				$('.scroller').show(0).animate({
 					width: '-='+w+'px'
 				}, 300);
