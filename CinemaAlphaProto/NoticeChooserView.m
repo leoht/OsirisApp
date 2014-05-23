@@ -21,7 +21,8 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bg.png"]];
-    [self.introTextLabel setFont:[UIFont fontWithName:@"Aller-Light" size:22]];
+    [self.introTextLabel setFont:[UIFont fontWithName:@"Aller-Light" size:16]];
+    [self.introTextLabel setTextColor:Rgb2UIColor(136, 136, 136)];
     
     [self.skipButton.titleLabel setFont:[UIFont fontWithName:@"Aller-Light" size:18]];
     BorderedButton(self.skipButton, ScopeBlue);
@@ -36,6 +37,10 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:WebViewLoaded object:nil queue:nil usingBlock:^(NSNotification *note) {
         [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"ROOT_API_URL = '%@'; loadNotices();", ApiWebUrl]];
     }];
+    
+    [VideoController togglePlayPause];
+    [VideoController setPaused:NO];
+    NSLog(@"Web player now playing.");
     
 //    [VideoController togglePlayPause];
 }

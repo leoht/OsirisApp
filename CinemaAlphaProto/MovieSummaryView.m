@@ -89,9 +89,7 @@
             ]];
         }
         
-        [VideoController togglePlayPause];
-        [VideoController setPaused:NO];
-        NSLog(@"Web player now playing.");
+        
         [self.webViewDelegate.webView stringByEvaluatingJavaScriptFromString:@"onPlay();"];
     }];
     
