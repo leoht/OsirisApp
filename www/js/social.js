@@ -19,7 +19,7 @@ var formatTimecode = function (seconds) {
 	var m = parseInt(s / 60); s %= 60;
 	var h = parseInt(m / 60); m %= 60;
 
-	return String(h).lpad('0', 2) + ':' + String(m).lpad('0', 2) + ':' + String(s).lpad('0', 2);
+	return String(h).lpad('0', 2) + ' : ' + String(m).lpad('0', 2) + ' : ' + String(s).lpad('0', 2);
 };
 
 var socialNextStep = function () {

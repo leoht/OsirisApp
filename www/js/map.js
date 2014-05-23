@@ -46,7 +46,7 @@ var addNoticeOnMap = function (timecode, id, cat, title, content, missed) {
 		$('.map-notice-detail-'+id).fadeIn(400);
 		$('.map-detail-bottom, .container-map .socials, .container-map .close').fadeIn(400);
 		$(this).removeClass('missed').addClass('seen');
-		// $(this).remove();
+		$(this).hide(0);
 	});
 
 	createMapNotice(id, cat, title, content);
