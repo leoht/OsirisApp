@@ -153,6 +153,8 @@ var getCategoriesOfParent = function (parent, parent_name) {
 
 					$('.doc-head').addClass('doc-head-'+parent_name);
 
+					$('.doc-breadcrumb .item-1').show(0);
+
 					var catId = category.id;
 
 					$(block).bind('touchstart', function (e) {
@@ -210,7 +212,8 @@ var resetDocScreen = function () {
 
 	$('.doc-theme-deshumanisation').fadeOut(300);
 
-	$('.doc-head').css('background', 'url(images/doc-title.png) no-repeat center center')
+	$('.doc-head').css('background', 'url(images/doc-title.png) no-repeat center center');
+	$('.doc-head').css('background-size', '196px 68px');
 
 	$('.doc-main').addClass('flipping');
 

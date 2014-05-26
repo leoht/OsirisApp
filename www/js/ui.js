@@ -300,6 +300,7 @@ $(function () {
 		$(this).addClass('active');
 		$('.view-line-container').hide(0);
 		$('.view-grid-container').show(0);
+		$('.video-controls .play, .video-controls .pause').css('bottom', '112px');
 	});
 
 	$('.view-line').bind('touchstart', function (e) {
@@ -307,6 +308,7 @@ $(function () {
 		$(this).addClass('active');
 		$('.view-grid-container').hide(0);
 		$('.view-line-container').show(0);
+		$('.video-controls .play, .video-controls .pause').css('bottom', '85px');
 	});
 
 

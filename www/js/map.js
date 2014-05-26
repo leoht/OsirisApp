@@ -39,6 +39,9 @@ var addNoticeOnMap = function (timecode, id, cat, title, content, missed) {
 
 		$('.map-main').append($col);
 	} else {
+		if ($('.map-col:last-child').find('.map-notice').length == 4) {
+			return;
+		}
 		$('.map-col:last-child').find('.map-col-wrapper').append($n);
 	}
 
